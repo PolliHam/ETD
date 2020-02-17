@@ -1,0 +1,221 @@
+<mvc:View controllerName="sap.secmon.ui.m.investTemplateFS.view.InvestigationTemplateTable"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+
+	<Page id="page" title="{i18n>TemplateList_Title_LBL}"
+		enableScrolling="true" showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" />
+		</headerContent>
+
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+						showRestoreButton="false" showClearButton="true"
+						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+						id="filterBar" considerGroupTitle="true">
+						<fb:filterItems>
+
+							<fb:FilterItem name="TemplateDescription" label="{i18n>TemplateName_LBL}">
+								<fb:control>
+									<MultiInput id="templateDescriptionInput" showValueHelp="false">
+										<customData>
+											<core:CustomData key="urlParamName" value="TemplateDescription" />
+											<core:CustomData key="i18nText" value="{i18nCommon>TemplateName_LBL}" />
+										</customData>
+									</MultiInput>
+								</fb:control>
+							</fb:FilterItem>
+						
+							<fb:FilterItem name="pattern" label="{i18nCommon>Pattern_LBL}">
+								<fb:control>
+									<MultiInput id="patternFilterInput" filterSuggests="false"
+										placeholder="{i18nCommon>Pattern_Suggestion}"
+										showSuggestion="true" startSuggestion="2" suggest="onPatternSuggest"
+										suggestionItemSelected="handleSuggestionItemSelected"
+										valueHelpRequest="onPatternValueHelpRequest"
+										showTableSuggestionValueHelp="true" showValueHelp="true">
+										<customData>
+											<core:CustomData key="urlParamName" value="PatternId" />
+											<core:CustomData key="i18nText" value="{i18n>SelByPattern_COL}" />
+										</customData>
+										<suggestionColumns>
+											<Column visible="false">
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+												<Label text="{i18nCommon>Pattern_LBL}" />
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true"
+												width="8em">
+												<Label text="{i18nCommon>AnomalyPattern}" />
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<cells>
+												</cells>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
+								</fb:control>
+							</fb:FilterItem>
+					
+							<fb:FilterItem name="severity" label="{i18nCommon>Severity_LBL}">
+								<fb:control>
+									<MultiComboBox id="severityFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/enumValues}">
+										<items>
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<core:CustomData key="urlParamName" value="Severity" />
+											<core:CustomData key="i18nText" value="{i18nCommon>Severity_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="managementVisibility" label="{i18n>MManagementVisibility}">
+								<fb:control>
+									<MultiComboBox id="managementVisibilityFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/enumValues}">
+										<items>
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<core:CustomData key="urlParamName" value="ManagementVisibility" />
+											<core:CustomData key="i18nText" value="{i18n>MManagementVisibility}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="attack" label="{i18nCommon>Attack_COL}">
+								<fb:control>
+									<MultiComboBox id="attackFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/enumValues}">
+										<items>
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<core:CustomData key="urlParamName" value="Attack" />
+											<core:CustomData key="i18nText" value="{i18nCommon>Attack_COL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="templateCreatedBy" label="{i18nCommon>Created_By_LBL}">
+								<fb:control>
+									<MultiComboBox id="createdByFilterInput"
+										items="{path: 'hanaUsers>/',  sorter : { path: 'USER_NAME', descending: false}}">
+										<items>
+											<core:Item 
+												text="{path : 'hanaUsers>USER_NAME'}"
+												key="{hanaUsers>USER_NAME}" />
+										</items>
+										<customData>
+											<core:CustomData key="urlParamName" value="TemplateCreatedBy" />
+											<core:CustomData key="i18nText" value="{i18nCommon>Created_By_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+						</fb:filterItems>
+					</fb:FilterBar>
+					<Toolbar>
+						<Label text="{parts: [{path: 'i18n>TemplateList_LBL'}, {path: 'uiModel>/templatesCount'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}"/>
+					</Toolbar>
+				</l:fixContent>
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<customControls:ColumnClickableTable
+							id="TemplateTable" inset="false" mode="MultiSelect" class="sapEtdScrollTable"
+							items="{path: '/InvestigationTemplate'}" growing="true" growingScrollToLoad="true"
+							growingThreshold="100"
+							columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+							updateFinished="onUpdateFinished" >
+							<customControls:infoToolbar>
+								<Toolbar id="vsdFilterBar">
+									<Label id="vsdFilterLabel" text="?"/>
+								</Toolbar>
+							</customControls:infoToolbar>
+							<customControls:columns>
+								<customControls:SortableColumn mergeDuplicates="false" 
+									minScreenWidth="Large" sortProperty="PatternName">
+									<customControls:SortableItem text="{i18n>SelByPattern_LBL}" tooltip="{i18n>SelByPattern_TOL}"/>
+								</customControls:SortableColumn>
+								<customControls:SortableColumn minScreenWidth="Small"
+									sortProperty="TemplateDescription">
+									<customControls:SortableItem text="{i18nCommon>TemplateName_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn 
+									minScreenWidth="Large" sortProperty="TemplateCreatedBy">
+									<customControls:SortableItem text="{i18n>CreatedBy_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn width="12em" 
+									minScreenWidth="Small" sortProperty="Description">
+									<customControls:SortableItem text="{i18nCommon>Description_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Medium" sortProperty="Severity">
+									<customControls:SortableItem text="{i18nCommon>Severity_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn 
+									minScreenWidth="Medium" sortProperty="ManagementVisibility">
+									<customControls:SortableItem text="{i18nInvestigation>MManagementVisibility}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn 
+									minScreenWidth="Medium" sortProperty="Attack">
+									<customControls:SortableItem text="{i18nInvestigation>MInvest_Attack_COL}" />
+								</customControls:SortableColumn>
+
+							</customControls:columns>
+							<customControls:items>
+								<ColumnListItem vAlign="Middle" type="Navigation"
+									press="onSelect">
+									<cells>
+										<commonControls:LongTapLink text="{PatternName}" wrapping="true"
+											href="{path : 'PatternId', formatter: 'sap.secmon.ui.m.commons.NavigationService.patternURL'}"
+										/>
+										<commonControls:LongTapLink text="{TemplateDescription}" wrapping="true"
+											href="{path : 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationTemplateURL'}"
+										/>
+										<ObjectIdentifier title="{TemplateCreatedBy}"
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'TemplateCreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+										<Text text="{Description}" wrapping="true"/>
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/'},{path : 'Severity'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/'},{path : 'ManagementVisibility'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/'},{path : 'Attack'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+									</cells>
+								</ColumnListItem>
+							</customControls:items>
+						</customControls:ColumnClickableTable>				
+					</ScrollContainer>
+            	</l:flexContent>
+    		</l:FixFlex>
+		</content>
+		<footer>
+			<OverflowToolbar>
+					<content>
+						<ToolbarSpacer />
+						<Button text="{i18nCommon>New_BUT}" press="onCreate"
+							visible="{applicationContext>/userPrivileges/investigationTemplateWrite}"/>
+						<Button id="deleteButton" text="{i18nCommon>Delete_BUT}" press="onDelete"
+							visible="{applicationContext>/userPrivileges/investigationTemplateWrite}"/>
+						<Button id="exportButton" xmlns="sap.m" text="{i18nCommon>Export_BUT}" 
+							visible="{applicationContext>/userPrivileges/contentRepExport}" press="onExportSelectedPressed" />
+					</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

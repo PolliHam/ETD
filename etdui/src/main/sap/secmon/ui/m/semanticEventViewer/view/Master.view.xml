@@ -1,0 +1,102 @@
+<mvc:View controllerName="sap.secmon.ui.m.semanticEventViewer.view.Master"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page id="page" title="{i18n&gt;SemEvent_List_Title}"
+		showNavButton="true" navButtonPress="onBackButtonPressed">
+		<content>
+			<!-- dummy binding, binding is done later manually with strict filters -->
+			<List id="list" items="{null}"
+				mode="{device>/listMode}" noDataText="{i18n>SemEvents_No_Data}"
+				selectionChange="onSelect" growing="true" growingScrollToLoad="true"
+				growingThreshold="100">
+				<items>
+					<CustomListItem id="itemTemplate" type="Active" press="onSelect">
+						<l:Grid defaultSpan="L6 M6 S12" vSpacing="0">
+							<l:content>
+								<Label text="{i18n>SemEvents_Time}" textAlign="Left"></Label>
+								<Text
+									text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'Timestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+								<Label text="{i18n>SemEvents_SysReporter}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{ parts : [
+								{path: 'SystemIdReporter'},
+							       {path: 'SystemTypeReporter'}],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'						      
+							     }" />
+								<Label text="{i18n>SemEvents_SemEvent}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{ path : 'EventSemantic'						      
+							     }" />
+								<Label text="{i18n>SemEvents_SysActor}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{ parts : [
+								{path: 'SystemIdActor'},
+							       {path: 'SystemTypeActor'}],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'						      
+							     }" />
+								<Label text="{i18n>SemEvents_UserActing}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{
+								   parts : [
+								   { path: 'UserPseudonymActing'		},
+								   { path : 'SystemIdActor' },
+								   { path : 'SystemTypeActor'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }" />
+								<Label text="{i18n>SemEvents_ServOutcome}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{
+							       path: 'ServiceOutcome'						      
+							     }" />
+								<Label text="{i18n>SemEvents_GenOutReason}" textAlign="Right">
+									<layoutData>
+										<l:GridData linebreak="true">
+										</l:GridData>
+									</layoutData>
+								</Label>
+								<Text
+									text="{
+							       path: 'GenericOutcomeReason'						      
+							     }" />
+
+							</l:content>
+						</l:Grid>
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

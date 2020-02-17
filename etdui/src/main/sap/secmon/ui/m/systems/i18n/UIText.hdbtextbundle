@@ -1,0 +1,124 @@
+# TRANSLATE
+#XTIT: All Systems Mobile
+MSystems_App_Title=Systems
+#XTIT: All Systems Mobile with Counter
+MSystems_App_Title_WC=Systems ({0})
+#XTIT: All Systems Mobile
+MSystems_DetailTitle=System {0}
+#XTXT: All Systems Mobile Tab Header for classification properties
+MSystems_Classification=Business Significance
+#XTXT: All Systems Mobile Tab Header for event trend chart
+MSystems_EventTrend=Trends
+#XTXT: All Systems Mobile Tab Header for general properties
+MSystems_General=General
+#XTIT: Contacts Tab Header
+MSystems_Contacts=Contacts
+#XLBL: System Group
+MSystem_Group=System Group
+#XTIT: Technical Information Header
+MSystems_Technical=Technical Details
+#XTXT: All Systems Mobile Master List
+MSystems_No_Data=No Data
+#XTXT: All Systems Mobile System Property Details
+MSystems_Conf=Confidentiality
+#XTXT: All Systems Mobile System Property Details
+MSystems_IntSys=System Data Integrity
+#XTXT: All Systems Mobile System Property Details
+MSystems_IntData=Business Data Integrity
+#XTXT: All Systems Mobile System Property Details
+MSystems_Availability=Availability
+#XTXT: All Systems Mobile System Property Details
+MSystems_Id=ID
+#XTXT: All Systems Mobile System Property Details
+MSystems_Role=Role
+#XMSG: All Systems Mobile Invalid Time Input Message
+MSystems_InvalidInput=Please check the time input
+#XMSG: All Systems Mobile Unknown System startup parameter
+MSystems_UnknownSystem=Unknown System
+#XMSG: All Systems Mobile Error loading system
+MSystems_LoadingError=Error loading System
+#XTXT: All Systems Mobile Tab Header for Connected Systems
+MSystems_ConnectedSystems=Connected Systems
+#XTXT: All Systems Mobile Tab Header for User/Transaction Calls
+MSystems_UserTransCalls=User Actions
+
+
+#XTIT: Event Trend Graph title
+MEventTrend_Title=Trends of Day, Previous Day, and Previous Week
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_Day=Day
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_Time=Time
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_UTCTime=Time (UTC)
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_TimeInterval=Time Interval
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_Minutes={0} Minutes
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_Reset=Reset
+#XTXT: Event Trend Analysis Input Form
+MEventTrend_Update=Update
+#XTXT: Event Trend Analysis Chart Dimension
+MEventTrend_TimeDim=Time
+#XTXT: Event Trend Analysis Chart Dimension
+MEventTrend_TimeUTCDim=Time (UTC)
+#XTXT: Event Trend Analysis Chart Dimension
+MEventTrend_DayDim=Day
+#XTXT: Event Trend Analysis Chart Measure
+MEventTrend_Events=Count
+#XTOL: Event Trend Analysis Chart Control Tooltip
+MEventTrend_Earlier=Earlier
+#XTOL: Event Trend Analysis Chart Control Tooltip
+MEventTrend_Later=Later
+#XTOL: Event Trend Analysis Chart Control Tooltip
+MEventTrend_PrevDay=Previous Day
+#XTOL: Event Trend Analysis Chart Control Tooltip
+MEventTrend_NextDay=Next Day
+#XMSG: Event Trend Analysis Loading Error
+MEventTrend_Error=Error loading Event Trend data
+#XLBL: Event Trend Analysis Chart Selection
+MEventTrend_Chart=Trend
+
+#XLBL:Line of Business 
+LineOfBusiness=Line of Business
+#XLBL: Name of Business Contact
+BusinessContactName=Business Contact Name
+#XLBL:Line of Business phone number
+BusinessContactPhone=Business Contact Telephone Number
+#XLBL: Line of Business Contact Email address
+BusinessContactEmail=Business Contact E-Mail Address
+#XLBL: Technical Contact Name
+TechnicalContact=Technical Contact Name
+#XLBL: Technical Contact Phone Number
+TechnicalContactPhone=Technical Contact Phone Number
+#XLBL: Technical Contact Email Address
+TechnicalContactEMail=Technical Contact E-Mail Address
+
+#XLBL:Usage Type of System Label
+UsageType=Usage Type
+#XLBL: System Landscape Type (Test, Development, Productive,...)
+Landscape=Landscape
+#XLBL: System Landscape Description
+LandscapeDescription=Landscape Description
+#XLBL: Database Host
+DatabaseHost=Database Host
+#XLBL: Database Type (e.g. DB6, MSSQL,...)
+DatabaseType=Database Type
+#XLBL: Database Version
+DatabaseVersion=Database Version
+
+
+
+#XTXT: Connected Systems Graph Property to select date
+MConnectedSys_Date=Date
+#XTXT: Connected Systems Graph Property to filter incoming and outgoing directions
+MConnectedSys_Directs=Directions
+#XTXT: Connected Systems Graph Property to show all incoming and outgoing directions
+MConnectedSys_AllDirs=In/Out
+#XTXT: Connected Systems Graph Property to show only incoming directions
+MConnectedSys_Incoming=In
+#XTXT: Connected Systems Graph Property to show only outgoing directions
+MConnectedSys_Outgoing=Out
+#XMSG: Connected Systems Loading Error
+MConnectedSys_Error=Error loading System Connections

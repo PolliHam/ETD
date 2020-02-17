@@ -1,0 +1,244 @@
+<mvc:View controllerName="sap.secmon.ui.m.patternfs.view.Patterns"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:l="sap.ui.layout" xmlns:commonControls="sap.secmon.ui.commons.controls">
+	<Page id="page" title="{i18n>PatternsTitle}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<headerContent>
+            <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp" />
+        </headerContent>
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+						showRestoreButton="false" showClearButton="true"
+						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true" id="filterBar"
+						considerGroupTitle="true">
+						<fb:filterItems>
+
+							<fb:FilterItem name="pattern" label="{i18n>PatternName}">
+								<fb:control>
+									<MultiInput id="patternFilterInput" filterSuggests="false"
+										placeholder="{i18nCommon>Pattern_Suggestion}"
+										showSuggestion="true" startSuggestion="2" suggest="onPatternSuggest"
+										suggestionItemSelected="handleSuggestionItemSelected"
+										valueHelpRequest="onPatternValueHelpRequest"
+										showTableSuggestionValueHelp="true" showValueHelp="true">
+										<!-- c:Item key="{Id}" text="{Name}"/ -->
+										<customData>
+											<c:CustomData key="urlParamName" value="Id" />
+											<c:CustomData key="i18nText" value="{i18n>PatternName}" />
+										</customData>
+										<suggestionColumns>
+											<Column visible="false">
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline"
+												demandPopin="true">
+												<Label text="{i18n>PatternName}" />
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline"
+												demandPopin="true" width="8em">
+												<Label text="{i18nCommon>AnomalyPattern}" />
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<cells>
+												</cells>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="nameSpaceId" label="{i18n>PatternNameSpace}">
+								<fb:control>
+									<MultiComboBox id="nameSpaceFilterInput"
+										items="{path: 'patternNameSpace>/PatternAggregation', parameters: { select: 'NameSpace,NameSpaceId' }, sorter : { path: 'NameSpace', descending: false} }">
+										<items>
+											<c:Item key="{path: 'patternNameSpace>NameSpaceId', formatter: 'sap.secmon.ui.m.commons.Formatter.guidFormatter'}" text="{patternNameSpace>NameSpace}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="NameSpaceId" />
+											<c:CustomData key="i18nText" value="{i18n>PatternNameSpace}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="status" label="{i18n>PatternStatus}">
+								<fb:control>
+									<MultiComboBox id="statusFilterInput"
+										items="{enums>/sap.secmon.ui.browse/Pattern/Status/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Status" />
+											<c:CustomData key="i18nText" value="{i18n>PatternStatus}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="patternType" label="{i18nCommon>AnomalyPattern}">
+								<fb:control>
+									<MultiComboBox id="patternTypeFilterInput"
+										items="{enums>/sap.secmon.services.ui.m/Pattern/Type/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}"
+												text="{parts: [{path : 'enums>Key'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="PatternType" />
+											<c:CustomData key="i18nText" value="{i18nCommon>AnomalyPattern}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="executionOutput" label="{i18n>ExecutionOutputXcol}">
+								<fb:control>
+									<MultiComboBox id="executionOutputFilterInput"
+										items="{enums>/sap.secmon.ui.browse/Pattern/ExecutionOutput/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="ExecutionOutput" />
+											<c:CustomData key="i18nText" value="{i18n>ExecutionOutputXcol}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="testMode" label="{i18n>TestModeXcol}">
+								<fb:control>
+									<MultiComboBox id="testModeFilterInput"
+										items="{enums>/sap.secmon.ui.browse/Pattern/TestMode/enumValues}">
+
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="TestMode" />
+											<c:CustomData key="i18nText" value="{i18n>TestModeXcol}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="scenarios" label="{i18n>ScenariosXcol}">
+								<fb:control>
+									<MultiComboBox id="scenarioFilterInput"
+										items="{path : '/Tags', sorter : {path : 'Name'}}">
+										<items >
+											<c:Item key="{parts :[{path : 'Name'},{path : 'Namespace'}], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}" text="{parts :[{path : 'Name'},{path : 'Namespace'}], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}"/>
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="PatternScenarios"/>
+											<c:CustomData key="i18nText" value="{i18n>ScenariosXcol}"/>
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+            	</l:fixContent>
+
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<customControls:ColumnClickableTable id="patternsTable" inset="false" mode="MultiSelect"
+							items="{path: '/PatternDefinition' }" growing="true" class="sapEtdScrollTable"
+							growingScrollToLoad="true" growingThreshold="100" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+							<customControls:infoToolbar>
+								<Toolbar id="vsdFilterBar" active="false" visible="false">
+									<Label id="vsdFilterLabel" text="?" />
+								</Toolbar>
+							</customControls:infoToolbar>
+							<customControls:columns>
+								<customControls:SortableColumn width="20em" sortProperty="Name">
+									<customControls:SortableItem text="{i18n>PatternName}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn width="8em" sortProperty="NameSpace">
+									<customControls:SortableItem text="{i18n>PatternNameSpace}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn width="20em" sortProperty="Description">
+									<customControls:SortableItem text="{i18n>PatternDescription}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn sortProperty="OpenAlertCount">
+									<customControls:SortableItem text="{i18n>PatternOpenAlerts}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn sortProperty="CreatedBy">
+									<customControls:SortableItem text="{i18n>CreatedBy}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn sortProperty="Status">
+									<customControls:SortableItem text="{i18n>StatusXcol}" />
+								</customControls:SortableColumn>
+										<customControls:SortableColumn sortProperty="ExecutionOutput">
+									<customControls:SortableItem text="{i18n>ExecutionOutputXcol}" />
+								</customControls:SortableColumn>
+										<customControls:SortableColumn sortProperty="TestMode">
+									<customControls:SortableItem text="{i18n>TestModeXcol}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn sortProperty="PatternType">
+									<customControls:SortableItem text="{i18nCommon>AnomalyPattern}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn sortProperty="CountScheduledJobs">
+									<customControls:SortableItem text="{i18n>PatternPostprocessingStatus}" />
+								</customControls:SortableColumn>
+							</customControls:columns>
+							<customControls:items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<commonControls:LongTapLink text="{Name}" wrapping="true" href="{path: 'Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.patternURL'}"/>
+										<Text text="{NameSpace}" />
+										<Text text="{Description}" tooltip="{Description}" maxLines="2" />
+										<commonControls:LongTapLink text="{OpenAlertCount}" href="{path: 'Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.openAlertsOfPatternURL'}"/>
+										<Text text="{CreatedBy}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/Status/'},{path : 'Status'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/ExecutionOutput/'},{path : 'ExecutionOutput'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{path : 'TestMode',  formatter: 'sap.secmon.ui.m.views.pattern.Formatter.testModeToString'}"
+											visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}" />
+										<Text
+											text="{parts: [{path : 'PatternType'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}],  formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}" />
+										<Text
+											text="{parts: [{path : 'CountScheduledJobs'},{path: 'i18n>YesPatternPostprocessing'},{path:'i18n>NoPatternPostprocessing'}],  formatter: 'sap.secmon.ui.m.commons.Formatter.patternProcessingYesNoFormatter'}" />
+									</cells>
+								</ColumnListItem>
+							</customControls:items>
+						</customControls:ColumnClickableTable>
+					</ScrollContainer>
+            	</l:flexContent>
+    		</l:FixFlex>
+		</content>
+
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="activateButton" text="{i18n>PatternActivate}"
+						press="onActivatePattern" visible = "{applicationContext>/userPrivileges/patternWrite}"/>
+					<Button id="deactivateButton" text="{i18n>PatternDeactivate}"
+						press="onDeactivatePattern" visible = "{applicationContext>/userPrivileges/patternWrite}"/>
+					<Button id="executeButton" text="{i18n>PatternExecute}"
+						press="onExecutePattern" visible = "{applicationContext>/userPrivileges/patternExecute}"/>
+					<Button id="scheduleButton" text="{i18n>PatternSchedule}" tooltip="{i18n>PatternScheduleDetail}"
+						press="onSchedulePattern" visible ="{applicationContext>/userPrivileges/patternExecute}"/>
+					<Button id="openButton" text="{i18n>PatternOpen}" press="onOpenPattern" />
+					<Button id="testOnButton" text="{i18n>PatternTestModeOn}"
+						press="onTestModeOn" visible = "{applicationContext>/userPrivileges/patternWrite}"/>
+					<Button id="testOffButton" text="{i18n>PatternTestModeOff}"
+						press="onTestModeOff" visible = "{applicationContext>/userPrivileges/patternWrite}"/>
+					<Button icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+                        press="handleBookmarkDialogButtonPressed" />
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

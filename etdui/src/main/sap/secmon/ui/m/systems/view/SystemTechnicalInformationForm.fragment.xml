@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<f:SimpleForm editable="false">
+		<f:content>
+			<Label text="{i18n>Usage}" />
+			<Text text="{UsageType}" />
+
+			<Label text="{i18n>Landscape}" />
+
+			<Text text="{Landscape}" />
+
+			<Label text="{i18n>LandscapeDescription}" />
+			<Text text="{LandscapeDescription}" />
+			<Label text="{i18n>DatabaseHost}" />
+			<Text text="{DatabaseHost}" />
+			<Label text="{i18n>DatabaseType}" />
+			<Text text="{DatabaseType}" />
+			<Label text="{i18n>DatabaseVersion}" />
+			<Text text="{DatabaseVersion}" />
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

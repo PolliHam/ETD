@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:unified="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="dialog" title="{i18n>Interpret_CreateRun}" class="sapUiPopupWithPadding"
+        stretch="{device>/isPhone}">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>Interpret_RunName}" required="true" />
+					<Input id="textNewRunRunName" value="{ 
+							path:'CreateRunModel>/runName',
+							type : 'sap.ui.model.type.String',
+							constraints : {
+								maxLength : 100,
+								minLength : 1 
+							} 
+						}" 
+					liveChange="checkRunName"/>
+
+					<Label text="{i18n>Interpret_Description}" />
+					<Input value="{CreateRunModel>/runDescription}" />
+
+					<Label text="{i18n>Interpret_IsST}" />
+					<RadioButtonGroup id="radioGroupID" columns="3" selectedIndex="0"
+						select="onSelectRadioButton">
+						<buttons>
+							<RadioButton groupName="runLayoutGroup" text="{i18n>Interpret_FreeText}" />
+							<RadioButton groupName="runLayoutGroup" text="{i18n>Interpret_KeyValue}" />
+							<RadioButton groupName="runLayoutGroup" text="{i18n>Interpret_Structured}" />
+                            <RadioButton groupName="runLayoutGroup" text="{i18n>Interpret_CEF_LEEF}" />							
+						</buttons>
+					</RadioButtonGroup>
+					<Label text="{i18n>Interpret_STSep}" required="true"
+						visible="{= ${CreateRunModel>/runLayout} === 'ST' ? true: false}" />
+					<Input value="{CreateRunModel>/runSTSeparator}"
+						liveChange="onChangeSTSeparator" valueState="{= ${CreateRunModel>/STSepCharacters} > 0? 'None': 'Error'}"
+						visible="{= ${CreateRunModel>/runLayout} === 'ST' ? true: false}" />
+					<Text
+						visible="{= ${CreateRunModel>/runLayout} === 'ST' ? true: false}"
+						text="{parts:[{path:'i18n>Interpret_CharCount'},{path:'CreateRunModel>/STSepCharacters'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+					<Label text="{i18n>Interpret_KVSep}" required="true"
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}" />
+					<Input value="{CreateRunModel>/runKVSeparator}"
+					    liveChange="onChangeKVSeparator" valueState="{= ${CreateRunModel>/KVSepCharacters} > 0? 'None': 'Error'}"
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}" />
+					<Text
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}"
+						text="{parts:[{path:'i18n>Interpret_CharCount'},{path:'CreateRunModel>/KVSepCharacters'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+					<Label text="{i18n>Interpret_KVPSep}" required="true"
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}" />
+					<Input value="{CreateRunModel>/runKVPSeparator}"
+					    liveChange="onChangeKVPSeparator" valueState="{= ${CreateRunModel>/KVPSepCharacters} > 0? 'None': 'Error'}"
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}" />
+					<Text
+						visible="{= ${CreateRunModel>/runLayout} === 'KV' ? true: false}"
+						text="{parts:[{path:'i18n>Interpret_CharCount'},{path:'CreateRunModel>/KVPSepCharacters'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+
+					<Label text="{i18n>Interpret_File}" visible="{CreateRunModel>/ShowFileUpload}" required="true"/>
+					<unified:FileUploader id="runFileUploader" visible="{CreateRunModel>/ShowFileUpload}"
+						name="runFileUploader" multiple="false" maximumFileSize="50" required="true"
+						uploadOnChange="false" sendXHR="true" fileType="txt,log" value="{CreateRunModel>/fileName}"
+						fileSizeExceed="onFileSizeExceed" typeMissmatch="onTypeMissmatch" change="onFileChange"
+						uploadComplete="onUploadComplete" uploadAborted="onUploadAborted" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18nCommon>Create_BUT}" press="onCloseDialog"
+				id="ok" />
+			<Button text="{i18nCommon>Close_BUT}" press="onCloseDialog"
+				id="cancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

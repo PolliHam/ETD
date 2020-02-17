@@ -1,0 +1,28 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:c="sap.ui.commons">
+	<Dialog id="idScheduleDialog">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Title text= "{i18n>PatternPostProcessing}"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+	<content>
+		<VBox>
+			<core:Fragment fragmentName="sap.secmon.ui.m.commons.dateTimeSelection.AbsoluteDateTimePicker" type="XML" />
+		</VBox>
+		<VBox class="sapUiTinyMarginTop sapUiSmallMarginBegin sapUiSmallMarginBottom">
+			<core:HTML content="{i18n>PostProcessingHint}"/>
+		</VBox>
+	</content>
+		<buttons> 
+			<Button type="Accept" text="{i18n>configureSubmitPattern}"  press="onPressSubmitScheduleDialog" />
+			<Button text="{i18n>configureCancelPattern}"  press="onPressCancelScheduleDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.DetailsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Details(DetailId=X'00000056AE1EC64085F2EF4F256EB276',AlertId.AlertId=X'C95C282035DE76448A445409894D4487')"
+        },
+        "DetailId": "AAAAVq4exkCF8u9PJW6ydg==",
+        "AlertId.AlertId": "yVwoIDXedkSKRFQJiU1Ehw==",
+        "Name": "System ID, Actor",
+        "ValueType": "ValueVarChar",
+        "DimensionId": "U83mDQ3Fcu7hAAAACkzxCQ==",
+        "Value": "$T7/000",
+        "DisplayKey": "KbADi_SystemIdA"
+      }
+    ]
+  }
+}

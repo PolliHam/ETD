@@ -1,0 +1,42 @@
+<template data-controller-name="sap.secmon.ui.browse.Shell"
+	data-width="100%" data-height="100%">
+    <div id="shlMain"
+         data-sap-ui-type            = "sap.ui.ux3.Shell"
+         data-app-icon               = "ui/img/SAPLogo.gif"
+         data-app-title              = "{i18n>BU_TIT_ETD}"
+         data-show-logout-button     = "true"
+         data-show-search-tool       = "false"
+         data-show-inspector-tool    = "false"
+         data-show-feeder-tool       = "false"        
+         data-pane-width             = "100%"  
+         data-logout                 = "shlUILogout"
+         data-full-height-content    = "true"
+         data-show-tools             = "false"
+         data-show-pane              = "false"
+         data-header-type            = "NoNavigation"
+	     data-apply-content-padding  = "false"
+	     data-workset-item-selected  = "onWorksetItemSelected">
+         
+        <div data-sap-ui-aggregation="headerItems">
+            <div data-sap-ui-type="sap.ui.commons.Button" data-press="onGoHome" data-icon="sap-icon://home"></div>
+            <div data-sap-ui-type="sap.ui.commons.Button" id="linkHelp" data-press="onShowHelp" data-icon="sap-icon://sys-help"></div>
+            <div data-sap-ui-type="sap.ui.commons.Link" id="lnkUsername" data-text="{applicationContext>/userName}"></div>
+        </div>
+        
+        <!-- <div data-sap-ui-aggregation="worksetItems">
+	        <div data-sap-ui-type="sap.ui.ux3.NavigationItem" id="itemWorkspace"  data-text="Workspace"></div> -->
+<!--            <div data-sap-ui-type="sap.ui.ux3.NavigationItem" id="itemFeatureSpace"  data-text="Outlier Detection"></div> -->
+<!--             <div data-sap-ui-type="sap.ui.ux3.NavigationItem" id="itemPlayground"  data-text="Playground"></div>  -->
+	<!--    </div> -->
+ 
+        <div data-sap-ui-aggregation="notificationBar">
+            <div data-sap-ui-type="sap.ui.ux3.NotificationBar">
+                <div data-sap-ui-aggregation="messageNotifier">
+                    <div data-sap-ui-type="sap.ui.ux3.Notifier" 
+                         data-message-selected="onMessageSelected">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

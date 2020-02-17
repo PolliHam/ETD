@@ -1,0 +1,28 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Table backgroundDesign="Transparent" showSeparators="None"
+		fixedLayout="false" mode="None">
+		<columns>
+			<Column/>
+			<Column/>
+			<Column/>
+			<Column/>
+		</columns>
+		<items>
+			<ColumnListItem selected="false" class="tableRowWithoutOutline">
+				<cells>
+					<c:Fragment
+						fragmentName="sap.secmon.ui.m.commons.dateTimeSelection.RelativeDateTimePicker"
+						type="XML" />
+				</cells>
+			</ColumnListItem>
+			<ColumnListItem selected="false" class="tableRowWithoutOutline">
+				<cells>
+					<c:Fragment
+						fragmentName="sap.secmon.ui.m.commons.dateTimeSelection.AbsoluteDateTimePicker"
+						type="XML" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</c:FragmentDefinition>

@@ -1,0 +1,83 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.valueMapping" displayBlock="false"
+    busyIndicatorDelay="250" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:commons="sap.ui.commons">
+    <l:Grid id="layout" visible="true" height="100%" defaultSpan="L6 M6 S10">
+        <HBox>
+            <Button id="buttonCreateRule"
+                text="{i18n>Interpret_CreateRule}"
+                tooltip="{i18n>Interpret_CreateRuleTOL}"
+                icon="sap-icon://create" 
+                lite="true"
+                visible="{=${uiModel>/selectedNodeType} === 'ROOT' }"
+                press="onPressCreateRule" 
+                type="Transparent"/>
+            <Button id="buttonCreateCondition"
+                text="{i18n>Interpret_CreateCond}"
+                tooltip="{i18n>Interpret_CreateCondTOL}"
+                icon="sap-icon://create" 
+                lite="true"
+                visible="{=${uiModel>/selectedNodeType} !== 'ROOT' &amp;&amp; !!${uiModel>/selectedNodeType}}"
+                enabled="{=${uiModel>/selectedNodeType} === 'RULE' }"
+                press="onPressCreateCond" 
+                type="Transparent"/>
+            <Button id="buttonDeleteRule"
+                text="{i18n>Interpret_DelRule}"
+                icon="sap-icon://delete" 
+                lite="true"
+                visible="{=${uiModel>/selectedNodeType} === 'RULE' || ${uiModel>/selectedNodeType} === 'ROOT'}"
+                enabled="{=${uiModel>/selectedNodeType} === 'RULE'}"
+                press="onPressDeleteRule"
+                type="Transparent"/>
+            <Button id="buttonDeleteCondition"
+                text="{i18n>Interpret_DelCond}"
+                icon="sap-icon://delete" 
+                lite="true"
+                enabled="{=${uiModel>/selectedNodeType} === 'PRIORITY' }"
+                visible="{=${uiModel>/selectedNodeType} === 'PRIORITY' || ${uiModel>/selectedNodeType} === 'SOURCE' || ${uiModel>/selectedNodeType} === 'TARGET'}"
+                press="onPressDeleteCond"
+                type="Transparent"/>
+        </HBox>
+		<t:TreeTable id="treeTable" rows="{path:'/', parameters: {arrayNames: ['results']}}"
+		  visibleRowCountMode="Auto" height="100%" width="99%" selectionMode="Single"
+                        showColumnVisibilityMenu="false" expandFirstLevel="true"
+                        visibleRowCount="50" minAutoRowCount="12" fixedRowCount="5"
+                        rowSelectionChange="onSelectedSourceOrTargetLink" 
+                        selectionBehavior="RowOnly" columnHeaderVisible="false">
+                        <t:columns>
+                            <t:Column width="10px" autoResizable="true" visible="true">
+                                <Label text=""></Label>
+                                <t:template>
+                                    <customControls:IconWithLinkOrText
+                                        text="{ parts: [{path: 'text'}, {path: 'type'},  {path: 'MappingRule'}, {path: 'ConditionPrio'}], 
+                                                formatter: 'sap.secmon.ui.loglearning.util.Formatter.annotationNodeText'}"
+                                        iconSrc="{icon}"
+                                        app:type="{type}"
+                                        linkEnabled="{= ${type} === 'SOURCE' || ${type} === 'TARGET'}" />
+                                </t:template>
+                            </t:Column>
+                        </t:columns>
+		      <t:layoutData>
+                <l:GridData span="L2 M3 S8" linebreakL="true" linebreakM="true"
+                    linebreakS="true" />
+                </t:layoutData>
+		</t:TreeTable>
+		<VBox>
+		    <layoutData>
+                <l:GridData span="L10 M9 S12" linebreakL="false"
+                    linebreakM="false" linebreakS="true" />
+            </layoutData>
+	        <HBox visible="{= ${uiModel>/selectedNodeType} === 'SOURCE' }" height="100%" width="100%">
+				<core:Fragment fragmentName="sap.secmon.ui.loglearning.sourceTable"
+					id="layoutRowSource" type="XML" />
+			    
+			</HBox>
+	        <HBox visible="{= ${uiModel>/selectedNodeType} === 'TARGET' }" height="100%" width="100%">
+				<core:Fragment fragmentName="sap.secmon.ui.loglearning.targetTable"
+					id="layoutRowTarget" type="XML" />
+			</HBox>
+		</VBox>
+    </l:Grid>
+</mvc:View>

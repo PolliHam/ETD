@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<f:SimpleForm editable="true">
+		<f:content>
+			<Label text="{i18nCommon>Name_LBL}" />
+			<Input value="{newValuelist>/ListName}" 
+			  enabled="{appplicationContext>/userPrivileges/valuelistWrite}"
+			/>
+			<Label text="{i18nCommon>Namespace_LBL}" />
+			<Select id="nameSpaceSelectEdit" selectedKey="{newValuelist>/NameSpace}"
+					enabled="{appplicationContext>/userPrivileges/valuelistWrite}"
+					items="{
+	                        path: 'nameSpaces>/NameSpaces',
+	                        sorter: {
+	                            path: 'NameSpace'
+	                        }
+	                	}"
+			>
+				<core:Item key="{nameSpaces>NameSpace}" text="{nameSpaces>NameSpace}" />
+			</Select>
+			<Label text="{i18nCommon>Description_LBL}" />
+			<Input value="{newValuelist>/Description}" 
+			  enabled="{appplicationContext>/userPrivileges/valuelistWrite}"
+			/>
+		</f:content>
+	</f:SimpleForm>
+
+
+</core:FragmentDefinition>

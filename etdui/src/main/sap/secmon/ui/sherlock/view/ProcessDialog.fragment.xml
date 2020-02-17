@@ -1,0 +1,35 @@
+<c:FragmentDefinition xmlns="sap.m"
+xmlns:c="sap.ui.core"
+xmlns:l="sap.ui.layout">
+    <Dialog id="processDialog" title="{i18n>SH_Process_Logs}">
+        <content>
+            <l:VerticalLayout>
+                <RadioButtonGroup>
+                    <RadioButton text="{i18n>AddToCaseFile}" 
+                    selected="{ListViewModel>/processCaseFileSelected}" visible="{ListViewModel>/processRecVisible}"
+                    class="sapUiTinyMarginTop"/>
+                    <RadioButton text="{i18n>SH_Create_LogLearning_Run}" 
+                    selected="{ListViewModel>/processUnrecVisible}" visible="{ListViewModel>/processUnrecVisible}"/>
+                    <RadioButton text="{i18n>SH_Process_In_ForensicLab}" 
+                    selected="{ListViewModel>/processForensicLabSelected}" visible="{ListViewModel>/processRecVisible}"/>
+                </RadioButtonGroup>
+                <l:HorizontalLayout>
+               <CheckBox text="{i18n>addValueToFilter}" selected="{ListViewModel>/processForensicLabWithAttrSelected}"
+                    enabled="{ListViewModel>/processForensicLabSelected}" visible="{ListViewModel>/processRecVisible}"
+                    class="sapUiTinyMarginBegin">
+                </CheckBox>
+                <ComboBox id="role-attribute" selectedKey="{RoleIndependentAttrModel>/0/key}" items="{RoleIndependentAttrModel>/}" 
+                    visible="{ListViewModel>/processRecVisible}" enabled ="{ListViewModel>/processForensicLabWithAttrSelected}"
+                    class="sapUiTinyMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom">
+                    <c:ListItem key="{RoleIndependentAttrModel>key}" text="{RoleIndependentAttrModel>displayName}">
+                    </c:ListItem>
+                </ComboBox>	
+                </l:HorizontalLayout>
+           </l:VerticalLayout>		
+       </content> 
+       <buttons>
+           <Button text="{i18n>SH_Process}" press="onPressProcessInDialog" />
+           <Button text="{i18nCommon>Cancel_BUT}" press="onCloseProcessDialog" />
+       </buttons>
+    </Dialog>
+</c:FragmentDefinition>

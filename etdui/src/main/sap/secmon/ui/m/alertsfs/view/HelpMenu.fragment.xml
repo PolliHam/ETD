@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+	<u:Menu>
+		<u:MenuItem text="{i18n>WorkingWithAlertsLBL}" select="onPressHelpAlertsList"/>
+		<u:MenuItem text="{i18n>ExamThreatSitLBL}" select="onPressHelpThreatSituation"/>
+	</u:Menu>
+</core:FragmentDefinition>

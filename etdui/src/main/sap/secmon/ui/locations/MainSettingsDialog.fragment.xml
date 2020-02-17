@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="NetAddressString"
+				text="{i18n>Subnets_NetAddress}" />
+			<ViewSettingsItem key="PrefixString" text="{i18n>Subnets_Prefix}" />
+			<ViewSettingsItem key="Description" text="{i18n>Subnets_Description}" />
+			<ViewSettingsItem key="LocationName" text="{i18n>Subnets_Location}" />
+			<ViewSettingsItem key="Category" text="{i18n>Subnets_Category}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

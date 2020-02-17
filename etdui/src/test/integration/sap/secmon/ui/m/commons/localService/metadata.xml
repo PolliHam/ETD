@@ -1,0 +1,28 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                       m:DataServiceVersion="2.0">
+        <Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="sap.secmon.services.genericEnum">
+            <EntityType Name="EnumType">
+                <Key>
+                    <PropertyRef Name="Package"/>
+                    <PropertyRef Name="Object"/>
+                    <PropertyRef Name="Attribute"/>
+                    <PropertyRef Name="Key"/>
+                </Key>
+                <Property Name="SortOrder" Type="Edm.Int32"/>
+                <Property Name="Package" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Object" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Attribute" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Value" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="TextKey" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="editable" Type="Edm.String" Nullable="false" MaxLength="5"/>
+            </EntityType>
+            <EntityContainer Name="genericEnum" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Enum" EntityType="sap.secmon.services.genericEnum.EnumType"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

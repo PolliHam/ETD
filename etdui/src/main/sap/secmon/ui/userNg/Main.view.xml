@@ -1,0 +1,20 @@
+<mvc:View controllerName="sap.secmon.ui.userNg.Main" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<Page id="userNg-mainPage" title="{i18n>ResolveUser_ApplTitle}" showNavButton="true" navButtonPress="onBackButtonPressed" enableScrolling="true">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18n>ResolveUser_Help_Button}" press="onHelpPress" />
+		</headerContent>
+		<IconTabBar id="userNg-mainTabbar" select="onTabSelected" expandable="false" stretchContentHeight="false" selectedKey="{viewModel>/sSelectedTabKey}">
+			<items>
+				<IconTabFilter id="userNg-tabfilter-resolve" key="resolve" icon="sap-icon://employee-approvals" text="{i18n>ResolveUser_TabTitleResolve}" enabled="{applicationContext>/userPrivileges/resolveUser}">
+					<mvc:XMLView id="userng-resolve" viewName="sap.secmon.ui.userNg.views.Resolve" />
+				</IconTabFilter>
+				<IconTabFilter id="userNg-tabfilter-resolvereverse" key="reverse" icon="sap-icon://employee-lookup" text="{i18n>ResolveUser_TabTitleResolveReverse}" enabled="{applicationContext>/userPrivileges/reverseResolveUser}">
+					<mvc:XMLView id="userng-resolvereverse" viewName="sap.secmon.ui.userNg.views.ResolveReverse" />
+				</IconTabFilter>
+				<IconTabFilter id="userNg-tabfilter-log" key="log" icon="sap-icon://hint" text="{i18n>ResolveUser_TabTitleLog}">
+					<mvc:XMLView id="userng-log" viewName="sap.secmon.ui.userNg.views.Log" />
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+	</Page>
+</mvc:View>

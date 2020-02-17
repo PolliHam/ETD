@@ -1,0 +1,346 @@
+# TRANSLATE
+
+#XLBL: URL
+URL_LBL=URL
+#XLBL: Status
+Status_LBL=Status
+#XCOL: Status
+Status_COL=Status
+#XCOL: Attack
+Attack_COL=Attack
+#XLBL: Name
+Name_LBL=Name
+#XCOL: Name
+Name_COL=Name
+#XLBL: Namespace
+Namespace_LBL=Namespace
+#XCOL: Namespace
+Namespace_COL=Namespace
+#XLBL: Timestamp
+Timestamp_LBL=Timestamp
+#XCOL: Timestamp
+Timestamp_COL=Timestamp
+#XLBL: Description
+Description_LBL=Description
+#XCOL: Description
+Description_COL=Description
+#XCOL: Template Name
+TemplateName_COL=Template Name
+#XLBL: Value
+Value_LBL=Value
+#XCOL: Value
+Value_COL=Value
+#XLBL: Type
+Type_LBL=Type
+#XCOL: Type
+Type_COL=Type
+#XLBL: Severity
+Severity_LBL=Severity
+#XCOL: Severity
+Severity_COL=Severity
+#XLBL: Template Name
+TemplateName_LBL=Template Name
+#XLBL: Pattern
+Pattern_LBL=Pattern
+#XCOL: Pattern
+Pattern_COL=Pattern
+#XLBL: Created By
+Created_By_LBL=Created By
+#XCOL: Created By
+Created_By_COL=Created By
+#XLBL: Created At
+Created_At_LBL=Created At
+#XCOL: Created at
+Created_At_COL=Created At
+#XTIT:Error
+Error_TIT=Error
+#XTIT:Error
+Warning_TIT=Warning
+#XLBL:Notifications
+Notifications_LBL={0} Notifications
+#XLBL: Changed By
+Changed_By_LBL=Changed By
+#XCOL: Changed By
+Changed_By_COL=Changed By
+#XLBL: Changed At
+Changed_At_LBL=Changed At
+#XCOL: Changed At
+Changed_At_COL=Changed At
+#XLBL: System
+System_LBL=System
+#XCOL: System
+System_COL=System
+#XLBL: System Type
+SystemType_LBL=System Type
+#XCOL: System Type
+SystemType_COL=System Type
+#XCOL: Pattern Type 
+PatternType_COL=Pattern Type
+#XCOL: Pattern Name 
+PatternName_COL=Pattern Name
+
+
+#XLBL: User
+User_LBL=User
+#XCOL: User
+User_COL=User
+#XLBL: Processor
+Processor_LBL=Processor
+#XCOL: Processor
+Processor_COL=Processor
+#XCOL: Last Update
+LastTimestamp_COL=Last update
+#XLBL: Processor: Set myself as processor
+AssignToMe=Assign To Me
+#XLBL: Active
+Active_LBL=Active
+#XCOL: Active
+Active_COL=Active
+#XLBL: Inactive
+Inactive_LBL=Inactive
+#XCOL: Inactive
+Inactive_COL=Inactive
+#XLBL: Score
+Score_LBL=Score
+#XCOL: Score
+Score_COL=Score
+#XLBL: Severity Low
+Severity_Low_LBL=Low
+#XLBL: Severity Medium
+Severity_Medium_LBL=Medium
+#XLBL: Severity High
+Severity_High_LBL=High
+#XLBL: Severity Very High
+Severity_VeryHigh_LBL=Very High
+#XLBL: Search
+Search_LBL=Search
+#XLBL: Workspace
+Workspace_LBL=Workspace
+#XMSG: Search Pattern
+Pattern_Suggestion=Enter the name of a pattern (at least 2 characters) ...
+
+
+#XLBL:Time Range
+ConsTimeRangeFT_LBL={0} - {1}
+#XLBL:Last
+TimeRange_Last_LBL=Last
+#XLBL:last minutes
+TimeRange_LastM_LBL=Last {0} minute(s)
+#XLBL:last hours
+TimeRange_LastH_LBL=Last {0} hour(s)
+#XLBL:last days
+TimeRange_LastD_LBL=Last {0} day(s)
+#XLBL:Time Range
+TimeRange_Range_LBL=Range
+#XLBL:Minutes
+TimeRange_Min_LBL=Minutes
+#XLBL:Hours
+TimeRange_Hours_LBL=Hours
+#XLBL:Days
+TimeRange_Days_LBL=Days
+#XLBL:From
+TimeRange_From_LBL=From
+#XLBL:To
+TimeRange_To_LBL=To
+#XLBL:Creation Time Range
+ConsidTimeRange_LBL=Creation Time Range
+#XLBL: Time Range
+TimeRange_LBL=Time range
+#XTIT:Select time range
+SelectTimeRange_TIT=Select time range
+#XTIT:Select time range
+SelectTRUTC_TIT=Select time range (UTC)
+
+#XTXT : Time Range
+TR_lastMinute=Last 1 minute
+#XTXT : Time Range
+TR_last2Minutes=Last 2 minutes
+#XTXT : Time Range
+TR_last5Minutes=Last 5 minutes
+#XTXT : Time Range
+TR_last10Minutes=Last 10 minutes
+#XTXT : Time Range
+TR_last15Minutes=Last 15 minutes
+#XTXT : Time Range
+TR_last20Minutes=Last 20 minutes
+#XTXT : Time Range
+TR_last25Minutes=Last 25 minutes
+#XTXT : Time Range
+TR_last30Minutes=Last 30 minutes
+#XTXT : Time Range
+TR_last35Minutes=Last 35 minutes
+#XTXT : Time Range
+TR_last40Minutes=Last 40 minutes
+#XTXT : Time Range
+TR_last45Minutes=Last 45 minutes
+TR_last50Minutes=Last 50 minutes
+#XTXT : Time Range
+TR_last55Minutes=Last 55 minutes
+#XTXT : Time Range
+#XTXT : Time Range
+TR_lastHour=Last 1 hour
+#XTXT : Time Range
+TR_last2Hours=Last 2 hours
+#XTXT : Time Range
+TR_last8Hours=Last 8 hours
+#XTXT : Time Range
+TR_lastDay=Last 1 day
+#XTXT : Time Range
+TR_last2Days=Last 2 days
+#XTXT : Time Range
+TR_lastWeek=Last 1 week
+#XTXT : Time Range
+TR_lastMonth=Last 1 month
+#XTXT : Time Range
+TR_lastYear=Last 1 year
+
+#XLBL:since
+ConsTimeRangeFR_LBL=since {0}
+#XBUT:Apply
+TimeRange_Apply_BUT=Apply
+#XMSG:invalid time range
+InvalidRange_MSG=An invalid time range has been specified.
+#XLBL:
+TimeFormat_LBL=hh:mm:ss
+
+
+
+#XBUT: Delete
+Delete_BUT=Delete
+#XBUT: Cancel
+Cancel_BUT=Cancel
+#XBUT: Save
+Save_BUT=Save
+#XBUT: Edit
+Edit_BUT=Edit
+#XBUT: OK
+OK_BUT=OK
+#XBUT: New
+New_BUT=New
+#XBUT: Activate
+Activate_BUT=Activate
+#XBUT: Deactivate
+Deactivate_BUT=Deactivate
+#XBUT: Add
+Add_BUT=Add
+#XBUT: Save As
+Save_As_BUT=Save As
+#XBUT: Reopen
+Reopen_BUT=Reopen
+#XBUT: Export (Put into Replication Table)
+Export_BUT=Mark for Export
+#XBUT: Export (Put into Replication Table)
+ExportAll_BUT=Mark All for Export
+#XTIT: Export (Put into Replication Table)
+Export_TIT=Mark for Export
+#XBUT: Open
+Open_BUT=Open
+#XBUT: Create
+Create_BUT=Create
+#XBUT: Remove
+Remove_BUT=Remove
+#XBUT: Close
+Close_BUT=Close
+#XBUT: Help
+Help_BUT=Help
+
+#XTOL: Execution Result
+PatternNamePlaceholder=Enter the name of a pattern (at least 2 characters) ...
+
+#XTOL: Refresh
+Refresh_TOL=Refresh
+
+#XMSG: Cancel Confirmation 
+Confirm_Cancel_MSG=Changes will be lost. Do you want to cancel the edit?
+
+#XTIT: Confirmation
+Confirmation_TIT=Confirmation
+#XTIT: Sort and Filter
+SortAndFilter_TIT=Sort and Filter
+#XTIT: Confirm Deletion
+Delete_TIT=Delete
+#XTIT: Confirm Removal
+Remove_TIT=Remove
+
+#XTIT: Confirm Cancel
+Cancel_TIT=Cancel
+#XTIT: Pattern
+Pattern_TIT=Pattern
+
+#XMSG: Wrong Number Input
+Err_EnterIntValGreater0=Enter a number between 1 and 2147483647.
+
+#XFLD
+Yes_FLD=Yes
+#XFLD
+No_FLD=No
+
+#XFLD
+Active_FLD=Active
+#XFLD
+Inactive_FLD=Inactive
+
+
+#XMSG: Alert Trigger
+PEF_alertText1=Measurement {0} Exceeded Threshold {1}
+#XMSG: Alert Trigger
+PEF_alertText2=For {2} Measurement {0} Exceeded Threshold {1}
+#XMSG: Alert Trigger
+PEF_alertText3=Measurement {0} Reached Threshold {1}
+#XMSG: Alert Trigger
+PEF_alertText4=For {2} Measurement {0} Reached Threshold {1}
+#XMSG: Alert Trigger Text
+PEF_alertText5=Measurement {0} Is Below Threshold {1}
+#XMSG: Alert Trigger Text
+PEF_alertText6=For {2} Measurement {0} Is Below Threshold {1}
+#XMSG: Alert Trigger
+PEF_anomalyAlertText = Anomaly Score Is {0} For {2}
+#XMSG: Alert Trigger
+PEF_anomalyAlShortText =  Anomaly Score Is {0} 
+#XMSG: Alert Trigger
+PEF_avgAlShortText = Average Anomaly Score Is {0}
+#XMSG: Alert Trigger
+PEF_minAlShortText = Lowest Anomaly Score Is {0}
+#XMSG: Alert Trigger
+PEF_maxAlShortText = Highest Anomaly Score Is {0}
+
+#XLBL
+AnomalyPattern=Anomaly Pattern
+
+#XCOL
+Pattern_GroupByAttr_COL=Group by Attribute
+#XLBL:Full Screen Exemption UI
+Exemption_Validity_Active=Active until {0}
+#XLBL:Full Screen Exemption UI
+Exemption_Validity_Expired=Expired since {0}
+#XLBL:Full Screen Exemption UI
+Exemption_Validity_Planned=Planned to start {0}
+
+#XLBL: Filtered by:
+FilterBarPrefix=Filtered by:
+
+#XTIT:Bookmark
+MBookmark_TitleXTIT=Save as Tile
+#XLBL: Bookmark
+MBookmark_TitleXLBL=Title
+#XLBL: Bookmark
+MBookmark_SubTitleXLBL=Subtitle
+#XLBL: Bookmark
+MBookmark_AddInfoXLBL=Additional Info
+#XMSG: Bookmark
+MBookmark_SuccessXMSG=Tile saved
+#XMSG: Bookmark
+MBookmark_FailureXMSG=Saving Tile failed
+
+#XLBL: File name
+FileName=File Name
+#XLBL: File type
+FileType=File Type
+
+#XTOL: more...
+moreActionsTOL=More Actions...
+#XTOL: Back
+backTOL=Back
+
+#XMSG:Message, file too large
+Commons_FileSizeExceed=File Too Large (Up to 50 MB allowed)

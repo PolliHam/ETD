@@ -1,0 +1,39 @@
+{
+	"Name": "New Scenario",
+	"Namespace": null,
+	"Type": "Scenario",
+	"CreatedBy": null,
+	"CreatedTimestamp": null,
+	"ChangedBy": null,
+	"ChangedTimestamp": null,
+	"Content": [{
+		"Id": null,
+		"Name": "New Evaluation",
+		"Namespace": null,
+		"Period": {
+			"From": null,
+			"To": null
+		},
+		"Type": "Feature",
+		"CreatedBy": null,
+		"CreatedTimestamp": null,
+		"Description": null,
+		"Tags": [],
+		"FeatureProperties": {
+			"BaseMeasureId": null,
+			"BaselineSampleDuration": "12",
+			"Period": {
+				
+			},
+			"AggregationView": "\"_SYS_BIC\".\"sap.secmon.db.statisticalview/DayHourRawDataView\"",
+			"AggregationPivotView": "\"_SYS_BIC\".\"sap.secmon.db.statisticalview/DayHourDataAggregationPivotView\"",
+			"AggregationMethod": "calculateMeansAndStdDeviation_sameWeekDayTime",
+			"FeatureConfigurationId.Id": null,
+			"IncludeNegativeScore": 0,
+			"DimensionCount": null,
+			"AggregationCount": null,
+			"Dimensions": []
+		},
+		"PatternProperties": null
+	}]
+}

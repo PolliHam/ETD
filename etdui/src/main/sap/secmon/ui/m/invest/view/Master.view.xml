@@ -1,0 +1,41 @@
+<mvc:View controllerName="sap.secmon.ui.m.invest.view.Master"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page id="page" title="{i18nInvest>MInvest_List_Title}" navButtonPress="onBackButtonPressed"
+		showNavButton="true">
+		<subHeader>
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{device>/isNoTouch}"
+						search="onSearch" width="100%">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<List id="list"
+				items="{path: '/Investigation',
+				        sorter: {path: 'CreationDate', 
+                                	descending: true
+                                }
+                       }"
+				mode="{device>/listMode}" noDataText="{i18nInvest>MInvest_No_Data}"
+				selectionChange="onSelect" growing="true" growingScrollToLoad="true"
+				growingThreshold="100">
+				<items>
+					<StandardListItem type="{device>/listItemType}"
+						press="onSelect"
+						title="{parts : [ { path : 'Number'},{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/'}, { path : 'Severity' } ], formatter : 'sap.secmon.ui.m.invest.util.Formatter.titleFormatter'}"
+						description="{Description}"
+						info="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}">
+					</StandardListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

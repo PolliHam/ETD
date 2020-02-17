@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog id="addValueDialog" title="{i18n>EditValue}"
+		initialFocus="valueInput">
+		<content>
+			<Input editable="false" value="{/Name}">
+			</Input>
+			<Input id="value" value="{/Value}">
+			</Input>
+		</content>
+		<buttons>
+			<Button id="Ok_But" text="{i18nCommon>OK_BUT}" press="onOk" />
+			<Button text="{i18nCommon>Cancel_BUT}" press="onDialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

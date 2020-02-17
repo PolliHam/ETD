@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<List id="changesList"
+		items="{ path: 'Attachments',
+      			sorter: {path: 'CreationDate', descending: false},
+                filters: [{path: 'Type', operator: 'EQ', value1: 'CHANGE'}]
+       		}"
+       	showSeparators="None"
+       	growing="false" growingScrollToLoad="true" growingThreshold="100">
+		<items>
+			<CustomListItem>
+				<content>
+					<!-- for print preview in Chrome, use  width="790px" -->
+					<l:Grid width="790px">
+						<l:content>
+							<Title
+									text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}">
+							<layoutData>
+								<l:GridData span="L6 M6 S6" />
+							</layoutData>
+							</Title>
+							<Title text="{CreatedBy}">
+								<layoutData>
+									<l:GridData span="L6 M6 S6" />
+								</layoutData>
+							</Title>
+						    <core:HTML class="wrappedText"
+					            		content="{path:'Content', formatter:'sap.secmon.ui.commons.Formatter.encodeHTML'}"
+										sanitizeContent="false"
+										>
+								<core:layoutData>
+									<l:GridData indent="L1 M1 S1" span="L11 M11 S11" />
+								</core:layoutData>
+							</core:HTML>
+					</l:content>
+				</l:Grid>
+				</content>
+			</CustomListItem>
+		</items>
+	</List>
+
+
+</core:FragmentDefinition>

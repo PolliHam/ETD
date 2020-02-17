@@ -1,0 +1,91 @@
+<mvc:View viewName="sap.secmon.ui.malimon.CaseFileList"
+    controllerName="sap.secmon.ui.malimon.CaseFileList" height="100%"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+    xmlns:etd="sap.secmon.ui.m.commons.controls">
+    <Page id="page" title="{i18n>MM_TIT_CaseFile}" showNavButton="{path : 'UIModel>/backButtonVisible/'}"
+        navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+        <headerContent>
+            <Button
+              icon="sap-icon://sys-help"
+              tooltip="{i18nCommon>Help_BUT}"
+              press="onHelpPress" />
+        </headerContent>
+        <subHeader>
+            <Toolbar>
+                <content>
+                    <Button id="createCaseFileButtonId" icon="sap-icon://add-activity-2" tooltip="{i18n>CF_TOL_Create}" press="onCreateCaseFile" visible = "{UIModel>/addButtonVisible}"/>
+                    <SearchField placeholder="{i18n>MM_Search_Placeholder}"
+                                 showSearchButton="true" tooltip="{i18n>MM_TOL_Search}" liveChange="onSearch" />
+
+                    <Button id="open" icon="sap-icon://open-folder" visible="false"
+                            enabled="{path : 'CaseFileList>/selectedItems', formatter: '.enabledFormatterOpen'}"
+                            tooltip="Open" press="toDo" />
+                    <Button id="delete" icon="sap-icon://delete"
+                            visible="{=${applicationContext>/userPrivileges/casefileWrite} &amp;&amp; ${UIModel>/deleteButtonVisible} }"
+                            enabled="{path : 'CaseFileList>/selectedItems/', formatter: '.enabledFormatter'}"
+                            tooltip="{i18n>MM_TOL_CFDelete}" press="onDeletePress" />
+                    <Button id="download" icon="sap-icon://download" visible="false"
+                            enabled="{path : 'CaseFileList>/selectedItems/', formatter: '.enabledFormatter'}"
+                            tooltip="{i18n>BU_BUT_WSDownload}" press="toDo" />
+                </content>
+            </Toolbar>
+
+        </subHeader>
+        <content>
+           <etd:ColumnClickableTable id="caseFileTable" inset="false"
+            fixedLayout="false" items="{path: 'CaseFileList>/all/' }" growing="true"
+            growingScrollToLoad="true" growingThreshold="100" selectionChange="onSelectionChange"
+            columnPress="handleSort" itemPress="onPressOpenCaseFile" class="sapEtdScrollTable"
+            mode="{path: 'applicationContext>/userPrivileges/casefileWrite', formatter: 'sap.secmon.ui.commons.Formatter.tableModeFormatter'}">
+            <etd:columns>
+                <etd:SortableColumn
+                sortProperty="CaseFileList>Name">
+                <etd:SortableItem text="{i18n>MM_COL_CFName}" />
+                </etd:SortableColumn>
+
+                <etd:SortableColumn
+                sortProperty="CaseFileList>Namespace">
+                <etd:SortableItem text="{i18n>MM_COL_CFNamespace}" />
+                </etd:SortableColumn>
+
+                <etd:SortableColumn
+                sortProperty="CaseFileList>CreatedBy">
+                <etd:SortableItem text="{i18n>MM_COL_CreatedBy}" />
+                </etd:SortableColumn>
+
+                <etd:SortableColumn
+                sortProperty="CaseFileList>CreatedAt">
+                <etd:SortableItem text="{i18n>MM_COL_CreatedAt}" />
+                </etd:SortableColumn>
+
+                <etd:SortableColumn
+                sortProperty="CaseFileList>ChangedBy">
+                <etd:SortableItem text="{i18n>MM_COL_ChangedBy}" />
+                </etd:SortableColumn>
+
+                <etd:SortableColumn
+                sortProperty="CaseFileList>ChangedAt">
+                <etd:SortableItem text="{i18n>MM_COL_ChangedAt}" />
+                </etd:SortableColumn>
+
+            </etd:columns>
+            <etd:items>
+                <ColumnListItem vAlign="Middle" type="{UIModel>/columnItemsType}">
+                    <cells>
+                        <Text text="{CaseFileList>Name}" />
+                        <Text text="{CaseFileList>Namespace}" />
+                        <Text text="{CaseFileList>CreatedBy}" />
+                        <Text
+                            text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CaseFileList>CreatedAt'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+                        <Text text="{CaseFileList>ChangedBy}" />
+                        <Text
+                            text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CaseFileList>ChangedAt'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+                    </cells>
+                </ColumnListItem>
+            </etd:items>
+        </etd:ColumnClickableTable>
+        </content>
+        <footer>
+        </footer>
+    </Page>
+</mvc:View>

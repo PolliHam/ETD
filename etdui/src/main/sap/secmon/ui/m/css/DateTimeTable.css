@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+
+.tableRowWithoutOutline {
+	outline: 0px !important;
+}

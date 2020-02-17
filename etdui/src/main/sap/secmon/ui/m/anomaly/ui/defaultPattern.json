@@ -1,0 +1,28 @@
+{
+	"Name": "New Pattern",
+	"Namespace": null,
+	"Type": "Pattern",
+	"CreatedBy": null,
+	"CreatedTimestamp": null,
+	"ChangedBy": null,
+	"ChangedTimestamp": null,
+	"Content": [{
+		"Id": null,
+		"Name": "New Pattern",
+		"Namespace": null,
+		"Type": "Pattern",
+		"CreatedBy": null,
+		"CreatedTimestamp": null,
+		"Description": null,
+		"Tags": [],
+		"FeatureProperties": null,
+		"PatternProperties": {
+			"Features": [],
+			"Severity": "HIGH",
+			"Function": "MAX",
+			"ExecutionOutput": "ALERT",
+			"TestMode": "TRUE",
+			"Status": "ACTIVE"
+		}
+	}]
+}

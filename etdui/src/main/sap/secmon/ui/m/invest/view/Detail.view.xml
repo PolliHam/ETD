@@ -1,0 +1,128 @@
+<mvc:View controllerName="sap.secmon.ui.m.invest.view.Detail"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+	<Page id="investigationDetailsContainer" showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack" class="sapUiFioriObjectPage"
+	    busyIndicatorDelay="50"
+		title="{parts: [{path:'i18nInvest>MInvest_Detail_Title'},{path:'Number'}],
+		         formatter: 'sap.secmon.ui.commons.Formatter.i18nText'
+		         }">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" visible="{editModel>/displayMode}" class="noPrint" />
+		</headerContent>
+		<content>
+		
+			<!-- visible on screen only (see CSS class noPrint) -->
+			<Panel id="headerPanel" expandable="true" expanded="true" headerText="{Description}">
+				<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.InvestigationHeader" type="XML" />
+			</Panel>
+
+			<IconTabBar select="onDetailSelect" id="idIconTabBar" expandable="true" class="noPrint">
+				<items>
+					<IconTabFilter  id="discussionTab" key="discussion"
+						text="{parts: [{path:'i18nInvest>MInvest_Discussion'},{path:'uiModel>/commentsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+						<content>
+							<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.Comments"
+								type="XML" />
+						</content>
+					</IconTabFilter>				
+					<IconTabFilter id="alertTab" key="alerts"
+						text="{parts: [{path:'i18nInvest>MInvest_Alert'},{path:'uiModel>/alertsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+						<content>
+							<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.AlertTable"
+								type="XML" />
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="objects"
+						text="{parts: [{path:'i18nInvest>MInvest_Object'},{path:'uiModel>/objectsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+						<content>
+							<l:Splitter height="100%" orientation="Horizontal" id="iconTabBarObjects" class="investSplitterGrey">
+								<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.ObjectList" type="XML"/>
+							</l:Splitter>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter  id="filesTab" key="files"
+						text="{parts: [{path:'i18nInvest>MInvest_CombAtt'},{path:'uiModel>/filesCount'}, {path:'uiModel>/patternAttachmentsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+						<content>
+							<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.Files"
+								type="XML" />
+						</content>
+					</IconTabFilter>
+					<IconTabFilter  id="actionsTab" key="actions"
+						text="{parts: [{path:'i18nInvest>MInvest_Actions'},{path:'uiModel>/changesCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+						<content>
+							<core:Fragment fragmentName="sap.secmon.ui.m.invest.view.Changes"
+								type="XML" />
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<!-- end of screen section -->
+			
+			<!-- visible on print only (see CSS class noScreen) -->
+			<Panel id="discussionPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Discussion'},{path:'uiModel>/commentsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <!--  content added on demand due to possibly costly backend requests -->
+            </Panel>
+            <Panel id="alertPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Alert'},{path:'uiModel>/alertsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <!--  content added on demand due to possibly costly backend requests -->
+            </Panel>
+			<Panel id="objectPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Object'},{path:'uiModel>/objectsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <core:Fragment fragmentName="sap.secmon.ui.m.invest.view.ObjectListPrintOnly" type="XML"/>
+            </Panel>          
+            
+            <Panel id="filesPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Att'},{path:'uiModel>/filesCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <!-- content added on demand due to possibly costly backend requests -->
+            </Panel>
+            <Panel id="patternFilesPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_PattRAtt'},{path:'uiModel>/patternAttachmentsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <!-- content added on demand due to possibly costly backend requests -->
+            </Panel>
+			<Panel id="actionsPanelForPrint" expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Actions'},{path:'uiModel>/changesCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" class="noScreen">
+                        <!--  content added on demand due to possibly costly backend requests -->
+            </Panel>
+            <!-- end of print section -->
+            
+		</content>
+		<footer>
+			<OverflowToolbar class="noPrint">
+				<content>
+					<ToolbarSpacer />
+					<Button text="{i18n>MInvest_StartEvents}" press="onStartEventsJob" visible="{ parts:[{path: 'AlertCount'},{path: 'Status'},{path: 'editModel>/displayMode'}],
+                                       formatter: 'sap.secmon.ui.m.invest.util.Formatter.displayStartTriggeringEventsJobFormatter'}"
+                                       enabled="{eventsJobModel>/eventsJobNotStarted}" />
+					<Button xmlns="sap.m" text="{i18nCommon>Edit_BUT}"
+						visible="{ parts:[{path: 'Status'},{path: 'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/investigationWrite'} ],
+                                       formatter: 'sap.secmon.ui.m.invest.util.Formatter.editVisibleFormatter'}"
+						press="onEdit">
+					</Button>
+                    <Button xmlns="sap.m" text="{i18nCommon>Reopen_BUT}" class="noPrint"
+                            visible="{ parts:[{path: 'Status'},{path: 'editModel>/displayMode'}],
+                                       formatter: 'sap.secmon.ui.m.invest.util.Formatter.reopenVisibleFormatter'}" 
+                                       press="onReopen">
+                    </Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Save_BUT}" class="noPrint"
+						visible="{editModel>/editMode}" press="onSave" type="Emphasized">
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Cancel_BUT}"
+						visible="{editModel>/editMode}" press="onCancel">
+					</Button>
+					<Button icon="sap-icon://print" tooltip="{i18n>Print_XTIT}"
+						press="handlePrintPressed" visible="{editModel>/displayMode}" />
+					<Button icon="sap-icon://email" tooltip="{i18n>AlertEmail_XTIT}"
+						press="handleEmailButtonPressed" visible="{=${editModel>/displayMode} &amp;&amp; ${applicationContext>/userPrivileges/investigationRead}}" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

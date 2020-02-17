@@ -1,0 +1,135 @@
+
+#XTIT: Resolve User UI App Title
+ResolveUser_ApplTitle=Resolve User Identity
+#XTIT: Resolve User UI Tab Title Resolve User from Pseudonym
+ResolveUser_TabTitleResolve=Resolve
+#XTIT: Resolve User UI Tab Title Resolve Pseudonym from User
+ResolveUser_TabTitleResolveReverse=Reverse
+#XTIT: Resolve User UI Tab Title Help
+ResolveUser_TabTitleHelp=Help
+#XTIT: Resolve User UI Tab Title Protocol
+ResolveUser_TabTitleLog=Log
+#XBUT: Resolve User UI Resolve Action Button
+ResolveUser_ActionResolve=Resolve
+#XLBL: Resolve User UI Resolve Pseudonym System Data Table Title
+ResolveUser_SystemData=User Accounts
+#XMSG: Resolve User UI Error Message User Name Invalid
+ResolveUser_MSG_InvalidUser=Invalid User Name
+#XTIT: Resolve User UI Error Message Dialog Title
+ResolveUser_DialogErrorTitle=Error
+#XBUT: Resolve User UI Error Message Dialog Close Button
+ResolveUser_DialogCloseButton=Close
+#XTIT: Resolve User UI User Pseudonym Resolve Results
+ResolveUser_ActivePseudonyms=Active User Pseudonyms
+#XTIT: Resolve User UI User Pseudonym List Column Pseudonym
+ResolveUser_Pseudonym=Pseudonym
+#XTIT: Resolve User UI User Pseudonym List Column Created
+ResolveUser_Created=Created
+#XTIT: Resolve User UI User Pseudonym List Column ValidTo
+ResolveUser_ValidTo=Valid Until
+#XTIT: Resolve User UI Protocol View Title
+ResolveUser_LogTitle=Resolve User Activity Protocol
+#XTIT: Resolve User UI Form Title 1
+ResolveUser_FormTit=Resolve User Name
+#XTIT: Resolve User UI Form Title 2
+ResolveUser_FormTitle=Pseudonym
+#XBUT: Resolve User UI Help Button
+ResolveUser_Help_Button=Help
+#XLBL: Resolve User UI
+ResolveUser_SAP_Name=SAP Name
+#XLBL: Resolve User UI
+ResolveUser_PersNumber=Personnal Number
+#XLBL: Resolve User UI
+ResolveUser_FirstName=First Name
+#XLBL: Resolve User UI
+ResolveUser_MiddleName=Middle Name
+#XLBL: Resolve User UI
+ResolveUser_SurName=Sur Name
+#XCOL: Resolve User UI
+ResolveUser_Email=Email Address
+#XTIT: Resolve User UI
+ResolveUser_UserContext=User Context
+#XCOL: Resolve User UI
+ResolveUser_SystemTypeCOL=System Type
+#XCOL: Resolve User UI
+ResolveUser_SystemUserCOL=User Account Name
+#XCOL: Resolve User UI
+ResolveUser_UserGroupCOL=User Group
+#XCOL: Resolve User UI
+ResolveUser_UserTypeCOL=User Type
+#XCOL: Resolve User UI
+ResolveUser_SystemCOL=System
+#XTIT: Resolve User UI
+ResolveUser_ResolveTab=Resolve User Identity
+#XTIT: Resolve User UI
+ResolveUser_ProtocolTab=Log
+#XCOL: Resolve User UI
+ResolveUser_Text=Text
+#XCOL: Resolve User UI
+ResolveUser_User=User
+#XCOL: Resolve User UI
+ResolveUser_EntityOperation=Operation
+#XCOL: Resolve User UI
+ResolveUser_Timestamp=Timestamp
+#XMSG: Resolve User UI
+ResolveUser_MSG_InvalidUserId=No Data for User Pseudonym {0}
+#XBUT: Resolve User UI
+ResolveUser_ActionNavigateToFL=Process in Forensic Lab
+#XTIT: Resolve User UI
+ResolveUser_RoleSelection=Role selection
+#XTIT: Resolve User UI
+ResolveUser_ChooseAtLeastOne=Choose at least one role for navigation
+#XCOL: Resolve User UI 
+ResolveUser_Name=Name
+#XLBL: Resolve User UI Resolve Pseudonym Title
+RsUsr_ResolveUserPseudo=Resolve pseudonym to account name
+#XLBL: Resolve User UI Resolve Pseudonym Title
+RsUsr_AccountName=Account Name
+#XLBL: Resolve User UI
+RsUsr_PersNumber=Personnal Number
+#XLBL: Resolve User UI
+RsUsr_emailadr=Email Address
+#XLBL: Resolve User UI
+RsUsr_alias=Alias
+#XLBL: Resolve User UI
+RsUsr_SAPName=SAP Name
+#XLBL: Resolve User UI
+RsUsr_SNCNameP=SNC Name
+#XLBL: Resolve User UI
+RsUsr_AccountNumber=Account Number
+#XBUT: Resolve User UI 
+RsUsr_Calculate=Calculate Related Accounts
+#XLBL: Resolve User UI
+RsUsr_ChoosePropert=Select properties to be used for calculation of related accounts
+#XCOL: Resolve User UI 
+RsUsr_AccountName_C=Account Name
+#XCOL: Resolve User UI
+RsUsr_FirstName_C=Firstname
+#XCOL: Resolve User UI
+RsUsr_SurName_C=Surname
+#XCOL: Resolve User UI
+RsUsr_Email_C=Email Address
+#XCOL: Resolve User UI
+RsUsr_SAPName_C=SAP Name
+#XCOL: Resolve User UI
+RsUsr_PersNumber_C=Personnal Number
+#XCOL: Resolve User UI
+RsUsr_AccountNumber_C=Account Number
+#XCOL: Resolve User UI
+RsUsr_Alias_C=Alias
+#XTIT: Resolve User UI
+RsUsr_RelatedAccounts_T=Related Accounts Calculation
+#XMSG:Resolve User UI
+RsUsr_EnterAccName=Enter an account name
+#XMSG:Resolve User UI
+RsUsr_TooManyAccounts=Too many account names have been found. Adjust the property selection.
+#XMSG:Resolve User UI
+RsUsr_EnterPseudonym=Enter a valid pseudonym
+#XLBL: Resolve User UI
+RsUsr_ResolveAccName=Resolve account name to pseudonym
+#XTXT: Resolve User UI Input Account Name Placeholder
+RsUsr_InputAccName=Enter account name
+#XTXT: Resolve User UI Input Pseudonym Placeholder
+RsUsr_InputPseudo=Enter pseudonym
+#XCOL: Resolve User UI
+RsUsr_EntityName=Pseudonym / Account Name

@@ -1,0 +1,119 @@
+# TRANSLATE
+#XTIT:Mobile Full Screen Pattern UI
+PatternsTitle=Patterns
+#XTIT:Mobile Full Screen Pattern UI
+ExemptionsTitle=Exemptions
+#XTIT:Mobile Full Screen Pattern UI
+ExemptionTitle=Exemption
+#XTIT: Mobile Full Screen Patter UI Dialog title
+PatternPostProcessing=Schedule Pattern Post Processing
+#XCOL:Mobile Full Screen Pattern UI
+PatternName=Name
+#XCOL:Mobile Full Screen Pattern UI
+PatternNameSpace=Namespace
+#XCOL:Mobile Full Screen Pattern UI
+PatternDescription=Description
+#XCOL:Mobile Full Screen Pattern UI
+PatternOpenAlerts=Open Alerts
+#XBUT:Mobile Full Screen Pattern UI
+PatternActivate=Activate
+#XBUT:Mobile Full Screen Pattern UI
+PatternDeactivate=Deactivate
+#XBUT:Mobile Full Screen Pattern UI
+PatternExecute=Execute
+#XBUT:Mobile Full Screen Pattern UI
+PatternSchedule=Schedule
+#XBUT:Mobile Full Screen Pattern UI
+PatternOpen=Open
+#XBUT:Mobile Full Screen Pattern UI
+PatternTestModeOn=Test Mode On
+#XBUT:Mobile Full Screen Pattern UI
+PatternTestModeOff=Test Mode Off
+#XTIT:Mobile Full Screen Pattern UI
+AlertsOfPattern=Alerts of Pattern {0}
+#XCOL:Mobile Full Screen Pattern UI
+Severity=Severity
+#XCOL:Mobile Full Screen Pattern UI
+AssignmentType=Assignment Type
+#XCOL:Mobile Full Screen Pattern UI
+AlertCreationTime=Alert Creation Time
+#XCOL:Mobile Full Screen Pattern UI
+UserPseudonym=User Pseudonym
+#XCOL:Mobile Full Screen Pattern UI
+System=System
+#XCOL:Mobile Full Screen Pattern UI
+CreatedBy=Created By
+#XCOL:Mobile Full Screen Pattern UI
+StatusXcol=Status
+#XCOL:Mobile Full Screen Pattern UI
+PatternPostprocessingStatus=Post-Processing
+#XCOL: Label for Scenario in Filterbar for Pattern
+ScenariosXcol=Scenarios
+#XLBL:Mobile Full Screen Pattern UI
+Execution_Time=Execution Time
+#XLBL:Mobile Full Screen Pattern UI
+Total_Runtime=Runtime (in ms)
+#XLBL:Mobile Full Screen Pattern UI
+Exec_Result_Status=Status
+#XLBL:Mobile Full Screen Pattern UI
+PatternNameXLBL=Name
+#XLBL:Mobile Full Screen Pattern UI
+PatternNameSpaceXLBL=Namespace
+#XLBL:Mobile Full Screen Pattern UI
+PatternDescriptionXLBL=Description
+#XLBL:Mobile Full Screen Pattern UI
+PatternRunsEveryXLBL=Runs Every (min)
+#XLBL:Mobile Full Screen Pattern UI
+PatternStatusXLBL=Status
+#XLBL:Mobile Full Screen Pattern UI
+PatternThresholdXLBL=Alert Threshold
+#XTIT:Mobile Full Screen Pattern UI
+PatternTitle=Pattern {0}
+#XBUT:Mobile Full Screen Pattern UI
+Start_Investigation=Start Investigation
+#XMSG:Mobile Full Screen Pattern UI
+Create_Invest_Success=Investigation {0} was created successfully.
+#XLBL:Mobile Full Screen Pattern UI
+PatternCreatedBy=Created By
+#XLBL:Mobile Full Screen Pattern UI
+PatternStatus=Status
+#XLBL:Mobile Full Screen Pattern UI
+TestModeXcol=Test Mode
+#XLBL:Mobile Full Screen Pattern UI
+ExecutionOutputXcol=Execution Output
+#XMSG:Mobile Full Screen Pattern UI
+Pattern_Activat_Success=Selected patterns were activated.
+#XMSG:Mobile Full Screen Pattern UI
+Pattern_Deactivat_Success=Selected patterns were deactivated.
+#XMSG:Mobile Full Screen Pattern UI
+Pattern_Change_Failure=An error occurred while changing the selected patterns.
+#XMSG:Mobile Full Screen Pattern UI
+Pattern_TestmodeOn_Succ=Test Mode was switched on for selected patterns.
+#XMSG:Mobile Full Screen Pattern UI
+Pattern_TestmodeOff_Succ=Test Mode was switched off for selected patterns.
+#XLBL:Mobile Full Screen Pattern UI
+Pattern_Search=Pattern Search:
+#XLBL: Bookmark for Pattern
+MBookmark_PatternXLBL=Patterns
+#XBUT:Mobile Full Screen Pattern UI Dialog
+configureCancelPattern=Cancel
+#XBUT:Mobile Full Screen Pattern UI Dialog
+configureSubmitPattern=Submit
+XTOL:Mobile FullScreen Pattern Tooltip
+PatternScheduleDetail=Schedule Time Range for Pattern Execution
+#XTXT: Mobile Full Screen Pattern UI Success Message
+PatternScheduleSuccess = The pattern post processing job was scheduled successfully.
+#XTXT: Mobile Full Screen Pattern UI Dialog Validation Retention Period Date Error
+ErrorPeriodScheduleDates = The datetime range should not exceed {0} days (Retention period).
+#XTXT: Mobile Full Screen Pattern UI Dialog Validation Retention Period Date Error
+ErrorFutureScheduleDates = You may enter a datetimes in the past.
+#XTXT: Mobile Full Screen Pattern UI Dialog TimeRange Error
+ErrorTimeRangeScheduleDates = You may enter datetimes within a valid timerange.
+#XTXT: Mobile Full Screen Pattern UI Dialog Duplicate Error
+PatternScheduleDuplicateError=The selected Pattern is already scheduled. Please select a pattern which was not scheduled yet.
+#XTXT: Mobile Full Screen Pattern UI Table Cell
+YesPatternPostprocessing=Yes
+#XTXT: Mobile Full Screen Pattern UI Table Cell
+NoPatternPostprocessing=No
+#XBUT:Mobile Full Screen Pattern UI Dialog. Internal Note: Please do not translate html tags <text> (e.g. <small> or <b>)
+PostProcessingHint=<small><b>Hint:</b> Post Processing jobs running periodically. It may take up to 24 hours.</small>

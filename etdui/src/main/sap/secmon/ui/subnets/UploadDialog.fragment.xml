@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	xmlns:unified="sap.ui.unified">
+	<Dialog title="{i18n>Subnets_FileUpload}">
+		<layout:Grid defaultSpan="L6 M6 S6" hSpacing="0.5">
+			<Text text="{i18n>Subnets_File}">
+				<layoutData>
+					<layout:GridData span="L4 M4 S4" />
+				</layoutData>
+			</Text>
+			<unified:FileUploader id="subnetsFileUploader"
+				name="subnetsFileUploader" multiple="false" maximumFileSize="50"
+				fileType="csv" sendXHR="true" uploadOnChange="false"
+				uploadUrl="{= ${UI>/csvWithHeader} === true ? '/sap/secmon/iphandler/subnetsFileUpload.xsjs?command=createSubnetsCSVWithHeader' : '/sap/secmon/iphandler/subnetsFileUpload.xsjs?command=createSubnets' }"
+				uploadComplete="onUploadComplete" fileSizeExceed="onFileSizeExceed"
+				typeMissmatch="onTypeMissmatch">
+				<unified:layoutData>
+					<layout:GridData span="L7 M7 S7" />
+				</unified:layoutData>
+			</unified:FileUploader>
+			<Button icon="sap-icon://sys-help" type="Transparent" press="onUploadHelp">
+				<layoutData>
+					<layout:GridData span="L1 M1 S1" />
+				</layoutData>
+			</Button>
+
+			<Text text="{i18n>Subnets_FileHeader}">
+				<layoutData>
+					<layout:GridData span="L4 M4 S4" />
+				</layoutData>
+			</Text>
+			<CheckBox selected="{UI>/csvWithHeader}">
+				<layoutData>
+					<layout:GridData span="L7 M7 S7" />
+				</layoutData>
+			</CheckBox>
+		</layout:Grid>
+		<buttons>
+			<Button id="Ok" text="{i18n>Subnets_Ok}" press="onDialogUploadOk" />
+			<Button id="Cancel" text="{i18n>Subnets_Cancel}" press="onDialogUploadCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

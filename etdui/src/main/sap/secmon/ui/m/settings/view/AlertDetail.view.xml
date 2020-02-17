@@ -1,0 +1,188 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.AlertDetail"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Page id="AlertDetailPage" showNavButton="{device>/isPhone}"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{i18n>MngAl_XTIT}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>			
+		<content>
+			<Panel id="commonPanel" expandable="true" expanded="true">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Text text="{i18n>MngAl_COMMON_LBL}" />
+					</OverflowToolbar>
+				</headerToolbar>
+				<content>
+					<l:Grid defaultSpan="L1 M2 S4" class="gridMarginTop"
+						hSpacing="1" vSpacing="0">
+						<l:content>
+
+							<Input
+								value="{path:'i18n>MngAl_BaseServer_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatMandatoryLabel'}"
+								editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" linebreak="true" />
+								</layoutData>
+							</Input>
+							<Input id="baseURL" type="Url" liveChange="validateUrl"
+								value="{/BaseUrl}" editable="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}">
+								<layoutData>
+									<l:GridData span="L6 M8 S12" />
+								</layoutData>
+							</Input>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+
+			<Panel id="restPanel" expandable="true" expanded="true">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Text text="{i18n>MngAl_REST_LBL}" />
+						<ToolbarSpacer />
+						<CheckBox id="rest" select="validateControls"
+							selected="{/SendAlertsToHttpDestination}" enabled="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<content>
+					<l:Grid defaultSpan="L1 M2 S4" class="gridMarginTop"
+						hSpacing="1" vSpacing="0">
+						<l:content>
+
+							<Input
+								value="{path:'i18n>MngAl_RestFormat_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}"
+								editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" linebreak="true" />
+								</layoutData>
+							</Input>
+							<ComboBox selectedKey="{/SendAlertsFormat}" enabled="{/SendAlertsToHttpDestination}" editable="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}">
+								<layoutData>
+									<l:GridData span="L4 M8 S12" />
+								</layoutData>
+								<core:Item key="json" text="{i18n>MngAl_JSON_LBL}" />
+								<core:Item key="syslogPackagedJson" text="{i18n>MngAl_PackagesJSON_LBL}" />
+								<core:Item key="splunkJson" text="{i18n>MngAl_SplunkJSON_LBL}" />
+							</ComboBox>
+
+                            <Image src="/sap/secmon/ui/m/settings/view/splunk-logo.png"
+                                alt="Splunk Logo"
+                                visible="{=${/SendAlertsFormat} === 'splunkJson'}" height="27px">
+                                <layoutData>
+                                    <l:GridData span="L4 M8 S12" />
+                                </layoutData>
+                            </Image>
+
+							<Input
+								value="{path:'i18n>MngAl_Timezone_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatMandatoryLabel'}"
+								visible="{=${/SendAlertsFormat} === 'syslogPackagedJson'}"
+								editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" linebreak="true" />
+								</layoutData>
+							</Input>
+							<Input id="timezone" liveChange="validateTimezone"
+								visible="{=${/SendAlertsFormat} === 'syslogPackagedJson'}"
+								value="{/TimeZoneInOlsonFormat}" enabled="{/SendAlertsToHttpDestination}">
+								<layoutData>
+									<l:GridData span="L6 M8 S12" />
+								</layoutData>
+							</Input>
+
+							<Input
+								value="{path:'i18n>MngAl_Trigg_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}"
+								editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S9" linebreak="true" />
+								</layoutData>
+							</Input>
+							<CheckBox selected="{/SendAlertsIncludeTriggeringEvents}"
+								enabled="{= ${/SendAlertsToHttpDestination} === true &amp;&amp; ${applicationContext>/userPrivileges/settingsManageAlertPublishingWrite} === true}">
+								<layoutData>
+									<l:GridData span="L8 M8 S3" />
+								</layoutData>
+							</CheckBox>
+
+							<Input
+								value="{path:'i18n>MngAl_PatFil_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}"
+								editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S9" linebreak="true" />
+								</layoutData>
+							</Input>
+							<Select id="ICDhanaUsers" selectedKey="{/SendAlertsPatternFilter}"
+								enabled="{= ${/SendAlertsToHttpDestination} === true &amp;&amp; ${applicationContext>/userPrivileges/settingsManageAlertPublishingWrite} === true}" autoAdjustWidth="true"
+								items="{path: 'PatternFilters>/PatternFilterHeaderWithEmptyHeader', sorter: {path: 'Name', descending: false}}">
+								<layoutData>
+									<l:GridData span="L8 M8 S12" />
+								</layoutData>
+								<core:Item key="{PatternFilters>Id}"
+									text="{parts: [{path:'i18n>MngAl_NoFil_LBL'}, {path: 'PatternFilters>Name'}], formatter : 'sap.secmon.ui.m.settings.util.Formatter.formatPatternFilter'}" />
+							</Select>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel id="mailPanel" expandable="true" expanded="true">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Text text="{i18n>MngAl_Mail_LBL}" />
+						<ToolbarSpacer />
+						<CheckBox id="email" select="validateControls"
+							selected="{/SendAlertMailNotifications}" enabled="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<content>
+					<l:Grid defaultSpan="L1 M2 S4" class="gridMarginTop"
+						hSpacing="1" vSpacing="0">
+						<l:content>
+							<Input editable="false"
+								value="{path: 'i18n>MngAl_Severity_LBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" linebreak="true"></l:GridData>
+								</layoutData>
+							</Input>
+							<ComboBox selectedKey="{/SendAlertMinSeverity}" tooltip="{i18n>MngAl_MinSeverity_XTOL}"
+								items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}"
+								enabled="{= ${/SendAlertMailNotifications} === true &amp;&amp; ${applicationContext>/userPrivileges/settingsManageAlertPublishingWrite} === true}">
+								<core:Item text="{enums>Value}" key="{enums>Key}" />
+								<layoutData>
+									<l:GridData span="L8 M8 S12"></l:GridData>
+								</layoutData>
+							</ComboBox>
+
+							<Input editable="false"
+								value="{parts:[{path: 'i18n>MngAl_Sender_LBL'}, {path: '/SendAlertMailNotifications'}], formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatMandatoryLabel'}">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" linebreak="true"></l:GridData>
+								</layoutData>
+							</Input>
+							<Input id="senderAddress" type="Email" liveChange="validateEmail"
+								value="{/SendAlertMailSenderAddress}" enabled="{/SendAlertMailNotifications}" editable="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}">
+								<layoutData>
+									<l:GridData span="L6 M8 S12"></l:GridData>
+								</layoutData>
+							</Input>
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button xmlns="sap.m" text="{i18nCommon>Save_BUT}" press="onSave"
+						visible="{applicationContext>/userPrivileges/settingsManageAlertPublishingWrite}"
+						type="Emphasized">
+					</Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
+

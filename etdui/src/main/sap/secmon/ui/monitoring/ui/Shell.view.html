@@ -1,0 +1,37 @@
+<template data-controller-name="sap.secmon.ui.monitoring.Shell"
+	data-width="100%" data-height="100%">
+<div id="shlMain" data-sap-ui-type="sap.ui.ux3.Shell"
+	data-app-icon="ui/img/SAPLogo.gif" data-app-title="{i18n>MonHeader}"
+	data-show-logout-button="false" data-show-search-tool="false"
+	data-show-inspector-tool="false" data-show-feeder-tool="false"
+	data-pane-width="100%" data-logout="shlUILogout"
+	data-full-height-content="true" data-show-tools="false"
+	data-show-pane="false" data-header-type="NoNavigation"
+	data-apply-content-padding="false">
+
+	<div data-sap-ui-aggregation="headerItems">
+		<div data-sap-ui-type="sap.ui.commons.TextView"
+			id="textSelectedConfiguration"
+			data-text="{MonitoringModel>/selectedConfigurationName}"
+			data-tooltip="{i18n>MonConfigurationTt}"></div>
+			<div data-sap-ui-type="sap.ui.commons.Button" id="btnFavorite"
+            data-icon="{MonitoringModel>/favoriteButton}" data-press="onPressedFavorite"
+            data-tooltip="{i18n>MonFavoriteTt}" data-type="Transparent"></div>
+		<div data-sap-ui-type="sap.ui.commons.Button" id="btnPersonalize"
+			data-icon="sap-icon://wrench" data-press="onPressedConfigure"
+			data-tooltip="{i18n>MonPersonalizeTt}" data-type="Transparent"></div>
+		<div data-sap-ui-type="sap.ui.commons.Button" id="linkHelp"
+			data-press="onPressHelp" data-icon="sap-icon://sys-help"
+			data-type="Transparent"></div>
+	</div>
+
+	<div data-sap-ui-aggregation="notificationBar">
+		<div data-sap-ui-type="sap.ui.ux3.NotificationBar">
+			<div data-sap-ui-aggregation="messageNotifier">
+				<div data-sap-ui-type="sap.ui.ux3.Notifier"
+					data-message-selected="onMessageSelected"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</template>

@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="RunName"
+				text="{i18n>Interpret_RunName}" />
+			<ViewSettingsItem key="Description" text="{i18n>Interpret_Description}" />
+			<ViewSettingsItem key="CommandType" text="{i18n>Interpret_CommandType}" />
+			<ViewSettingsItem key="Status" text="{i18n>Interpret_Status}" />
+			<ViewSettingsItem key="StagingRulesStatus" text="{i18n>Interpret_StageStatus}" />
+			<ViewSettingsItem key="ProductiveRulesStatus" text="{i18n>Interpret_ProdStatus}" />
+			<ViewSettingsItem key="CreatedBy" text="{i18n>Interpret_CreatedBy}" />
+			<ViewSettingsItem key="CreatedTimestamp" text="{i18n>Interpret_CreatedTS}" />
+			<ViewSettingsItem key="ChangedBy" text="{i18n>Interpret_ChangedBy}" />
+			<ViewSettingsItem key="ChangedTimestamp" text="{i18n>Interpret_ChangedTS}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

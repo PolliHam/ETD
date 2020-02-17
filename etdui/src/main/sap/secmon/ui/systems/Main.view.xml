@@ -1,0 +1,157 @@
+<mvc:View controllerName="sap.secmon.ui.systems.Main"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls">
+	<Page id="page" title="{i18n>SysCtx_Systems}" showNavButton="true"
+		navButtonPress="onNavBack" enableScrolling="true">
+		<content>
+			<l:FixFlex class="fixFlexVertical">
+				<l:fixContent>
+					<fb:FilterBar clear="onClear" search="onSearch"
+						class="filterBarWithSameSizedItems"
+						showRestoreButton="false" showClearButton="true"
+						filterBarExpanded="true" id="filterBar">
+						<fb:filterItems>
+							<fb:FilterItem name="Id" label="{i18n>SysCtx_System}">
+								<fb:control>
+									<Input value="{ModelFiltersAndSorters>/Id}" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="Type" label="{i18n>SysCtx_SystemType}">
+								<fb:control>
+									<Input value="{ModelFiltersAndSorters>/Type}" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="MainSystemId" label="{i18n>SysCtx_IdMainSys}">
+								<fb:control>
+									<Input value="{ModelFiltersAndSorters>/MainSystemId}" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="MainSystemType" label="{i18n>SysCtx_TypeMainSys}">
+								<fb:control>
+									<Input value="{ModelFiltersAndSorters>/MainSystemType}" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="Role" label="{i18n>SysCtx_Role}">
+								<fb:control>
+									<Input value="{ModelFiltersAndSorters>/Role}" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="Status" label="{i18n>SysCtx_Status}">
+								<fb:control>
+									<ComboBox id="filterStatus" width="100%"
+										items="{ path : 'Enum>/Enum', filters : [ { path : 'Package', operator : 'EQ', value1 : 'sap.secmon.services.ui.systemcontext' }, { path : 'Attribute', operator : 'EQ', value1 : 'Status' } ] }"
+										value="{ModelFiltersAndSorters>/Status}" change="onChangeSystemsCombo">
+										<core:Item key="{Enum>Value}" text="{Enum>Value}" />
+									</ComboBox>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+					<Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+						<ToolbarSpacer></ToolbarSpacer>
+						<SegmentedButton id="segmentedButton">
+						</SegmentedButton>
+					</Toolbar>
+					<customControls:ColumnClickableTable
+						id="systemsTableHeader" inset="false" mode="MultiSelect"
+						showNoData="false" columnPress="handleSort" growingThreshold="100">
+						<customControls:infoToolbar>
+							<Toolbar id="vsdFilterBar" active="true" visible="true">
+								<Label id="vsdFilterLabel"
+									text="{UIModel>/filterText}" />
+							</Toolbar>
+						</customControls:infoToolbar>
+						<customControls:columns>
+							<customControls:SortableColumn
+								sortProperty="Id">
+								<customControls:SortableItem text="{i18n>SysCtx_System}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="Type">
+								<customControls:SortableItem text="{i18n>SysCtx_SystemType}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="MainSystemId">
+								<customControls:SortableItem text="{i18n>SysCtx_IdMainSys}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="MainSystemType">
+								<customControls:SortableItem text="{i18n>SysCtx_TypeMainSys}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="Role">
+								<customControls:SortableItem text="{i18n>SysCtx_Role}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="Status">
+								<customControls:SortableItem text="{i18n>SysCtx_Status}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="ChangedBy">
+								<customControls:SortableItem text="{i18n>SysCtx_ChangedBy}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="ChangedTimestamp">
+								<customControls:SortableItem text="{i18n>SysCtx_ChangedAt}" />
+							</customControls:SortableColumn>
+							<Column width="1.5em">
+								<Text text="" />
+							</Column>
+						</customControls:columns>
+					</customControls:ColumnClickableTable>
+				</l:fixContent>
+				<l:flexContent>
+					<ScrollContainer id="systemViewContainer" height="100%"
+						width="100%" horizontal="false" vertical="true" focusable="true"
+						class="scrollContainerWith100PerCentage">
+						<Table id="systemsTable" inset="false" mode="MultiSelect"
+							items="{ path : 'ModelSystems>/SystemHeader' }" growing="true"
+							growingScrollToLoad="true" columnPress="handleSort"
+							growingThreshold="100" selectionChange="onSelectionChange"
+							updateFinished="handleUpdateFinished" itemPress="onItemPress">
+							<columns>
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation">
+									<cells>
+										<Text text="{ModelSystems>Id}" />
+										<Text text="{ModelSystems>Type}" />
+										<Text text="{ModelSystems>MainSystemId}" />
+										<Text text="{ModelSystems>MainSystemType}" />
+										<Text text="{ModelSystems>Role}" />
+										<Text text="{ModelSystems>Status}" />
+										<Text text="{ModelSystems>ChangedBy}" />
+										<Text
+											text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ModelSystems>ChangedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</l:flexContent>
+			</l:FixFlex>
+		</content>
+		<footer >
+			<Bar design="Footer" >
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+					<Button visible="{applicationContext>/userPrivileges/systemWrite}" text="{i18n>SysCtx_Create}" tooltip="{i18n>SysCtx_Create}"
+						icon="sap-icon://create" press="onShowCreateSystemDialog" enabled="{UIModel>/createEnabled}" />
+					<Button visible="{applicationContext>/userPrivileges/systemWrite}" text="{i18n>SysCtx_Delete}" tooltip="{i18n>SysCtx_Delete}"
+						icon="sap-icon://delete" press="onDelete" enabled="{UIModel>/itemsSelected}" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,6 @@
+<mvc:View controllerName="sap.secmon.ui.replication.controller.App"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m">
+    <App id="idAppControl" />
+</mvc:View>

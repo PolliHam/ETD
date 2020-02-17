@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:commons="sap.ui.commons">
+    <t:Table id="tableExtraction" height="100%" width="100%" minAutoRowCount="10" visibleRowCountMode="Auto"
+        selectionMode="Multi" busyIndicatorDelay="250" showColumnVisibilityMenu="true" busy="{uiModel>/busyExtractionTable}"
+        rows="{path: '/runtimeRules/extraction',
+            templateShareable : true}">
+        <t:columns>
+            <t:Column sortProperty="Number" filterProperty="Number"
+                visible="false" width="6em" >
+                <Label text="{i18n>Interpret_Number}" />
+                <t:template>
+                    <Text text="{Number}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="GroupName" filterProperty="GroupName"
+                width="10em" >
+                <Label text="{i18n>Interpret_GroupName}" />
+                <t:template>
+                    <Text text="{GroupName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="TableName" filterProperty="TableName"
+                width="25em" >
+                <Label text="{i18n>Interpret_TableName}" />
+                <t:template>
+                    <Text text="{TableName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="FieldName" filterProperty="FieldName"
+                width="12em" >
+                <Label text="{i18n>Interpret_FieldName}" />
+                <t:template>
+                    <Text text="{FieldName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="Pattern" filterProperty="Pattern"
+                width="10em" >
+                <Label text="{i18n>Interpret_Pattern}" />
+                <t:template>
+                    <Text text="{Pattern}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="ExtractionType" filterProperty="ExtractionType"
+                width="10em" >
+                <Label text="{i18n>Interpret_ExtractType}" />
+                <t:template>
+                    <Text text="{ExtractionType}" />
+                </t:template>
+			</t:Column>
+        </t:columns>
+    </t:Table>
+</core:FragmentDefinition>

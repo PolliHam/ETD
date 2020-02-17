@@ -1,0 +1,42 @@
+<mvc:View controllerName="sap.secmon.ui.userNg.views.Log" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<Table id="userNg-log-table" growing="true" mode="SingleSelectMaster" growingScrollToLoad="true" growingThreshold="50" updateFinished="onLogTableUpdate" >
+		<headerToolbar>
+			<Toolbar>
+				<Label text="{i18n>ResolveUser_LogTitle}" />
+				<ToolbarSpacer />
+				<Button icon="sap-icon://drop-down-list" press="onLogShowViewSettings" />
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="160px">
+				<Label text="{i18n>ResolveUser_User}" />
+			</Column>
+			<Column width="200px">
+				<Label text="{i18n>RsUsr_EntityName}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>ResolveUser_Text}" />
+			</Column>
+			<Column width="180px">
+				<Label text="{i18n>ResolveUser_Timestamp}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{log>User}" />
+					<Text text="{log>EntityName}" />
+					<Text text="{log>Text}" />
+					<Text text="{
+						parts : [ {
+							path: 'applicationContext>/UTC'
+						}, {
+							path: 'log>Timestamp'
+						} ],
+						formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'
+					}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>

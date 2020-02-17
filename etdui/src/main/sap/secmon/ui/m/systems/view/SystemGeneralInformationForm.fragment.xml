@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<f:SimpleForm editable="false">
+		<f:content>
+			<Label text="{i18n>MSystems_Id}">
+			</Label>
+			<Text text="{Id}">
+			</Text>
+			<Label text="{i18nCommon>Type_LBL}">
+			</Label>
+			<Text
+				text="{path : 'Type', formatter: 'sap.secmon.ui.m.systems.util.Formatter.systemTypeFormatter'}">
+			</Text>
+			<Label text="{i18n>MSystems_Role}">
+			</Label>
+			<Text text="{Role}">
+			</Text>
+			<Label text="{i18n>MSystem_Group}" />
+			<Text text="{MainSystemId}" />
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

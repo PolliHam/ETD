@@ -1,0 +1,38 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.AnomalyDetail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout">
+
+    <Page id="AnomalyPage" showNavButton="{device>/isPhone}"
+        navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+        title="{i18n>Anomaly_XTIT}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>	        
+        <content>
+            <Panel expandable="false" expanded="true">
+                <content>
+                    <Text text="{i18n>AnomalyDataColl_XLBL}" />
+                    <l:Grid defaultSpan="L12 M12 S12">
+	                    <RadioButtonGroup columns="1" enabled="{applicationContext>/userPrivileges/settingsAnomalyDetectionWrite}">
+	                        <buttons>
+	                            <RadioButton selected="{/All}" text="{i18n>Anomaly_All_XLBL}" />
+	                            <RadioButton selected="{/ActiveOnly}" text="{i18n>Anomaly_ActiveOnly_XLBL}" />
+	                        </buttons>
+	                    </RadioButtonGroup>
+                    </l:Grid>
+                </content>
+            </Panel>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button xmlns="sap.m" text="{i18nCommon>Save_BUT}" press="onSave"
+                        visible="{applicationContext>/userPrivileges/settingsAnomalyDetectionWrite}"
+                        type="Emphasized">
+                    </Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>
+

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+	margin: 100px;
+}
+
+svg text {
+	font-size: 12px;
+}
+
+rect {
+	shape-rendering: crispEdges;
+}
+</style>
+<META charset="utf-8">
+<STYLE>
+.node {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.link {
+	stroke: #999;
+	stroke-opacity: .6;
+}
+</STYLE>
+<body>
+
+	<script src="/sap/ui5/1/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+		data-sap-ui-libs="sap.m, sap.viz" data-sap-ui-theme="sap_bluecrystal">
+    
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Base64 to Hex and back converters
+//--------------------------------------------------------------------------------------------------------------------------
+
+var map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+function base64ToHex (base64Str) {
+    if (!base64Str) {
+        return "";
+    }
+
+    var base64StrLength = base64Str.length;
+
+    // Ignore padding
+    var paddingChar = map.charAt(64);
+    if (paddingChar) {
+        var paddingIndex = base64Str.indexOf(paddingChar);
+        if (paddingIndex != -1) {
+            base64StrLength = paddingIndex;
+        }
+    }
+
+    // convert from base64
+    var aWords = [];
+    var nBytes = 0;
+    for (var i = 0; i < base64StrLength; i++) {
+        if (i % 4) {
+            var bits1 = map.indexOf(base64Str.charAt(i - 1)) << ((i % 4) * 2);
+            var bits2 = map.indexOf(base64Str.charAt(i)) >>> (6 - (i % 4) * 2);
+            aWords[nBytes >>> 2] |= (bits1 | bits2) << (24 - (nBytes % 4) * 8);
+            nBytes++;
+        }
+    }
+
+    // convert to hex
+    var result = "";
+    for (var i = 0; i < nBytes; i++) {
+        var byte = (aWords[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
+        result += (byte >>> 4).toString(16);
+        result += (byte & 0x0f).toString(16);
+    }
+
+    return result.toUpperCase();
+};
+
+function hexToBase64 (hexStr) {
+    var i = 0;
+
+    hexStr = hexStr.toUpperCase();
+
+    var binary = [];
+    for (i = 0; i < hexStr.length / 2; i++) {
+        var h = hexStr.substr(i * 2, 2);
+        binary[i] = parseInt(h, 16);
+    }
+
+    var base64Value = [];
+    var i = 0;
+    var j = 0;
+    var hexCharArray = new Array(3);
+    var base64CharArray = new Array(4);
+
+    for (var pos = 0; pos < binary.length; pos++) {
+        hexCharArray[i++] = binary[pos];
+        if (i == 3) {
+            base64CharArray[0] = (hexCharArray[0] & 0xfc) >> 2;
+            base64CharArray[1] = ((hexCharArray[0] & 0x03) << 4) + ((hexCharArray[1] & 0xf0) >> 4);
+            base64CharArray[2] = ((hexCharArray[1] & 0x0f) << 2) + ((hexCharArray[2] & 0xc0) >> 6);
+            base64CharArray[3] = hexCharArray[2] & 0x3f;
+
+            for (i = 0; (i < 4); i++)
+                base64Value += map.charAt(base64CharArray[i]);
+            i = 0;
+        }
+    }
+
+    if (i) {
+        for (j = i; j < 3; j++)
+            hexCharArray[j] = 0;
+
+        base64CharArray[0] = (hexCharArray[0] & 0xfc) >> 2;
+        base64CharArray[1] = ((hexCharArray[0] & 0x03) << 4) + ((hexCharArray[1] & 0xf0) >> 4);
+        base64CharArray[2] = ((hexCharArray[1] & 0x0f) << 2) + ((hexCharArray[2] & 0xc0) >> 6);
+        base64CharArray[3] = hexCharArray[2] & 0x3f;
+
+        for (j = 0; j < i + 1; j++)
+            base64Value += map.charAt(base64CharArray[j]);
+
+        while ((i++ < 3))
+            base64Value += '=';
+
+    }
+
+    return base64Value;
+};
+
+</script>
+
+	<script>
+
+var renderAnchor = true;
+var showSourceIds = false;
+//--------------------------------------------------------------------------------------------------------------------------
+// OUTPUT: Secure Element Construction Set
+//--------------------------------------------------------------------------------------------------------------------------
+
+function createAnchorDiv( link, name, bgcolor, target ){
+    
+    var divNode = document.createElement('div');
+    if( renderAnchor ){
+             var anchorNode = document.createElement('a');
+             anchorNode.href = link;
+             anchorNode.name = name;
+             anchorNode.style.backgroundColor = bgcolor;
+             if( target != null ) anchorNode.target = target;
+             var textNode = document.createTextNode(name);
+             anchorNode.appendChild( textNode );
+             divNode.appendChild( anchorNode );
+    } else {
+             var spanNode = document.createElement('span');
+             spanNode.style.backgroundColor = bgcolor;
+             var textNode = document.createTextNode(name);
+             spanNode.appendChild( textNode );
+             divNode.appendChild( spanNode );
+    }
+       
+    return divNode;
+}
+
+function createSpanDiv( text, bgcolor ){
+    
+    var divNode = document.createElement('div');
+	var spanNode = document.createElement('span');
+	spanNode.style.backgroundColor = bgcolor;
+	var textNode = document.createTextNode(text);
+	spanNode.appendChild( textNode );
+	divNode.appendChild( spanNode );
+	return divNode;
+}
+
+function createSpan( text, bgcolor ){
+    
+	var spanNode = document.createElement('span');
+	spanNode.style.backgroundColor = bgcolor;
+	var textNode = document.createTextNode(text);
+	spanNode.appendChild( textNode );
+	return spanNode;
+}
+
+function createH1( text, bgcolor ){
+    
+    var h1Node = document.createElement('h1');
+	if( bgcolor != null ) h1Node.style.backgroundColor = bgcolor;
+	var textNode = document.createTextNode(text);
+	h1Node.appendChild( textNode );
+	return h1Node;
+}
+
+function createBr(){
+    
+    var brNode = document.createElement('br');
+	var textNode = document.createTextNode('');
+	brNode.appendChild( textNode );
+	return brNode;
+}
+
+function createDiv(){
+    
+    var divNode = document.createElement('div');
+	return divNode;
+}
+
+function createTextDiv( text ){
+    
+    var divNode = document.createElement('div');
+	var textNode = document.createTextNode(text);
+	divNode.appendChild( textNode );
+	return divNode;
+}
+
+function append( node ){
+    document.body.appendChild( node );
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Event Object
+//--------------------------------------------------------------------------------------------------------------------------
+
+function Event( name, displayName ){
+    
+    this.name = name;
+    this.displayName = displayName;
+	this.sources = [];
+}
+
+Event.bgcolor = '#5CBAE6';
+
+function getEventByDisplayName( eventDisplayName ){
+    
+    for( eventName in eventsByName ){
+        
+        var event = eventsByName[ eventName ];
+        if( event.displayName == eventDisplayName ) return event;
+    }
+	return null;
+}
+
+Event.prototype.append = function( includeDependents ) {
+    
+	var eventSpan = createSpan( this.name + ' "' + this.displayName + '"', Event.bgcolor);
+	
+	var out = '(';
+	for( var j=0; j<this.sources.length; j++){
+		var eventSource = this.sources[j];
+		if( j > 0 ) out+= ', ';
+		if( showSourceIds )
+			out+= ( '"' + eventSource.id + '/' + eventSource.log + '"' );
+		else out+= ( '"' + eventSource.log + '"' );
+	
+	}
+	out+= ')';
+	
+	var eventSourcesSpan = createSpan( out, Log.bgcolor );
+	
+	var divNode = createDiv();
+	divNode.appendChild( eventSpan );
+	divNode.appendChild( eventSourcesSpan );
+	
+	append( divNode );
+
+};
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Pattern Object
+//--------------------------------------------------------------------------------------------------------------------------
+
+function Pattern( id, name, json){
+    
+	this.id = id;
+	this.hexId = base64ToHex( id );
+	this.name = name;
+	this.json = json;
+	
+	this.link = '/sap/secmon/ui/browse/?Id=' + this.hexId + '&sap-language=en';
+	
+	this.definition = jQuery.parseJSON( json );
+	
+	this.valuelists = new Set();
+    this.logs = new Set();
+
+	this.semanticEvents = new Set();
+	this.dependsOnPatterns = new Set();
+	this.semanticEventTriggers = new Set();
+}
+
+Pattern.bgcolor = '#D998CB';
+
+Pattern.prototype.append = function ( includeDependents ){
+    
+	append( createAnchorDiv( this.link, this.name + '('+ this.createdby + ')', Pattern.bgcolor, '_blank' ) );
+	
+	if( includeDependents == null ) return;
+	if( includeDependents == false ) return;
+	
+	for (event of this.semanticEvents) {
+		event.append();
+	}
+	
+	for (valuelist of this.valuelists) {
+		valuelist.append();
+	}
+	
+	for (item of this.dependsOnPatterns) {
+		append( createAnchorDiv( '#' + item, 'depends on: ' + item, Pattern.bgcolor ) );
+	}
+	
+	for( semanticEventName of this.semanticEventTriggers){
+	    append( createSpanDiv( 'triggered by: ' + semanticEventName, Event.bgcolor ) );
+	}
+
+    for( logName of this.logs){
+        append( createSpanDiv( 'directly references log: ' + logName, Log.bgcolor ) );
+    }	
+    append( createBr() );
+
+}
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Valuelist Object
+//--------------------------------------------------------------------------------------------------------------------------
+
+function Valuelist ( id, name ){
+    
+    this.id = id;
+    this.name = name;
+	this.hexId = base64ToHex( id );
+	this.link = "/sap/hana/uis/clients/ushell-app/shells/fiori/FioriLaunchpad.html?siteId=sap.secmon.ui.mobile.launchpad|ETDLaunchpad#Valuelist-show&/valuelist/Header('" + this.hexId + "')/";
+}
+
+Valuelist.bgcolor = '#D8E5DC';
+
+Valuelist.prototype.append = function(){
+	append( createAnchorDiv( this.link, this.name, Valuelist.bgcolor, '_blank' ) );
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Log Object
+//--------------------------------------------------------------------------------------------------------------------------
+
+function Log ( name ){
+    
+    this.name = name;
+    this.events = new Set();
+}
+
+Log.prototype.append = function (){
+    append( createSpanDiv( this.name, Log.bgcolor ) );
+}
+
+Log.bgcolor = '#FAC364';
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Globals
+//--------------------------------------------------------------------------------------------------------------------------
+
+var errors = [];
+var patterns = [];
+var eventsByName = {};
+var valuelistsById = {};
+var eventNamesByTriggerName = {};
+var logsByName = {};
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//SAP namespace check
+//--------------------------------------------------------------------------------------------------------------------------
+
+function isSapNamespace( namespace ){
+    
+    var filterNamespace = "http://sap.com/secmon";
+    
+    if( namespace == null ) return false;
+    if( !namespace.startsWith( filterNamespace )) return false;
+    if( namespace == filterNamespace) return true;
+    if( !namespace.startsWith( filterNamespace + '/' )) return false;
+    return true;
+}
+</script>
+
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Handle Events
+//--------------------------------------------------------------------------------------------------------------------------
+
+function handleEvents( response ){
+    var results = response.d.results;
+
+    results.forEach(function(value, index) {
+        if( !isSapNamespace( value.nameSpace) ) return;
+        var event = new Event( value.name, value.displayName );
+        eventsByName[ value.name ] = event;
+    });
+}
+
+function itemGetMatchingEvents( item ){
+    
+    var events = [];
+   
+	if( item.indexOf("%") == -1 ){	    
+	    
+		for( eventName in eventsByName ){
+			var event = eventsByName[eventName];
+			
+		    if( item == event.displayName ) {
+		        events.push( event );
+			}		    
+		}
+		
+	} else {
+	    
+		var regExpItem = item.replace("%", ".*");
+		var regEx = new RegExp(regExpItem, 'gi');
+	    
+		for( eventName in eventsByName ){
+			var event = eventsByName[eventName];
+			
+			var matches = event.displayName.match(regEx);
+			
+			if( matches != null ) {
+			    events.push( event );
+			}			
+		}   
+	}
+	
+	return events;
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Handle Qubes
+//--------------------------------------------------------------------------------------------------------------------------
+ 
+function handleQubes( response ){
+    
+    var results = response.d.results;
+
+    results.forEach(function(value, index) {
+
+    	var id = value.Id;
+    	var name = value.Name;
+    	var type = value.Type;
+    	var json = value.SerializedData;
+    	var createdby = value.UserId;
+    	var namespace = value.Namespace;
+    	
+    	if( type != "Pattern") return;
+    	if( id == "U8OYe4gsKQvhAAAACkzxCQ==" ) return;
+    	if( !isSapNamespace(namespace)) return;
+
+    	if( createdby == null ) return;
+    	if( createdby != "SAP" ) return;
+    	
+    	var pattern = new Pattern( id, name, json );
+    	pattern.createdby = createdby;
+    	patterns.push( pattern );
+
+    	var measures = pattern.definition.measures;
+    	
+    	if( measures == null ){
+    	    //errors.push( "Measures of pattern " + pattern.name + " are empty");
+    	    return;
+    	}
+    	
+    	for( var i=0; i<measures.length; i++){
+    		var measure = measures[i];
+    		var datasets = measure.dataSets;
+
+        	if( datasets == null ){
+        	    //errors.push( "Datasets of pattern " + pattern.name + " are empty");
+        	    return;
+        	}
+        	
+    		for( var j=0; j<datasets.length; j++){
+    			var dataset = datasets[j];
+    			var filters = dataset.filters;
+    			
+    	    	if( filters == null ){
+    	    	    //errors.push( "Filters of pattern " + pattern.name + " are empty");
+    	    	    return;
+    	    	}
+    	    	
+    			for( var k=0; k<filters.length; k++){
+    				var filter = filters[k];
+    				
+    				var valuerange = filter.valueRange;
+    			
+    				if( valuerange.operator == "IN VALUE LIST" ){
+
+    					var searchterms = valuerange.searchTerms;
+    					
+    					for( var l=0; l< searchterms.length; l++){
+    						
+    						var searchterm = searchterms[l];
+    						
+    						if( searchterm != null ) {
+    							
+    							var valuelist = valuelistsById[ hexToBase64(searchterm) ];
+    							if( valuelist == null ) errors.push( "Valuelist " + searchterm + "/" + hexToBase64(searchterm) + " of pattern " + pattern.name + " not found");
+     							else pattern.valuelists.add( valuelist );
+    						}
+    					}
+    				}
+    				
+    				if( filter.key == "54F913D5CCC44E8AE10000000A4CF109" ){  //its a semantic event
+    					
+    					var searchterms = valuerange.searchTerms;
+    					
+    					for( var l=0; l< searchterms.length; l++){
+    						
+    						var searchterm = searchterms[l];
+       						var matchingEvents = itemGetMatchingEvents( searchterm );
+    						
+    						for( var m=0; m<matchingEvents.length; m++) pattern.semanticEvents.add(matchingEvents[m]);
+    					}
+    				}
+    				
+                  if( filter.key == "53CDE6150DC572EEE10000000A4CF109" ){  //its a log filter
+
+                          var searchterms = valuerange.searchTerms;
+                          
+                          for( var l=0; l< searchterms.length; l++){
+                                
+                                var searchterm = searchterms[l];
+
+                                pattern.logs.add( searchterm );
+                                //console.log( searchterm );
+                          }
+                   }
+                           
+    				if( ( dataset.context == "Alert" ) && ( filter.key == "53EE564E1AA9066CE10000000A4CF109" ) ){ //reference to results of other pattern
+    					
+    					var valuerange = filter.valueRange;
+    					
+    					var searchterms = valuerange.searchTerms;
+    					
+    					for( var l=0; l< searchterms.length; l++){
+    						
+    						var searchterm = searchterms[l];
+    						
+    						pattern.dependsOnPatterns.add( searchterm );
+    					}
+    				}
+    			}
+    		}
+    	}
+    		
+    	var triggers = pattern.definition.triggers;
+
+    	if( triggers == null ){
+    	    //errors.push( "Triggers of pattern " + pattern.name + " are empty");
+    	    return;
+    	}
+    	
+
+    	for( var i=0; i<triggers.length; i++){
+    		var trigger = triggers[i];
+
+    		if( trigger.TriggerType == "SEMEV" ){
+    			
+    			pattern.semanticEventTriggers.add( eventNamesByTriggerName[ trigger.TriggerName ] );    			
+    		}
+    	}    	
+    });
+
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Handle LogEntryTypes
+//--------------------------------------------------------------------------------------------------------------------------
+ 
+function handleLogEntryTypes( response ){
+    
+    var logentrytypes = response.d.results;
+
+    logentrytypes.forEach(function(value, index) {
+        
+        var namespace = value[ "eventNameSpace.nameSpace" ];
+        if( !isSapNamespace(namespace)) return;
+        var logNamespace = value[ "logTypeNameSpace.nameSpace" ];
+        if( !isSapNamespace( logNamespace)) return;
+    	
+    	var logentrytype = value;
+    	
+    	var logTypeName = logentrytype[ "logTypeName.name" ];
+    	if( logTypeName == null ) return;
+    	
+    	var eventName = logentrytype[ "eventName.name" ];
+    	
+    	var event = eventsByName[ eventName ];
+    	if( event == null ){
+    	    errors.push( "Event " + eventName + " referenced in LogEntryType not found");
+    	    return;
+    	}
+    	
+    	var eventSource = {};
+    	eventSource.id = logentrytype.id;
+    	eventSource.log = logentrytype[ "logTypeName.name" ];
+    	
+    	var log = logsByName[ eventSource.log ];
+    	if( log == null ){
+    	    log = new Log( eventSource.log );
+    	    logsByName[ log.name ] = log;
+    	}
+    	
+    	log.events.add( event );
+
+    	event.sources.push( eventSource );
+    });
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Handle Valuelists
+//--------------------------------------------------------------------------------------------------------------------------
+
+function handleValuelists( response ){
+    
+    var valuelists = response.d.results;
+
+    valuelists.forEach(function(value, index) {
+        
+        var namespace = value.NameSpace;
+        if( !isSapNamespace(namespace)) return;
+    	
+        var valuelist = new Valuelist( value.Id, value.ListName );
+    	valuelistsById[ valuelist.id ] = valuelist;
+    	
+    });
+}
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Handle Triggers
+//--------------------------------------------------------------------------------------------------------------------------
+
+function handleTriggers( response ){
+    var triggers = response.d.results;
+
+    triggers.forEach(function(value, index) {
+    	
+    	var uri = value.__metadata.uri;
+    	var index = uri.indexOf("'");
+    	
+    	var id = uri.substring(index+1,index+65);
+    	
+    	eventNamesByTriggerName[ id ] = value.Name;    	
+    });
+    
+}
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Load required ETD data (loaded synchronously for simplicity)
+//--------------------------------------------------------------------------------------------------------------------------
+function loaddata(){
+    
+    $.ajax({
+        url : "/sap/secmon/services/KnowledgeBase.xsodata/KnowledgeBaseEvent?$format=json",
+        async : false
+    }).done( handleEvents );
+    
+    $.ajax({
+        url : "/sap/secmon/services/ui/m/LogEntryTypes.xsodata/LogEntryType?$format=json",
+        async : false
+    }).done( handleLogEntryTypes );
+    
+    $.ajax({
+        url : "/sap/secmon/services/ui/m/valuelist/valuelist.xsodata/Header?$format=json",
+        async : false
+    }).done( handleValuelists );
+    
+    $.ajax({
+        url : "/sap/secmon/trigger/TriggerSemanticEvent.xsodata/SemanticEvent?$format=json",
+        async : false
+    }).done( handleTriggers );
+    
+    $.ajax({
+        url : "/sap/secmon/ui/browse/services2/Qube.xsodata/Qube?$format=json",
+        async : false
+    }).done( handleQubes );
+    
+}
+
+loaddata();
+
+</script>
+
+	<script>
+//--------------------------------------------------------------------------------------------------------------------------
+//Output (HTML/Force-Directed-Graph)
+//--------------------------------------------------------------------------------------------------------------------------
+
+var graph = {};
+graph.nodes = [];
+graph.links = [];
+
+//graph helpers
+function addNode( name, group ){
+    
+    var node = {};
+	node.name = name;
+	node.group = group;
+	graph.nodes.push( node );
+	
+	return node;   
+}
+
+function addLink( source, target ){
+    
+ 	var link = {};
+ 	link.source = source;
+ 	link.target = target;
+ 	link.distance = 50;
+ 	graph.links.push( link );
+ 	
+ 	return link;
+}
+
+//graph node mapping helpers
+var patternNodeByName = {};	
+var valuelistNodeByName = {};
+var eventNodeByName = {};
+var logNodeByName = {};
+
+</script>
+
+	<script>
+append( createH1("Legend") );
+append( createH1("PATTERNS", Pattern.bgcolor) );
+append( createH1("VALUE LISTS", Valuelist.bgcolor) );
+append( createH1("SEMANTIC EVENTS", Event.bgcolor) );
+append( createH1("LOGS", Log.bgcolor) );
+
+append( createBr() );
+
+append( createH1("Dependencies") );
+
+//--------------------------------------------------------------------------------------------------------------------------
+// PATTERNS
+
+append( createH1("PATTERNS", Pattern.bgcolor) );
+ 
+for( var i=0; i<patterns.length; i++){
+	var pattern = patterns[i];
+	pattern.append( true );
+	patternNodeByName[ pattern.name ] = addNode( pattern.name, 1 );
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+//VALUE LISTS
+
+append( createH1("VALUE LISTS", Valuelist.bgcolor) );
+
+for( valuelistId in valuelistsById ){
+    
+    var valuelist = valuelistsById[ valuelistId ];
+	valuelist.append();	
+	var node = addNode( valuelist.name, 2 );
+	valuelistNodeByName[ valuelist.name ] = node;
+	
+	var valuelistPatterns = new Set();
+	
+	for( var i=0; i<patterns.length; i++){
+		var pattern = patterns[i];
+
+		for (patternValuelist of pattern.valuelists) {
+			
+			if( patternValuelist.id == valuelist.id ){
+				
+				valuelistPatterns.add( pattern ) ;
+			}
+		}
+	}
+	for (pattern of valuelistPatterns){
+		pattern.append();
+		addLink( patternNodeByName[ pattern.name ], node );
+	}
+	
+	append( createBr() );
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+//SEMANTIC EVENTS
+
+append( createH1("SEMANTIC EVENTS", Event.bgcolor) );
+
+for( eventName in eventsByName ){
+	var event = eventsByName[eventName];
+	event.append();
+	var node = addNode( eventName, 3 );
+	eventNodeByName[ eventName ] = node;
+
+	var eventPatterns = new Set();
+	
+	for( var i=0; i<patterns.length; i++){
+		var pattern = patterns[i];
+		
+		for (semanticEvent of pattern.semanticEvents) {
+
+		    if( semanticEvent.displayName == event.displayName ){
+				
+				eventPatterns.add( pattern ) ;
+			}
+		}
+	}
+	for (pattern of eventPatterns){
+	    pattern.append();
+		addLink( patternNodeByName[ pattern.name ], node );
+	}
+
+	append( createBr() );
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+//LOGS
+
+append( createH1("LOGS", Log.bgcolor) );
+
+for( logname in logsByName ){
+    
+    var log = logsByName[ logname ];
+	log.append();
+	var node = addNode( log.name, 4 );
+	logNodeByName[ log.name ] = node;
+	
+	for( event of log.events ){
+	    
+	    event.append();
+	    addLink( eventNodeByName[ event.name ], node );
+	}
+	append( createBr() );
+
+}
+
+//--------------------------------------------------------------------------------------------------------------------------
+//ERRORS
+
+append( createH1("ERRORS", "#D32030") );
+
+for(var i=0; i<errors.length; i++){
+	append( createTextDiv(errors[i]) );
+	append( createBr() );
+}
+
+</script>
+
+	<SCRIPT>
+//--------------------------------------------------------------------------------------------------------------------------
+//Force-Directed-Layout
+//--------------------------------------------------------------------------------------------------------------------------
+
+var width = document.body.offsetWidth,
+    height = 1200;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-120)
+    .linkDistance(function(link, index) {
+            return link.distance;
+        })
+    .size([width, height]);
+	
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", 1 );
+//      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 10)
+      .style("fill", function(d) { 
+	          switch (d.group){
+	          
+	      		case 1: return Pattern.bgcolor;
+	      		case 2: return Valuelist.bgcolor;
+	      		case 3: return Event.bgcolor;
+	      		case 4: return Log.bgcolor;
+	      		
+	      		default: return color(d.group); 
+	          }
+          })
+      .call(force.drag);
+
+  node.append("title")
+      .text(function(d) { return d.name; });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  });
+
+</SCRIPT>
+
+</body>

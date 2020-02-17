@@ -1,0 +1,45 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.WorkloadManagement"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Page id="WorkloadManagementPage" showNavButton="{device>/isPhone}"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{i18n>WorkloadManagement_XTIT}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>			
+		<content>
+			<Panel expandable="false" expanded="true">
+				<content>
+					<l:Grid defaultSpan="L1 M2 S4" class="gridMarginTop"
+						hSpacing="1" vSpacing="0">
+						<l:content>
+							<Input value="{i18n>SelWorkloadManagement_XLBL}" editable="false">
+								<layoutData>
+									<l:GridData span="L6 M6 S12" />
+								</layoutData>
+							</Input>
+							<Input value="{/wlmStateText}" editable="false">
+								<layoutData>
+									<l:GridData span="L4 M4 S12" />
+								</layoutData>
+							</Input>
+							<Button text="{/wlmButtonText}" 
+								visible="{applicationContext>/userPrivileges/settingsWorkloadManagerWrite}"
+								press="onWlmButtonPressed">
+								<layoutData>
+									<l:GridData span="L2 M2 S12" />
+								</layoutData>
+							</Button>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

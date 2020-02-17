@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+    <u:Menu>
+        <u:MenuItem text="{i18n>Interpret_Overview}" select="onPressHelpOverview"/>
+        <u:MenuItem text="{i18n>Interpret_SemEvents}" select="onPressHelpSemEvents"/>
+        <u:MenuItem text="{i18n>Interpret_SemAttrs}" select="onPressHelpSemAttributes"/>
+        <u:MenuItem text="{i18n>Interpret_ValueMap}" select="onPressHelpValueMapping"/>
+    </u:Menu>
+</core:FragmentDefinition>

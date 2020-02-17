@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+/*
+* This CSS-Style contains styles related to the Force-Directed Graph Control.
+*/
+.link {
+	stroke: rgb(191, 191, 191);
+	stroke-width: 1.5px;
+}
+
+.node {
+	stroke: #FFF;
+	stroke-width: 1.35px;
+	fill: rgb(68, 159, 214);
+	cursor: pointer;
+}

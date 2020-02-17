@@ -1,0 +1,109 @@
+<mvc:View controllerName="sap.secmon.ui.configcheck.Detail"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:uxap="sap.uxap">
+	<Page id="page" title="{ModelHeaderInformation>/DataSource}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+		<headerContent>
+		</headerContent>
+		<content>
+			<uxap:ObjectPageLayout id="ObjectPageLayout"
+				showAnchorBar="false"
+				enableLazyLoading="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader 
+						objectSubtitle="{SystemId}"
+						objectImageURI="sap-icon://it-system"
+						isObjectIconAlwaysVisible="true"
+						objectImageDensityAware="true">
+						<uxap:actions>
+						</uxap:actions>
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<f:SimpleForm layout="ResponsiveGridLayout" width="100%"
+						adjustLabelSpan="false"
+						labelSpanXL="4" columnsXL="2" emptySpanXL="0"
+						labelSpanL="4"  columnsL="2" emptySpanL="0"
+						labelSpanM="6"  columnsM="2" emptySpanM="0"
+						labelSpanS="12" columnsS="1" emptySpanS="0"
+					>
+						<Label text="{i18n>CfgCheck_Role}" />
+						<Text text="{Role}" />
+						<Label text="{i18n>SysCtx_IdMainSys}" />
+						<Text text="{MainSystemId}" />
+						<Label text="{i18n>CfgACheck_Level}" />
+						<Text
+							text="{parts : [ {path : 'AggregatedStatusLevel'}, { path : 'i18n>CfgLevel0'}, { path : 'i18n>CfgLevel1'}, { path : 'i18n>CfgLevel2'},{ path : 'i18n>CfgLevel3'}, { path : 'i18n>CfgLevel4'}, { path : 'i18n>CfgLevel255'} ],
+                                                    formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconTooltip'}" />
+					</f:SimpleForm>
+				</uxap:headerContent>
+				<uxap:sections>
+					<uxap:ObjectPageSection  showTitle="false">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection  showTitle="false">
+								<uxap:blocks>
+
+									<Table id="tableDetails"
+										items="{ path : '/Detail', sorter : [ { path : 'CheckName'} ] }"
+										growing="true">
+										<headerToolbar>
+										</headerToolbar>
+										<columns>
+											<Column minScreenWidth="Phone" demandPopin="true">
+												<Text text="{i18n>CfgCheck}" />
+											</Column>
+											<Column minScreenWidth="Phone" demandPopin="true">
+												<Text text="{i18n>CfgExpProp}" />
+											</Column>
+											<Column minScreenWidth="Phone" demandPopin="true">
+												<Text text="{i18n>CfgExpPropValue}" />
+											</Column>
+											<Column minScreenWidth="XXLarge" demandPopin="true">
+                                                <Text text="{i18n>CfgResultDesc}" />
+                                            </Column>
+											<Column minScreenWidth="Phone" demandPopin="true">
+												<Text text="{i18n>CfgResult}" />
+											</Column>
+											<Column minScreenWidth="Phone" demandPopin="true">
+                                                <Text text="{i18n>CfgHostname}" />
+                                            </Column>
+											<Column minScreenWidth="XXLarge" demandPopin="true">
+												<Text text="{i18n>CfgCheck_Level}" />
+											</Column>
+											<Column minScreenWidth="XXLarge" demandPopin="true">
+												<Text text="{i18n>CfgCheck_LevelDelta}" />
+											</Column>
+											<Column minScreenWidth="XXLarge" demandPopin="true">
+												<Text text="{i18n>CfgLastRunAt}" />
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem vAlign="Middle">
+												<cells>
+													<Text text="{CheckName}" />
+													<Text text="{ParameterName}" />
+													<Text text="{ParameterValue}" />
+                                                    <Text text="{ResultDescription}" />
+													<Text text="{ResultValue}" />
+													<Text text="{HostNameActor}" />
+													<customControls:IconWithLinkOrText iconSrc="{path: 'StatusLevel', formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconSrc'}" 
+                                                        iconColor="{path: 'StatusLevel', formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconColor'} "
+                                                        text="{parts : [ {path : 'StatusLevel'}, { path : 'i18n>CfgLevel0'}, { path : 'i18n>CfgLevel1'}, { path : 'i18n>CfgLevel2'},{ path : 'i18n>CfgLevel3'}, { path : 'i18n>CfgLevel4'}, { path : 'i18n>CfgLevel255'} ],
+                                                                formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconTooltip'}" />
+                                                    <Text text="{StatusDelta}" />
+													<Text text="{parts : [{path : 'applicationContext>/UTC'},{path: 'Timestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+	</Page>
+</mvc:View>

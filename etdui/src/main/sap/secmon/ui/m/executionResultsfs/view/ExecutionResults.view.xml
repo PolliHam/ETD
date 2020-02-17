@@ -1,0 +1,58 @@
+<mvc:View controllerName="sap.secmon.ui.m.executionResultsfs.view.ExecutionResults"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<Page id="page" title="{i18n>ExecutionResultsTitle}"
+		showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+            <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp" />
+        </headerContent>
+		<content>
+			<l:FixFlex class="fixFlexVertical">
+				<l:fixContent>
+					<c:Fragment fragmentName="sap.secmon.ui.m.executionResultsfs.view.ExecutionSearchToolbar"
+								type="XML" />
+					<Toolbar>
+						<Label id="toolbarOfExecutionResults" text="{i18n>ExecutionResultsTitle}"></Label>
+						<Label id="timeRangeLabelInToolbarOfAlertsTable" text="{uiModel>/timeRange}"></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+						<SegmentedButton id="switchGraphTable" class="segmentedButtonClass"
+							selectedButton="showTableButton">
+							<Button id="showTableButton" icon="sap-icon://table-chart"
+								tooltip="{i18n>PatternsExecutionFS_showTable}" press="onShowTable" />
+							<Button id="showGraphButton" icon="sap-icon://bubble-chart"
+								tooltip="{i18n>PatternsExecutionFS_showCharts}" press="onShowCharts" />
+						</SegmentedButton>
+					</Toolbar>		
+					<VBox visible="{=!${uiModel>/chartsVisible}}">			
+						<c:Fragment fragmentName="sap.secmon.ui.m.executionResultsfs.view.ExecutionListHeader"
+									type="XML" />
+					</VBox>
+				</l:fixContent>
+				<l:flexContent>
+					<ScrollContainer id="tableScrollContainer" height="100%"
+						width="100%" horizontal="true" vertical="true" focusable="true"
+						class="scrollContainerWith100PerCentage">
+						<VBox visible="{=!${uiModel>/chartsVisible}}">
+							<c:Fragment fragmentName="sap.secmon.ui.m.executionResultsfs.view.ExecutionList"
+								type="XML" />
+						</VBox>
+						<VBox visible="{uiModel>/chartsVisible}">
+							<c:Fragment fragmentName="sap.secmon.ui.m.executionResultsfs.view.ExecutionCharts"
+									type="XML" />	
+						</VBox>
+					</ScrollContainer>
+				</l:flexContent>
+			</l:FixFlex>			
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+						press="handleBookmarkDialogButtonPressed" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:cc="sap.secmon.ui.m.commons.controls" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<!-- binding done manually for performance reasons:  items="{path: 'Scores/',  sorter : { path: 'NormalizedScore', descending: true}}" -->
+	<Table fixedLayout="true" mode="None" class="compactObjectHeader" id="evaluationsTable"
+		updateFinished="onScoresUpdateFinished"
+		growing="true" growingScrollToLoad="true" growingThreshold="100">
+		<columns>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_Feature}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="WithoutHeader">
+				<Text text="{i18n>MobAlert_Method}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="WithoutHeader">
+				<Text text="{i18n>MobAlert_Observation}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline" width="10em">
+				<Text text="{i18n>MobAlert_EvalResult}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline" visible="{= ${AlertMeasureContext} !== 'HealthCheck'}">
+				<Text text="{i18n>MobAlert_TriggEvent}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Link text="{AggregationName}" press="onEvaluationClicked"
+						wrapping="true" />
+					<ObjectHeader responsive="false"
+						class="compactObjectHeaderWithTitle"
+						title="{path: 'AggregationMethod', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.methodFormatter'}">
+						<attributes>
+							<ObjectAttribute visible="{= ${AggregationMethod} !== 'BINARY'}"
+								title="{i18n>MobAlert_Average}"
+								text="{parts: [{path : 'Mean'}, {path: 'Deviation'}], formatter: 'sap.secmon.ui.m.alerts.util.Formatter.roundedValuesFormatter'}"
+								press="onSelectAnomalyHistoryTrend" active="true" />
+						</attributes>
+					</ObjectHeader>
+					<ObjectHeader responsive="false"
+						class="compactObjectHeaderWithTitle"
+						title="{parts: [{path : 'AggregationMethod'},{path : 'MeasureValue'}, {path: 'AbsoluteMinThreshold'}, {path: 'AbsoluteMaxThreshold'}, {path: 'uiModel>/binaryScoreCount'}], formatter: 'sap.secmon.ui.m.alerts.util.Formatter.scoreMeasureValueFormatter'}"
+						titleActive="{path : 'MeasureValue', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.isAnomalyEventTrendLinkFormatter'}"
+						titlePress="onSelectAnomalyEventTrend" />
+					<ProgressIndicator width="8em" class="sapUiSmallMarginBottom"
+						percentValue="{= ${NormalizedScore} * 100 }" showValue="false"
+						state="{= ${NormalizedScore} &lt; 0.63?'Success':'Error'}"
+						tooltip="{i18n>MobAlert_ResultTOL}" />
+					<commonControls:LongTapLink text="{i18n>MobAlert_EvCol}"
+						href="{parts: [{path: 'AlertId'}, {path: 'ChartId'}], formatter : 'sap.secmon.ui.m.commons.NavigationService.triggeringEventsURL'}"
+						visible="{path : 'MeasureValue', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.isTriggeringEventsVisible'}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

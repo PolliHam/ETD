@@ -1,0 +1,7 @@
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="idEmptyPage" title="{i18n>MobAlert_Detail_NoAlert}">
+		<content>
+		</content>
+	</Page>
+</mvc:View>

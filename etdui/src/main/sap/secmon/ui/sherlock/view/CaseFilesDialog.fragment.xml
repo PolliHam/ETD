@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Dialog
+        contentWidth="80%"
+        contentHeight="80%"
+        showHeader="false"
+        draggable="true"
+        resizable="true">
+        <content>
+            <mvc:XMLView viewName="sap.secmon.ui.malimon.CaseFileList" type="XML"/>
+        </content>
+        <buttons>
+            <Button text="{i18n>SPL_BUT_AddShow}" tooltip="{i18n>CF_TOL_AddShow}" press="onAddAndShow"/>
+            <Button text="{i18n>SPL_BUT_AddReturn}" tooltip="{i18n>CF_TOL_AddReturn}" press="onAddAndReturn"/>
+            <Button text="{i18n>SPL_BUT_Close}" press="onCloseCaseFile"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

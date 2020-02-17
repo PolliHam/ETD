@@ -1,0 +1,43 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.BinaryScoresType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/BinaryScores(AggregationCalculationId.Id='2D9E476CCF24354FB562EE137C5967E8',AlertId=X'02311925CAD41B469EFC5281B6AF37D9',StatisticalScoreDataId.Id=X'9065E95B60B2FE57E11F00000A600446')"
+        },
+        "AggregationCalculationId.Id": "2D9E476CCF24354FB562EE137C5967E8",
+        "AlertId": "AjEZJcrUG0ae/FKBtq832Q==",
+        "EventId": "WZAPtvThC0qfr3yy5wrP2w==",
+        "NormalizedScore": "0.749758543192271",
+        "ZScore": "1.177",
+        "MeasureValue": "1",
+        "DimensionHash": "EqldBPtXVceHhoYlRIAPDFmbLlk0lJMxHRHfTEQ7Z7Y=",
+        "AggregationHash": "8VNDkieb3b+dQ93ocBy1vhS4L3bsZge/jWrVV/YPME4=",
+        "ReferenceStartTimestamp": "\/Date(1542034800000)\/",
+        "ReferenceEndTimestamp": "\/Date(1542038400000)\/",
+        "StatisticalDataId.Id": null,
+        "StatisticalRawDataId.Id": "/D/EMtFhlEaPyAia8LpjSw==",
+        "FeatureConfigurationId.Id": "C74504B72925EF4B9F1B54C6E685613D",
+        "StatisticalScoreDataId.Id": "kGXpW2Cy/lfhHwAACmAERg==",
+        "AggregationName": "Access to New Target System by System Id",
+        "AggregationDescription": null,
+        "AggregationMethod": "BINARY",
+        "IncludeZeroValues": "false",
+        "FeatureName": "Access to New Target System by System Id",
+        "FeatureDescription": null,
+        "ZScoreThreshold": "1",
+        "Mean": null,
+        "Deviation": null,
+        "ChartId": "5xsnRbZQI0+dTn1wFb8KWw==",
+        "AbsoluteMaxThreshold": null,
+        "AbsoluteMinThreshold": "0",
+        "BinaryEdgeDimensions": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/BinaryScores(AggregationCalculationId.Id='2D9E476CCF24354FB562EE137C5967E8',AlertId=X'02311925CAD41B469EFC5281B6AF37D9',StatisticalScoreDataId.Id=X'9065E95B60B2FE57E11F00000A600446')/BinaryEdgeDimensions"
+          }
+        }
+      }
+    ]
+  }
+}

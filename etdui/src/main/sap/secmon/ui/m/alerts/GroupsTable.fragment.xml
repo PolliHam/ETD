@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<!-- binding done manually for performance reasons:  items="{path: 'Groups/',  sorter : { path: 'Count', descending: true}}" -->
+	<Table fixedLayout="false" growing="true" growingScrollToLoad="true"
+		growingThreshold="100" id="groupsTable"
+		updateFinished="onSourcesUpdateFinished">
+		<columns>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline" width="8em">
+				<Text text="{i18n>MobAlert_Measure_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_User_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_SystemActor_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_Initiator_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_TargetUser_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_TargetSysId_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_TargetSysType_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_InstanceName_Col}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline" />
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Text text="{Count}" />
+					<Text text="{UserId}" />
+					<Text text="{SystemId}" />
+					<Text text="{TerminalId}" />
+					<Text text="{TargetUserId}" />
+					<Text text="{TargetSystemId}" />
+					<Text text="{TargetSystemType}" />
+					<Text text="{InstanceName}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

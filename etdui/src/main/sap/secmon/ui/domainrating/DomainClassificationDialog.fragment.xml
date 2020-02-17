@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>DA_ClassifySelDom}">
+		<content>
+			<f:SimpleForm>
+                <f:content>
+                    <Label text="{i18n>DA_Classification}" />
+                    <ComboBox  items="{path: 'UIModel>/classifications'}" 
+                               selectedKey = "{UIModel>/selectedClassification}">
+                    <core:Item key="{UIModel>key}" text="{UIModel>value}" />
+                    </ComboBox>
+<!--                     <Label text="{i18n>DA_IsInternal}" /> -->
+<!--                     <CheckBox selectedKey = "{UIModel>/type}" visible="{path :'UIModel>/selectedClassification', formatter : 'sap.secmon.ui.domainrating.Formatter.formatTypeVisibility'}"> -->
+<!--                     </CheckBox> -->
+<!--                     <Label text="Define internal domain patterns" /> -->
+<!--                     <List id="ProductList" items="{ModelDomainPatterns>/Patterns}" mode="MultiSelect" includeItemInSelection="true" visible="{path :'UIModel>/selectedClassification', formatter : 'sap.secmon.ui.domainrating.Formatter.formatTypeVisibility'}"> -->
+<!-- 				        <headerToolbar> -->
+<!-- 				        </headerToolbar> -->
+<!-- 				        <StandardListItem title="{ModelDomainPatterns>Name}" adaptTitleSize="false"/> -->
+<!-- 				    </List> -->
+                </f:content>
+            </f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>DA_OK}" press="onCloseConfirmationDialog"
+				id="domainClassificationDialogok" />
+			<Button text="{i18n>DA_Cancel}" press="onCloseConfirmationDialog"
+				id="domainClassificationDialogCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

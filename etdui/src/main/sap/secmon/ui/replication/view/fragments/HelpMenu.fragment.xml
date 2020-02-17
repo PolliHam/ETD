@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+	<u:Menu>
+		<u:MenuItem text="{i18n>Repl_Export}" select="onPressHelpExport"/>
+		<u:MenuItem text="{i18n>Repl_Import}" select="onPressHelpImport"/>
+	</u:Menu>
+</core:FragmentDefinition>

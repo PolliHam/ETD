@@ -1,0 +1,80 @@
+<mvc:View controllerName="sap.secmon.ui.m.knowledgebase.view.EventDetail"
+    content='Knowledgebase>/Events'
+    displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:commonControls="sap.secmon.ui.commons.controls"
+    xmlns:customControls="sap.secmon.ui.m.commons.controls">
+    <Page id="page"
+        title="{parts : [ { path : 'i18n>Event_Tit'}, { path : 'Knowledgebase>displayName' } ], formatter : 'sap.secmon.ui.commons.Formatter.i18nText'}"
+        showNavButton="true" navButtonPress="onNavBack">
+        <headerContent>
+        </headerContent>
+        <subHeader>
+        </subHeader>
+        <content>
+        	<c:Fragment fragmentName="sap.secmon.ui.m.knowledgebase.view.DetailHeader" type="XML" />
+
+            <customControls:ColumnClickableTable firstColumnIsForSelection="true" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+                id="relatedAttribute" inset="false"
+                headerText="{i18n>KB_Attributes}"
+                items="{path: 'Knowledgebase>Attributes/', sorter : [{path : 'attr.Relevance', descending : 'true'}] }"
+                growing="true" growingScrollToLoad="true" growingThreshold="100" mode="MultiSelect" selectionChange="enableRemoveAndChangeAttributesButton">
+                     <customControls:headerToolbar>
+                        <OverflowToolbar id="evDetAttrBar">
+                            <Title text="{i18n>KB_Attributes}"/>
+                            <ToolbarSpacer />
+                            <SearchField id="searchAttributesField" search="onSearchAssignedAttributes"
+                                width="100%">
+                                <layoutData><OverflowToolbarLayoutData minWidth="40%" maxWidth="50%" shrinkable="true"/></layoutData>
+                                </SearchField>
+                                <Button id="add_attr" text="{i18n>Add_BUT}" press="onClickAssignAttributes"/>
+                             	<Button id="rem_attr" text="{i18n>Remove_BUT}" press="onRemoveAttributes" enabled="{EventDetailViewModel>/enable/remAttrButton}"/>
+                                <Button id="change_attr_rel" text="{i18n>ChangeRelevance_BUT}" press="onChangeAttributeRelevance" enabled="{EventDetailViewModel>/enable/changeAttrButton}"/>
+                        </OverflowToolbar>
+                  </customControls:headerToolbar>
+                <customControls:columns>
+                    <customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+                        sortProperty="attrDisplayName" popinDisplay="Inline" width="20%">
+                        <customControls:SortableItem text="{i18n>KB_DisplayName}" />
+                    </customControls:SortableColumn>
+                    <Column minScreenWidth="XLarge" demandPopin="true"
+                        sortProperty="attrDescription" popinDisplay="Inline" width="85%">
+                        <Text text="{i18n>KB_Description}" />
+                    </Column>
+                    <customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+                        sortProperty="attr.Relevance" popinDisplay="Inline" width="15%">
+                        <customControls:SortableItem text="{i18n>KB_Relevance}" />
+                    </customControls:SortableColumn>
+                  </customControls:columns>
+                <customControls:items>
+                    <ColumnListItem>
+                        <cells>
+                            <Link
+                                text="{path : 'Knowledgebase>attrDisplayName'}" press="onLinkPressed">
+                               <customData>
+                               	    <c:CustomData key="Id" value="{Knowledgebase>attrHash}"/>
+                               </customData>
+                            </Link>
+                            <Text
+                                text="{path : 'Knowledgebase>attrDescription'}" maxLines="3" />
+                            <Text
+                                text="{Knowledgebase>attr.Relevance}"/>
+                         </cells>
+                    </ColumnListItem>
+                </customControls:items>
+            </customControls:ColumnClickableTable>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <content>
+                <ToolbarSpacer />
+                <Button id="editEventButton" text="{i18n>KB_Edit}" visible="{parts: ['applicationContext>/userPrivileges/knowledgeBaseWrite', 'Knowledgebase>editable'], formatter: 'sap.secmon.ui.m.knowledgebase.util.Formatter.formatVisibility'}" press="onEdit"/>
+                <Button id="exportEventButton" text="{i18n>KB_Export}" icon="sap-icon://shipping-status" visible="{applicationContext>/userPrivileges/knowledgeBaseWrite}" press="onExportPressed"/>
+                <Button id="copyEventButton" text="{i18n>KB_Copy}" icon="sap-icon://duplicate" visible="{applicationContext>/userPrivileges/knowledgeBaseWrite}" press="onCopyPressed"/>
+                <Button id="deleteEventButton" text="{i18n>KB_Delete}" icon= "sap-icon://delete" visible="{parts: ['applicationContext>/userPrivileges/knowledgeBaseWrite', 'Knowledgebase>editable'], formatter: 'sap.secmon.ui.m.knowledgebase.util.Formatter.formatVisibility'}"
+                    press="onDeletePressed"></Button>
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

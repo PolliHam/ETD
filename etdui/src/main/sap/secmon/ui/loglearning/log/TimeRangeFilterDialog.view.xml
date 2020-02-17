@@ -1,0 +1,44 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.log.TimeRangeFilterDialog"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true" xmlns:f="sap.ui.layout.form">
+	<f:SimpleForm>
+		<f:content>
+			<VBox>
+			<Label text="{i18n>Interpret_RelTime}" />
+				<HBox>
+					<items>
+						<ComboBox class="sapUiSmallMarginTop" id="relativeRanges" width="500px" items="{TimeRanges>/relativeTimeRanges}"
+							selectedKey="{/selectedRelativeTimeRange}" change="onChange" >
+							<core:Item key="{TimeRanges>key}" text="{TimeRanges>name}" />
+						</ComboBox>
+					</items>
+				</HBox>
+				<Label class="sapUiSmallMarginTop" text="{i18n>Interpret_TimeFrom}" />
+				<HBox>
+					<items>
+						<DatePicker id="absoluteDateFrom" class="sapUiSmallMarginTop" valueFormat="yyyyMMdd"
+							dateValue="{/selectedAbsoluteDateFrom}" change="onChange" />
+					</items>
+					<items>
+						<Input id="absoluteTimeFrom" class="sapUiSmallMarginTop sapUiSmallMarginBegin" value="{/selectedAbsoluteTimeFrom}"
+							change="onChange"/>
+						<Input class="sapUiSmallMarginTop sapUiSmallMarginBegin" editable="false" value="UTC" width="4em" visible="{applicationContext>/UTC}"/>
+					</items>
+				</HBox>
+				<Label class="sapUiSmallMarginTop" text="{i18n>Interpret_TimeTo}" />
+				<HBox>
+					<items>
+						<DatePicker class="sapUiSmallMarginTop" id="absoluteDateTo" valueFormat="yyyyMMdd"
+							dateValue="{/selectedAbsoluteDateTo}" change="onChange"/>
+					</items>
+					<items>
+						<Input class="sapUiSmallMarginTop sapUiSmallMarginBegin" id="absoluteTimeTo" value="{/selectedAbsoluteTimeTo}"
+							change="onChange"/>
+						<Input  class="sapUiSmallMarginTop sapUiSmallMarginBegin" editable="false" value="UTC" width="4em" visible="{applicationContext>/UTC}"/>
+					</items>		
+				</HBox>
+			</VBox>
+		</f:content>
+	</f:SimpleForm>
+</mvc:View>

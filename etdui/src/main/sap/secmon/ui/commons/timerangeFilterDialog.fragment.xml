@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<Dialog confirm="onConfirm" title="{= ${applicationContext>/UTC} === true ? ${i18nCommon>SelectTRUTC_TIT} : ${i18nCommon>SelectTimeRange_TIT} }">
+		<content>
+			<mvc:XMLView
+				viewName="sap.secmon.ui.commons.TimeRangeFilterDialog"
+				id="view" />
+		</content>
+		<buttons>
+			<Button text="{i18nCommon>OK_BUT}" press="onCloseTimeRangeFilterDialog"
+				id="ok" />
+			<Button text="{i18nCommon>Cancel_BUT}" press="onCloseTimeRangeFilterDialog"
+				id="cancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

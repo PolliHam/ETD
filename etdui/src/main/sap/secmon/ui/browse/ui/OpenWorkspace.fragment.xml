@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:etd="sap.secmon.ui.browse">
+	<Dialog xmlns="sap.ui.commons" title="{i18n>BU_TIT_Workspaces}" height = "100%">
+	         
+        <etd:WorkspaceList openWorkspace = "pressedOpenWorkspace" workspaceDeleted = "workspaceDeleted">
+	    </etd:WorkspaceList>
+				
+		<buttons>	       
+	       <Button text="{i18n>BU_BUT_Close}" press="pressedClose"/>
+        </buttons>
+	</Dialog>
+</core:FragmentDefinition>

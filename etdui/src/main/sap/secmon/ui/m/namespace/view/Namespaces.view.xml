@@ -1,0 +1,42 @@
+<mvc:View controllerName="sap.secmon.ui.m.namespace.view.Namespaces"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Page id="page" title="{i18n>NamespaceTitle}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<subHeader>
+		</subHeader>
+		<content>
+			<Table id="namespacesTable" inset="false"
+				items="{path: '/SystemNamespace' ,
+			sorter : { path: 'tolower(NameSpace)'} }"
+				growing="true" growingScrollToLoad="true" growingThreshold="100">
+				<headerToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18nCommon>Namespace_COL}" />
+					</Column>
+					<Column hAlign="End" vAlign="Inherit" width="30px">
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{NameSpace}" />
+							<core:Icon src="sap-icon://sys-cancel" class="size1"
+								color="#031E48" press="onDeleteNamespace" visible="{applicationContext>/userPrivileges/namespacesWrite}" >
+							</core:Icon>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>AddNameSpace_btn}" press="onAddNamespace" visible="{applicationContext>/userPrivileges/namespacesWrite}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

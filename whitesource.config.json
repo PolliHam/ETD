@@ -1,0 +1,8 @@
+{
+    "apiKey":"6971b2eec2d3420bad0caf173ec629f6a3c7d3ba63f3445ab99ffdbf1acfb1d0",
+    "checkPolicies":false,
+    "productName":"DIST - ENTERPRISE THREAT DETECT 2.0",
+	"devDep" : false,
+	"forceUpdate" : true,
+    "userKey" : "27d7ac81599c45b689d253f38968d695ce37ca9053314e46943c72c3c38128cb"
+}

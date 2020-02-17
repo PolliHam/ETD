@@ -1,0 +1,157 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.StagingEntryTypeDetails"
+    displayBlock="true"
+    xmlns:ssucc="sap.secmon.ui.commons.controls" xmlns:t="sap.ui.table"
+    xmlns:f="sap.ui.layout.form" xmlns:loglearning="sap.secmon.ui.loglearning" xmlns="sap.m"
+    xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <!-- href="{
+                        path: 'RunModel>/selectedRunName', 
+                        formatter: 'sap.secmon.ui.m.commons.NavigationService.logLearningRunURL'}" -->
+    <ssucc:LongTapLink text="{i18n>Interpret_AllEntryTypes}" 
+                        press="onNavUp"/>
+    <Label text=" > " />
+    <Label text="{parts: [{path: 'i18n>Interpret_EntryType'}, {path: 'uiModel>/entryTypeIndex'}],
+        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+                <l:content>
+                    <f:SimpleForm height="100%" minWidth="1024" layout="ResponsiveGridLayout" class="editableForm"
+                        editable="true" maxContainerCols="2"
+                        labelSpanL="2" labelSpanM="3"
+                        emptySpanL="0" emptySpanM="0"
+                        columnsL="2" columnsM="2">
+                        <f:content>
+
+                            <core:Title text="{i18n>Interpret_LogTIT}" />
+                            <Label text="{i18n>Interpret_LogType}" />
+                            <ComboBox width="100%"
+                                selectionChange="onSelectLogType"
+                                selectedKey="{LogTypeHash}"
+                                valueState="{
+                                    parts : [ {path: 'EventHash'}, {path: 'LogTypeHash'} ],
+                                    formatter : 'sap.secmon.ui.loglearning.util.Formatter.hashValueStateFormatter'
+                                }"
+                                items="{LogTypeModel>/}">
+                                <core:ListItem 
+                                    text="{
+                                        parts : [ {path: 'LogTypeModel>displayName'}, {path: 'LogTypeModel>nameSpace'} ],
+                                        formatter : 'sap.secmon.ui.loglearning.util.Formatter.displayNameFormatter'
+                                    }"
+                                    key="{
+                                        path : 'LogTypeModel>hash',
+                                        formatter : 'sap.secmon.ui.m.commons.Formatter.guidFormatter'
+                                    }"
+                                    tooltip="{
+                                        parts : [ {path: 'LogTypeModel>name'}, {path: 'LogTypeModel>description'} ],
+                                        formatter : 'sap.secmon.ui.loglearning.util.Formatter.nameDescriptionFormatter'
+                                    }"
+                                />
+                                <layoutData>
+                                    <l:GridData span="L10 M9 S12" />
+                                </layoutData>
+                            </ComboBox>
+                            <Label text="{i18n>Interpret_OriginalData}" />
+                            <t:Table id="tableOriginalRecords" visibleRowCount="1" columnHeaderVisible="false"
+                                navigationMode="Paginator"
+                                visibleRowCountMode="Fixed" minAutoRowCount="{uiModel>/originalRecordsCount}"
+                                width="100%" selectionMode="None"
+                                rows="{path: '/entryTypes/originalRecords'}"
+                                busyIndicatorDelay="250" showColumnVisibilityMenu="true"
+                                noData="{i18n>Interpret_noOrigData}">
+                                <t:columns>
+                                    <t:Column sortProperty="OriginalData" filterProperty="OriginalData">
+                                        <t:template>
+                                            <Text text="{OriginalData}" wrapping="true" class="proportionalFont"
+                                                width="100%" weight="100%" />
+                                        </t:template>
+                                    </t:Column>
+                                </t:columns>
+                                <t:layoutData>
+                                    <l:GridData span="L10 M9 S12" />
+                                </t:layoutData>
+                            </t:Table>
+
+                            <core:Title text="{i18n>Interpret_ExtrParam}"/>
+                            <Label text="{i18n>Interpret_Event}" />
+                            <ComboBox width="100%"
+                                selectionChange="onEventSelected"
+                                selectedKey="{EventHash}"
+                                valueState="{
+                                    parts : [ {path: 'EventHash'}, {path: 'LogTypeHash'} ],
+                                    formatter : 'sap.secmon.ui.loglearning.util.Formatter.hashValueStateFormatter'
+                                }"
+                                items="{KBEventModel>/}">
+                                <core:ListItem 
+                                    text="{
+                                        parts : [ {path: 'KBEventModel>displayName'}, {path: 'KBEventModel>nameSpace'} ],
+                                        formatter : 'sap.secmon.ui.loglearning.util.Formatter.displayNameFormatter'
+                                    }"
+                                    key="{
+                                        path : 'KBEventModel>hash',
+                                        formatter : 'sap.secmon.ui.m.commons.Formatter.guidFormatter'
+                                    }"
+                                    tooltip="{
+                                        parts : [ {path: 'KBEventModel>name'}, {path: 'KBEventModel>description'} ],
+                                        formatter : 'sap.secmon.ui.loglearning.util.Formatter.nameDescriptionFormatter'
+                                    }"
+                                />
+                                <layoutData>
+                                    <l:GridData span="L10 M9 S12" />
+                                </layoutData>
+                            </ComboBox>
+                            
+                            <Label text="{i18n>Interpret_Markup}" />
+                            <core:Icon 
+                                src="{= ${Markup} !== ${OriginalMarkup} ?'sap-icon://disconnected':'sap-icon://chain-link'}" 
+                                color="{= ${Markup} !== ${OriginalMarkup}?'red':'green'}" 
+                                visible="{= ${OriginalMarkup} !== null ? true: false}"
+                                tooltip="{parts: [{path:'OriginalMarkup'},{path:'Markup'}],
+                                        formatter: 'sap.secmon.ui.loglearning.util.Formatter.markupChangedTooltip'}">
+                                <core:layoutData>
+                                    <l:GridData span="L1 M1 S1" />
+                                </core:layoutData>
+                            </core:Icon>
+                            <!-- tokens are dynamically filtered by entry type ID in controller -->
+                            <Tokenizer class="multiLineTokenizer" id="annotationTokenizer"
+                                tokens="{ path: '/entryTypes/allAnnotations'}">
+                                <tokens>
+                                    <Token
+                                        select="onPressToken"
+                                        delete="onDeleteAnnotation"
+                                        editable="{path: 'Type', formatter: 'sap.secmon.ui.loglearning.util.Formatter.annotationEditable'}"
+                                        key="{Id}" 
+                                        text="{DisplayName}" 
+                                        app:type="{Type}"  />
+                                </tokens>
+                            </Tokenizer>
+                        </f:content>
+                    </f:SimpleForm>
+                </l:content>
+    </l:Grid>
+    <IconTabBar id="tabStrip" width="100%" expanded="{device>/isNoPhone}"
+    stretchContentHeight="false" backgroundDesign="Transparent" applyContentPadding="false"
+    class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter id="tabAnnotations" text="{i18n>Interpret_IdentExtr}" height="100%">
+                    <f:SimpleForm height="100%" minWidth="1024" layout="ResponsiveGridLayout" class="editableForm"
+                        editable="true" maxContainerCols="2"
+                        labelSpanL="2" labelSpanM="3"
+                        emptySpanL="0" emptySpanM="0"
+                        columnsL="2" columnsM="2">
+                        <f:content>
+		                    <Label text="{i18n>Interpret_CustIdent}" />
+		                            <Input value="{CustomIdentifier}" liveChange="validateRegex"
+		                                change="onChangeCustomIdentifier" tooltip="{i18n>Interpret_RegexJava}" />
+                        </f:content>
+                    </f:SimpleForm>
+                    <mvc:XMLView id="annotations" viewName="sap.secmon.ui.loglearning.Annotations" height="100%"/>
+            </IconTabFilter>
+            <IconTabFilter id="tabValueMapping" text="{i18n>Interpret_ValMap}" height="100%">
+                    <mvc:XMLView id="viewValueMapping" viewName="sap.secmon.ui.loglearning.valueMapping"  height="100%"/>
+            </IconTabFilter>
+            <IconTabFilter id="tabConstantValue" text="{i18n>Interpret_ConstVal}" height="100%">
+                    <mvc:XMLView id="viewConstantValue" viewName="sap.secmon.ui.loglearning.constantValue"  height="100%"/>
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
+</mvc:View>

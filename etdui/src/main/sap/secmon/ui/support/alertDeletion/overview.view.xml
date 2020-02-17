@@ -1,0 +1,38 @@
+<mvc:View controllerName="sap.secmon.ui.support.alertDeletion.overview"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Shell xmlns="sap.m" id="mainControl" showLogout="true" homeIcon="">
+		<app>
+			<Page class="sapUiFioriObjectPage" title="{i18n>AlertDeletion_XLBL}">
+				<content>
+					<Panel>
+						<content>
+							<l:VerticalLayout class="sapUiSmallMargin">
+								<Label 
+									text="{	path: 'applicationContext>/UTC', 
+											formatter: 'sap.secmon.ui.support.alertDeletion.Formatter.dateLabelFormatter'}"/>
+								<DatePicker id="datePicker"
+									    value="{
+							                path : '/d/fromDate',
+							                type : 'sap.ui.model.type.Date',
+							                formatOptions : {
+							                    style : 'medium',
+							                    strictParsing : true
+							                },
+							                UTC: '{applicationContext>/UTC}'
+							            }"
+								
+									width="250px" displayFormat="MMMM d yyyy" valueFormat="MMMM d yyyy">
+								</DatePicker>
+								<Button width="100px" text="{i18nCommon>Delete_BUT}"
+									tooltip="{i18nCommon>Delete_BUT}" press="onDelete">
+								</Button>
+							</l:VerticalLayout>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</app>
+	</Shell>
+</mvc:View>

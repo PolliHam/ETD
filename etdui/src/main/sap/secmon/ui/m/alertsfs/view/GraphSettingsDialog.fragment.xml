@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog title="{i18n>MobAlert_GraphSettings}"
+		confirm="handleGraphSettingsConfirm" resetFilters="handleResetGraphSettingsFilter">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_GraphType}"
+				key="type" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="{i18n>MobAlert_Color}"
+						key="color" selected="false" />
+					<ViewSettingsItem text="{i18n>MobAlert_Symbol}"
+						key="symbol" selected="true" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_VisNode}"
+				key="type" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{i18n>MobAlert_System_Col}"
+						key="system" selected="true" />
+					<ViewSettingsItem text="{i18n>MobAlert_Initiator_Col}"
+						key="terminal" selected="true" />
+					<ViewSettingsItem text="{i18n>MobAlert_User_Col}"
+						key="user" selected="true" />
+				</items>
+			</ViewSettingsFilterItem>
+
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,165 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.prodrules.prodRuntimeRuleDetail"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns:controls="sap.secmon.ui.commons.controls">
+
+	<Page id="page" title="{i18n>Interpret_ProdRules}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+
+		<headerContent>
+		</headerContent>
+
+		<content>
+			<VBox>
+				<f:SimpleForm title="{i18n>Interpret_General}">
+					<f:content>
+						<Label text="{i18n>Interpret_EntryTypeId}" />
+						<Text text="{Id}" />
+						<Label text="{i18n>Interpret_Markup}" />
+						<Text text="{Markup}" />
+						<Label text="{i18n>Interpret_Event}" />
+						<Text text="{EventDisplayName}" />
+						<Label text="{i18n>Interpret_LogTypeName}" />
+						<Text text="{LogTypeDisplayName}" />
+						<Label text="{i18n>Interpret_Brancher}" />
+						<Text text="{BrancherName}" />
+						<Label text="{i18n>Interpret_Result}" />
+						<Text text="{Result}" />
+						<Label text="{i18n>Interpret_ExtractType}" />
+						<Text text="{ExtractionType}" />
+						<Label text="{i18n>Interpret_Regex}" />
+						<Text text="{Regex}" />
+					</f:content>
+				</f:SimpleForm>
+				<f:SimpleForm title="{i18n>Interpret_Extraction}">
+					<f:content>
+						<Table id="tableExtraction"
+							items="{ path : 'Extraction', sorter : [ { path : 'FieldName' } ] }"
+							growing="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<ToolbarSpacer />
+									<Button icon="sap-icon://drop-down-list" press="onPressSettings" />
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_FieldName}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_ExtractType}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_GroupName}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Pattern}" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{FieldName}" />
+										<Text text="{ExtractionType}" />
+										<Text text="{GroupName}" />
+										<Text text="{Pattern}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</f:content>
+				</f:SimpleForm>
+				<f:SimpleForm title="{i18n>Interpret_ValMap} - {i18n>Interpret_Source}">
+					<f:content>
+						<Table id="tableSource"
+							items="{ path : 'ValueMappingSource', sorter : [ { path : 'MappingRule' }, { path : 'MappingCondition' }, { path : 'ConditionPrio' }, { path : 'SourceName' } ] }"
+							growing="true">
+							<columns>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_MapRule}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Condition}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Priority}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_SourceName}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Operator}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Operand1}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Operand2}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_ExtractType}" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{MappingRule}" />
+										<Text text="{MappingCondition}" />
+										<Text text="{ConditionPrio}" />
+										<Text text="{SourceName}" />
+										<Text text="{Operator}" />
+										<Text text="{Operand1}" />
+										<Text text="{Operand2}" />
+										<Text text="{ExtractionType}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</f:content>
+				</f:SimpleForm>
+				<f:SimpleForm title="{i18n>Interpret_ValMap} - {i18n>Interpret_Target}">
+					<f:content>
+						<Table id="tableTarget"
+							items="{ path : 'ValueMappingTarget', sorter : [ { path : 'MappingRule' }, { path : 'MappingCondition' } ] }"
+							growing="true">
+							<columns>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_MapRule}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_Condition}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_FieldName}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>Interpret_TargetValue}" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{MappingRule}" />
+										<Text text="{MappingCondition}" />
+										<Text text="{FieldName}" />
+										<Text text="{TargetValue}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

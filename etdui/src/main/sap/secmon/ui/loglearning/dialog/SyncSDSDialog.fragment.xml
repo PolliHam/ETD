@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:unified="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form" class="sapUiSizeCompact">
+	<Dialog id="dialog" confirm="onConfirm" title="{i18n>Interpret_SyncESP}">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>Interpret_Status}" />
+					<Text text="{SyncSDSModel>/status}" />
+					<Label text="{i18n>Interpret_Progress}" />
+					<ProgressIndicator width="100%"
+						percentValue="{SyncSDSModel>/percentValue}" displayValue="{SyncSDSModel>/displayValue}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>Interpret_Close}" press="onCloseDialog"
+				id="closeSyncSDS" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

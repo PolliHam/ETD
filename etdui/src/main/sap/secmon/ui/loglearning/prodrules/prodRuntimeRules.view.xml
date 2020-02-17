@@ -1,0 +1,134 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.prodrules.prodRuntimeRules"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<Page id="page" title="{i18n>Interpret_ProdRules}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+
+		<headerContent>
+		  <Button
+                press="onCheckSDS" icon="sap-icon://connected"
+                text="{i18n>Interpret_CheckSDS}" tooltip="{i18n>Interpret_CheckSDSTOL}" />
+		</headerContent>
+
+		<content>
+			<VBox>
+				<fb:FilterBar clear="onClear" search="onSearch"
+					showRestoreButton="false" showClearButton="true" filterBarExpanded="true"
+					id="filterBar">
+
+					<fb:filterItems>
+
+						<fb:FilterItem name="Id" label="{i18n>Interpret_EntryTypeId}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="Markup" label="{i18n>Interpret_Markup}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="EventDisplayName" label="{i18n>Interpret_Event}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="LogTypeDisplayName" label="{i18n>Interpret_LogTypeName}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="BrancherName" label="{i18n>Interpret_Brancher}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="Result" label="{i18n>Interpret_Result}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+					</fb:filterItems>
+				</fb:FilterBar>
+				<Table id="table" items="{/ProductiveRuntimeRules}" growing="true"
+					itemPress="onItemPress" mode="MultiSelect" selectionChange="onRowSelectionChange">
+					<headerToolbar>
+						<OverflowToolbar>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://drop-down-list" press="onPressSettings" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>Interpret_EntryTypeId}" />
+						</Column>
+						<Column minScreenWidth="XXLarge" demandPopin="true">
+							<Text text="{i18n>Interpret_Markup}" />
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true">
+							<Text text="{i18n>Interpret_Event}" />
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>Interpret_LogTypeName}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="10em">
+							<Text text="{i18n>Interpret_Brancher}" />
+						</Column>
+						<Column minScreenWidth="XXLarge" demandPopin="true">
+							<Text text="{i18n>Interpret_Result}" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation">
+							<cells>
+								<Text text="{Id}" />
+								<Text text="{Markup}" />
+								<Text text="{EventDisplayName}" />
+								<Text text="{LogTypeDisplayName}" />
+								<Text text="{BrancherName}" />
+								<Text text="{Result}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+					<Button id="btnExportProdRule" text="{i18n>Interpret_ExportPrdRul}"
+						tooltip="{i18n>Interpret_ExportPrdRulTt}" icon="sap-icon://bus-public-transport"
+						visible="{applicationContext>/userPrivileges/contentRepExport}"
+						press="onPressExportRule" />
+					<Button id="btnDownloadProdRule" text="{i18n>Interpret_DownPrdRul}"
+						tooltip="{i18n>Interpret_DownPrdRulTt}" icon="sap-icon://download"
+						visible="{applicationContext>/userPrivileges/contentDownload}"
+						press="onPressDownloadRule" />
+					<Button id="btnUploadProdRule" text="{i18n>Interpret_UpPrdRul}"
+						tooltip="{i18n>Interpret_UpPrdRulTt}" icon="sap-icon://upload"
+						visible="{applicationContext>/userPrivileges/contentUpload}"
+						press="onPressUploadRule" />
+					<Button id="btnDeleteRule"
+                        text="{i18n>Interpret_DeleteRule}"
+                        tooltip="{i18n>Interpret_DeleteRuleTt}"
+                        icon="sap-icon://delete"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        enabled="{UIModel>/ruleIsSelected}"
+                        press="onPressDeleteRule" />
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

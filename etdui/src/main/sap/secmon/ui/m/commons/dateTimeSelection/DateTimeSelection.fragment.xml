@@ -1,0 +1,18 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:variants="sap.ui.comp.variants">
+
+	<Panel expandable="true" expanded="false" id="dateTimePanel"
+		headerText="{i18nCommon>ConsidTimeRange_LBL}">
+		<c:Fragment
+			fragmentName="sap.secmon.ui.m.commons.dateTimeSelection.DateTimeSelectionContent"
+			type="XML" />
+		<Button id="btnApplyTimeRange" text="{i18nCommon>TimeRange_Apply_BUT}"
+			enabled="true" icon="sap-icon://filter" press="handleTimeFilter">
+			<layoutData>
+				<l:GridData linebreak="true" />
+			</layoutData>
+		</Button>
+	</Panel>
+
+</c:FragmentDefinition>

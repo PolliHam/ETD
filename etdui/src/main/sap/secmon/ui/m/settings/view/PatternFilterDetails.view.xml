@@ -1,0 +1,56 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.PatternFilterDetails"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Page id="ContentReplicationPage" showNavButton="true"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{parts: [{path:'i18n>PatFil_Details_XTIT'},{path:'Name'}],
+		         formatter: 'sap.secmon.ui.commons.Formatter.i18nText'
+		         }"
+		width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>			
+		<content>
+			<Panel id="commonPanel" expandable="false" expanded="true">
+				<content>
+					<Table id="patternTable"
+						items="{ path : 'Details' , sorter : { path : 'PatternName' } }"
+						mode="{path: 'applicationContext>/userPrivileges/settingsPatternFilterWrite', formatter: 'sap.secmon.ui.commons.Formatter.tableModeFormatter'}">
+						<headerToolbar>
+							<Toolbar>
+								<Button text="{i18nCommon>Add_BUT}" press="onAddPattern" 
+									visible="{applicationContext>/userPrivileges/settingsPatternFilterWrite}"	/>
+								<Button id="deleteButton" text="{i18nCommon>Delete_BUT}"
+									visible="{applicationContext>/userPrivileges/settingsPatternFilterWrite}"	
+									press="onRemovePattern" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="{i18nCommon>Namespace_COL}" />
+							</Column>
+							<Column>
+								<Text text="{i18nCommon>PatternName_COL}" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{path: 'PatternNamespace'}" />
+									<Text text="{path: 'PatternName'}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
+

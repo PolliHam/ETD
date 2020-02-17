@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:t="sap.ui.table" controllerName="sap.secmon.ui.m.invest.view.Detail"
+	xmlns:core="sap.ui.core" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns="sap.m">
+	<Table fixedLayout="false" id="ObjectsList"
+			items="{objectsList>/}"
+		growing="true" growingThreshold="1000" mode="None">
+		<columns>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet"
+				popinDisplay="Inline">
+				<header minWidth="3rem">
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet"
+				popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Type_COL}" wrapping="false"/>
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet"
+				popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Name_COL}" />
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet"
+				popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Created_At_COL}" />
+				</header>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Text text="{objectsList>row}" wrapping="false"/>
+					<Text
+						text="{path: 'objectsList>ObjectType', formatter: 'sap.secmon.ui.m.invest.util.Formatter.objectTypeFormatter'}" />
+					<sscc:LinkOrText
+						text="{parts: [{path: 'objectsList>Name'}, {path: 'objectsList>ObjectType'}, {path: 'objectsList>Type'}], formatter: 'sap.secmon.ui.m.invest.util.Formatter.nameFormatter'}"
+						linkEnabled="{
+			                        parts: [{path:'editModel>/displayMode'},{path:'objectsList>ObjectType'}],
+			                        formatter: 'sap.secmon.ui.m.invest.util.Formatter.objectNavigationLinkEnabledFormatter'
+			                        }"
+						href="{parts: [{path: 'objectsList>ObjectId'}, {path: 'objectsList>ObjectType'}], formatter: 'sap.secmon.ui.m.invest.util.Formatter.objectLinkFormatter'}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'objectsList>CreationTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

@@ -1,0 +1,72 @@
+<mvc:View controllerName="sap.secmon.ui.m.investTemplateFS.view.InvestigationTemplateCreate"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+
+
+	<Page id="page" title="{i18n>TemplateNew_Title_TIT}"
+		enableScrolling="false" showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" />
+		</headerContent>
+		<subHeader>
+		</subHeader>
+		<content>
+		
+				
+		<f:SimpleForm editable="true" labelSpanL="3" labelSpanM="4" labelSpanS="4" layout="ResponsiveGridLayout">
+			<f:content>
+				<Label text="{i18n>TemplateName_LBL}" required="true" />
+				<Input id="templateName" valueStateText="{i18n>NameMustNotBeEmpty_MSG}" change="onCheckLength"
+						value="{path:'editModel>/TemplateDescription', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" />
+									<Label text="{i18nCommon>Namespace_LBL}" />
+				<Label text="{i18nCommon>Pattern_LBL}" />
+				<ComboBox selectedKey="{editModel>/PatternId}"
+					items="{path: 'Patterns>/WorkspacePatterns',  sorter : { path: 'Name', descending: false} }">
+					<core:Item key="{Patterns>Id}"
+						text="{parts : [ { path : 'Patterns>Name'}, { path : 'Patterns>NameSpace' }, {path : 'Patterns>PatternType'} ], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.patternFormatter'}"/>
+				</ComboBox>
+				<Label text="{i18nCommon>Description_LBL}" required="true">
+				</Label>
+				<Input id="description" valueStateText="{i18n>NameMustNotBeEmpty_MSG}" change="onCheckLength"
+					value="{path:'editModel>/Description', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" >
+				</Input>
+				<Label text="{i18nCommon>Severity_LBL}">
+				</Label>
+				<Select selectedKey="{editModel>/Severity}"
+					items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/enumValues}">
+					<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+				</Select>
+				<Label text="{i18nCommon>Attack_COL}">
+				</Label>
+				<Select 
+					autoAdjustWidth="true"
+					selectedKey="{editModel>/Attack}"
+					items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/enumValues}">
+					<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+				</Select>
+				<Label text="{i18n>MManagementVisibility}">
+				</Label>
+				<Select selectedKey="{editModel>/ManagementVisibility}"
+					autoAdjustWidth="true"
+					items="{enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/enumValues}">
+					<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+				</Select>
+				<Label text="{i18n>Comment}" />
+				<TextArea enabled="true" width="100%" rows="5"
+					value="{editModel>/Comment}" />
+			</f:content>
+		</f:SimpleForm>
+		
+		</content>
+			<footer>
+				<OverflowToolbar>
+						<content>
+							<ToolbarSpacer />
+							<Button text="{i18nCommon>Save_BUT}" press="onSave" visible="{applicationContext>/userPrivileges/investigationTemplateWrite}"/>
+							<Button text="{i18nCommon>Cancel_BUT}" press="onCancel" />
+						</content>
+				</OverflowToolbar>
+			</footer>
+	</Page>
+</mvc:View>

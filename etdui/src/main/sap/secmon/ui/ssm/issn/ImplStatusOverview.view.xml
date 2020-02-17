@@ -1,0 +1,230 @@
+<mvc:View controllerName="sap.secmon.ui.ssm.issn.ImplStatusOverview"
+	height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls" >
+	<Page id="page" title="{i18n>SSM_TIT_ImplStatOV}" showNavButton="true" enableScrolling="false"
+		  navButtonPress="onNavBack" >
+		<headerContent>
+		    <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}" press="onPressHelp"/>
+		</headerContent>
+		<content>
+            <l:FixFlex>
+                <l:fixContent>
+                    <fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+                            search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+                            showRestoreButton="false" showClearButton="true"
+                            class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+                            id="filterBar" considerGroupTitle="true">
+                        <fb:filterItems>
+                            <fb:FilterItem name="NoteNumber" label="{i18n>SSM_COL_NoteNumber}">
+                                <fb:control>
+                                    <MultiComboBox id="noteNumberFilterInput"    
+                                        items="{/DistinctNoteId}">
+                                        <items>
+                                            <core:Item key="{NoteNumber}" 
+                                                        text="{parts:[{path :'NoteNumber'},{path : 'NoteTitle'}],formatter:'sap.secmon.ui.ssm.issn.util.Formatter.noteNumberTitleFormatter'}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="NoteNumber" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_NoteNumber}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+            
+                            <fb:FilterItem name="SystemId" label="{i18n>SSM_COL_SystemId}">
+                                <fb:control>
+                                    <MultiComboBox id="systemIdFilterInput"    
+                                        items="{path: '/DistinctSystemId', sort: 'Id'}">
+                                        <items>
+                                            <core:Item key="{Id}" text="{Id}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="SystemId" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_SystemId}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+                    
+                            <fb:FilterItem name="SystemType" label="{i18n>SSM_COL_SystemType}">
+                                <fb:control>
+                                    <MultiComboBox id="systemTypeFilterInput"    
+                                        items="{/DistinctSystemType}">
+                                        <items>
+                                            <core:Item key="{Id}" text="{Id}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="SystemType" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_SystemType}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>  
+                                
+                            <fb:FilterItem name="SNoteImpleAutomatic" label="{i18n>SSM_COL_ImplAutom}">
+                                <fb:control>
+                                    <MultiComboBox id="impleAutomaticFilterInput"    
+                                        items="{enums>/sap.secmon.ui.ssm.issn/NoteSystemImplementation/ImplementationFullyAutomatic/enumValues}">
+                                        <items>
+                                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="ImplementationFullyAutomatic" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_ImplAutom}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+                            
+                            <fb:FilterItem name="SNoteProcessingStatus" label="{i18n>SSM_COL_PStatus}">
+                                <fb:control>
+                                    <MultiComboBox id="processStatusFilterInput"
+                                        items="{enums>/sap.secmon.ui.ssm.issn/NoteSystemImplementation/ProcessStatus/enumValues}">
+                                        <items>
+                                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="SNoteProcessingStatus" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_PStatus}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+                        
+                            <fb:FilterItem name="SNoteImpleStatus" label="{i18n>SSM_COL_ImpleStatus}">
+                                <fb:control>
+                                    <MultiComboBox id="impleStatusFilterInput"
+                                        items="{enums>/sap.secmon.ui.ssm.issn/NoteSystemImplementation/ImplementationStatus/enumValues}">
+                                        <items>
+                                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="SNoteImplementationStatus" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_ImpleStatus}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+                    
+                            <fb:FilterItem name="SPImpleStatus" label="{i18n>SSM_COL_SPImpleStatus}">
+                                <fb:control>
+                                    <MultiComboBox id="spImpleStatusFilterInput"
+                                        items="{enums>/sap.secmon.ui.ssm.issn/NoteSystemImplementation/ImplementedBySP/enumValues}">
+                                        <items>
+                                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                                        </items>
+                                        <customData>
+                                            <core:CustomData key="urlParamName" value="SPImplementationStatus" />
+                                            <core:CustomData key="i18nText" value="{i18n>SSM_COL_SPImpleStatus}" />
+                                        </customData>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterItem>
+                        </fb:filterItems>
+                    </fb:FilterBar>
+
+                    <Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+                        <Label text="{parts: [{path: 'i18n>SSM_LBL_ImplStat'}, {path: 'uiModel>/noteImplStatusCount'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+                        <Label text="" width="25px" />
+                        <Label id="timeRangeLabelInToolbarOfTable" text=""/>
+                    </Toolbar>
+                </l:fixContent>
+            
+                <l:flexContent>
+                    <ScrollContainer height="100%" vertical="true">
+                    
+                        <customControls:ColumnClickableTable id="noteImplTable" 
+                            firstColumnIsForSelection="false" updateFinished="onUpdateFinished" 
+                            items="{/ImplementationStatusOverview}" class="sapEtdScrollTable"
+                            columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+                            growing="true" growingScrollToLoad="true" growingThreshold="100">
+                            <customControls:infoToolbar>
+                                <Toolbar id="vsdFilterBar">
+                                    <Label id="vsdFilterLabel" text="?" />
+                                </Toolbar>
+                            </customControls:infoToolbar>
+                            <customControls:columns>
+                                <customControls:SortableColumn width="5%" sortProperty="NoteNumber" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_NoteNumber}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn width="4%" sortProperty="NoteVersion" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_NoteVersion}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn sortProperty="NoteTitle" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_NoteTitle}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn width="5%" sortProperty="SystemId" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_SystemId}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn width="5%" sortProperty="SystemType" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_SystemType}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>	
+                                <customControls:SortableColumn width="5%" sortProperty="CVSSBaseScore" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_CVSS}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn sortProperty="ReleaseOn" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_ReleaseOn}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>
+                                <customControls:SortableColumn width="5%"  sortProperty="ImplementationFullyAutomatic" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_ImplAutom}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>	
+                                <customControls:SortableColumn sortProperty="SNoteProcessingStatus" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_PStatus}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>		
+                                <customControls:SortableColumn sortProperty="SNoteImplementationStatus" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_ImpleStatus}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>	
+                                <customControls:SortableColumn sortProperty="SPImplementationStatus" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                                    <customControls:header>
+                                        <customControls:SortableItem text="{i18n>SSM_COL_SPImpleStatus}" />
+                                    </customControls:header>
+                                </customControls:SortableColumn>                                             
+                
+                            </customControls:columns>
+                            <customControls:items>
+                                <ColumnListItem width="100%">
+                                    <cells>
+                                        <Link text="{path: 'NoteNumber', type: 'sap.ui.model.type.Integer'}" press="onLinkPress"/>
+                                        <Text text="{NoteVersion}" />
+                                        <Text text="{NoteTitle}" />
+                                        <Text text="{SystemId}" />
+                                        <Text text="{SystemType}" />
+                                        <Text text="{CVSSBaseScore}" />
+                                        <Text text="{parts:[{path : 'applicationContext>/UTC'}, {path : 'ReleaseOn'}],                                             
+                                                        formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+                                        <Text text="{path: 'ImplementationFullyAutomatic', formatter: 'sap.secmon.ui.ssm.issn.util.Formatter.implementationFullyAutomaticFormatter'}" />
+                                        <Text text="{path: 'SNoteProcessingStatus', formatter: 'sap.secmon.ui.ssm.issn.util.Formatter.processStatusFormatter'}" />
+                                        <Text text="{path: 'SNoteImplementationStatus', formatter: 'sap.secmon.ui.ssm.issn.util.Formatter.implementationStatusFormatter'}" />
+                                        <Text text="{path: 'SPImplementationStatus', formatter: 'sap.secmon.ui.ssm.issn.util.Formatter.implementedBySPFormatter'}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </customControls:items>
+                        </customControls:ColumnClickableTable>
+                    </ScrollContainer>
+                </l:flexContent>
+            </l:FixFlex>
+		</content>
+	</Page>
+</mvc:View>

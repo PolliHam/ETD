@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>SysCtx_CreateSys}">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>SysCtx_System}" required="true" />
+					<Input value="{ModelNewSystem>/Id}" change="onChangeNewSystemId" />
+					<Label text="{i18n>SysCtx_SystemType}" required="true" />
+					<Input value="{ModelNewSystem>/Type}" change="onChangeNewSystemType" />
+					<Label text="{i18n>SysCtx_Status}" />
+					<ComboBox
+						items="{ path : 'Enum>/Enum', filters : [ { path : 'Package', operator : 'EQ', value1 : 'sap.secmon.services.ui.systemcontext' }, { path : 'Attribute', operator : 'EQ', value1 : 'Status' } ] }"
+						selectedKey="{ModelNewSystem>/Status}" change="onChangeSystemsCombo">
+						<core:Item key="{Enum>Value}" text="{Enum>Value}" />
+					</ComboBox>
+					<Label text="{i18n>SysCtx_Role}" />
+					<ComboBox
+						items="{ path : 'Enum>/Enum', filters : [ { path : 'Package', operator : 'EQ', value1 : 'sap.secmon.services.ui.systemcontext' }, { path : 'Attribute', operator : 'EQ', value1 : 'Role' } ] }"
+						selectedKey="{ModelNewSystem>/Role}">
+						<core:Item key="{Enum>Value}" text="{Enum>Value}" />
+					</ComboBox>
+					<Label text="{i18n>SysCtx_IsMainSys}" />
+					<CheckBox selected="{ModelNewSystem>/IsMainSystem}"
+						select="onChangeIsMainSystem" />
+					<Label text="{i18n>SysCtx_IdMainSys}" visible="{= ${ModelNewSystem>/IsMainSystem} === false}" />
+					<ComboBox visible="{= ${ModelNewSystem>/IsMainSystem} === false}"
+						items="{path: 'ModelMainSystems>/'}" selectedKey="{ModelNewSystem>/MainSystem}"
+						change="onChangeSystemsCombo">
+						<core:Item key="{ModelMainSystems>SystemGroup}" text="{ModelMainSystems>SystemGroup}" />
+					</ComboBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>Commons_Ok}" press="onCloseCreateSystemDialog"
+				id="ok" />
+			<Button text="{i18n>Commons_Cancel}" press="onCloseCreateSystemDialog"
+				id="cancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

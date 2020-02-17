@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>AvailableScenarios}"
+		class="sapUiPopupWithPadding"
+		multiSelect="true"
+		items="{path :'/Tags', sorter : {path : 'Name'}, filters : [{path : 'Original', operator : 'EQ', value1 : '1'}]}"
+		search="onTagValueHelpSearch"
+		confirm="onTagValueHelpClose"
+		cancel="onTagValueHelpClose">
+		<StandardListItem
+			title="{Name}"
+			description="{Namespace}" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>VL_Entry_Upload_Title}" class="sapUiContentPadding">
+		<content>
+			<u:FileUploader id="fileUploader" name="myFileUpload"
+				width="400px" sendXHR="true" fileType="csv" uploadComplete="onHandleUploadComplete"
+				typeMissmatch="onFileTypeMismatch" visible="true"
+				maximumFileSize="50" fileSizeExceed="onFileSizeExceed" />
+				
+
+		</content>
+		<beginButton>
+			<Button text="{i18n>VL_Entry_Upload}" press="onHandleUpload"
+				visible="true" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" press="onUploadCancel"
+				visible="true" />
+		</endButton>
+	</Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:unified="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form" class="sapUiSizeCompact">
+	<Dialog id="dialog" confirm="onConfirm" title="{i18n>Interpret_CreateRun}">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>Interpret_Progress}" />
+					<ProgressIndicator width="100%"
+						percentValue="{ProgressBarModel>/percentValue}" displayValue="{ProgressBarModel>/displayValue}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18nCommon>Close_BUT}" press="onCloseProgressDialog"
+				id="close" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

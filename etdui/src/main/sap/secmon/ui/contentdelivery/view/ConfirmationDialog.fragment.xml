@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>CD_Confirmation}" type="Message">
+		<content>
+			<Text text="{i18n>CD_WrongVersion}"/>
+		</content>			
+		<buttons>
+	       <Button text="{i18nCommon>OK_BUT}" press="importConfirmed"/>
+	       <Button text="{i18nCommon>Cancel_BUT}" press="importCanceled"/>
+        </buttons>
+	</Dialog>
+</core:FragmentDefinition>

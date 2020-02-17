@@ -1,0 +1,34 @@
+<c:FragmentDefinition xmlns="sap.m"
+xmlns:c="sap.ui.core"
+xmlns:sscc="sap.secmon.ui.m.commons.controls"
+xmlns:f="sap.ui.layout.form">
+    <Dialog id="CreateNewDialog">
+        <content>
+            <f:SimpleForm showHeader="false" editable="true">
+                <f:content>
+                    <Label text="{i18nCommon>Namespace_LBL}" />
+                    <Select id="createNewEventNameSpace" selectedKey="{newEntry>/NameSpace}"
+                       items="{
+                            path: 'Namespace>/NameSpaceOriginalInSystem',
+                            sorter: {
+                            path: 'NameSpace'
+                            }
+                        }">
+                    <c:ListItem key="{Namespace>NameSpace}" text="{Namespace>NameSpace}" />
+                    </Select>
+                    <Label  text="{i18n>KB_DisplayNameLbl}" required="true"/>
+                    <Input id="createNewDisplayName" value="{path:'newEntry>/displayName', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}"
+                    valueStateText="{i18n>KB_NameNotEmpty}" change="onChange" liveChange="onLiveChangeDisplayName"/>
+                    <Label text="{i18nCommon>Name_LBL}" required="true" />
+                    <Input id="createNewName" value="{path:'newEntry>/name', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" valueStateText="{i18n>KB_NameNotEmpty}" change="onChange"/>
+                    <Label text="{i18nCommon>Description_LBL}" />
+                    <Input id="createNewDescription" value="{newEntry>/description}" />
+                </f:content>
+            </f:SimpleForm>
+       </content>
+       <buttons>
+           <Button id="save" text="{i18nCommon>Save_BUT}" press="onSaveNew" />
+           <Button id="cancel" text="{i18nCommon>Cancel_BUT}" press="onCancelNew" />
+       </buttons>
+    </Dialog>
+</c:FragmentDefinition>

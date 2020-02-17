@@ -1,0 +1,105 @@
+.alertIcon {
+	background-color: transparent;
+	color: gray;
+}
+
+.monitoringPanelPeriod {
+	color: #666666;
+	padding-left:10px;
+}
+
+.tile {
+	background-color: white;
+	border: 1px solid;
+	border-color: rgb(227, 233, 239);
+}
+
+.contentArea {
+    background-color:white;
+}
+
+.contentArea .sapUiMltCell {
+	padding-right: 1px;
+	padding-bottom: 1px;
+}
+
+.chartTitle {
+	padding-top: 0px;
+	padding-left: 0px;
+	color: #666666;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.header {
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #666666;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.header .sapUiPanelTitle {
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #666666;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.details {
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #666666;
+	font-size: 1em;
+}
+
+.grow {
+	/* Safari, Older Chrome */
+	-webkit-transition: all 1s ease-in-out;
+	-webkit-transform: scale(5);
+	
+	transition: all 1s ease-in-out;
+	transform: scale(5);
+	
+	/* Older Firefox */
+	-moz-transition: all 1s ease-in-out;
+	-moz-transform: scale(5);
+	
+	/* IE9 */
+	ms-transform: scale(5);
+	
+	opacity: 0;
+}
+
+.shrink {
+    /* Safari, Older Chrome */
+    -webkit-transition: opacity 1s ease-in-out;
+    -webkit-transform: scale(1);
+    
+    transition: opacity 1s ease-in-out;
+    transform: scale(1);
+    
+    /* Older Firefox */
+    -moz-transition: opacity 1s ease-in-out;
+    -moz-transform: scale(1);
+    
+    /* IE9 */
+    ms-transform: scale(1);
+    
+    opacity: 1;
+}
+
+/*block chnages corrceted cropping chart problem*/
+.sapEtdDonutContainer {
+	display:flex
+}
+.sapEtdDonut {
+	width: unset !important;
+	padding: unset !important;
+	display:flex !important;
+}
+.sapEtdDonutResponsive {
+	width:100%;
+	position:relative !important;
+}

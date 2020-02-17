@@ -1,0 +1,28 @@
+<mvc:View controllerName="sap.secmon.ui.m.exemptions.view.Exemption"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Page id="exemptionDetailsContainer" title="{i18n>ExemptionTitle}"
+		showNavButton="true" navButtonPress="onNavBack">
+		<subHeader>
+		</subHeader>
+		<content>
+
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="deleteButton" text="{i18nCommon>Delete_BUT}"
+						press="onDeleteExemption" 
+						visible="{= ${applicationContext>/userPrivileges/exemptionWrite} &amp;&amp; ${editModel>/displayMode}}"/>
+					<Button id="editButton" text="{i18nCommon>Edit_BUT}" press="onEditExemption"
+						visible="{= ${applicationContext>/userPrivileges/exemptionWrite} &amp;&amp; ${editModel>/displayMode}}"/>
+					<Button id="saveButton" text="{i18nCommon>Save_BUT}" press="onSaveExemption"
+						visible="{editModel>/editMode}" />
+					<Button id="cancelButton" text="{i18nCommon>Cancel_BUT}"
+						press="onCancelExemption" visible="{editModel>/editMode}" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
+

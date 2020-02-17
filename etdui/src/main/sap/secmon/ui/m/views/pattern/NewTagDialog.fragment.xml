@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:commons="sap.ui.commons"	
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+
+	<Dialog title="{i18n>NewScenario}" width="200px" height="200px" modal="true">
+		<form:SimpleForm labelSpanL="3" labelSpanM="4" labelSpanS="4" layout="ResponsiveGridLayout" editable="true">
+			<form:content>
+				<Label text="{i18nCommon>Namespace_LBL}"/>
+					<Select id="LabelNamespace" 
+							selectedKey="{tagDialogModel>/namespace}"
+							items="{path :'originalNamespace>/NameSpaceOriginalInSystem/', sorter:'{originalNamespace>NameSpace}'}">
+						<core:Item key="{originalNamespace>NameSpace}" text="{originalNamespace>NameSpace}"/>
+					</Select>
+				<Label text="{i18nCommon>Name_LBL}"/>
+				<Input id="LabelName" value="{tagDialogModel>/name}" />
+			</form:content>			   
+		</form:SimpleForm>	
+		<buttons>
+	       <Button text="{i18nCommon>OK_BUT}" press="onNewTagDialogClose"/>
+	       <Button text="{i18nCommon>Cancel_BUT}" press="onNewTagDialogCancel"/>
+        </buttons>
+	</Dialog>
+	
+</core:FragmentDefinition>

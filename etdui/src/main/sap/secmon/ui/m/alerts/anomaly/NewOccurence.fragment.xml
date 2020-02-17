@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<ResponsivePopover title="{i18n>MobAlert_NewOccXTIT}"
+		modal="true" class="sapUiPopupWithPadding" showCloseButton="true"
+		placement="Auto">
+		<endButton>
+			<Button text="{i18nCommon>Close_BUT}" press="closeEventNewOccurencePopover" />
+		</endButton>
+		<content>
+			<Table fixedLayout="false"
+				items="{path: 'ScoreBinaryDetails/',  sorter : { path: 'NormalizedScore', descending: true}}">
+				<columns>
+					<Column demandPopin="true" popinDisplay="WithoutHeader">
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectHeader responsive="false"
+								class="compactObjectHeaderWithTitle" attributes="{BinaryEdgeDimensions/}">
+								<attributes>
+									<ObjectAttribute title="{RawDataDimensionName}"
+										text="{RawDataDimensionValue}" />
+								</attributes>
+							</ObjectHeader>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

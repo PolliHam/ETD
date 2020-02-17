@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:etd="sap.secmon.ui.monitoring">
+    <Dialog xmlns="sap.ui.commons" title="{i18n>MonSelectChart}" height="90%" width="90%">
+
+        <etd:ArtifactList/>
+                
+        <buttons>          
+           <Button text="{i18n>MonSelect}" press="pressedChooseArtifact"/>
+           <Button text="{i18n>MonClose}" press="pressedClose"/>           
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

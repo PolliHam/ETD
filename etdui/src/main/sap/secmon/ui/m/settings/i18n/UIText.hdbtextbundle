@@ -1,0 +1,289 @@
+# TRANSLATE
+#XTIT:Mobile Settings UI
+SettingsTitle=Settings
+#XLBL:Mobile Settings UI: Events
+Events_LBL=Manage Event Storage
+#XLBL:Mobile Settings UI: Alerts
+Alerts_LBL=Manage Alert Publishing
+PatternFilter_Add_XTIT=Add Pattern Filter
+#XMSG:Mobile Settings UI: Pattern Filter
+PatternFilter_EntName_XMSG=Enter between 1 and 255 characters
+#XLBL:Mobile Settings UI: Pattern Filter
+PatternFilter_LBL=Pattern Filter
+#XLBL:Mobile Settings UI: Pattern Filter
+FilterId_COL=Filter Id
+#XLBL:Mobile Settings UI: Pattern Filter
+PatFil_confirmDel_XMSG=Are you sure you want to delete the selected Pattern Filters?
+#XLBL:Mobile Settings UI: Pattern Filter
+PatFil_deleteOK_XMSG=Deleted selected Pattern Filters
+#XLBL:Mobile Settings UI: Pattern Filter
+PatFil_confirmDelPat_XMSG=Are you sure you want to delete the selected Entries?
+#XLBL:Mobile Settings UI: Pattern Filter 
+PatFil_Details_XTIT=Pattern Filter "{0}"
+#XLBL:Mobile Settings UI: Alerts
+MngAl_XTIT=Manage Alert Publishing
+#XLBL:Mobile Settings UI: Alerts
+MngAl_Means_LBL=Publication Channels
+#XLBL:Mobile Settings UI: Alerts
+MngAl_COMMON_LBL=Common Settings
+#XLBL:Mobile Settings UI: Alerts
+MngAl_REST_LBL=Publish to REST Endpoint
+#XLBL:Mobile Settings UI: Alerts
+MngAl_Siem_LBL=Publish to SIEM System
+#XLBL:Mobile Settings UI: Alerts
+MngAl_Mail_LBL=Publish via Email
+#XTIT:Mobile Settings UI: Alerts
+MngAl_RestFormat_LBL=REST Format
+#XLBL: Mobile Settings UI: Alerts
+MngAl_BaseServer_LBL=Server Base URL
+#XLBL: Mobile Settings UI: Alerts
+MngAl_Trigg_LBL=Include Triggering Events
+#XTIT: Mobile Settings UI: Alerts
+MngAl_RESTSettings_TIT=REST and SIEM Settings
+#XTIT: Mobile Settings UI: Alerts
+MngAl_MailSettings_TIT=Email Settings
+#XLBL: Mobile Settings UI: Alerts
+MngAl_PackagesJSON_LBL=JSON in "SysLog" Format
+#XLBL: Mobile Settings UI: Alerts
+MngAl_SplunkJSON_LBL=JSON in "Splunk" Format
+#XLBL: Mobile Settings UI: Alerts
+MngAl_JSON_LBL=JSON
+#XLBL: Mobile Settings UI: Alerts
+MngAl_Sender_LBL=Sender Address
+#XLBL: Mobile Settings UI: Alerts
+MngAl_Severity_LBL=Minimum Severity
+#XLBL: Mobile Settings UI: Alerts
+MngAl_Timezone_LBL=Server Timezone
+#XTOL: Mobile Settings UI: Alerts
+MngAl_MinSeverity_XTOL=Minimum Severity for Alerts to be Published
+#XMSG: Mobile Settings UI: Alerts
+MngAl_Saved_MSG=Settings saved
+#XMSG: Mobile Settings UI: Alerts
+MngAl_PatFil_LBL=Pattern Filter
+#XLBL:Mobile Settings UI: Alerts
+MngAl_NoFil_LBL=<No Filter>
+#XTIT:Manage Events UI
+MngEv_XTIT=Manage Event Storage
+#XLBL: Manage Events UI
+MngEv_Events_XLBL=Log Events
+#XLBL: Manage Events UI
+MngEv_OrigEvents_XLBL=Original Events
+#XLBL: Manage Events UI
+MngEv_UnrecEvents_XLBL=Unrecognized Events
+#XLBL: Manage Events UI
+MngEv_OlderThan_Age_XLBL=Delete events older than
+#XLBL: Manage Events UI
+MngEv_Expunge_XLBL=Delete Log Events older than {0}
+#XLBL: Manage Events UI
+MngOREv_Expunge_XLBL=Delete Original Events older than {0}
+#XLBL: Manage Events UI
+MngULEv_Expunge_XLBL=Delete Unrecognized Events older than {0}
+#XLBL: Manage Events UI
+MngEv_total_XLBL={0} Log Events selected
+#XLBL: Manage Events UI: {number} {unit} log events selected
+MngEv_total_units_XLBL={0} {1} Log Events selected
+#XLBL: Manage Events UI
+MngOREv_total_XLBL={0} Original Events selected
+#XLBL: Manage Events UI: {number} {unit} Original Events selected
+MngOREv_total_units_XLBL={0} {1} Original Events selected
+#XLBL: Manage Events UI
+MngULEv_total_XLBL={0} Unrecognized Events selected
+#XLBL: Manage Events UI: {number} {unit} unrecognized events selected
+MngULEv_total_units_XLBL={0} {1} Unrecognized Events selected
+#XLBL: Manage Events UI
+MngEv_before_XLBL=before
+#XLBL: Manage Events UI
+MngEv_Summary_XLBL=stored in {0} entries on database
+#XBUT: Manage Events UI
+MngEv_Expunge_XBUT=Delete Log Events
+#XBUT: Manage Events UI
+MngOREv_Expunge_XBUT=Delete Original Events
+#XBUT: Manage Events UI
+MngULEv_Expunge_XBUT=Delete Unrecognized Events
+#XBUT: Manage Events UI
+MngEv_Change_XBUT=Change
+#XTOL: Manage Events UI
+MngEv_Expunge_XTOL=Delete Log Events older than given date
+#XTOL: Manage Events UI
+MngOREv_Expunge_XTOL=Delete Original Events older than given date
+#XTOL: Manage Events UI
+MngULEv_Expunge_XTOL=Delete Unrecognized Events older than given date
+#XLBL: Manage Events UI
+MngEv_Confirm_XLBL=Confirm Deletion
+#XMSG: Manage Events UI
+MngEv_Validate_Date_XMSG=Date must be in the past
+#XLBL: Manage Events UI
+MngEv_RetentionPLog_XLBL=Retention Period for Log Events
+#XLBL: Manage Events UI
+MngEv_RetentionPOrig_XLBL=Retention Period for Original Events
+#XLBL: Manage Events UI
+MngEv_RetentionPUnr_XLBL=Retention Period for Unrecognized Events
+#XMSG: Manage Events UI
+MngEv_RetentionPeriod_XLBL=Retention Period
+#XLBL: Manage Events UI
+MngEv_RetentionPLog_XTIT=Change Retention Period for Log Events
+#XLBL: Manage Events UI
+MngEv_RetentionPOrig_XTIT=Change Retention Period for Original Events
+#XLBL: Manage Events UI
+MngEv_RetentionPUnr_XTIT=Change Retention Period for Unrecognized Events
+#XTIT:Manage Events UI
+MngEv_AutoDeletion_XTIT=Automatic Deletion
+#XTIT:Manage Events UI
+MngEv_ManualDeletionA_XTIT=Manual Deletion of Log Events, Original Events and Unrecognized Events
+#XLBL: Manage Events UI
+MngEv_NDays_XLBL={0} Days
+#XLBL: Manage Events UI
+MngEv_Days_XLBL=Days
+#XLBL: Manage Events UI
+MngEv_EnterIntGtZero_XMSG=Enter an integer greater than 0
+#XTIT:Manage Events UI
+MngEv_EventInfo_XTIT=Event Information
+#XTIT:Manage Events UI - How Partitions should be handled
+MngEv_PartitionHandling=Handle Table Partitions
+#XLBL:Manage Events UI - Should Partitions automatically moved
+MngEv_AutomaticPartition=Automatic Partition Distribution
+#XLBL:Manage Events UI - Over which field should be partitioned
+MngEv_PartitionField=Partition Field
+#XLBL: Manage Events UI - Move Partitions automatically
+MngEv_MovePartitions=Automatic Distribution
+#XLBL: Manage Events UI - Partition Field Timestamp
+MngEv_Timestamp=Timestamp
+#XLBL: Manage Events UI - Partition Field TechnicalTimestampInteger
+MngEv_TechnicalTimestamp=TechnicalTimestampInteger
+#XLBL: Manage Events UI
+MngEv_NHours_XLBL={0} Hours {1} Minutes
+#XLBL: Manage Events UI
+MngEv_PartitionLength=Partition Length
+#XLBL: Manage Events UI
+MngEv_Minutes_XLBL=Minutes
+#XLBL: Manage Events UI
+MngEv_PartitionLengthMin=Partition Resolution
+#XLBL: Manage Events UI 
+MngEv_NoMovePartitions=No Automatic Distribution
+#XLBL:Mobile Settings UI: Content Replication
+ContRep_LBL=Content Replication
+#XLBL:Mobile Settings UI: Pattern Filter
+PatternFilter_XTIT=Pattern Filter
+#XLBL:Mobile Settings UI: Content Synchronization
+ContSync_LBL=Content Synchronization
+#XLBL:Mobile Settings UI: Time Zone 
+TimeZone_LBL=Time Zone
+#XLBL:Mobile Settings UI: Time Zone
+TimeZone_XTIT=Time Zone
+#XLBL:Mobile Settings UI: Time Zone
+SelTimeZone_XLBL=Display Timestamps in the Selected Time Zone
+#XLBL:Mobile Settings UI: Time Zone
+Local_XLBL=Local Time
+#XLBL:Mobile Settings UI: Time Zone
+UTC_XLBL=UTC
+#XLBL:Mobile Settings UI: Time Zone
+#XLBL:Mobile Settings UI: Content Replication
+ContRep_XTIT=Content Replication
+#XLBL:Mobile Settings UI: Content Synchronization
+ContSync_XTIT=Content Synchronization
+#XBUT: Check for new content
+ContSync_Check_XBUT=Check for new content
+#XBUT: Synchronize new content
+ContSync_Sync_XBUT=Synchronize new content
+#XCOL: Date
+ContSync_Date_XCOL=Date
+#XCOL: Result
+ContSync_Result_XCOL=Result
+#XCOL:Examples: Development Objects, User Contexts
+ContRep_ObjTypeArea=Object Type Area
+#XCOL:Examples: Development Objects, User Contexts
+ContRep_ObjType=Transportable Objects
+#XCOL:Mobile Settings UI: Content Replication
+ContRep_SrcSystem=Source System
+#XCOL:Mobile Settings UI: Content Replication
+ContRep_TargetSystem=Target System
+#XCOL:Mobile Settings UI: Content Replication
+ContRep_Status=Status
+#XFLD:Mobile Settings UI: Content Replication
+ContRep_AreaDevObs_XFLD=Development Objects
+#XFLD:Mobile Settings UI: Content Replication
+ContRep_AreaContext_XFLD=Context
+#XLBL:Mobile Settings UI: Content Replication
+ContRep_SrcSystem_XLBL=Source System
+#XLBL:Mobile Settings UI: Content Replication
+ContRep_TarSystem_XLBL=Target System
+#XTIT:Mobile Settings UI: Content Replication
+ContRep_AddCoRep_XTIT=Add Content Replication
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_EnterSystemLength_XMSG=Enter 7 characters
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_EnterSystemEqual_XMSG='Source System' and 'Target System' can't be equal
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_EnterSystemInvalid_XMSG='Source System' or 'Target System' should be current system name
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_EnterSystemNameInvalid_XMSG=System name should look like "ABC@DEF", where "ABC" is tenant name and "DEF" is SID. All characters must be uppercase.
+#XLBL:Mobile Settings UI: Content Replication
+ContRep_ObjTypeArea_XLBL=Object Type Area
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_createOK_XMSG=Content Replication Created
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_createError_XMSG=Creating Content Replication Failed
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_confirmDel_XMSG=Are you sure you want to delete the selected Content Replication?
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_deleteOK_XMSG=Deleted Selected Content Replication
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_deleteError_XMSG=Deleting Content Replication Failed
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_updateOK_XMSG=Updated Selected Content Replication
+#XMSG:Mobile Settings UI: Content Replication
+ContRep_updateError_XMSG=Updating Content Replication Failed
+#LBL:Mobile Settings UI: Workload Management 
+WorkloadManagement_LBL=Workload Management
+#XTIT:Mobile Settings UI: Workload Management
+WorkloadManagement_XTIT=Workload Management
+#XLBL:Mobile Settings UI: Workload Management
+SelWorkloadManagement_XLBL=Status of Workload Management for ETD:
+#LBL:Mobile Settings UI: Workload Management 
+WlmActivated_LBL=Activated
+#LBL:Mobile Settings UI: Workload Management 
+WlmDeactivated_LBL=Deactivated
+#LBL:Mobile Settings UI: Workload Management 
+WlmActivate_LBL=Activate
+#LBL:Mobile Settings UI: Workload Management 
+WlmDeactivate_LBL=Deactivate
+
+#XTIT:Mobile Settings UI: Anomaly: Title
+Anomaly_XTIT=Anomaly Detection
+#XLBLTIT:Mobile Settings UI: Anomaly
+Anomaly_LBL=Anomaly Detection
+#XLBL:Mobile Settings UI: Anomaly: Schedule all evaluation Jobs
+Anomaly_All_XLBL=Collect Data for All Evaluations
+#XLBL:Mobile Settings UI: Anomaly: Schedule only jobs for evaluations used in active patterns
+Anomaly_ActiveOnly_XLBL=Collect Data Only for Evaluations Used in Active Patterns
+#XLBL:Mobile Settings UI: Anomaly: Schedule only jobs for evaluations used in active patterns
+AnomalyDataColl_XLBL=Data Collection for Anomaly Detection
+
+XLBL:Mobile Settings UI: Custom Values
+EntityInvestigation_XLBL=Investigation
+Mobile Settings UI: Custom Values
+EntityWorkspace_XLBL=Workspace
+Mobile Settings UI: Custom Values
+AttributeAttack_XLBL=Attack
+Mobile Settings UI: Custom Values
+AttributeManVis_XLBL=Management Visibility
+Mobile Settings UI: Custom Values
+AttributeRiskClass_XLBL=Risk Classification
+Mobile Settings UI: Custom Values
+AttributeProcStatus_XLBL=Process Status
+Mobile Settings UI: Custom Values
+Entities_XLBL=Entities
+Mobile Settings UI: Custom Values
+ProcessFields_XLBL=Custom Values
+Mobile Settings UI: Custom Values
+Values_XLBL=Values
+Mobile Settings UI: Custom Values
+CustProcessFields_LBL=Custom Values
+XCOL:Mobile Settings UI: Custom Values
+Key_COL=Key
+XMSG: Mobile Settings UI: Custom Values
+enterValue_MSG=Enter new Value
+XMSG: Mobile Settings UI: Custom Values
+ChangeSaved_MSG=Changes saved successfully
+XMSG: Mobile Settings UI: Custom Values
+ProcFieldsExported_MSG=Custom Values marked for Export

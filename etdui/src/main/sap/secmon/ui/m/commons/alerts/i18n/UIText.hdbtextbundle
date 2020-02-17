@@ -1,0 +1,15 @@
+# TRANSLATE
+#XTIT:Alert Property Editor Dialog
+EditMultipleAlerts=Edit multiple Alerts
+#XLBL:Alert Property Editor Dialog
+ChangeSeverity=Change Severity
+#XLBL:Alert Property Editor Dialog
+ChangeStatus=Change Status
+#XBUT:Alert Property Editor Dialog
+Ok=OK
+#XBUT:Alert Property Editor Dialog
+Cancel=Cancel
+#XMSG:Alert Property Editor Dialog
+AlertsInInvest=Select alerts not assigned to an investigation
+#XLBL: Alert Propety Attack Editor dialog
+ChangeAttack=Change Attack

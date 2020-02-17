@@ -1,0 +1,44 @@
+# TRANSLATE
+
+#XTIT : Content Delivery
+CD_Title=Content Delivery
+#XFLD : Content Delivery
+CD_Import=Import
+#XTOL : Content Delivery
+CD_ImportTt=Import the selected packages
+#XBUT : Content Delivery
+CD_Reset=Reset Status
+#XTOL : Content Delivery
+CD_ResetTt=Reset status of the imported packages
+#XCOL : Content Delivery
+CD_Id=Id
+#XCOL : Content Delivery
+CD_Name=Name
+#XCOL : Content Delivery
+CD_Namespace=Namespace
+#XCOL : Content Delivery
+CD_Description=Description
+#XCOL : Content Delivery
+CD_Status=Status
+#XCOL : Content Delivery
+CD_ObjType=Object Type
+#XCOL : Content Delivery
+CD_ObjName=Object Name
+#XCOL : Content Delivery
+CD_ObjNamespace=Object Namespace
+#XCOL : Content Delivery
+CD_Version=Version
+#XTIT : Content Delivery
+CD_TitleHeader=Content Delivery: Packages
+#XTIT : Content Delivery
+CD_TitleItems=Content Delivery: Items
+#XTXT : Content Delivery
+CD_ImportSuccess=Imported successfully
+#XTXT : Content Delivery
+CD_ResetSuccess=Status reset successfully
+#XLBL: Content Delivery valid releases
+CD_Releases=Valid Releases
+#XMSG: Content Delivery
+CD_WrongVersion=Not all content packages selected for import have been tested on your current release of ETD. Proceed?
+#XTIT: Content Delivery
+CD_Confirmation=Confirmation 

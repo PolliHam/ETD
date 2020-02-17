@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet placement="Right">
+		<buttons>
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

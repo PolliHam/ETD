@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+.filterBarWithSameSizedItems .sapUiCompFilterBarBasicArea>div {
+	width: 25rem !important;
+}
+
+.filterBarWithSameSizedItemsSmall .sapUiCompFilterBarBasicArea>div {
+    width: 22rem !important;
+}
+
+/* enhance standard style for flex filter layout */
+.sapMMultiComboBoxInputContainer {
+    position: initial;
+}

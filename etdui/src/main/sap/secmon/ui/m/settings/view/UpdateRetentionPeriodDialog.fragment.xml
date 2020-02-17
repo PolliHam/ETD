@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{/dialogTitle}" class="sapUiPopupWithPadding"
+		contentWidth="30em">
+		<content>
+			<l:Grid hSpacing="0" vSpacing="0">
+				<l:content>
+					<Input editable="false"
+						value="{path: 'i18n>MngEv_RetentionPeriod_XLBL', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}">
+						<layoutData>
+							<l:GridData span="L4 M4 S12"></l:GridData>
+						</layoutData>
+					</Input>
+					<Input id="retentionPeriodInput" valueStateText="{i18n>MngEv_EnterIntGtZero_XMSG}"
+						value="{path:'/retentionPeriod', type: 'sap.ui.model.type.Integer', constraints : {minimum : 0}}"
+						description="{i18n>MngEv_Days_XLBL}">
+						<layoutData>
+							<l:GridData span="L5 M5 S12"></l:GridData>
+						</layoutData>
+					</Input>
+					<Text 
+						text="{parts : [ {path : 'applicationContext>/UTC'}, {path:'/retentionPeriod'}], formatter: 'sap.secmon.ui.m.settings.util.Formatter.retentionDate'}"
+						description="{=${applicationContext>/UTC}?'UTC':''}">
+						<layoutData>
+							<l:GridData span="L3 M3 S12"></l:GridData>
+						</layoutData>
+					</Text>
+				</l:content>
+			</l:Grid>
+		</content>
+		<beginButton>
+			<Button text="{i18nCommon>OK_BUT}" app:dialogType="Std"
+				press="onUpdateRetentionPeriodOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" app:dialogType="Std"
+				press="onUpdateRetentionPeriodCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

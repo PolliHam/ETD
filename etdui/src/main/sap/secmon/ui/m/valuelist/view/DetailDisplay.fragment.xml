@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<IconTabBar>
+		<items>
+			<IconTabFilter key="general" text="{i18n>VL_General}">
+				<content>
+					<f:SimpleForm editable="false">
+						<f:content>
+							<Label text="{i18nCommon>Name_LBL}" />
+							<Text text="{ListName}" />
+							<Label text="{i18nCommon>Namespace_LBL}" />
+							<Text text="{NameSpace}" />
+							<Label text="{i18nCommon>Description_LBL}" />
+							<Text text="{Description}" />
+							<Label text="{i18n>VL_ValuesUpdateLBL}" />
+							
+							<VBox>
+								<Text visible="{=${applicationContext>/userPrivileges/valuelistWrite}===false}"
+									text="{path: 'UpdateMode', formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.updateModeFormatter'}"/>
+								<SegmentedButton id="updateModeButton"
+									visible="{=${applicationContext>/userPrivileges/valuelistWrite}===true}"
+									selectedKey="{=${UpdateMode} === 'AUTOMATED'?'dynamicMode' : 'manualMode'}">
+									<items>
+										<SegmentedButtonItem id="manualModeButton" key="manualMode" icon="sap-icon://edit" text="{i18n>VL_manualModeBUT}"
+											
+											tooltip="{i18n>VL_manualModeTOL}" press="onSetManualMode" />
+										<SegmentedButtonItem id="dynamicModeButton" key="dynamicMode" icon="sap-icon://synchronize" text="{i18n>VL_dynModeBUT}"
+											
+											tooltip="{i18n>VL_dynModeTOL}" press="onSetDynamicMode" />
+									</items>
+								</SegmentedButton>
+							</VBox>
+							<Label text="{i18n>VL_UpdateUrlLBL}" enabled="{=${UpdateMode} === 'AUTOMATED'}" />
+							<TextArea editable="false" enabled="{=${UpdateMode} === 'AUTOMATED'}" wrapping="Soft"
+								value="{path: 'Id', formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.updateUrlFormatter'}" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</IconTabFilter>
+			<IconTabFilter key="admin" text="{i18n>VL_Admin}">
+				<content>
+					<f:SimpleForm editable="false">
+						<f:content>
+							<Label text="{i18nCommon>Created_By_LBL}" />
+							<Text text="{CreatedBy}" />
+							<Label text="{i18nCommon>Created_At_LBL}" />
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreatedTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+							<Label text="{i18nCommon>Changed_By_LBL}" />
+							<Text text="{ChangedBy}" />
+							<Label text="{i18nCommon>Changed_At_LBL}" />
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ChangedTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</IconTabFilter>	
+		</items>
+	</IconTabBar>
+
+
+
+
+
+
+
+
+
+
+
+
+</core:FragmentDefinition>

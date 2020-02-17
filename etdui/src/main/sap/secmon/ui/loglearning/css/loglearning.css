@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+.proportionalFont {
+	font-family: monospace;
+	font-weight:lighter;
+	white-space: pre-wrap;
+}
+
+.sapMITBContainerContent{
+	overflow: auto;
+}
+
+.sapUiTf.sapUiTxtA{
+	font-family: monospace;
+	font-weight:lighter;
+}
+
+.runOverview {
+	padding: 0px;
+	background-color: white;
+}
+
+.sapUiUx3TVFacetThingGroupSpan {
+	height: 100%;
+}
+
+.sapUiUx3TVFacetThingGroupContentTitle {
+	display: none;
+}
+
+.sapUiUx3TVFacetThingGroupContent {
+	height: 100%;
+}
+
+.sapUiBody .sapSuiteTvFacet {
+	    background-color:  transparent;
+}
+
+.sapSuiteTvTitleFirst {
+	font-family: Helvetica;
+	clear: both;
+	font-size: 16px;
+	line-height: 2.5;
+	color: #444444;
+}
+
+.sapSuiteTvTitleType {
+	text-decoration: underline;
+}
+
+.grow {
+	-webkit-transition: all .15s ease-in-out;
+	-moz-transition: all .15s ease-in-out;
+	transition: all .15s ease-in-out;
+}
+
+.grow:hover {
+	transform: scale(1.05);
+}
+
+.tableTitle {
+	font-size: 1.2em;
+	text-decoration: initial;
+	color: #444444;
+}
+
+.annotation {
+	/* Safari, Older Chrome */
+	-webkit-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+	/* Older Firefox */
+	-moz-transition: all 0.7s ease-in-out;	
+}
+
+.annotation.selected {
+	background-color: rgb(255, 153, 153);
+}
+
+.annotation.word:hover {
+	background-color: rgb(255, 153, 153);
+	font-size: 110%;
+	cursor: pointer;
+}
+
+.multiLineTokenizer .sapMToken {
+	float: left !important;
+	cursor: pointer;
+  }
+.multiLineTokenizer {
+	  padding-left: 0px !important;
+  }
+  
+ .sapMTokenizer .sapMToken {
+    cursor: pointer;
+ }

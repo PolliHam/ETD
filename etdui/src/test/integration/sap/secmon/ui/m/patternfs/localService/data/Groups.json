@@ -1,0 +1,42 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.GroupsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Groups(AlertId=X'000000190E197B4C82C16B3B467E1E37',SystemId='%24T3%2F000',UserId='%24TEST-00001',TerminalId='HOST33548165A',TargetUserId='%24TEST-00002',TargetSystemType=null,TargetSystemId=null,InstanceName='ldai1%24T3')"
+        },
+        "AlertId": "AAAAGQ4Ze0yCwWs7Rn4eNw==",
+        "AlertCreationTimestamp": "\/Date(1524750449912)\/",
+        "AlertSeverity": "MEDIUM",
+        "AlertProcessor": "",
+        "AlertStatus": "NO_REACTION_NEEDED_T",
+        "PatternId": "y9p9SRXM8UerVDZoX8eQIw==",
+        "Score": 50,
+        "MeasureContext": "Log",
+        "SystemId": "$T3/000",
+        "SystemType": "ABAP",
+        "UserId": "$TEST-00001",
+        "TerminalId": "HOST33548165A",
+        "TargetUserId": "$TEST-00002",
+        "TargetSystemType": null,
+        "TargetSystemId": null,
+        "InstanceName": "ldai1$T3",
+        "Count": "1",
+        "PatternName": "Multiple downloads by one user",
+        "PatternNamespace": "http://sap.com/secmon/basis",
+        "MinTimestamp": "\/Date(1524664050164)\/",
+        "MaxTimestamp": "\/Date(1524750440221)\/",
+        "SystemLongitude": null,
+        "SystemLatitude": null,
+        "SystemLink": "$T3/000",
+        "TargetSystemLink": null,
+        "Alert": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Groups(AlertId=X'000000190E197B4C82C16B3B467E1E37',SystemId='%24T3%2F000',UserId='%24TEST-00001',TerminalId='HOST33548165A',TargetUserId='%24TEST-00002',TargetSystemType=null,TargetSystemId=null,InstanceName='ldai1%24T3')/Alert"
+          }
+        }
+      }
+    ]
+  }
+}

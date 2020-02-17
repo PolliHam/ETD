@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" 
+	xmlns:rt="sap.ui.richtexteditor"
+	xmlns:custom="sap.secmon.ui.m.commons.controls"
+	xmlns="sap.suite.ui.commons" 
+	xmlns:core="sap.ui.core" 
+	xmlns:m="sap.m">
+	<Timeline id="changes"
+		enableSocial="false"
+		enableScroll="false"
+		group="true"
+		width="auto"
+		height="auto"
+		sort="false"
+		enableDoubleSided="false"
+       	content="{ path: 'Attachments',
+      			sorter: [ {path: 'CreationDate', descending: 'true'},
+                          {path: 'Type'}],
+                filters: [{path: 'Type', operator: 'EQ', value1: 'CHANGE'}]
+       		}" 
+       	enableAllInFilterItem="true"
+       	growing="true"
+		>
+		<content>
+			<TimelineItem
+				dateTime  = "{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"
+			   	userNameClickable = "false"
+				userName = "{CreatedBy}"
+				title = "{i18nInvest>MInvest_changed}"
+				filterValue = "{CreatedBy}"
+				icon = "sap-icon://hint">
+				<embeddedControl>
+					<core:HTML width="300px" content="{path:'Content', formatter:'sap.secmon.ui.commons.Formatter.encodeHTML'}"
+						sanitizeContent="true"
+					/>
+				</embeddedControl>
+			</TimelineItem>		
+		</content>
+	</Timeline>	
+</core:FragmentDefinition>

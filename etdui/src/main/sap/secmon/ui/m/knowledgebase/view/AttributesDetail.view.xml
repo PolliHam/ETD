@@ -1,0 +1,23 @@
+<mvc:View controllerName="sap.secmon.ui.m.knowledgebase.view.AttributesDetail"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page"
+		title="{parts : [ { path : 'i18n>Attributes_Tit'}, { path : 'Knowledgebase>displayName' } ], formatter : 'sap.secmon.ui.commons.Formatter.i18nText'}"
+		showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+
+		</headerContent>
+		<subHeader>
+		</subHeader>
+		<content>
+        	<c:Fragment fragmentName="sap.secmon.ui.m.knowledgebase.view.DetailHeader" type="XML" />
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

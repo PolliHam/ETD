@@ -1,0 +1,4347 @@
+{
+    "0978C85828C52962E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Category of the configuration check.",
+        "displayName": "Category",
+        "fieldName": "CategoryLevel1Text",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "0978C85828C52962E10000000A600446",
+        "name": "CategoryLevel1Text"
+    },
+    "3483B55A2E0353E4E15500000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The Line of Business of the intermediary system as defined in the System application.",
+        "displayName": "Line of Business, Intermediary",
+        "fieldName": "LineOfBusiness",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "3483B55A2E0353E4E15500000A600446",
+        "name": "LineOfBusinessIntermediary"
+    },
+    "467EC85828C52962E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "System Role, Actor",
+        "displayName": "System Role, Actor",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "467EC85828C52962E10000000A600446",
+        "name": "SystemRoleActor"
+    },
+    "53CDE5310DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "A name that can be used to access a service, used for RFC destination, for example.",
+        "displayName": "Service, Access Name",
+        "fieldName": "ServiceAccessName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5310DC572EEE10000000A4CF109",
+        "name": "ServiceAccessName"
+    },
+    "53CDE5350DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a function module, a procedure, an HTTP method, a web service operation, or similar type of relatively low level executable.",
+        "displayName": "Service, Function Name",
+        "fieldName": "ServiceFunctionName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5350DC572EEE10000000A4CF109",
+        "name": "ServiceFunctionName"
+    },
+    "53CDE5B70DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The value of a string parameter.",
+        "displayName": "Parameter Value, String",
+        "fieldName": "ParameterValueString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5B70DC572EEE10000000A4CF109",
+        "name": "ParameterValueString"
+    },
+    "53CDE5BB0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The direction of the parameter: input, output, or input and output.",
+        "displayName": "Parameter Direction",
+        "fieldName": "ParameterDirection",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5BB0DC572EEE10000000A4CF109",
+        "name": "ParameterDirection"
+    },
+    "53CDE5E50DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The level of risk associated with an action or resource, etc.",
+        "displayName": "Generic, Risk Level",
+        "fieldName": "GenericRiskLevel",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5E50DC572EEE10000000A4CF109",
+        "name": "GenericRiskLevel"
+    },
+    "53CDE5EB0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The action name or action code, usually the verb of the event, such as create.",
+        "displayName": "Generic, Action",
+        "fieldName": "GenericAction",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE5EB0DC572EEE10000000A4CF109",
+        "name": "GenericAction"
+    },
+    "53CDE6090DC572EEE10000000A4CF109": {
+        "dataType": "ValueTimeStamp",
+        "description": "The time at which the event was observed or reported.",
+        "displayName": "Timestamp",
+        "fieldName": "Timestamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE6090DC572EEE10000000A4CF109",
+        "name": "Timestamp"
+    },
+    "53CDE60B0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the actor system, for example, ABAP.",
+        "displayName": "System Type, Actor",
+        "fieldName": "SystemTypeActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE60B0DC572EEE10000000A4CF109",
+        "name": "SystemTypeActor"
+    },
+    "53CDE60D0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the actor system of the event, for example, SID/client ID for an ABAP system.",
+        "displayName": "System ID, Actor",
+        "fieldName": "SystemIdActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE60D0DC572EEE10000000A4CF109",
+        "name": "SystemIdActor"
+    },
+    "53CDE6110DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a middle level of a hierarchy of execution. The hierarchy goes from workflow, to transaction, to program, to function.",
+        "displayName": "Service, Transaction Name",
+        "fieldName": "ServiceTransactionName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE6110DC572EEE10000000A4CF109",
+        "name": "ServiceTransactionName"
+    },
+    "53CDE6130DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a program or report.",
+        "displayName": "Service, Program Name",
+        "fieldName": "ServiceProgramName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE6130DC572EEE10000000A4CF109",
+        "name": "ServiceProgramName"
+    },
+    "53CDE6150DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The type of log that the event comes from. This is set in the log learning process.",
+        "displayName": "Event, Log Type",
+        "fieldName": "EventLogType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE6150DC572EEE10000000A4CF109",
+        "name": "EventLogType"
+    },
+    "53CDE6170DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The local part of the hostname of the initiator of the event.",
+        "displayName": "Network, Hostname, Initiator",
+        "fieldName": "NetworkHostnameInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE6170DC572EEE10000000A4CF109",
+        "name": "NetworkHostnameInitiator"
+    },
+    "53CDE61B0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The name of the service instance. For SAP Netweaver Application Server ABAP, the instance name identifies server, system and instance number.",
+        "displayName": "Service, Instance Name",
+        "fieldName": "ServiceInstanceName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE61B0DC572EEE10000000A4CF109",
+        "name": "ServiceInstanceName"
+    },
+    "53CDE61D0DC572EEE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Event name or event code. Either a code that identifies the log entry type, or a text that describes the event.",
+        "displayName": "Event Code",
+        "fieldName": "Event",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53CDE61D0DC572EEE10000000A4CF109",
+        "name": "EventCode"
+    },
+    "53D7869BD32C1B2EE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Role of the actor system, for example, test, production, customizing.",
+        "displayName": "System Role, Actor",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53D7869BD32C1B2EE10000000A4CF109",
+        "name": "SystemRoleActor"
+    },
+    "53D8FCF497FB1B2EE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The pseudonym of the acting user involved in the event.  In many events an acting user and/or actor system performs an action on a targeted user. A targeted user may be the target of actions such as create, alter, delete, log on, log off, etc.",
+        "displayName": "User Pseudonym, Acting",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53D8FCF497FB1B2EE10000000A4CF109",
+        "name": "UserPseudonymActing"
+    },
+    "53D8FCF897FB1B2EE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user group in user master maintenance. The acting user belongs to this group.",
+        "displayName": "User Group, Acting",
+        "fieldName": "UserGroup",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53D8FCF897FB1B2EE10000000A4CF109",
+        "name": "UserGroupActing"
+    },
+    "53DABB1D5D7C293FE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Used to correlate log instances at the top level, for example, the root context ID of an SAP passport.",
+        "displayName": "Correlation ID",
+        "fieldName": "CorrelationId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53DABB1D5D7C293FE10000000A4CF109",
+        "name": "CorrelationId"
+    },
+    "53EE564D1AA9066CE10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "The alert number is consecutive and unique.",
+        "displayName": "Number",
+        "fieldName": "Number",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53EE564D1AA9066CE10000000A4CF109",
+        "name": "alertNumber"
+    },
+    "53EE564E1AA9066CE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Display name of the pattern that raised the alert.",
+        "displayName": "Pattern Display Name",
+        "fieldName": "PatternName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53EE564E1AA9066CE10000000A4CF109",
+        "name": "patternDisplayName"
+    },
+    "53EE56521AA9066CE10000000A4CF109": {
+        "dataType": "ValueTimeStamp",
+        "description": "Timestamp when the alert was created in local server time.",
+        "displayName": "Creation Time Stamp",
+        "fieldName": "AlertCreationTimestamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "53EE56521AA9066CE10000000A4CF109",
+        "name": "alertCreationTimestamp"
+    },
+    "53EE56531AA9066CE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The pseudonym of the targeting user involved in the event.  In many events an acting user and/or actor system performs an action on a targeted user. A targeted user may be the target of actions such as create, alter, delete, log on, log off, etc.",
+        "displayName": "User Pseudonym, Targeting",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53EE56531AA9066CE10000000A4CF109",
+        "name": "UserPseudonymTargeting"
+    },
+    "53EE56541AA9066CE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "System ID, Actor",
+        "displayName": "System ID, Actor",
+        "fieldName": "SystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53EE56541AA9066CE10000000A4CF109",
+        "name": "systemId"
+    },
+    "53EE56551AA9066CE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Network, Hostname, Actor",
+        "displayName": "Network, Hostname, Actor",
+        "fieldName": "TerminalId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53EE56551AA9066CE10000000A4CF109",
+        "name": "terminalId"
+    },
+    "53EE56561AA9066CE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Status of the alert.",
+        "displayName": "Status",
+        "fieldName": "Status",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": true,
+        "key": "53EE56561AA9066CE10000000A4CF109",
+        "name": "alertStatus"
+    },
+    "53F4BA123C6EC2A5E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Severity of the alert.",
+        "displayName": "Severity",
+        "fieldName": "Severity",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": true,
+        "key": "53F4BA123C6EC2A5E10000000A4CF109",
+        "name": "severity"
+    },
+    "53F4BA133C6EC2A5E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Processor of the alert.",
+        "displayName": "Processor",
+        "fieldName": "Processor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "53F4BA133C6EC2A5E10000000A4CF109",
+        "name": "processor"
+    },
+    "5417E3D4F2E52F66E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the target system, for example, ABAP.",
+        "displayName": "System Type, Target",
+        "fieldName": "SystemTypeTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5417E3D4F2E52F66E10000000A4CF109",
+        "name": "SystemTypeTarget"
+    },
+    "5417E3D7F2E52F66E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the target system of the event, for example, SID/client ID for an ABAP system.",
+        "displayName": "System ID, Target",
+        "fieldName": "SystemIdTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5417E3D7F2E52F66E10000000A4CF109",
+        "name": "SystemIdTarget"
+    },
+    "5418799227B72F66E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "User Pseudonym, Acting",
+        "displayName": "User Pseudonym, Acting",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5418799227B72F66E10000000A4CF109",
+        "name": "userPseudonym"
+    },
+    "547D2E96B7907331E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Free text that describes the health check event.",
+        "displayName": "Text",
+        "fieldName": "MessageText",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "547D2E96B7907331E10000000A4CF109",
+        "name": "text"
+    },
+    "547DF3D5DD747331E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Type of system",
+        "displayName": "System Type",
+        "fieldName": "SystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "547DF3D5DD747331E10000000A4CF109",
+        "name": "systemType"
+    },
+    "547DF3D6DD747331E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "ID of system",
+        "displayName": "System ID",
+        "fieldName": "SystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "547DF3D6DD747331E10000000A4CF109",
+        "name": "systemId"
+    },
+    "547DF3D7DD747331E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "ID of the health check event.",
+        "displayName": "Event ID",
+        "fieldName": "EventId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "547DF3D7DD747331E10000000A4CF109",
+        "name": "eventId"
+    },
+    "547E59BAFC1C7331E10000000A4CF109": {
+        "dataType": "ValueTimeStamp",
+        "description": "Date and Time in UTC when the health check entry was created.",
+        "displayName": "Timestamp",
+        "fieldName": "Timestamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "547E59BAFC1C7331E10000000A4CF109",
+        "name": "timeStamp"
+    },
+    "549054B3240E65D8E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Name of partitioned table (partition check).",
+        "displayName": "Table Name (Partition Check)",
+        "fieldName": "ValueVarChar",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054B3240E65D8E10000000A4CF109",
+        "name": "partitionedTableName"
+    },
+    "549054B4240E65D8E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "Days of validity of partitions left (partition check).",
+        "displayName": "Number of Days Left (Partition Check)",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054B4240E65D8E10000000A4CF109",
+        "name": "numberDays"
+    },
+    "549054B5240E65D8E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Partitioning status",
+        "displayName": "Partitioning Status",
+        "fieldName": "ValueVarChar",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054B5240E65D8E10000000A4CF109",
+        "name": "partitioningStatus"
+    },
+    "549054B6240E65D8E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Log type checked",
+        "displayName": "Log Type Checked",
+        "fieldName": "ValueVarChar",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054B6240E65D8E10000000A4CF109",
+        "name": "checkedLogType"
+    },
+    "549054B7240E65D8E10000000A4CF109": {
+        "dataType": "ValueTimeStamp",
+        "description": "Time and date when the last log entry was transferred",
+        "displayName": "Last Log Transfer",
+        "fieldName": "ValueTimeStamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "549054B7240E65D8E10000000A4CF109",
+        "name": "lastLogTimestamp"
+    },
+    "549054B8240E65D8E10000000A4CF109": {
+        "dataType": "ValueTimeStamp",
+        "description": "Time and date when the last ping was transferred",
+        "displayName": "Last Ping Transfer",
+        "fieldName": "ValueTimeStamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "549054B8240E65D8E10000000A4CF109",
+        "name": "lastPingTimestamp"
+    },
+    "549054B9240E65D8E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "Number of User IDs in ETD",
+        "displayName": "Number of User IDs",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054B9240E65D8E10000000A4CF109",
+        "name": "numberUserIds"
+    },
+    "549054BA240E65D8E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "Number of user pseudonyms generated",
+        "displayName": "Number of Pseudonyms",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054BA240E65D8E10000000A4CF109",
+        "name": "numberPseudonyms"
+    },
+    "549054BB240E65D8E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "Number of user pseudonyms expired",
+        "displayName": "Number of Expired Pseudonyms",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "549054BB240E65D8E10000000A4CF109",
+        "name": "numberExpiredPseudonyms"
+    },
+    "5491CA328FD665D8E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The text of the event instance, often called the event message.",
+        "displayName": "Event, Message",
+        "fieldName": "EventMessage",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5491CA328FD665D8E10000000A4CF109",
+        "name": "EventMessage"
+    },
+    "54E4AB9B73EA41C7E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "Score of the alert.",
+        "displayName": "Score",
+        "fieldName": "Score",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E4AB9B73EA41C7E10000000A4CF109",
+        "name": "score"
+    },
+    "54E69FDDFA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The local part of the hostname of the actor of the event.",
+        "displayName": "Network, Hostname, Actor",
+        "fieldName": "NetworkHostnameActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FDDFA728D3DE10000000A4CF109",
+        "name": "NetworkHostnameActor"
+    },
+    "54E69FDEFA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The local part of the hostname of the target of the event.",
+        "displayName": "Network, Hostname, Target",
+        "fieldName": "NetworkHostnameTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FDEFA728D3DE10000000A4CF109",
+        "name": "NetworkHostnameTarget"
+    },
+    "54E69FE0FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The local part of the hostname of the reporter of the event.",
+        "displayName": "Network, Hostname, Reporter",
+        "fieldName": "NetworkHostnameReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FE0FA728D3DE10000000A4CF109",
+        "name": "NetworkHostnameReporter"
+    },
+    "54E69FE1FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The MAC address of the actor of the event.",
+        "displayName": "Network, MAC Address, Actor",
+        "fieldName": "NetworkMACAddressActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FE1FA728D3DE10000000A4CF109",
+        "name": "NetworkMACAddressActor"
+    },
+    "54E69FE2FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The MAC address of the target of the event.",
+        "displayName": "Network, MAC Address, Target",
+        "fieldName": "NetworkMACAddressTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FE2FA728D3DE10000000A4CF109",
+        "name": "NetworkMACAddressTarget"
+    },
+    "54E69FE4FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The MAC address of the reporter of the event.",
+        "displayName": "Network, MAC Address, Reporter",
+        "fieldName": "NetworkMACAddressReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FE4FA728D3DE10000000A4CF109",
+        "name": "NetworkMACAddressReporter"
+    },
+    "54E69FE5FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Uniform Resource Identifier (URI), also referred to as a URL.",
+        "displayName": "Generic, URI",
+        "fieldName": "GenericURI",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E69FE5FA728D3DE10000000A4CF109",
+        "name": "GenericURI"
+    },
+    "54E6C489FA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the actor of the event.",
+        "displayName": "Network, IP Address, Actor",
+        "fieldName": "NetworkIPAddressActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E6C489FA728D3DE10000000A4CF109",
+        "name": "NetworkIPAddressActor"
+    },
+    "54E6C48AFA728D3DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the target of the event.",
+        "displayName": "Network, IP Address, Target",
+        "fieldName": "NetworkIPAddressTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "54E6C48AFA728D3DE10000000A4CF109",
+        "name": "NetworkIPAddressTarget"
+    },
+    "54F913D5CCC44E8AE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Choose this attribute if you want to select semantic events.",
+        "displayName": "Event (Semantic)",
+        "fieldName": "EventSemantic",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": true,
+        "key": "54F913D5CCC44E8AE10000000A4CF109",
+        "name": "EventSemantic"
+    },
+    "550BD4606ACC2D7DE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The HTTP user agent field or other field that gives information about the client's agent program.",
+        "displayName": "Service, User Agent",
+        "fieldName": "ServiceUserAgent",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "550BD4606ACC2D7DE10000000A4CF109",
+        "name": "ServiceUserAgent"
+    },
+    "554A74171D31E31AE10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "System Type, Actor",
+        "displayName": "System Type, Actor",
+        "fieldName": "SystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "554A74171D31E31AE10000000A4CF109",
+        "name": "systemType"
+    },
+    "556C15D418A3AC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Network Subnet Description Target",
+        "displayName": "Network, Subnet Description, Target",
+        "fieldName": "Description",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556C15D418A3AC24E10000000A4CF109",
+        "name": "NetworkSubnetDescriptionTarget"
+    },
+    "556C1851719AAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The category of the subnetwork that includes the actor of the event. Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Category, Actor",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556C1851719AAC24E10000000A4CF109",
+        "name": "NetworkSubnetCategoryActor"
+    },
+    "556C1852719AAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The category of the subnetwork that includes the target of the event. Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Category, Target",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556C1852719AAC24E10000000A4CF109",
+        "name": "NetworkSubnetCategoryTarget"
+    },
+    "556C7EC956D9AC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the reporter system, for example, ABAP.",
+        "displayName": "System Type, Reporter",
+        "fieldName": "SystemTypeReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556C7EC956D9AC24E10000000A4CF109",
+        "name": "SystemTypeReporter"
+    },
+    "556C7ECA56D9AC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the reporter system of the event, for example, SID/client ID for an ABAP system.",
+        "displayName": "System ID, Reporter",
+        "fieldName": "SystemIdReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556C7ECA56D9AC24E10000000A4CF109",
+        "name": "SystemIdReporter"
+    },
+    "556CB95D730EAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the subnetwork that includes the actor of the event, for example, the name of a city. Subnetworks are managed  by administrators.",
+        "displayName": "Network, Subnet, Location, Actor",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556CB95D730EAC24E10000000A4CF109",
+        "name": "NetworkSubnetLocationActor"
+    },
+    "556CB95E730EAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the subnetwork that includes the target of the event, for example, the name of a city. Subnetworks are managed  by administrators.",
+        "displayName": "Network, Subnet, Location, Target",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556CB95E730EAC24E10000000A4CF109",
+        "name": "NetworkSubnetLocationTarget"
+    },
+    "556CDFB06EFAAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "A network address that identifies the subnetwork that includes the actor of the event.  Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Address, Actor",
+        "fieldName": "NetAddressString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556CDFB06EFAAC24E10000000A4CF109",
+        "name": "NetworkSubnetAddressActor"
+    },
+    "556CDFB16EFAAC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "A network address that identifies the subnetwork that includes the target of the event.  Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Address, Target",
+        "fieldName": "NetAddressString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556CDFB16EFAAC24E10000000A4CF109",
+        "name": "NetworkSubnetAddressTarget"
+    },
+    "556CFF1A18A3AC24E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "Network Subnet Description Actor",
+        "displayName": "Network, Subnet Description, Actor",
+        "fieldName": "Description",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556CFF1A18A3AC24E10000000A4CF109",
+        "name": "NetworkSubnetDescriptionActor"
+    },
+    "556F31400C945311E10000000A4CF109": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the reporter of the event.",
+        "displayName": "Network, IP Address, Reporter",
+        "fieldName": "NetworkIPAddressReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "556F31400C945311E10000000A4CF109",
+        "name": "NetworkIPAddressReporter"
+    },
+    "5573355759A95311E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "The port number of the actor of the event, for example, a UDP or TCP port number.",
+        "displayName": "Network, Port, Actor",
+        "fieldName": "NetworkPortActor",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5573355759A95311E10000000A4CF109",
+        "name": "NetworkPortActor"
+    },
+    "557377385BEA5311E10000000A4CF109": {
+        "dataType": "ValueInteger",
+        "description": "The port number of the target of the event, for example, a UDP or TCP port number.",
+        "displayName": "Network, Port, Target",
+        "fieldName": "NetworkPortTarget",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "557377385BEA5311E10000000A4CF109",
+        "name": "NetworkPortTarget"
+    },
+    "55B7BB94849E895AE24B192DA65BB37B": {
+        "dataType": "ValueVarChar",
+        "description": "Status of Health Check",
+        "displayName": "Status of Health Check",
+        "fieldName": "Status",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "55B7BB94849E895AE24B192DA65BB37B",
+        "name": "statusHC"
+    },
+    "55EEEDD796440756E2E225E98E57FE30": {
+        "dataType": "ValueVarChar",
+        "description": "Pseudonym for target user. A target user is for example relevant in a user change event or an RFC scenario.",
+        "displayName": "User Pseudonym, Targeted",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "55EEEDD796440756E2E225E98E57FE30",
+        "name": "targetUserPseudonym"
+    },
+    "55EEEDD896440756E2E225E98E57FE30": {
+        "dataType": "ValueVarChar",
+        "description": "System ID, Target",
+        "displayName": "System ID, Target",
+        "fieldName": "TargetSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "55EEEDD896440756E2E225E98E57FE30",
+        "name": "targetSystemId"
+    },
+    "55EEEDD996440756E2E225E98E57FE30": {
+        "dataType": "ValueVarChar",
+        "description": "System Type, Target",
+        "displayName": "System Type, Target",
+        "fieldName": "TargetSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "55EEEDD996440756E2E225E98E57FE30",
+        "name": "targetSystemType"
+    },
+    "56424E031B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The attack name, for example, a malware name.",
+        "displayName": "Attack Name",
+        "fieldName": "AttackName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E031B2FA51BE22A044B51CC7B4D",
+        "name": "AttackName"
+    },
+    "56424E041B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The attack type, for example, malware, spoof, or denial of service.",
+        "displayName": "Attack Type",
+        "fieldName": "AttackType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E041B2FA51BE22A044B51CC7B4D",
+        "name": "AttackType"
+    },
+    "56424E051B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Used to correlate log instances at a lower level of a hierarchy of related instances, for example, the connection ID of an SAP passport.",
+        "displayName": "Correlation Sub ID",
+        "fieldName": "CorrelationSubId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E051B2FA51BE22A044B51CC7B4D",
+        "name": "CorrelationSubId"
+    },
+    "56424E061B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The scenario role of the actor, for example, client, server, or proxy. An example of a scenario is a client-server scenario where one system plays the role of the client and the other the role of the server.",
+        "displayName": "Event, Scenario Role Of Actor",
+        "fieldName": "EventScenarioRoleOfActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E061B2FA51BE22A044B51CC7B4D",
+        "name": "EventScenarioRoleOfActor"
+    },
+    "56424E071B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The severity of the event.",
+        "displayName": "Event, Severity Code",
+        "fieldName": "EventSeverityCode",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E071B2FA51BE22A044B51CC7B4D",
+        "name": "EventSeverityCode"
+    },
+    "56424E081B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the source of the event, for example, a hostname of a syslog server.",
+        "displayName": "Event Source ID",
+        "fieldName": "EventSourceId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E081B2FA51BE22A044B51CC7B4D",
+        "name": "EventSourceId"
+    },
+    "56424E091B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the source of the event, for example, a syslog server.",
+        "displayName": "Event Source Type",
+        "fieldName": "EventSourceType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E091B2FA51BE22A044B51CC7B4D",
+        "name": "EventSourceType"
+    },
+    "56424E0A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A general category for various purposes, for example, the category of a web site, such as sports or news.",
+        "displayName": "Generic, Category",
+        "fieldName": "GenericCategory",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0A1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericCategory"
+    },
+    "56424E0B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a device, usually an end user device, for example, an android phone.",
+        "displayName": "Generic, Device Type",
+        "fieldName": "GenericDeviceType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0B1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericDeviceType"
+    },
+    "56424E0C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "An explanation of an action or attack, etc. Use 'Generic Outcome Reason'  for the reason for an outcome. This is for more general explanatory text.",
+        "displayName": "Generic, Explanation",
+        "fieldName": "GenericExplanation",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0C1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericExplanation"
+    },
+    "56424E0D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A code for the geographic location of the initiator of the event. This code is found in some logs at network level.",
+        "displayName": "Generic, Geolocation Code, Initiator",
+        "fieldName": "GenericGeolocationCodeActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0D1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericGeolocationCodeInitiator"
+    },
+    "56424E0E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A code for the geographic location of the target of the event. This code is found in some logs at network level.",
+        "displayName": "Generic, Geolocation Code, Target",
+        "fieldName": "GenericGeolocationCodeTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0E1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericGeolocationCodeTarget"
+    },
+    "56424E0F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The order of something. This can be used for the numbered step of a workflow, for example.",
+        "displayName": "Generic, Order",
+        "fieldName": "GenericOrder",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E0F1B2FA51BE22A044B51CC7B4D",
+        "name": "GenericOrder"
+    },
+    "56424E101B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The outcome of actions or processes. Use 'Service Outcome' for codes returned by services like HTTP servers.",
+        "displayName": "Generic, Outcome",
+        "fieldName": "GenericOutcome",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E101B2FA51BE22A044B51CC7B4D",
+        "name": "GenericOutcome"
+    },
+    "56424E111B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The reason for the outcome of an action, a service call, or other happening.",
+        "displayName": "Generic, Outcome, Reason",
+        "fieldName": "GenericOutcomeReason",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E111B2FA51BE22A044B51CC7B4D",
+        "name": "GenericOutcomeReason"
+    },
+    "56424E121B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A path, for example, a path of a URL or other hierarchical structure. Use 'Resource Name' for a filename. Include the directory path, if any, in 'Resource Name', rather than in this attribute.",
+        "displayName": "Generic, Path",
+        "fieldName": "GenericPath",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E121B2FA51BE22A044B51CC7B4D",
+        "name": "GenericPath"
+    },
+    "56424E131B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The prior path is used in case there are two paths in an event. If there are two, one is the prior, and the other is just the path.",
+        "displayName": "Generic, Path, Prior",
+        "fieldName": "GenericPathPrior",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E131B2FA51BE22A044B51CC7B4D",
+        "name": "GenericPathPrior"
+    },
+    "56424E141B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The purpose of the log instance. For example, an SAP Read Access Log instance might specify a purpose such as verification of conformance to a particular regulatory requirement.",
+        "displayName": "Generic, Purpose",
+        "fieldName": "GenericPurpose",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E141B2FA51BE22A044B51CC7B4D",
+        "name": "GenericPurpose"
+    },
+    "56424E151B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of a session, usually a user session. This is an application level session ID. Use 'Network Session ID' for a network-level connection ID.",
+        "displayName": "Generic, Session ID",
+        "fieldName": "GenericSessionId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E151B2FA51BE22A044B51CC7B4D",
+        "name": "GenericSessionId"
+    },
+    "56424E171B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The local part of the hostname of the intermediary of the event.",
+        "displayName": "Network, Hostname, Intermediary",
+        "fieldName": "NetworkHostnameIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E171B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostnameIntermediary"
+    },
+    "56424E181B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The domain part of the hostname of the actor of the event.",
+        "displayName": "Network, Host Domain, Actor",
+        "fieldName": "NetworkHostDomainActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E181B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostDomainActor"
+    },
+    "56424E191B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The domain part of the hostname of the initiator of the event.",
+        "displayName": "Network, Host Domain, Initiator",
+        "fieldName": "NetworkHostDomainInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E191B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostDomainInitiator"
+    },
+    "56424E1A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The domain part of the hostname of the intermediary of the event.",
+        "displayName": "Network, Host Domain, Intermediary",
+        "fieldName": "NetworkHostDomainIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1A1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostDomainIntermediary"
+    },
+    "56424E1B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The domain part of the hostname of the reporter of the event.",
+        "displayName": "Network, Host Domain, Reporter",
+        "fieldName": "NetworkHostDomainReporter",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1B1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostDomainReporter"
+    },
+    "56424E1C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The domain part of the hostname of the target of the event.",
+        "displayName": "Network, Host Domain, Target",
+        "fieldName": "NetworkHostDomainTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1C1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkHostDomainTarget"
+    },
+    "56424E1D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a network interface that connects to the initiator. The network interface is part of the actor.",
+        "displayName": "Network, Interface, Initiator",
+        "fieldName": "NetworkInterfaceActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1D1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkInterfaceInitiator"
+    },
+    "56424E1E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a network interface that connects to the target. The network interface is part of the actor.",
+        "displayName": "Network, Interface, Target",
+        "fieldName": "NetworkInterfaceTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1E1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkInterfaceTarget"
+    },
+    "56424E1F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the initiator of the event.",
+        "displayName": "Network, IP Address, Initiator",
+        "fieldName": "NetworkIPAddressInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E1F1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkIPAddressInitiator"
+    },
+    "56424E201B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the intermediary of the event.",
+        "displayName": "Network, IP Address, Intermediary",
+        "fieldName": "NetworkIPAddressIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E201B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkIPAddressIntermediary"
+    },
+    "56424E211B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the initiator of the event before network address translation (NAT). The IP Address after NAT is in 'Network IP Address'.",
+        "displayName": "Network, IP Before NAT, Initiator",
+        "fieldName": "NetworkIPBeforeNATActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E211B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkIPBeforeNATInitiator"
+    },
+    "56424E221B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the target of the event before network address translation (NAT). The IP Address after NAT is in 'Network IP Address'.",
+        "displayName": "Network, IP Before NAT, Target",
+        "fieldName": "NetworkIPBeforeNATTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E221B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkIPBeforeNATTarget"
+    },
+    "56424E231B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The MAC address of the initiator of the event.",
+        "displayName": "Network, MAC Address, Initiator",
+        "fieldName": "NetworkMACAddressInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E231B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkMACAddressInitiator"
+    },
+    "56424E241B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The MAC address of the intermediary of the event.",
+        "displayName": "Network, MAC Address, Intermediary",
+        "fieldName": "NetworkMACAddressIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E241B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkMACAddressIntermediary"
+    },
+    "56424E251B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The subnetwork for the initiator, for example, an IP prefix, reported in network level logs. It is represented as an IP address and number, where number is the length of the prefix in bits, for example, 24.",
+        "displayName": "Network, Network Prefix, Initiator",
+        "fieldName": "NetworkNetworkPrefixActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E251B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkNetworkPrefixInitiator"
+    },
+    "56424E261B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The subnetwork for the target, for example, an IP prefix, reported in network level logs. It is represented as an IP address and number, where number is the length of the prefix in bits, for example, 24.",
+        "displayName": "Network, Network Prefix, Target",
+        "fieldName": "NetworkNetworkPrefixTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E261B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkNetworkPrefixTarget"
+    },
+    "56424E271B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueInteger",
+        "description": "The port number of the initiator of the event, for example, a UDP or TCP port number.",
+        "displayName": "Network, Port, Initiator",
+        "fieldName": "NetworkPortInitiator",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E271B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkPortInitiator"
+    },
+    "56424E281B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueInteger",
+        "description": "The port number of the intermediary of the event, for example, a UDP or TCP port number.",
+        "displayName": "Network, Port, Intermediary",
+        "fieldName": "NetworkPortIntermediary",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E281B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkPortIntermediary"
+    },
+    "56424E291B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueInteger",
+        "description": "The port number of the reporter of the event, for example, a UDP or TCP port number.",
+        "displayName": "Network, Port, Reporter",
+        "fieldName": "NetworkPortReporter",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E291B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkPortReporter"
+    },
+    "56424E2A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueInteger",
+        "description": "The initiator port number before Network Address Translation (NAT). The port number after NAT is in 'network, port'.",
+        "displayName": "Network, Port Before NAT, Initiator",
+        "fieldName": "NetworkPortBeforeNATActor",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2A1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkPortBeforeNATInitiator"
+    },
+    "56424E2B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueInteger",
+        "description": "The target port number before Network Address Translation (NAT). The port number after NAT is in 'network, port'.",
+        "displayName": "Network, Port Before NAT, Target",
+        "fieldName": "NetworkPortBeforeNATTarget",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2B1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkPortBeforeNATTarget"
+    },
+    "56424E2C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The protocol of the packet, for example, ICMP, TCP, or UDP. This is a code or name from IANA, or a vendor-specific protocol name.",
+        "displayName": "Network, Protocol",
+        "fieldName": "NetworkProtocol",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2C1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkProtocol"
+    },
+    "56424E2D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Session or connection ID at network level. Use 'Generic session ID' for an application level session ID.",
+        "displayName": "Network, Session ID",
+        "fieldName": "NetworkSessionId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2D1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSessionId"
+    },
+    "56424E2E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A network address that identifies the subnetwork that includes the initiator of the event.  Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Address, Initiator",
+        "fieldName": "NetAddressString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2E1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetAddressInitiator"
+    },
+    "56424E2F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A network address that identifies the subnetwork that includes the intermediary of the event.  Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Address, Intermediary",
+        "fieldName": "NetAddressString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E2F1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetAddressIntermediary"
+    },
+    "56424E301B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A network address that identifies the subnetwork that includes the reporter of the event.  Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Address, Reporter",
+        "fieldName": "NetAddressString",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E301B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetAddressReporter"
+    },
+    "56424E311B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The category of the subnetwork that includes the initiator of the event. Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Category, Initiator",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E311B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetCategoryInitiator"
+    },
+    "56424E321B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The category of the subnetwork that includes the intermediary of the event. Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Category, Intermediary",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E321B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetCategoryIntermediary"
+    },
+    "56424E331B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The category of the subnetwork that includes the reporter of the event. Subnetworks are managed by administrators.",
+        "displayName": "Network, Subnet, Category, Reporter",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E331B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetCategoryReporter"
+    },
+    "56424E341B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the subnetwork that includes the initiator of the event, for example, the name of a city. Subnetworks are managed  by administrators.",
+        "displayName": "Network, Subnet, Location, Initiator",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E341B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetLocationInitiator"
+    },
+    "56424E351B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the subnetwork that includes the intermediary of the event, for example, the name of a city. Subnetworks are managed  by administrators.",
+        "displayName": "Network, Subnet, Location, Intermediary",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E351B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetLocationIntermediary"
+    },
+    "56424E361B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the subnetwork that includes the reporter of the event, for example, the name of a city. Subnetworks are managed  by administrators.",
+        "displayName": "Network, Subnet, Location, Reporter",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E361B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetLocationReporter"
+    },
+    "56424E371B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Network Subnet Description Initiator",
+        "displayName": "Network, Subnet Description, Initiator",
+        "fieldName": "Description",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E371B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetDescriptionInitiator"
+    },
+    "56424E381B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Network Subnet Description Intermediary",
+        "displayName": "Network, Subnet Description, Intermediary",
+        "fieldName": "Description",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E381B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetDescriptionIntermediary"
+    },
+    "56424E391B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Network Subnet Description Reporter",
+        "displayName": "Network, Subnet Description, Reporter",
+        "fieldName": "Description",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E391B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkSubnetDescriptionReporter"
+    },
+    "56424E3A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A name for an area of a network, for example, the user zone, the server zone, or the Internet zone. The named area is the area of the initiator of the event. Zones may occur in network level logs.",
+        "displayName": "Network, Zone, Initiator",
+        "fieldName": "NetworkZoneActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3A1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkZoneInitiator"
+    },
+    "56424E3B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A name for an area of a network, for example, the user zone, the server zone, or the Internet zone. The named area is the area of the target of the event. Zones may occur in network level logs.",
+        "displayName": "Network, Zone, Target",
+        "fieldName": "NetworkZoneTarget",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3B1B2FA51BE22A044B51CC7B4D",
+        "name": "NetworkZoneTarget"
+    },
+    "56424E3C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The direction of a parameter that gives the context for other parameters, for example, an employee ID field in a Dynpro application could be the context for other fields containing data about this employee. The direction can be input, output, or input and output.",
+        "displayName": "Parameter, Direction, Context",
+        "fieldName": "ParameterDirectionContext",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3C1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterDirectionContext"
+    },
+    "56424E3D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a parameter. For Read Access Logging, this is the technical name of a field, that is, a service argument if the access channel is an API, or a screen element name, if the access channel is a User Interface (UI).",
+        "displayName": "Parameter Name",
+        "fieldName": "ParameterName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3D1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterName"
+    },
+    "56424E3E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a parameter that gives the context for other parameters, for example, an employee ID field in a Dynpro application could be the context for other fields containing data about this employee.",
+        "displayName": "Parameter Name, Context",
+        "fieldName": "ParameterNameContext",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3E1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterNameContext"
+    },
+    "56424E3F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The datatype of the parameter, for example, numeric, string or timestamp.",
+        "displayName": "Parameter Data Type",
+        "fieldName": "ParameterDataType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E3F1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterDataType"
+    },
+    "56424E401B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The datatype of a context parameter, for example, string or numeric.",
+        "displayName": "Parameter Data Type, Context",
+        "fieldName": "ParameterDataTypeContext",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E401B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterDataTypeContext"
+    },
+    "56424E411B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a parameter. Types of parameters include attributes, features, states, configuration settings, etc. For Read Access Logging, this is the log domain name, a name which provides some semantics for technical names.",
+        "displayName": "Parameter Type",
+        "fieldName": "ParameterType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E411B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterType"
+    },
+    "56424E421B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the context parameter. For Read Access Logging, this is the log domain.",
+        "displayName": "Parameter Type, Context",
+        "fieldName": "ParameterTypeContext",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E421B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterTypeContext"
+    },
+    "56424E431B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The value of a numeric parameter.",
+        "displayName": "Parameter Value, Number",
+        "fieldName": "ParameterValueNumber",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E431B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueNumber"
+    },
+    "56424E441B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The value of a numeric context parameter.",
+        "displayName": "Parameter Value, Number, Context",
+        "fieldName": "ParameterValueNumberContext",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E441B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueNumberContext"
+    },
+    "56424E451B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The value of a numeric parameter prior to a modification.",
+        "displayName": "Parameter Value, Number, Prior Value",
+        "fieldName": "ParameterValueNumberPriorValue",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E451B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueNumberPriorValue"
+    },
+    "56424E471B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The value of a string context parameter.",
+        "displayName": "Parameter Value, String, Context",
+        "fieldName": "ParameterValueStringContext",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E471B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueStringContext"
+    },
+    "56424E481B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The value of a string parameter prior to a modification.",
+        "displayName": "Parameter Value, String, Prior Value",
+        "fieldName": "ParameterValueStringPriorValue",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E481B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueStringPriorValue"
+    },
+    "56424E491B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The value of a floating point numeric parameter.",
+        "displayName": "Parameter Value, Double",
+        "fieldName": "ParameterValueDouble",
+        "filterOperators": "",
+        "isEnumeration": false,
+        "key": "56424E491B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueDouble"
+    },
+    "56424E4A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The value of a floating point numeric parameter prior to a modification.",
+        "displayName": "Parameter Value, Double, Prio Rvalue",
+        "fieldName": "ParameterValueDoublePriorValue",
+        "filterOperators": "",
+        "isEnumeration": false,
+        "key": "56424E4A1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueDoublePriorValue"
+    },
+    "56424E4B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueTimeStamp",
+        "description": "The value of a timestamp parameter.",
+        "displayName": "Parameter Value, Timestamp",
+        "fieldName": "ParameterValueTimestamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "56424E4B1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueTimestamp"
+    },
+    "56424E4C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueTimeStamp",
+        "description": "The value of a timestamp parameter prior to a modification.",
+        "displayName": "Parameter Value, Timestamp, Prior Value",
+        "fieldName": "ParameterValueTimestampPriorValue",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "56424E4C1B2FA51BE22A044B51CC7B4D",
+        "name": "ParameterValueTimestampPriorValue"
+    },
+    "56424E4D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Indicates if the granted privileges can be granted to others by the grantee, the receiver of the privileges.",
+        "displayName": "Privilege Is Grantable",
+        "fieldName": "PrivilegeIsGrantable",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E4D1B2FA51BE22A044B51CC7B4D",
+        "name": "PrivilegeIsGrantable"
+    },
+    "56424E4E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a privilege.",
+        "displayName": "Privilege Name",
+        "fieldName": "PrivilegeName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E4E1B2FA51BE22A044B51CC7B4D",
+        "name": "PrivilegeName"
+    },
+    "56424E4F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a privilege.",
+        "displayName": "Privilege Type",
+        "fieldName": "PrivilegeType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E4F1B2FA51BE22A044B51CC7B4D",
+        "name": "PrivilegeType"
+    },
+    "56424E501B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a grantee, a receiver of privileges.",
+        "displayName": "Privilege, Grantee Name",
+        "fieldName": "PrivilegeGranteeName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E501B2FA51BE22A044B51CC7B4D",
+        "name": "PrivilegeGranteeName"
+    },
+    "56424E511B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a grantee, a receiver of privileges. If the type is user, then 'username, targeted' and 'privilege, grantee name' should both contain the username of the grantee.",
+        "displayName": "Privilege, Grantee Type",
+        "fieldName": "PrivilegeGranteeType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E511B2FA51BE22A044B51CC7B4D",
+        "name": "PrivilegeGranteeType"
+    },
+    "56424E521B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a resource container.",
+        "displayName": "Resource Container Name",
+        "fieldName": "ResourceContainerName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E521B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceContainerName"
+    },
+    "56424E531B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a resource container, for example, a database schema or a data repository.",
+        "displayName": "Resource Container Type",
+        "fieldName": "ResourceContainerType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E531B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceContainerType"
+    },
+    "56424E541B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "Either a hash of the content of a resource or simply the content of the resource. A hash is often used to check the integrity of the content. A mismatch between the computed hash and the given hash indicates that the content has been modified.",
+        "displayName": "Resource Content Or Hash",
+        "fieldName": "ResourceContent",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E541B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceContentOrHash"
+    },
+    "56424E551B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of content of a resource, for example, a MIME type.",
+        "displayName": "Resource Content Type",
+        "fieldName": "ResourceContentType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E551B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceContentType"
+    },
+    "56424E561B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The number of countable resources. Use 'resource type' for the type of the resource counted.",
+        "displayName": "Resource Count",
+        "fieldName": "ResourceCount",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E561B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceCount"
+    },
+    "56424E571B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a resource, for example, a filename, a database table name, etc. Not all resources are named, for example, a message has a type, but not usually a name. Use this attribute for a filename and include the directory path, if any.",
+        "displayName": "Resource Name",
+        "fieldName": "ResourceName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E571B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceName"
+    },
+    "56424E581B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a prior resource, for example, if the event reports the execution of a command like 'copy /sys/x.exe to /com/y.exe', this is the name of the  'from file','/sys/x.exe'. The name of the 'to filename', '/com/y.exe' goes in 'resource name'.",
+        "displayName": "Resource Name, Prior",
+        "fieldName": "ResourceNamePrior",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E581B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceNamePrior"
+    },
+    "56424E591B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The size of a request message, for example, an HTTP request. The units of measure for the size, for example, 'byte', are in 'resource, units of measure'.",
+        "displayName": "Resource Request Size",
+        "fieldName": "ResourceRequestSize",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E591B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceRequestSize"
+    },
+    "56424E5A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The size of a response message, for example, an HTTP response. The units of measure for the size, for example, 'byte', are in 'resource, units of measure'.",
+        "displayName": "Resource Response Size",
+        "fieldName": "ResourceResponseSize",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E5A1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceResponseSize"
+    },
+    "56424E5B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "The length or size of the resource, usually in bytes. Use 'resource type' for the type.",
+        "displayName": "Resource Size",
+        "fieldName": "ResourceSize",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E5B1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceSize"
+    },
+    "56424E5C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a resource involved in an event. Examples of resources are files, messages, database tables, configurations, etc.",
+        "displayName": "Resource Type",
+        "fieldName": "ResourceType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E5C1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceType"
+    },
+    "56424E5D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A phrase specifying what is summed over time, for example, 'matches of packets to denied list'. This sum is a count of how many packets matched a list of source IP addresses that are denied access to the network. In this case, 'resource type' would be 'packet'.",
+        "displayName": "Resource, Sum Criteria",
+        "fieldName": "ResourceSumCriteria",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E5D1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceSumCriteria"
+    },
+    "56424E5E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The sum over time of something related to a resource, 'resource, sum criteria' specifies what is summed.",
+        "displayName": "Resource, Sum Over Time",
+        "fieldName": "ResourceSumOverTime",
+        "filterOperators": "",
+        "isEnumeration": false,
+        "key": "56424E5E1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceSumOverTime"
+    },
+    "56424E5F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The units of measurement for a size or sum of a resource.",
+        "displayName": "Resource, Units Of Measure",
+        "fieldName": "ResourceUnitsOfMeasure",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E5F1B2FA51BE22A044B51CC7B4D",
+        "name": "ResourceUnitsOfMeasure"
+    },
+    "56424E601B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The HTTP referrer or other type of referrer.",
+        "displayName": "Service, Referrer",
+        "fieldName": "ServiceReferrer",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E601B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceReferrer"
+    },
+    "56424E611B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The request line for HTTP or the command line for a program, etc.",
+        "displayName": "Service, Request Line",
+        "fieldName": "ServiceRequestLine",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E611B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceRequestLine"
+    },
+    "56424E621B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the service running on an actor, for example, 'HTTP Client', 'FTP Server', etc. This is often related to the network protocol, which would be 'HTTP'.",
+        "displayName": "Service, Type",
+        "fieldName": "ServiceType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E621B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceType"
+    },
+    "56424E631B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The version of the type of service, for example, 1.1 for HTTP.",
+        "displayName": "Service, Version",
+        "fieldName": "ServiceVersion",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E631B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceVersion"
+    },
+    "56424E641B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The syslog application name or other application name. An application is, in general, at a higher level of hierarchy than a program.",
+        "displayName": "Service, Application Name",
+        "fieldName": "ServiceApplicationName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E641B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceApplicationName"
+    },
+    "56424E651B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of an executable whose type is identified by 'executable type'. Only use these two fields if there is a special kind of executable that does not match an existing attribute such as transaction name or program name.",
+        "displayName": "Service, Executable Name",
+        "fieldName": "ServiceExecutableName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E651B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceExecutableName"
+    },
+    "56424E661B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of an executable whose name is identified by 'executable name'. Only use these two fields if there is a special kind of executable that does not match an existing attribute such as 'transaction name' or 'program name'.",
+        "displayName": "Service, Executable Type",
+        "fieldName": "ServiceExecutableType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E661B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceExecutableType"
+    },
+    "56424E671B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The outcome of a service, for example, the code returned by an HTTP server.",
+        "displayName": "Service, Outcome",
+        "fieldName": "ServiceOutcome",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E671B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceOutcome"
+    },
+    "56424E681B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "An identifier for a part of some service, for example, a particular library that is used across services.",
+        "displayName": "Service, Part ID",
+        "fieldName": "ServicePartId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E681B2FA51BE22A044B51CC7B4D",
+        "name": "ServicePartId"
+    },
+    "56424E691B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The identifier of a process, also called PID.",
+        "displayName": "Service, Process ID",
+        "fieldName": "ServiceProcessId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E691B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceProcessId"
+    },
+    "56424E6A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of a workflow, the highest level of a 4-level hierarchy of execution: workflow, transaction, program, function. Note that a report is a type of program.",
+        "displayName": "Service, Workflow Name",
+        "fieldName": "ServiceWorkflowName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6A1B2FA51BE22A044B51CC7B4D",
+        "name": "ServiceWorkflowName"
+    },
+    "56424E6B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the initiator system of the event, for example, SID/client ID for an ABAP system.",
+        "displayName": "System ID, Initiator",
+        "fieldName": "SystemIdInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6B1B2FA51BE22A044B51CC7B4D",
+        "name": "SystemIdInitiator"
+    },
+    "56424E6C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the intermediary system of the event, for example, SID/client ID for an ABAP system.",
+        "displayName": "System ID, Intermediary",
+        "fieldName": "SystemIdIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6C1B2FA51BE22A044B51CC7B4D",
+        "name": "SystemIdIntermediary"
+    },
+    "56424E6D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the initiator system, for example, ABAP.",
+        "displayName": "System Type, Initiator",
+        "fieldName": "SystemTypeInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6D1B2FA51BE22A044B51CC7B4D",
+        "name": "SystemTypeInitiator"
+    },
+    "56424E6E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the intermediary system, for example, ABAP.",
+        "displayName": "System Type, Intermediary",
+        "fieldName": "SystemTypeIntermediary",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6E1B2FA51BE22A044B51CC7B4D",
+        "name": "SystemTypeIntermediary"
+    },
+    "56424E6F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueBigInt",
+        "description": "An extent of time, often of an action, or of time to perform all actions leading up to the event report. For example, time to process the HTTP request, including the processing of the response.",
+        "displayName": "Time Duration",
+        "fieldName": "TimeDuration",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E6F1B2FA51BE22A044B51CC7B4D",
+        "name": "TimeDuration"
+    },
+    "56424E701B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueTimeStamp",
+        "description": "The time at which something ends, for example, an action.",
+        "displayName": "End Timestamp",
+        "fieldName": "TimestampOfEnd",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "56424E701B2FA51BE22A044B51CC7B4D",
+        "name": "TimestampOfEnd"
+    },
+    "56424E711B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueTimeStamp",
+        "description": "The time at which something starts, for example, an action.",
+        "displayName": "Start Timestamp",
+        "fieldName": "TimestampOfStart",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "56424E711B2FA51BE22A044B51CC7B4D",
+        "name": "TimestampOfStart"
+    },
+    "56424E721B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of the thing that triggered the event, and/or caused it to be logged, for example, things like timers, audit policies, security configurations, or attack signatures.",
+        "displayName": "Trigger Name, Acting",
+        "fieldName": "TriggerNameActing",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E721B2FA51BE22A044B51CC7B4D",
+        "name": "TriggerNameActing"
+    },
+    "56424E731B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The name of the trigger that is the target of some action, for example, creation, modification, enablement, disablement, deletion, etc.",
+        "displayName": "Trigger Name, Targeted",
+        "fieldName": "TriggerNameTargeted",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E731B2FA51BE22A044B51CC7B4D",
+        "name": "TriggerNameTargeted"
+    },
+    "56424E741B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of thing that triggered the event, and/or caused it to be logged, for example, things like timers, audit policies, security configurations, or attack signatures.",
+        "displayName": "Trigger Type, Acting",
+        "fieldName": "TriggerTypeActing",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E741B2FA51BE22A044B51CC7B4D",
+        "name": "TriggerTypeActing"
+    },
+    "56424E751B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The type of a trigger that is the target of some action, for example, creation, modification, enablement, disablement, deletion, etc.",
+        "displayName": "Trigger Type, Targeted",
+        "fieldName": "TriggerTypeTargeted",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E751B2FA51BE22A044B51CC7B4D",
+        "name": "TriggerTypeTargeted"
+    },
+    "56424E761B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The method of the logon, that is how the user is authenticated.",
+        "displayName": "User Logon Method",
+        "fieldName": "UserLogonMethod",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E761B2FA51BE22A044B51CC7B4D",
+        "name": "UserLogonMethod"
+    },
+    "56424E771B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. The domain name is the same as the system ID for an ABAP system, because the domain of validity of an ABAP user account  is an ABAP system.  An ABAP system ID is the SAP ID plus the SAP client number, for example,  CRM/00. This attribute is for the acting user's username domain name.",
+        "displayName": "Username, Domain Name, Acting",
+        "fieldName": "UsernameDomainNameActing",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E771B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainNameActing"
+    },
+    "56424E781B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. The domain name is the same as the system ID for an ABAP system, because the domain of validity of an ABAP user account  is an ABAP system.  An ABAP system ID is the SAP ID plus the SAP client number, for example,  CRM/00. This attribute is for the initiating user's username domain name.",
+        "displayName": "Username, Domain Name, Initiating",
+        "fieldName": "UsernameDomainNameInitiating",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E781B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainNameInitiating"
+    },
+    "56424E791B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. The domain name is the same as the system ID for an ABAP system, because the domain of validity of an ABAP user account  is an ABAP system.  An ABAP system ID is the SAP ID plus the SAP client number, for example,  CRM/00. This attribute is for the targeted user's username domain name.",
+        "displayName": "Username, Domain Name, Targeted",
+        "fieldName": "UsernameDomainNameTargeted",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E791B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainNameTargeted"
+    },
+    "56424E7A1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. The domain name is the same as the system ID for an ABAP system, because the domain of validity of an ABAP user account  is an ABAP system.  An ABAP system ID is the SAP ID plus the SAP client number, for example,  CRM/00. This attribute is for the targeting user's username domain name.",
+        "displayName": "Username, Domain Name, Targeting",
+        "fieldName": "UsernameDomainNameTargeting",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7A1B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainNameTargeting"
+    },
+    "56424E7B1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. It is the same as a system type for an ABAP system, that is, ABAP is the system type. This attribute is for the acting user's username domain type.",
+        "displayName": "Username, Domain Type, Acting",
+        "fieldName": "UsernameDomainTypeActing",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7B1B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainTypeActing"
+    },
+    "56424E7C1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. It is the same as a system type for an ABAP system, that is, ABAP is the system type. This attribute is for the initiating user's username domain type.",
+        "displayName": "Username, Domain Type, Initiating",
+        "fieldName": "UsernameDomainTypeInitiating",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7C1B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainTypeInitiating"
+    },
+    "56424E7D1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. It is the same as a system type for an ABAP system, that is, ABAP is the system type. This attribute is for the targeted user's username domain type.",
+        "displayName": "Username, Domain Type, Targeted",
+        "fieldName": "UsernameDomainTypeTargeted",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7D1B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainTypeTargeted"
+    },
+    "56424E7E1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "A user account is identified by a triple: 'User Account Name', 'Username Domain Type', and 'Username Domain Name'. The domain is the domain of validity of the user account name. It identifies the system that can resolve the user account name to a real user. It is the same as a system type for an ABAP system, that is, ABAP is the system type. This attribute is for the targeting user's username domain type.",
+        "displayName": "Username, Domain Type, Targeting",
+        "fieldName": "UsernameDomainTypeTargeting",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7E1B2FA51BE22A044B51CC7B4D",
+        "name": "UsernameDomainTypeTargeting"
+    },
+    "56424E7F1B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The pseudonym of the initiating user involved in the event.  In many events an acting user and/or actor system performs an action on a targeted user. A targeted user may be the target of actions such as create, alter, delete, log on, log off, etc.",
+        "displayName": "User Pseudonym, Initiating",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E7F1B2FA51BE22A044B51CC7B4D",
+        "name": "UserPseudonymInitiating"
+    },
+    "56424E801B2FA51BE22A044B51CC7B4D": {
+        "dataType": "ValueVarChar",
+        "description": "The pseudonym of the targeted user involved in the event.  In many events an acting user and/or actor system performs an action on a targeted user. A targeted user may be the target of actions such as create, alter, delete, log on, log off, etc.",
+        "displayName": "User Pseudonym, Targeted",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56424E801B2FA51BE22A044B51CC7B4D",
+        "name": "UserPseudonymTargeted"
+    },
+    "56496EC9A47ACF89E2742B5BF023A911": {
+        "dataType": "ValueVarChar",
+        "description": "Role of the initiator system, for example, test, production, customizing.",
+        "displayName": "System Role, Initiator",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56496EC9A47ACF89E2742B5BF023A911",
+        "name": "SystemRoleInitiator"
+    },
+    "56496ECAA47ACF89E2742B5BF023A911": {
+        "dataType": "ValueVarChar",
+        "description": "Role of the intermediary system, for example, test, production, customizing.",
+        "displayName": "System Role, Intermediary",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56496ECAA47ACF89E2742B5BF023A911",
+        "name": "SystemRoleIntermediary"
+    },
+    "56496ECBA47ACF89E2742B5BF023A911": {
+        "dataType": "ValueVarChar",
+        "description": "Role of the reporter system, for example, test, production, customizing.",
+        "displayName": "System Role, Reporter",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56496ECBA47ACF89E2742B5BF023A911",
+        "name": "SystemRoleReporter"
+    },
+    "56496ECCA47ACF89E2742B5BF023A911": {
+        "dataType": "ValueVarChar",
+        "description": "Role of the target system, for example, test, production, customizing.",
+        "displayName": "System Role, Target",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56496ECCA47ACF89E2742B5BF023A911",
+        "name": "SystemRoleTarget"
+    },
+    "5656ACCEFD145AE8E2C6090F54781CD7": {
+        "dataType": "ValueVarChar",
+        "description": "The scenario role of the initiator, for example, client, server, or proxy. An example of a scenario is a client-server scenario where one system plays the role of the client and the other the role of the server.",
+        "displayName": "Event, Scenario Role Of Initiator",
+        "fieldName": "EventScenarioRoleOfInitiator",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5656ACCEFD145AE8E2C6090F54781CD7",
+        "name": "EventScenarioRoleOfInitiator"
+    },
+    "5656ACD9FD145AE8E2C6090F54781CD7": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user group in user master maintenance. The targeted user belongs to this group.",
+        "displayName": "User Group, Targeted",
+        "fieldName": "UserGroup",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5656ACD9FD145AE8E2C6090F54781CD7",
+        "name": "UserGroupTargeted"
+    },
+    "5656ACDFFD145AE8E2C6090F54781CD7": {
+        "dataType": "ValueVarChar",
+        "description": "The department of the acting user in a company as part of the company address. It is the department name used at the customer for a customer contact person. It is usually the same as the department name used on business cards.",
+        "displayName": "User, Department, Acting",
+        "fieldName": "Department",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5656ACDFFD145AE8E2C6090F54781CD7",
+        "name": "UserDepartmentActing"
+    },
+    "5656ACEFFD145AE8E2C6090F54781CD7": {
+        "dataType": "ValueVarChar",
+        "description": "Function of the acting user, for example, as contact person in a company. This is often part of the formatted address.",
+        "displayName": "User, Function, Acting",
+        "fieldName": "Function",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5656ACEFFD145AE8E2C6090F54781CD7",
+        "name": "UserFunctionActing"
+    },
+    "565AC85828C52962E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Difference in criticality level compared to the previous check execution.",
+        "displayName": "Criticality Delta",
+        "fieldName": "StatusDelta",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "565AC85828C52962E10000000A600446",
+        "name": "StatusDelta"
+    },
+    "566CDFB06EFAAC24E10000000A4CF109": {
+        "dataType": "NCLOB",
+        "description": "Original log data",
+        "displayName": "Event, Original Message",
+        "fieldName": "Data",
+        "filterOperators": [
+            "LIKE",
+            "LIKE_REGEXPR"
+        ],
+        "isEnumeration": false,
+        "key": "566CDFB06EFAAC24E10000000A4CF109",
+        "name": "OriginalData"
+    },
+    "566ED746F4E97FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The role of the system group that the actor system belongs to. All systems that belong to the same system group have the same system group ID and type. Examples of roles are: test, production, and customizing.",
+        "displayName": "System Group, Role, Actor",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566ED746F4E97FADE2FBD9C054838D99",
+        "name": "SystemGroupRoleActor"
+    },
+    "566ED747F4E97FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The role of the system group that the initiator system belongs to. All systems that belong to the same system group have the same system group ID and type. Examples of roles are: test, production, and customizing.",
+        "displayName": "System Group, Role, Initiator",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566ED747F4E97FADE2FBD9C054838D99",
+        "name": "SystemGroupRoleInitiator"
+    },
+    "566ED748F4E97FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The role of the system group that the intermediary system belongs to. All systems that belong to the same system group have the same system group ID and type. Examples of roles are: test, production, and customizing.",
+        "displayName": "System Group, Role, Intermediary",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566ED748F4E97FADE2FBD9C054838D99",
+        "name": "SystemGroupRoleIntermediary"
+    },
+    "566ED749F4E97FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The role of the system group that the reporter system belongs to. All systems that belong to the same system group have the same system group ID and type. Examples of roles are: test, production, and customizing.",
+        "displayName": "System Group, Role, Reporter",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566ED749F4E97FADE2FBD9C054838D99",
+        "name": "SystemGroupRoleReporter"
+    },
+    "566ED74AF4E97FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The role of the system group that the target system belongs to. All systems that belong to the same system group have the same system group ID and type. Examples of roles are: test, production, and customizing.",
+        "displayName": "System Group, Role, Target",
+        "fieldName": "Role",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566ED74AF4E97FADE2FBD9C054838D99",
+        "name": "SystemGroupRoleTarget"
+    },
+    "566EE95DE8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the system group that the actor system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, ID, Actor",
+        "fieldName": "MainSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE95DE8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupIdActor"
+    },
+    "566EE95EE8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the system group that the initiator system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, ID, Initiator",
+        "fieldName": "MainSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE95EE8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupIdInitiator"
+    },
+    "566EE95FE8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the system group that the intermediary system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, ID, Intermediary",
+        "fieldName": "MainSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE95FE8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupIdIntermediary"
+    },
+    "566EE960E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the system group that the reporter system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, ID, Reporter",
+        "fieldName": "MainSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE960E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupIdReporter"
+    },
+    "566EE961E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The ID of the system group that the target system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, ID, Target",
+        "fieldName": "MainSystemId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE961E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupIdTarget"
+    },
+    "566EE962E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the system group that the actor system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, Type, Actor",
+        "fieldName": "MainSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE962E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupTypeActor"
+    },
+    "566EE963E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the system group that the initiator system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, Type, Initiator",
+        "fieldName": "MainSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE963E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupTypeInitiator"
+    },
+    "566EE964E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the system group that the intermediary system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, Type, Intermediary",
+        "fieldName": "MainSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE964E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupTypeIntermediary"
+    },
+    "566EE965E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the system group that the reporter system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, Type, Reporter",
+        "fieldName": "MainSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE965E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupTypeReporter"
+    },
+    "566EE966E8F37FADE2FBD9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "The type of the system group that the target system belongs to. All systems that belong to the same system group have the same system group ID and  type.",
+        "displayName": "System Group, Type, Target",
+        "fieldName": "MainSystemType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "566EE966E8F37FADE2FBD9C054838D99",
+        "name": "SystemGroupTypeTarget"
+    },
+    "5672D285E9037FADE2D0D9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "A software building block within an application that enables a set of department-oriented business processes or cross-functional business processes. Application components can offer services to support these business processes. Application components are not implemented in a stand-alone manner. The application component and the software component come from the object directory as part of ETD master data extraction.",
+        "displayName": "Service, Application Component",
+        "fieldName": "ApplicationComponent",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5672D285E9037FADE2D0D9C054838D99",
+        "name": "ServiceApplicationComponent"
+    },
+    "5672D286E9037FADE2D0D9C054838D99": {
+        "dataType": "ValueVarChar",
+        "description": "A set of SAP software objects that are grouped in development classes and can only be delivered together. For example, SAP CRM. The application component and the software component come from the object directory as part of ETD master data extraction.",
+        "displayName": "Service, Software Component",
+        "fieldName": "SoftwareComponent",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5672D286E9037FADE2D0D9C054838D99",
+        "name": "ServiceSoftwareComponent"
+    },
+    "5695B219365D2C9EE200460C83479BA6": {
+        "dataType": "ValueBigInt",
+        "description": "A number representing the importance of an event or other thing that can be assigned an importance. The larger the score, the more important the thing. Usually the score ranges from zero to one hundred.",
+        "displayName": "Generic, Score",
+        "fieldName": "GenericScore",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5695B219365D2C9EE200460C83479BA6",
+        "name": "GenericScore"
+    },
+    "5696D00761D02C9AE2AB1A9FC7D31CA9": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the actor system as defined in the Locations application.",
+        "displayName": "System Location, Actor",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5696D00761D02C9AE2AB1A9FC7D31CA9",
+        "name": "SystemLocationActor"
+    },
+    "5696D00861D02C9AE2AB1A9FC7D31CA9": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the initiator system as defined in the Locations application.",
+        "displayName": "System Location, Initiator",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5696D00861D02C9AE2AB1A9FC7D31CA9",
+        "name": "SystemLocationInitiator"
+    },
+    "5696D00961D02C9AE2AB1A9FC7D31CA9": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the intermediary system as defined in the Locations application.",
+        "displayName": "System Location, Intermediary",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5696D00961D02C9AE2AB1A9FC7D31CA9",
+        "name": "SystemLocationIntermediary"
+    },
+    "5696D00A61D02C9AE2AB1A9FC7D31CA9": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the reporter system as defined in the Locations application.",
+        "displayName": "System Location, Reporter",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5696D00A61D02C9AE2AB1A9FC7D31CA9",
+        "name": "SystemLocationReporter"
+    },
+    "5696D00B61D02C9AE2AB1A9FC7D31CA9": {
+        "dataType": "ValueVarChar",
+        "description": "The location of the target system as defined in the Locations application.",
+        "displayName": "System Location, Target",
+        "fieldName": "Location",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5696D00B61D02C9AE2AB1A9FC7D31CA9",
+        "name": "SystemLocationTarget"
+    },
+    "56B862E7EF19B60DE200F19A9E3CE568": {
+        "dataType": "ValueTimeStamp",
+        "description": "The time at which the event was inserted in the database.",
+        "displayName": "Technical, Timestamp of Insertion",
+        "fieldName": "TechnicalTimestampOfInsertion",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "56B862E7EF19B60DE200F19A9E3CE568",
+        "name": "TechnicalTimestampOfInsertion"
+    },
+    "56B8D5A5EF19B60DE200F19A9E3CE568": {
+        "dataType": "ValueVarChar",
+        "description": "Used to group events from the same log instance.",
+        "displayName": "Technical, Group ID",
+        "fieldName": "TechnicalGroupId",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "56B8D5A5EF19B60DE200F19A9E3CE568",
+        "name": "TechnicalGroupId"
+    },
+    "5731A2FBD612C75EE2E816982F912AB5": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user type in user master maintenance. The acting user is of this type.  Type can take one of five values: dialog, system, communication, service, or reference. They are represented by the letters A(Dialog), B(System), C(Communication), S(Service), and L(Reference), respectively.",
+        "displayName": "User Type, Acting",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5731A2FBD612C75EE2E816982F912AB5",
+        "name": "UserTypeActing"
+    },
+    "5731A2FCD612C75EE2E816982F912AB5": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user type in user master maintenance. The initiating user is of this type.  Type can take one of five values: dialog, system, communication, service, or reference. They are represented by the letters A(Dialog), B(System), C(Communication), S(Service), and L(Reference), respectively.",
+        "displayName": "User Type, Initiating",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5731A2FCD612C75EE2E816982F912AB5",
+        "name": "UserTypeInitiating"
+    },
+    "5731A2FDD612C75EE2E816982F912AB5": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user type in user master maintenance. The targeted user is of this type.  Type can take one of five values: dialog, system, communication, service, or reference. They are represented by the letters A(Dialog), B(System), C(Communication), S(Service), and L(Reference), respectively.",
+        "displayName": "User Type, Targeted",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5731A2FDD612C75EE2E816982F912AB5",
+        "name": "UserTypeTargeted"
+    },
+    "5731A2FED612C75EE2E816982F912AB5": {
+        "dataType": "ValueVarChar",
+        "description": "For an ABAP system, this is the user type in user master maintenance. The targeting user is of this type.  Type can take one of five values: dialog, system, communication, service, or reference. They are represented by the letters A(Dialog), B(System), C(Communication), S(Service), and L(Reference), respectively.",
+        "displayName": "User Type, Targeting",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5731A2FED612C75EE2E816982F912AB5",
+        "name": "UserTypeTargeting"
+    },
+    "576B609AFC1A39C0E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Anomaly Detection Pattern (yes / no)",
+        "displayName": "Anomaly Pattern",
+        "fieldName": "AnomalyPattern",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "576B609AFC1A39C0E10000000A600446",
+        "name": "anomalyPattern"
+    },
+    "5AC8B55A2E0353E4E15500000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The Line of Business of the actor system as defined in the System application.",
+        "displayName": "Line of Business, Actor",
+        "fieldName": "LineOfBusiness",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "5AC8B55A2E0353E4E15500000A600446",
+        "name": "LineOfBusinessActor"
+    },
+    "6528C85828C52962E10000000A600446": {
+        "dataType": "ValueInteger",
+        "description": "Delay median value in seconds",
+        "displayName": "Delay Median",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "6528C85828C52962E10000000A600446",
+        "name": "delayMedian"
+    },
+    "7BD13E591C839B6AE15300000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Type for Acting User. The acting user is e.g. the user that executed the latest configuration change.",
+        "displayName": "User Type, Acting",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "7BD13E591C839B6AE15300000A600446",
+        "name": "UserTypeActing"
+    },
+    "7CD13E591C839B6AE15300000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Type for Target User. A target user is for example relevant in a user change event or an RFC scenario.",
+        "displayName": "User Type, Targeted",
+        "fieldName": "UserType",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "7CD13E591C839B6AE15300000A600446",
+        "name": "UserTypeTargeted"
+    },
+    "8BE11159D278F909E1C200000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The name of the streaming server that received the log instance.",
+        "displayName": "Technical, Log Collector, Name",
+        "fieldName": "TechnicalLogCollectorName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "8BE11159D278F909E1C200000A600446",
+        "name": "TechnicalLogCollectorName"
+    },
+    "8CE11159D278F909E1C200000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The IP address of the streaming server that received the log instance.",
+        "displayName": "Technical, Log Collector, IP Address",
+        "fieldName": "TechnicalLogCollectorIPAddress",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "8CE11159D278F909E1C200000A600446",
+        "name": "TechnicalLogCollectorIPAddress"
+    },
+    "8DE11159D278F909E1C200000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The port on the streaming server that received the log instance.",
+        "displayName": "Technical, Log Collector, Port",
+        "fieldName": "TechnicalLogCollectorPort",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "8DE11159D278F909E1C200000A600446",
+        "name": "TechnicalLogCollectorPort"
+    },
+    "8E28C85828C52962E10000000A600446": {
+        "dataType": "ValueInteger",
+        "description": "Delay maximum value in seconds",
+        "displayName": "Delay Maximum",
+        "fieldName": "ValueInteger",
+        "filterOperators": [
+            "=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "BETWEEN",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "8E28C85828C52962E10000000A600446",
+        "name": "delayMaximum"
+    },
+    "9681C85828C52962E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Result value of the check execution.",
+        "displayName": "Result Value",
+        "fieldName": "ResultValue",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "9681C85828C52962E10000000A600446",
+        "name": "ResultValue"
+    },
+    "9871B55A2E0353E4E15500000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The Line of Business of the initiator system as defined in the System application.",
+        "displayName": "Line of Business, Initiator",
+        "fieldName": "LineOfBusiness",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "9871B55A2E0353E4E15500000A600446",
+        "name": "LineOfBusinessInitiator"
+    },
+    "A782C85828C52962E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Expected value of the parameter defined in parameter name.",
+        "displayName": "Parameter, Expected Value",
+        "fieldName": "ParameterValue",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "A782C85828C52962E10000000A600446",
+        "name": "ParameterValue"
+    },
+    "C8609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Name of the configuration check.",
+        "displayName": "Check Name",
+        "fieldName": "DisplayName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "C8609A58E3DF3F69E16000000A600446",
+        "name": "DisplayName"
+    },
+    "C9609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueTimeStamp",
+        "description": "Timestamp when the configuration check was executed.",
+        "displayName": "Timestamp",
+        "fieldName": "Timestamp",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "C9609A58E3DF3F69E16000000A600446",
+        "name": "Timestamp"
+    },
+    "CA609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Technical category of the configuration check.",
+        "displayName": "Technical Category",
+        "fieldName": "Category",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CA609A58E3DF3F69E16000000A600446",
+        "name": "Category"
+    },
+    "CB609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Number of the security note to which the check is assigned.",
+        "displayName": "Note Number",
+        "fieldName": "NoteNumber",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CB609A58E3DF3F69E16000000A600446",
+        "name": "NoteNumber"
+    },
+    "CC13DA58B726F0C3E10000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Domain of the configuration check.",
+        "displayName": "Domain",
+        "fieldName": "DomainName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CC13DA58B726F0C3E10000000A600446",
+        "name": "DomainName"
+    },
+    "CC609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Name of the parameter that was inspected.",
+        "displayName": "Parameter, Name",
+        "fieldName": "ParameterName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CC609A58E3DF3F69E16000000A600446",
+        "name": "ParameterName"
+    },
+    "CD609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Name of the data base table or from-clause for the view that is inspected",
+        "displayName": "Table Name",
+        "fieldName": "FromClause",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CD609A58E3DF3F69E16000000A600446",
+        "name": "TableNameOrFromClause"
+    },
+    "CE609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Criticality level of the result of the check execution.",
+        "displayName": "Criticality Level",
+        "fieldName": "StatusName",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CE609A58E3DF3F69E16000000A600446",
+        "name": "CriticalityLevel"
+    },
+    "CF609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Description of the result of the check execution.",
+        "displayName": "Result Description",
+        "fieldName": "ResultDescription",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "CF609A58E3DF3F69E16000000A600446",
+        "name": "ResultDescription"
+    },
+    "D0609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "System Type, Actor",
+        "displayName": "System Type, Actor",
+        "fieldName": "SystemTypeActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D0609A58E3DF3F69E16000000A600446",
+        "name": "SystemTypeActor"
+    },
+    "D1609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "System ID, Actor",
+        "displayName": "System ID, Actor",
+        "fieldName": "SystemIdActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D1609A58E3DF3F69E16000000A600446",
+        "name": "SystemIdActor"
+    },
+    "D2609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Network, Hostname, Actor",
+        "displayName": "Network, Hostname, Actor",
+        "fieldName": "HostNameActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D2609A58E3DF3F69E16000000A600446",
+        "name": "HostNameActor"
+    },
+    "D3609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Network, IP Address, Actor",
+        "displayName": "Network, IP Address, Actor",
+        "fieldName": "IPAddressActor",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D3609A58E3DF3F69E16000000A600446",
+        "name": "IPAddressActor"
+    },
+    "D4609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Pseudonym for acting user. The acting user is, for example, the user that executed the latest configuration change.",
+        "displayName": "User Pseudonym, Acting",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D4609A58E3DF3F69E16000000A600446",
+        "name": "UserPseudonymActing"
+    },
+    "D5609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "Pseudonym for target user. A target user is, for example, relevant in a user change event or an RFC scenario.",
+        "displayName": "User Pseudonym, Targeted",
+        "fieldName": "Pseudonym",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "D5609A58E3DF3F69E16000000A600446",
+        "name": "UserPseudonymTargeted"
+    },
+    "D6609A58E3DF3F69E16000000A600446": {
+        "dataType": "ValueTimeStamp",
+        "description": "Timestamp when the latest configuration change was executed.",
+        "displayName": "Timestamp Of Action",
+        "fieldName": "TimestampOfAction",
+        "filterOperators": [
+            "=",
+            "BETWEEN"
+        ],
+        "isEnumeration": false,
+        "key": "D6609A58E3DF3F69E16000000A600446",
+        "name": "TimestampOfAction"
+    },
+    "DB8AB55A2E0353E4E15500000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The Line of Business of the reporter system as defined in the System application.",
+        "displayName": "Line of Business, Reporter",
+        "fieldName": "LineOfBusiness",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "DB8AB55A2E0353E4E15500000A600446",
+        "name": "LineOfBusinessReporter"
+    },
+    "E48EB55A2E0353E4E15500000A600446": {
+        "dataType": "ValueVarChar",
+        "description": "The Line of Business of the target system as defined in the System application.",
+        "displayName": "Line of Business, Target",
+        "fieldName": "LineOfBusiness",
+        "filterOperators": [
+            "=",
+            "LIKE",
+            "IN",
+            "LIKE_REGEXPR",
+            "IS NULL"
+        ],
+        "isEnumeration": false,
+        "key": "E48EB55A2E0353E4E15500000A600446",
+        "name": "LineOfBusinessTarget"
+    }
+}

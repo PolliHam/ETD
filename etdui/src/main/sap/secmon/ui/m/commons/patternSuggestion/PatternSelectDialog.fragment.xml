@@ -1,0 +1,15 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
+    <SelectDialog search="onSearchPatternSelectDialog"
+        confirm="onConfirmPatternSelectDialog" multiSelect="true"
+        title="{i18nCommon>Pattern_TIT}" id="idPatternSelectDialog"
+        items="{path: 'Patterns>/WorkspacePatterns',  sorter : { path: 'Name', descending: false} }">
+        <StandardListItem title="{Patterns>Name}"
+            description="{Patterns>NameSpace}"
+            info="{parts: [{path: 'Patterns>PatternType'},{path:'i18nCommon>AnomalyPattern'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeFormatter'}"
+            iconDensityAware="false" iconInset="false" type="Active">
+            <customData>
+                <c:CustomData key="patternId" value="{Patterns>Id}" />
+            </customData>
+        </StandardListItem>
+    </SelectDialog>
+</c:FragmentDefinition>

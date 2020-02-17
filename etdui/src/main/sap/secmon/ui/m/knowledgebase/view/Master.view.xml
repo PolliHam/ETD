@@ -1,0 +1,45 @@
+<mvc:View controllerName="sap.secmon.ui.m.knowledgebase.view.Master"
+	displayBlock="true" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="page" title="{i18n>Title}" navButtonPress="onBackButtonPressed"
+		showNavButton="true">
+		<headerContent>
+            <Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp"/>
+        </headerContent>
+		<content>
+			<List id="list" mode="{device>/listMode}" selectionChange="onSelect"
+				growing="true" growingScrollToLoad="true" growingThreshold="100">
+				<items>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>Events_LBL}">
+						<customData>
+							<core:CustomData key="route" value="events" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>LogTypes_LBL}">
+						<customData>
+							<core:CustomData key="route" value="logtypes" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>Attributes_LBL}">
+						<customData>
+							<core:CustomData key="route" value="attributes" />
+						</customData>
+					</DisplayListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="mainNewButton" xmlns="sap.m" text="{i18nCommon>New_BUT}" visible="{uiModel>/NewEnabled}"
+						press="onNew">
+					</Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

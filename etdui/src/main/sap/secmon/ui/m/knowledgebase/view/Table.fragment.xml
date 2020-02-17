@@ -1,0 +1,56 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:customControls="sap.secmon.ui.m.commons.controls">
+        <customControls:ColumnClickableTable
+        id="table" firstColumnIsForSelection="false"
+        items="{path: 'Knowledgebase>/Event',  sorter : { path: 'lowerDisplayName'} }"
+        growing="true" growingScrollToLoad="true" growingThreshold="100"
+        inset="false" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+        <customControls:headerToolbar>
+            <OverflowToolbar>
+                <SearchField id="searchAttributes" search="onSearch" width="100%"/>
+            </OverflowToolbar>
+        </customControls:headerToolbar>
+        <customControls:columns>
+            <customControls:SortableColumn width="15%" id="displayName"
+                minScreenWidth="Small" demandPopin="true" popinDisplay="Inline" sortProperty="displayName">
+                <customControls:SortableItem text="{i18n>KB_DisplayNameLbl}" />
+            </customControls:SortableColumn>
+            <customControls:SortableColumn width="15%" id="name" sortProperty="name">
+                <customControls:SortableItem
+                    minScreenWidth="Large" text="{i18n>KB_NameLbl}" />
+            </customControls:SortableColumn>
+            <Column width="35%"
+                minScreenWidth="large" demandPopin="true" popinDisplay="Inline"
+                sortProperty="description">
+                <Text text="{i18n>KB_DescriptionLbl}" />
+            </Column>
+            <customControls:SortableColumn id="namespace" width="15%"
+                sortProperty="nameSpace">
+                <customControls:SortableItem text="{i18n>KB_NameSpaceLbl}"/>
+            </customControls:SortableColumn>
+            <customControls:SortableColumn id="createdBy" width="10%"
+                minScreenWidth="Small" demandPopin="true" popinDisplay="Inline"
+                sortProperty="CreatedBy">
+                <customControls:SortableItem text="{i18n>KB_CreatedByLbl}"/>
+            </customControls:SortableColumn>
+             <customControls:SortableColumn id="dataType" width="10%"
+                minScreenWidth="Small" demandPopin="true" popinDisplay="Inline"
+                sortProperty="dataType">
+                <customControls:SortableItem text="{i18n>KB_DataTypeLbl}"/>
+            </customControls:SortableColumn>
+        </customControls:columns>
+        <customControls:items>
+            <ColumnListItem vAlign="Middle" type="Navigation"
+                press="onItemPress">
+                <cells>
+                    <Text text="{parts: [{path: 'Knowledgebase>displayNameKey'}, {path: 'Knowledgebase>displayName'}], formatter: 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" />
+                    <Text text="{Knowledgebase>name}" />
+                    <Text text="{parts: [{path: 'Knowledgebase>descriptionKey'}, {path: 'Knowledgebase>description'}], formatter: 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" maxLines="2" />
+                    <Text text="{Knowledgebase>nameSpace}" />
+                    <Text text="{Knowledgebase>CreatedBy}" />
+                    <Text text="{Knowledgebase>dataType}" />
+                </cells>
+            </ColumnListItem>
+        </customControls:items>
+    </customControls:ColumnClickableTable>
+</c:FragmentDefinition>

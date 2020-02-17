@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+    <Dialog title="{i18n>BU_TIT_Measure}">
+        <form:SimpleForm editable="false" layout="ResponsiveGridLayout"  labelSpanL="4" labelSpanM="12" emptySpanL="0" emptySpanM="2"> 
+	        <Label text="{i18n>BU_LBL_MeasureDefinition}" >
+	        </Label>
+	        
+	      <layout:HorizontalLayout> 
+				<ComboBox selectedKey="{/fn}" items="{SQLFnModel>/items}" enabled = "true">
+			        <core:ListItem key="{SQLFnModel>key}" text="{SQLFnModel>text}">
+			        </core:ListItem>
+				</ComboBox>
+			
+				<Label text="(" >
+		        </Label>
+	        
+				<CheckBox selected="{/distinct}" text="distinct">
+				</CheckBox>
+
+				<ComboBox selectedKey="{/key}" items="{MeasuresModel>/data/}" change="handleMeasureChange">
+			        <core:ListItem key="{MeasuresModel>key}" text="{MeasuresModel>displayName}" 
+			           app:dataType="{MeasuresModel>dataType}" tooltip="{MeasuresModel>description}">
+			        </core:ListItem>
+				</ComboBox>
+				
+				<Label text=") from " >
+		        </Label>
+	        	
+		        <Label text="{/startDatasets/0/name}">        
+				</Label>				
+	  </layout:HorizontalLayout>
+	
+	        <Label text="{i18n>BU_LBL_MeasureDisplayName}" >
+	        </Label> 
+	     	<Input value="{path:'/displayName'}">
+			</Input> 
+       </form:SimpleForm>
+
+		<buttons>
+	       <Button text="{i18n>BU_BUT_OK}" press="pressedOK"/>
+	       <Button text="{i18n>BU_BUT_Cancel}" press="pressedCancel"/>
+        </buttons>
+	</Dialog>
+</core:FragmentDefinition>

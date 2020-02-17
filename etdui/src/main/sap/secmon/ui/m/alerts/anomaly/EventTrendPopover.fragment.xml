@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<ResponsivePopover title="{i18n>MobAlert_evTrendXTIT}"
+		modal="true" class="sapUiPopupWithPadding" showCloseButton="true"
+		contentWidth="1000px" placement="Left">
+		<endButton>
+			<Button text="{i18nCommon>Close_BUT}" press="closeEventTrendPopover" />
+		</endButton>
+		<content>
+			<mvc:XMLView id="eventTrendView"
+				viewName="sap.secmon.ui.m.alerts.anomaly.EventTrendAnalysis">
+			</mvc:XMLView>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

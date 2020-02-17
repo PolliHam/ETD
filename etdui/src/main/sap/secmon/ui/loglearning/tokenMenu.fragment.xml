@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+        <u:Menu>
+            <u:MenuItem visible="{/editable}"
+                select="onOpenChangeDialog"
+                text="{i18n>Change_annotation}"/>
+            <u:MenuItem visible="{/resettable}"
+                select="onResetAnnotation"
+                text="{i18n>Reset_annotation}"/>
+            <u:MenuItem
+                select="onInsertAnnotation"
+                text="{i18n>Annotation_Before_token}">
+                <u:Menu
+                    app:position="Before">
+                    <u:MenuTextFieldItem app:key="Word" label="Word" value="XXX" select="onInsertAnnotation"/>
+                    <u:MenuTextFieldItem app:key="Timestamp" label="Timestamp" value="yyyy-MM-dd'T'HH:mm:ss.SSSXXX" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="MAC" text="MAC" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Integer" text="Integer" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Var" text="Var" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Host" text="Host" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Url" text="Url" select="onInsertAnnotation" />
+                    <u:MenuItem app:key="IP.IP" text="IP.IP" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="IP.PORT" text="IP.PORT" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="FilePath" text="FilePath" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Syslog" text="Syslog" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Symbolic" text="Symbolic" select="onInsertAnnotation"/>
+                </u:Menu>
+            </u:MenuItem>
+            <u:MenuItem
+                select="onInsertAnnotation"
+                text="{i18n>Annotation_After_token}">
+                <u:Menu
+                    app:position="After">
+                    <u:MenuTextFieldItem app:key="Word" label="Word" value="XXX" select="onInsertAnnotation"/>
+                    <u:MenuTextFieldItem app:key="Timestamp" label="Timestamp" value="yyyy-MM-dd'T'HH:mm:ss.SSSXXX" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="MAC" text="MAC" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Integer" text="Integer" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Var" text="Var" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Host" text="Host" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Url" text="Url" select="onInsertAnnotation" />
+                    <u:MenuItem app:key="IP.IP" text="IP.IP" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="IP.PORT" text="IP.PORT" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="FilePath" text="FilePath" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Syslog" text="Syslog" select="onInsertAnnotation"/>
+                    <u:MenuItem app:key="Symbolic" text="Symbolic" select="onInsertAnnotation"/>
+                </u:Menu>
+            </u:MenuItem>
+        </u:Menu>
+</core:FragmentDefinition>

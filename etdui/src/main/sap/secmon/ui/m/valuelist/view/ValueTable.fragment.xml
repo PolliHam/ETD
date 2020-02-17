@@ -1,0 +1,223 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+ 
+	<IconTabBar select="onTabSelected" id="idIconTabBar">
+		<items>
+			<IconTabFilter key="values"
+				text="{
+						parts: [{path:'i18n>VL_ValuesTitle'},{path:'valueCount>/Number'}],
+			         	formatter: 'sap.secmon.ui.commons.Formatter.i18nText'
+			         	}">
+				<customControls:ColumnClickableTable id="values" 
+					firstColumnIsForSelection="false"
+					mode="None" growing="true" growingThreshold="100"
+					columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+					growingScrollToLoad="true" inset="false"
+					updateFinished="onValuesUpdateFinished"
+					items="{
+	                        path: 'Values/',
+	                        sorter: {
+	                            path: 'toupper(ValueVarChar)'
+	                        }
+	                	}"
+					>
+					<customControls:headerToolbar>
+						<OverflowToolbar>
+							<SearchField id="searchValueField" showRefreshButton="{device>/isNoTouch}"
+								search="onValueSearch" width="100%" data:tableId="values" data:searchFieldId="searchValueField">
+								<layoutData><OverflowToolbarLayoutData minWidth="40%" maxWidth="50%" shrinkable="true"/></layoutData>
+							</SearchField>
+							<ToolbarSpacer />
+							<SegmentedButton id="addActions" select="segmentedButtonWorkaround" selectedButton="moreAddActions"
+								visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateMode' }"
+								class="sapEtdtinyIcon">
+								<Button id="addValue" xmlns="sap.m" text="{i18nCommon>Add_BUT}" tooltip="{i18n>VL_AddTOL}"
+									visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateMode' }"
+									press="onAddValue" />
+								<Button id="moreAddActions" tooltip="{i18nCommon>moreActionsTOL}" icon="sap-icon://dropdown" 
+									visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateMode' }"
+									press="showMoreAddActions"/>
+							</SegmentedButton>
+							<Button id="deleteValue" text="{i18n>VL_DeleteSelected}" tooltip="{i18n>VL_DeleteSelectedTOL}" press="onDeleteSelectedValues"
+								visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateMode' }"
+								enabled="{ parts:[{path: 'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'uiModel>/countForeignNamespaces'}, {path: 'valueCount>/Number'}, {path: 'valueCount>/selectedValuesNumber'}],
+										formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.hasForeignNamespaceInDisplayMode' }" />
+							<Button text="{i18n>VL_DeleteAll}" tooltip="{i18n>VL_DeleteAllTOL}" press="onDeleteAllValues"
+								visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateMode' }"
+								enabled="{ parts:[{path: 'editModel>/displayMode'}, {path: 'UpdateMode'}, {path: 'uiModel>/countLocalNamespaces'}, {path: 'valueCount>/Number'}],
+										formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.hasOnlyForeignNamespaceInDisplayMode' }" />
+						</OverflowToolbar>
+					</customControls:headerToolbar>
+					<customControls:columns>
+						<Column vAlign="Inherit" width="2em"  hAlign="Begin" />
+						<customControls:SortableColumn vAlign="Inherit" width="15%" minWidth="10rem"  hAlign="Begin" sortProperty="Operator">
+								<customControls:SortableItem text="{i18n>VL_OperatorCOL}" />
+						</customControls:SortableColumn>
+						<customControls:SortableColumn vAlign="Inherit"  width="30%" hAlign="Begin" sortProperty="ValueVarChar">
+								<customControls:SortableItem text="{i18nCommon>Value_COL}" />
+						</customControls:SortableColumn>
+						<Column vAlign="Inherit" demandPopin="true" hAlign="Begin"
+							minScreenWidth="Tablet" popinDisplay="WithoutHeader">
+								<Text text="{i18nCommon>Description_COL}" />
+						</Column>
+						<customControls:SortableColumn vAlign="Inherit" width="15%" minWidth="10rem"
+							hAlign="Begin" demandPopin="true" minScreenWidth="Tablet"
+							popinDisplay="Inline" sortProperty="NameSpace">
+								<customControls:SortableItem text="{i18nCommon>Namespace_COL}" />
+						</customControls:SortableColumn>
+					</customControls:columns>
+					<customControls:items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<CheckBox
+									select="onValuesSelected"
+									enabled="{parts:[{path: 'editModel>/displayMode'}, {path: 'editModel>/UpdateMode'}, {path:'NameSpace'}],
+											formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isDisplayAndManualUpdateModeInForeignNS'}"
+									selected="{ parts: [{path:'editModel>/editMode'}, {path:'editModel>/UpdateMode'}],
+                                        formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.uncheckCheckBox' }"
+									visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+										formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }" />
+								<Text text="{Operator}" />
+								<Text text="{ValueVarChar}" />
+								<Input value="{Description}" width="100%"
+										editable="{ parts: [{path:'NameSpace'}, {path: 'editModel>/UpdateMode'}, {path:'editModel>/editMode'}],
+                                        	formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isSystemNsAndUpdatemodAndEditMode' }"
+                                      	liveChange="onDescriptionChange">
+								</Input>
+								<Text text="{NameSpace}" />
+							</cells>
+						</ColumnListItem>
+					</customControls:items>
+				</customControls:ColumnClickableTable>
+			</IconTabFilter>
+			
+			
+			<IconTabFilter key="inactiveValues"
+				text="{
+						parts: [{path:'i18n>VL_DelValuesTitle'},{path:'valueCount>/InactiveValuesNumber'}],
+			         	formatter: 'sap.secmon.ui.commons.Formatter.i18nText'
+			         	}">
+				<customControls:ColumnClickableTable id="inactiveValues" 
+					firstColumnIsForSelection="true"
+					mode="{ parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+						formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.tableModeFormatter' }" 
+					growing="true" growingThreshold="100"
+					columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+					growingScrollToLoad="true" inset="false"
+					updateFinished="onInactiveValuesUpdateFinished"
+					selectionChange="onInactiveValuesSelected"
+					items="{
+	                        path: 'InactiveValues/',
+	                        sorter: {
+	                            path: 'toupper(ValueVarChar)'
+	                        }
+	                	}"
+					>
+					<customControls:headerToolbar>
+						<OverflowToolbar>
+							<SearchField id="searchInactiveValueField" showRefreshButton="{device>/isNoTouch}"
+								search="onValueSearch" data:tableId="inactiveValues" data:searchFieldId="searchInactiveValueField" width="100%">
+								<layoutData><OverflowToolbarLayoutData minWidth="12rem" maxWidth="30rem" shrinkable="true"/></layoutData>
+							</SearchField>
+							<ToolbarSpacer />
+							<Button text="{i18n>VL_ReactivateSelected}" press="onReactivateSelectedValues"
+								visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"
+								enabled="{ parts:[{path:'valueCount>/InactiveValuesNumber'}, {path: 'valueCount>/selectedInactiveValuesNumber'}] ,formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.valuesExistAndSelected' }" />
+							<Button text="{i18n>VL_ReactivateAll}" press="onReactivateAllValues"
+								visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"
+								enabled="{path:'valueCount>/InactiveValuesNumber' ,formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.valuesExist' }" />
+
+						</OverflowToolbar>
+					</customControls:headerToolbar>
+					<customControls:columns>
+						<customControls:SortableColumn vAlign="Inherit" width="15%" minWidth="10rem"  hAlign="Begin" sortProperty="Operator">
+								<customControls:SortableItem text="{i18n>VL_OperatorCOL}" />
+						</customControls:SortableColumn>
+						<customControls:SortableColumn vAlign="Inherit"  width="30%" hAlign="Begin" sortProperty="ValueVarChar">
+								<customControls:SortableItem text="{i18nCommon>Value_COL}" />
+						</customControls:SortableColumn>
+						<Column vAlign="Inherit" demandPopin="true" hAlign="Begin"
+							minScreenWidth="Tablet" popinDisplay="WithoutHeader">
+								<Text text="{i18nCommon>Description_COL}" />
+						</Column>
+						<customControls:SortableColumn vAlign="Inherit" width="15%" minWidth="10rem"
+							hAlign="Begin" demandPopin="true" minScreenWidth="Tablet"
+							popinDisplay="Inline" sortProperty="NameSpace">
+								<customControls:SortableItem text="{i18nCommon>Namespace_COL}" />
+						</customControls:SortableColumn>
+						<Column width="2rem"/>
+					</customControls:columns>
+					<customControls:items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text text="{Operator}" />
+								<Text text="{ValueVarChar}" />
+								<Text text="{Description}" />
+								<Text text="{NameSpace}" />
+							</cells>
+						</ColumnListItem>
+					</customControls:items>
+				</customControls:ColumnClickableTable>
+			</IconTabFilter>
+			
+			
+			<IconTabFilter key="usingObjects"
+				visible="{applicationContext>/userPrivileges/workspaceRead}"
+				text="{parts: [{path:'i18n>VL_UsedBy'},{path:'uiModel>/usingObjects/'}],
+			        					 	formatter: 'sap.secmon.ui.m.commons.Formatter.countArrayFormatter' }">
+				<Table items="{ path: 'uiModel>/usingObjects' }" growing="true" fixedLayout="true"
+					growingScrollToLoad="true" growingThreshold="100">
+					<columns>
+						<Column minScreenWidth="Large" demandPopin="true"
+							width="5.5em" popinDisplay="Inline">
+							<Text text="{i18nCommon>Type_COL}" />
+						</Column>
+						<Column demandPopin="true"
+							popinDisplay="Inline">
+							<Text text="{i18nCommon>Name_COL}" />
+						</Column>
+						<Column minScreenWidth="XLarge" demandPopin="true"
+							popinDisplay="Inline">
+							<Text text="{i18nCommon>Namespace_COL}" />
+						</Column>
+						<Column minScreenWidth="XLarge" demandPopin="true"
+							popinDisplay="Inline">
+							<Text text="{i18nCommon>Description_COL}" />
+						</Column>
+                        <Column minScreenWidth="Large" demandPopin="true"
+							popinDisplay="Inline" width="4em">
+                            <Text text="{i18n>VL_Shared}" />
+                        </Column>
+                        <Column minScreenWidth="XLarge" demandPopin="true"
+							popinDisplay="Inline" >
+                            <Text text="{i18nCommon>Changed_By_COL}" />
+                        </Column>
+
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle"
+							type="{parts: [{path: 'editModel>/displayMode'},{path: 'uiModel>Published'}], formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.setLineType'}"
+							press="onUsingObjectPress">
+							<cells>
+								<Text text="{uiModel>Type}" />
+								<Text text="{uiModel>Name}" />
+								<Text text="{uiModel>Namespace}" />
+								<Text text="{uiModel>Description}" />
+                                <Text text="{parts: [{path: 'uiModel>Published'}, {path: 'i18nCommon>Yes_FLD'},{path: 'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.publishedFormatter'}" />
+                                <Text text="{uiModel>ChangedBy}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+</core:FragmentDefinition>

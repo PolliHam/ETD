@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<f:SimpleForm editable="false">
+		<f:content>
+			<Label text="{i18n>LineOfBusiness}">
+			</Label>
+			<Text text="{LineOfBusiness}">
+			</Text>
+			<Label text="{i18n>BusinessContactName}">
+			</Label>
+			<Text text="{BusinessContactName}">
+			</Text>
+			<Label text="{i18n>BusinessContactPhone}">
+			</Label>
+			<Text text="{BusinessContactTelefon}">
+			</Text>
+			<Label text="{i18n>BusinessContactEmail}">
+			</Label>
+			<Text text="{BusinessContactEMail}">
+			</Text>
+			<Label text="{i18n>TechnicalContact}"></Label>
+			<Text text="{TechnicalContactName}"></Text>
+			<Label text="{i18n>TechnicalContactPhone}"></Label>
+			<Text text="{TechnicalContactTelefon}" />
+			<Label text="{i18n>TechnicalContactEMail}" />
+			<Text text="{TechnicalContactEMail}" />
+
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

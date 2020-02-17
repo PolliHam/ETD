@@ -1,0 +1,70 @@
+# TRANSLATE
+#XTIT: Anomaly Fullscreen Applcation Title
+MAnomalies_Title=Anomalies
+#XTIT: Anomaly Table Title
+MAnomalies_TableTitle=Anomalies ({0})
+#XTIT: Anomaly Table Title
+MAnomalies_DetailTitle=Anomaly {0}
+#XCOL: Anomaly Metric Column
+MAnomaly_Detection=Anomaly Detection
+#XCOL: Anomaly Affected Entity Column
+MAnomaly_AffEntity=Affected Entity
+#XCOL: Anomaly Deviation Column
+MAnomaly_Deviation=Z-Score
+#XCOL: Anomaly Creation Time Column
+MAnomaly_CrDate=Creation Time
+#XCOL: Anomaly Count of Events
+MAnomaly_Cnt=Value
+#XCOL: Anomaly Mean 
+MAnomaly_Mean=Mean
+#XCOL: Anomaly Standard Deviation
+MAnomaly_StdDev=Standard Deviation
+#XCOL: Anomaly Date of Occurrence
+MAnomaly_Occ=Date 
+#XCOL: Anomaly Id
+MAnomaly_Id=ID
+#XCOL: Anomaly Date
+MAnomaly_Date=Date
+#XCOL: Anomaly TimeRange
+MAnomaly_TimeRange=Time
+#XTIT: Anomaly Full screen Application Title
+MAnomaly_graphXTIT=Events by Daytime with Average and Standard Deviation
+#XLBL: Anomaly Full screen axis label
+MAnomaly_timeAxis=Hour
+#XLBL: Anomaly Full screen axis label
+MAnomaly_timeUTCAxis=Hour (UTC)
+#XLBL: Anomaly Current Count of Events
+MAnomaly_Curr=Current
+#XLBL: Anomaly Upper Threshold
+MAnomaly_upThreshold=Upper Threshold
+#XLBL: Anomaly Lower Threshold
+MAnomaly_loThreshold=Lower Threshold
+#XLBL: Anomaly Upper Standard Deviation
+MAnomaly_upStdDeviation=Upper Std. Deviation
+#XLBL: Anomaly Lower Standard Deviation
+MAnomaly_loStdDeviation=Lower Std. Deviation
+#XLBL: Anomaly Threshold
+MAnomaly_threshold=Threshold
+#XTOL: Anomaly Chart Show/Hide Legend
+MAnomaly_toggleLegend=Show/Hide Legend
+#XTOL: Anomaly Chart Show/Hide Labels of Data Points
+MAnomaly_toggleLabels=Show/Hide Labels
+#XTOL: Anomaly Chart Open Settings Dialog
+MAnomaly_chartSettings=Settings
+#XMSG: Anomaly Chart Loading Error
+MAnomaly_Error=Error loading anomaly chart
+#XTIT: Title of second chart for anomalies
+MAnomaly_history=Number of Events every {0}
+#XTIT: Title of Date Axis in Historical Event Chart
+MAnomaly_DateAxis=Date
+#XTXT: Chart Name for AnomalyDetection
+AnomalyDet_Chart_Name=Chart Name
+#XTXT: Chart Namespace for AnomalyDetection
+AnomalyDet_Chart_Namespace=Chart Namespace
+#XLBL:Filterbar Prefix
+FilterBarPrefix=Filtered by:
+#XTIT: Settings Popup
+MAnomaly_ChartSettings=Chart Settings
+
+
+

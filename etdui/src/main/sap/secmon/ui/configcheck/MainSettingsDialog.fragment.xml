@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem key="SystemId" text="{i18n>SysCtx_System}"
+				selected="true" />
+			<ViewSettingsItem key="Role" text="{i18n>SysCtx_Role}" />
+			<ViewSettingsItem key="DataSource" text="{i18n>CfgCheck_Cat}" />
+			<ViewSettingsItem key="StatusLevel" text="{i18n>CfgCheck_Level}" />
+		</sortItems>
+		<groupItems>
+			<ViewSettingsItem key="SystemId" text="{i18n>SysCtx_System}"
+				selected="true" />
+			<ViewSettingsItem key="Role" text="{i18n>SysCtx_Role}" />
+			<ViewSettingsItem key="DataSource" text="{i18n>CfgCheck_Cat}" />
+            <ViewSettingsItem key="StatusLevel" text="{i18n>CfgCheck_Level}" />
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

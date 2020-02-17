@@ -1,0 +1,105 @@
+<mvc:View id="annotations" controllerName="sap.secmon.ui.loglearning.Annotations"
+    displayBlock="true"
+    xmlns="sap.m" xmlns:commons="sap.ui.commons" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+    xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+    xmlns:sscc="sap.secmon.ui.m.commons.controls" xmlns:mvc="sap.ui.core.mvc">
+        <!-- dynamic filter by entry type ID set in controller -->
+		<t:Table id="tableRoleEntityAttrAssign" visibleRowCount="{uiModel>/annotationsCount}"
+		    visibleRowCountMode="Auto" minAutoRowCount="10"
+			height="100%" width="100%" busyIndicatorDelay="250" selectionMode="Single"
+			rows="{path: '/entryTypes/allAnnotations',
+			       sorter : [ { path : 'Position' } ]}"
+			showColumnVisibilityMenu="true" rowSelectionChange="onRowSelectionChangeAnnotation">
+			<t:columns>
+			
+			    <t:Column id="columnIdentifyingKey" width="4em" visible="{uiModel>/isAnyIdentifyingKeyPossible}">
+                    <Label text="{i18n>Interpret_Identifier}" />
+                    <t:template>
+                        <HBox>
+	                        <!-- TODO : check if the change event can be removed -->
+	                        <CheckBox id="checkboxIdentifier" select="onChangeIdentifyingKey" 
+	                            selected="{= ${IsIdentifying} === 'true'?true:false}" editable="{= ${IsIdentifyingKeyPossible} 
+	                            === 'true' &amp;&amp; !${RunModel>/selectedEntryTypeHasCustomIdentifier}?true:false}" />
+	                        <core:Icon src="sap-icon://disconnected" visible="{= ${keyNotSharedByAllLogs} === true}"
+	                           color="{= ${keyNotSharedByAllLogs} === true?'red':'green'}" 
+	                           tooltip="{= ${keyNotSharedByAllLogs} === true ? ${i18n>Interpret_probKey}:''}"/>
+                        </HBox>
+                    </t:template>
+                </t:Column>
+				<t:Column id="columnAnnotationIdInTable" sortProperty="Type"
+					filterProperty="Type" width="10em" visible="false">
+					<Label text="{i18n>Interpret_Id}" />
+					<t:template>
+						<Text text="{Id}" />
+					</t:template>
+				</t:Column>
+
+				<t:Column id="columnAnnotationTypeInTable" sortProperty="Type"
+					filterProperty="Type" width="10em">
+					<Label text="{i18n>Interpret_AnnotationType}" />
+					<t:template>
+						<customControls:LinkOrText
+						    linkEnabled="{= ${IsCreatedManually} === 'true' ? false:true}"
+							text="{path: 'VariableName'}" 
+							tooltip="{= ${IsCreatedManually} === 'true'? ${i18n>Interpret_chMarkup}: ${i18n>Interpret_ShowValues} }" press="onPressAnnotationLink" />
+					</t:template>
+				</t:Column>
+                <t:Column id="columnAnnotationTypeForChange" sortProperty="Type"
+                    filterProperty="Type" width="10em">
+                    <Label text="{i18nCommon>Type_COL}" />
+                    <t:template>
+                    	<!-- binding must be one-way! 2-way binding will overwrite values that don't exist in valuehelp with the first value from valuehelp -->
+                        <Select width="100%" selectedKey="{path: 'Type', mode : 'sap.ui.model.BindingMode.OneWay'}"
+                        	change="onChangeAnnotationType"
+                            items="{uiModel>/availableAnnotations}" visible="{top}" >
+                            <core:Item key="{uiModel>key}" text="{uiModel>text}" />
+                        </Select>
+                    </t:template>
+                </t:Column>				
+				<t:Column id="columnAnnotationPattern" sortProperty="Pattern"
+                    filterProperty="Pattern" width="10em" visible="true">
+                    <Label text="{i18n>Interpret_Pattern}" />
+                    <t:template>
+                        <Input value="{Pattern}" liveChange="validateTimestampPattern"
+                          change="onChangePattern"
+                          editable="{= ${top} === false || ${Type} === 'Timestamp' ?true:false}"/>
+                    </t:template>
+                </t:Column>
+
+				<t:Column width="10em">
+					<Label text="{i18n>Interpret_AttrNames}" />
+					<t:template>
+						<!-- 
+							Caution: The MultiInput does not use a bound property "value".
+							Instead, tokens are displayed which are bound to list "TargetAttributeIds"
+							-->
+						<MultiInput id="textfieldAttribute"
+							valueHelpRequest="onValueHelpAttribute"
+							showValueHelp="true"
+							showSuggestion="true"
+                            suggest="onSuggestAttribute"
+                            suggestionItemSelected="onAttributeSugggestionSelected"
+                            suggestionItems="{path: 'Attributes', templateShareable:false}"
+                            tokens ="{path: 'TargetAttributeIds',
+                                templateShareable:false, 
+                                sorter: {path: 'displayName'},
+                                filters:[{path: 'hashHex', operator:'NE', value1: '30'}]}"
+							tokenChange="onDeleteToken"
+							liveChange="onLiveChangeAttrTextField"
+							
+							tooltip="{path : 'TargetAttributeIds' ,
+								formatter : 'sap.secmon.ui.loglearning.util.Formatter.attributeTooltip'}" >
+							<suggestionItems>
+                              <core:ListItem text="{attrDisplayName}" additionalText="{attrNameSpace.nameSpace}" key="attrHash}"/>
+                            </suggestionItems>
+                            <tokens>
+                                <Token text="{displayName}" key="{hashHex}"/>
+                            </tokens>
+						</MultiInput>
+					</t:template>
+				</t:Column>
+
+			</t:columns>
+		</t:Table>
+
+</mvc:View>

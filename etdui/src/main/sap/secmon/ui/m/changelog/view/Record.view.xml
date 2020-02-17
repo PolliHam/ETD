@@ -1,0 +1,32 @@
+<mvc:View controllerName="sap.secmon.ui.m.changelog.view.Record"
+	id="Changelog" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Page id="page" title="{i18n>ActionDetailsTitle}" showNavButton="true"
+		navButtonPress="onNavBack">
+
+		<content>
+			<l:Grid width="100%" hSpacing="2" defaultSpan="L6 M6 S12">
+				<l:content>
+					<Text text="{i18n>OldStateLbl}">
+						<layoutData>
+							<l:GridData linebreakL="true" linebreakM="true"
+								linebreakS="true" />
+						</layoutData>
+					</Text>
+					<Text text="{i18n>NewStateLbl}">
+					</Text>
+					<TextArea width="100%" rows="50" value="{uiModel>/oldState}" editable="false">
+						<layoutData>
+							<l:GridData linebreakL="true" linebreakM="true"
+								linebreakS="true" />
+						</layoutData>
+					</TextArea>
+					<TextArea width="100%" rows="50" value="{uiModel>/newState}" editable="false">
+					</TextArea>
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+		</footer>
+	</Page>
+</mvc:View>

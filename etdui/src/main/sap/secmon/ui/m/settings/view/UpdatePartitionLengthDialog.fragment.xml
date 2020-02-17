@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{/dialogTitle}" class="sapUiPopupWithPadding"
+		contentWidth="30em">
+		<content>
+			<l:Grid hSpacing="0" vSpacing="0">
+				<l:content>
+					<Input editable="false"
+						value="{path: 'i18n>MngEv_PartitionLengthMin', formatter: 'sap.secmon.ui.m.settings.util.Formatter.formatLabel'}">
+						<layoutData>
+							<l:GridData span="L4 M4 S12"></l:GridData>
+						</layoutData>
+					</Input>
+					<Input id="partitionLengthInput" valueStateText="{i18n>MngEv_EnterIntGtZero_XMSG}"
+						value="{path:'/partitionLength', type: 'sap.ui.model.type.Integer', constraints : {minimum : 1, maximum : 1440}}">
+						<layoutData>
+							<l:GridData span="L4 M4 S12"></l:GridData>
+						</layoutData>
+					</Input>
+					<Input editable="false" value="{i18n>MngEv_Minutes_XLBL}">
+						<layoutData>
+							<l:GridData span="L4 M4 S12"></l:GridData>
+						</layoutData>
+					</Input>
+				</l:content>
+			</l:Grid>
+		</content>
+		<beginButton>
+			<Button text="{i18nCommon>OK_BUT}" app:dialogType="Std"
+				press="onUpdatePartitionLengthOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" app:dialogType="Std"
+				press="onUpdatePartitionLengthCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="FieldName"
+				text="{i18n>Interpret_FieldName}" />
+			<ViewSettingsItem key="ExtractionType" text="{i18n>Interpret_ExtractType}" />
+			<ViewSettingsItem key="GroupName" text="{i18n>Interpret_GroupName}" />
+			<ViewSettingsItem key="Pattern" text="{i18n>Interpret_Pattern}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,35 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.stagingRuntimeRulesValueMapping"
+	busyIndicatorDelay="250" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+	xmlns:commons="sap.ui.commons">
+
+	<l:Grid id="layout" visible="true" height="100%" defaultSpan="L6 M6 S10">
+		<commons:Tree id="tree" showHeader="false" nodes="{/results}"
+			showHeaderIcons="true" showHorizontalScrollbar="false">
+			<commons:TreeNode text="{text} {ConditionPrio}"
+				icon="{icon}" selectable="true" app:type="{type}" selected="onSelectedSourceOrTarget" />
+			<commons:layoutData>
+				<l:GridData span="L3 M3 S8" linebreakL="true" linebreakM="true"
+					linebreakS="true" />
+			</commons:layoutData>
+		</commons:Tree>
+
+        <VBox>
+            <layoutData>
+                <l:GridData span="L9 M9 S12" linebreakL="false"
+                        linebreakM="false" linebreakS="true" />
+            </layoutData>
+			<HBox visible="{= ${uiModel>/selectedNodeType} === 'SOURCE' }" height="100%" width="100%">
+				<core:Fragment fragmentName="sap.secmon.ui.loglearning.runtimeRulesSourceTable"
+					id="layoutRowRuntimeRulesSource" type="XML" />
+
+			</HBox>
+	
+			<HBox visible="{= ${uiModel>/selectedNodeType} === 'TARGET' }" height="100%" width="100%">
+				<core:Fragment fragmentName="sap.secmon.ui.loglearning.runtimeRulesTargetTable"
+					id="layoutRowRuntimeRulesTarget" type="XML" />
+			</HBox>
+		</VBox>
+	</l:Grid>
+</mvc:View>

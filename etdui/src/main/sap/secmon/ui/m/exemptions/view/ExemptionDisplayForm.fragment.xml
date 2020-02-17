@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<l:Grid id="DisplayForm" defaultSpan="L12 M12 S12" width="auto"
+		class="compactObjectHeader">
+		<l:content>
+			<f:SimpleForm id="SimpleFormDisplay" maxContainerCols="2"
+				editable="false">
+				<f:content>
+					<Label text="{i18n>ExemptionReason}" />
+					<Text text="{ExceptionDescription}" />
+
+					<Label text="{i18n>PatternNameOfExemption}" />
+					<commonControls:LongTapLink text="{Name}" wrapping="true"
+						href="{path: 'Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.patternURLWithHexGuid'}"/>
+
+					<Label text="{i18n>Context}" />
+					<Text text="{Context}" />
+
+					<Label text="{i18n>ValidFrom}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ValidFrom'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+
+					<Label text="{i18n>ValidTo}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ValidTo'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+
+					<Label text="{i18n>PatternCreatedBy}" />
+					<Text text="{ExceptionCreatedBy}" />
+
+					<Label text="{i18n>CreationDate}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ExceptionCreatedTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+				</f:content>
+			</f:SimpleForm>
+
+			<Table id="exemptionDetails" inset="false"
+				items="{path: 'AlertExceptionDetail/' }" growing="true"
+				growingScrollToLoad="true" growingThreshold="100">
+				<columns>
+					<Column>
+						<Text text="{i18nCommon>Pattern_GroupByAttr_COL}" />
+					</Column>
+					<Column>
+						<Text text="{i18nCommon>Value_COL}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{ parts: [{path : 'DisplayKey'}, {path : 'Name'}], formatter : 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" />
+							<Text text="{ValueLow}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

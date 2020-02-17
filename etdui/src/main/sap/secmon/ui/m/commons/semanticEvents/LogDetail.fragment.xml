@@ -1,0 +1,2427 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls">
+	<l:Grid id="event-details" defaultSpan="L12 M12 S12" hSpacing="1" vSpacing="0"
+		containerQuery="true">
+		<l:content>
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_MessageTitle}">
+				<layoutData>
+
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+				<content>
+					<Text text="{path : 'EventMessage'}" width="100%" />
+				</content>
+			</Panel>
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_Information}">
+				<layoutData>
+
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+				<content>
+					<sscc:TextWithLinks
+						text="{ parts : [{path : 'UserPseudonyms/Sentences'},
+					{ path: 'UserPseudonyms'},
+						{path : 'TechnicalGroupId'},
+						{path : 'TechnicalLogEntryType'},
+						{path : 'TechnicalNumber'},
+						{path : 'TechnicalNumberRange'},
+						{path : 'TechnicalTimestampOfInsertion'},
+						{path : 'AttackName'},
+						{path : 'AttackType'},
+						{path : 'CorrelationId'},
+						{path : 'CorrelationSubId'},
+						{path : 'EventCode'},
+						{path : 'EventLogType'},
+						{path : 'EventMessage'},
+						{path : 'EventScenarioRoleOfActor'},
+						{path : 'EventScenarioRoleOfInitiator'},
+						{path : 'EventSeverityCode'},
+						{path : 'EventSourceId'},
+						{path : 'EventSourceType'},
+						{path : 'GenericAction'},
+						{path : 'GenericCategory'},
+						{path : 'GenericDeviceType'},
+						{path : 'GenericExplanation'},
+						{path : 'GenericGeolocationCodeActor'},
+						{path : 'GenericGeolocationCodeTarget'},
+						{path : 'GenericOrder'},
+						{path : 'GenericOutcome'},
+						{path : 'GenericOutcomeReason'},
+						{path : 'GenericPath'},
+						{path : 'GenericPathPrior'},
+						{path : 'GenericPurpose'},
+						{path : 'GenericRiskLevel'},
+						{path : 'GenericScore'},
+						{path : 'GenericSessionId'},
+						{path : 'GenericURI'},
+						{path : 'NetworkHostnameActor'},
+						{path : 'NetworkHostnameInitiator'},
+						{path : 'NetworkHostnameIntermediary'},
+						{path : 'NetworkHostnameReporter'},
+						{path : 'NetworkHostnameTarget'},
+						{path : 'NetworkHostDomainActor'},
+						{path : 'NetworkHostDomainInitiator'},
+						{path : 'NetworkHostDomainIntermediary'},
+						{path : 'NetworkHostDomainReporter'},
+						{path : 'NetworkHostDomainTarget'},
+						{path : 'NetworkInterfaceInitiator'},
+						{path : 'NetworkInterfaceTarget'},
+						{path : 'NetworkIPAddressActor'},
+						{path : 'NetworkIPAddressInitiator'},
+						{path : 'NetworkIPAddressIntermediary'},
+						{path : 'NetworkIPAddressReporter'},
+						{path : 'NetworkIPAddressTarget'},
+						{path : 'NetworkIPBeforeNATInitiator'},
+						{path : 'NetworkIPBeforeNATTarget'},
+						{path : 'NetworkMACAddressActor'},
+						{path : 'NetworkMACAddressInitiator'},
+						{path : 'NetworkMACAddressIntermediary'},
+						{path : 'NetworkMACAddressReporter'},
+						{path : 'NetworkMACAddressTarget'},
+						{path : 'NetworkNetworkPrefixInitiator'},
+						{path : 'NetworkNetworkPrefixTarget'},
+						{path : 'NetworkPortActor'},
+						{path : 'NetworkPortInitiator'},
+						{path : 'NetworkPortIntermediary'},
+						{path : 'NetworkPortReporter'},
+						{path : 'NetworkPortTarget'},
+						{path : 'NetworkPortBeforeNATInitiator'},
+						{path : 'NetworkPortBeforeNATTarget'},
+						{path : 'NetworkProtocol'},
+						{path : 'NetworkSessionId'},
+						{path : 'NetworkSubnetIdActor'},
+						{path : 'NetworkSubnetIdInitiator'},
+						{path : 'NetworkSubnetIdIntermediary'},
+						{path : 'NetworkSubnetIdReporter'},
+						{path : 'NetworkSubnetIdTarget'},
+						{path : 'NetworkZoneInitiator'},
+						{path : 'NetworkZoneTarget'},
+						{path : 'ParameterDirection'},
+						{path : 'ParameterDirectionContext'},
+						{path : 'ParameterName'},
+						{path : 'ParameterNameContext'},
+						{path : 'ParameterDataType'},
+						{path : 'ParameterDataTypeContext'},
+						{path : 'ParameterType'},
+						{path : 'ParameterTypeContext'},
+						{path : 'ParameterValueNumber'},
+						{path : 'ParameterValueNumberContext'},
+						{path : 'ParameterValueNumberPriorValue'},
+						{path : 'ParameterValueString'},
+						{path : 'ParameterValueStringContext'},
+						{path : 'ParameterValueStringPriorValue'},
+						{path : 'ParameterValueDouble'},
+						{path : 'ParameterValueDoublePriorValue'},
+						{path : 'ParameterValueTimestamp'},
+						{path : 'ParameterValueTimestampPriorValue'},
+						{path : 'PrivilegeIsGrantable'},
+						{path : 'PrivilegeName'},
+						{path : 'PrivilegeType'},
+						{path : 'PrivilegeGranteeName'},
+						{path : 'PrivilegeGranteeType'},
+						{path : 'ResourceContainerName'},
+						{path : 'ResourceContainerType'},
+						{path : 'ResourceContent'},
+						{path : 'ResourceContentOrHash'},
+						{path : 'ResourceContentType'},
+						{path : 'ResourceCount'},
+						{path : 'ResourceName'},
+						{path : 'ResourceNamePrior'},
+						{path : 'ResourceRequestSize'},
+						{path : 'ResourceResponseSize'},
+						{path : 'ResourceSize'},
+						{path : 'ResourceType'},
+						{path : 'ResourceSumCriteria'},
+						{path : 'ResourceSumOverTime'},
+						{path : 'ResourceUnitsOfMeasure'},
+						{path : 'ServiceAccessName'},
+						{path : 'ServiceFunctionName'},
+						{path : 'ServiceReferrer'},
+						{path : 'ServiceRequestLine'},
+						{path : 'ServiceType'},
+						{path : 'ServiceVersion'},
+						{path : 'ServiceApplicationName'},
+						{path : 'ServiceExecutableName'},
+						{path : 'ServiceExecutableType'},
+						{path : 'ServiceInstanceName'},
+						{path : 'ServiceOutcome'},
+						{path : 'ServicePartId'},
+						{path : 'ServiceProcessId'},
+						{path : 'ServiceProgramName'},
+						{path : 'ServiceTransactionName'},
+						{path : 'ServiceUserAgent'},
+						{path : 'ServiceWorkflowName'},
+						{path : 'SystemIdActor'},
+						{path : 'SystemIdInitiator'},
+						{path : 'SystemIdIntermediary'},
+						{path : 'SystemIdReporter'},
+						{path : 'SystemIdTarget'},
+						{path : 'SystemTypeActor'},
+						{path : 'SystemTypeInitiator'},
+						{path : 'SystemTypeIntermediary'},
+						{path : 'SystemTypeReporter'},
+						{path : 'SystemTypeTarget'},
+						{path : 'TimeDuration'},
+						{path : 'TimestampOfEnd'},
+						{path : 'TimestampOfStart'},
+						{path : 'TriggerNameActing'},
+						{path : 'TriggerNameTargeted'},
+						{path : 'TriggerTypeActing'},
+						{path : 'TriggerTypeTargeted'},
+						{path : 'UserLogonMethod'},
+						{path : 'UserAccountNameActing'},
+						{path : 'UserAccountNameInitiating'},
+						{path : 'UserAccountNameTargeted'},
+						{path : 'UserAccountNameTargeting'},
+						{path : 'UsernameDomainNameActing'},
+						{path : 'UsernameDomainNameInitiating'},
+						{path : 'UsernameDomainNameTargeted'},
+						{path : 'UsernameDomainNameTargeting'},
+						{path : 'UsernameDomainTypeActing'},
+						{path : 'UsernameDomainTypeInitiating'},
+						{path : 'UsernameDomainTypeTargeted'},
+						{path : 'UsernameDomainTypeTargeting'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.sentenceTextFormatter'}"
+
+						links="{ parts : [{path : 'UserPseudonyms/Sentences'},
+                    { path: 'UserPseudonyms'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.linkFormatter'}"
+						width="100%" />
+
+				</content>
+			</Panel>
+
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_BasicTitle}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_TimestampLab}" textAlign="Right">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'Timestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_SysIdActorLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+
+							<Text
+								text="{
+							       path: 'SystemIdActor'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ActingUserLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+
+							<Text
+								text="{
+								   parts : [
+								   { path: 'UserPseudonymActing'		},
+								   { path : 'SystemIdActor' },
+								   { path : 'SystemTypeActor'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_SemanticEventLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+
+							<Link
+								text="{ parts : [{path: 'UserPseudonyms/EventSemantic'}, {path : 'UserPseudonyms/DisplayKey'}], formatter:'sap.secmon.ui.m.semanticEventViewer.util.Formatter.EventNameLinkTextFormatter'}"
+								visible="{parts : [{path : 'CorrelationId'},{path : 'TechnicalLogEntryType'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.anomalyLinkFormatter'}"
+								press="onAnomalyClicked">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Link>
+							<Text
+								text="{
+							       path: 'EventSemantic'
+							     }"
+								visible="{parts : [{path : 'CorrelationId'},{path : 'TechnicalLogEntryType'}], 
+							formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.anomalyTextFormatter'}">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_LogInfoTitle}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_LogTypeLab}">
+								<layoutData spanL="2" spanM="3" spanS="6"></layoutData>
+							</Label>
+
+							<Text
+								text="{
+							       path: 'EventLogType'							      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>							
+							
+							<Label text="{lang>SE_EventNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'Event'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventCode'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventSeverityCodeLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventSeverityCode'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventSourceIdLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventSourceId'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventSourceTypeLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventSourceType'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+
+
+
+							<Label text="{lang>SE_ServOutcomeLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceOutcome'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_GenericOutReasonLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericOutcomeReason'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventScenarioRoleOfActorLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventScenarioRoleOfActor'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_EventScenarioRoleOfInitiatorLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'EventScenarioRoleOfInitiator'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L8 M12 S12" visibleL="false">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_SystemInfoTitle}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_ActorLab}"></Label>
+							<Text
+								text="{
+								   parts : [
+								   { path : 'SystemIdActor' },
+								   { path : 'SystemTypeActor'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_TargetLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+								   parts : [
+								   { path : 'SystemIdTarget' },
+								   { path : 'SystemTypeTarget'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_InitiatorLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+								   parts : [
+
+								   { path : 'SystemIdInitiator' },
+								   { path : 'SystemTypeInitiator'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ReporterLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+								   parts : [
+
+								   { path : 'SystemIdReporter' },
+								   { path : 'SystemTypeReporter'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_Intermediary}"
+								visible="{
+								   parts : [
+
+								   { path : 'SystemIdIntermediary' },
+								   { path : 'SystemTypeIntermediary'}
+								   ]
+							       , formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'		      
+							     }">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+								   parts : [
+
+								   { path : 'SystemIdIntermediary' },
+								   { path : 'SystemTypeIntermediary'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'			      
+							     }"
+								visible="{
+								   parts : [
+
+								   { path : 'SystemIdIntermediary' },
+								   { path : 'SystemTypeIntermediary'}
+								   ],
+							        formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'		      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel expandable="false" expanded="true" headerText="{lang>SE_UserInfoTitle}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_ActingLab}"></Label>
+							<Text
+								text="{
+								   parts : [
+								   { path: 'UserPseudonymActing'},
+								   { path : 'SystemIdActor' },
+								   { path : 'SystemTypeActor'},
+								   { path : 'UsernameDomainNameActing'},
+								   { path : 'UsernameDomainTypeActing'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_TargetingLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+								   parts : [
+								   { path: 'UserPseudonymTargeting'},
+								   { path : 'SystemIdTarget' },
+								   { path : 'SystemTypeTarget'},
+								   { path : 'UsernameDomainNameTargeting'},
+								   { path : 'UsernameDomainTypeTargeting'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_InitiatingLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+								   parts : [
+								   { path: 'UserPseudonymInitiating'},
+								   { path : 'SystemIdInitiator' },
+								   { path : 'SystemTypeInitiator'},
+								   { path : 'UsernameDomainNameInitiating'},
+								   { path : 'UsernameDomainTypeInitiating'}
+								   
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_TargetedLab}">
+								<layoutData>
+									<l:GridData linebreak="true" spanL="2" spanM="3"
+										spanS="6"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+								   parts : [
+								   { path: 'UserPseudonymTargeted'},
+								   { path : 'SystemIdTarget' },
+								   { path : 'SystemTypeTarget'},
+								   { path : 'UsernameDomainNameTargeted'},
+								   { path : 'UsernameDomainTypeTargeted'}
+								   ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.userFormatter'			      
+							     }">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="6">
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+
+			</Panel>
+			<Panel id="original-data-panel" expandable="true" expanded="false" headerText="{lang>SE_OrigData}">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" />
+				</layoutData>
+				<content>
+					<Text text="{path : 'OriginalData'}" width="100%" />
+				</content>
+			</Panel>
+			<Panel expandable="true"
+				expanded="{parts :[{
+							       path: 'GenericAction'						      
+							     },{
+							       path: 'GenericCategory'						      
+							     },{
+							       path: 'GenericDeviceType'						      
+							     },{
+							       path: 'GenericExplanation'						      
+							     },{
+							       path: 'GenericGeolocationCodeActor'						      
+							     },{
+							       path: 'GenericGeolocationCodeTarget'						      
+							     },{
+							       path: 'GenericOrder'						      
+							     },{
+							       path: 'GenericOutcome'						      
+							     },{
+							       path: 'GenericOutcomeReason'						      
+							     },{
+							       path: 'GenericPath'						      
+							     },{
+							       path: 'GenericPathPrior'						      
+							     },{
+							       path: 'GenericRiskLevel'						      
+							     },{
+							       path: 'GenericScore'						      
+							     },{
+							       path: 'GenericSession'						      
+							     },{
+							       path: 'GenericPurpose'						      
+							     },{
+							       path: 'GenericURI'						      
+							     }], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'}"
+				headerText="{lang>SE_GenericInfoTitle}">
+				<layoutData>
+					<l:GridData span="L12 M12 S12">
+					</l:GridData>
+				</layoutData>
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_ExplanationLab}">
+								<layoutData>
+									<l:GridData spanL="2" spanM="3" spanS="4"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericExplanation'						      
+							     }">
+								<layoutData>
+									<l:GridData spanL="10" spanM="9" spanS="8">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ActionLab}">
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericAction'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_CategoryLab}">
+								<layoutData>
+									<l:GridData linebreakS="true" linebreakM="false"
+										linebreakL="false"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericCategory'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_DeviceTypeLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericDeviceType'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_GeolocationLab}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="false"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<l:HorizontalLayout>
+								<l:content>
+
+									<Text
+										text="{
+							       path: 'GenericGeolocationCodeActor'						      
+							     }" />
+									<Text
+										text="{
+							       path: 'GenericGeolocationCodeTarget'						      
+							     }" />
+								</l:content>
+								<l:layoutData>
+									<l:GridData>
+									</l:GridData>
+								</l:layoutData>
+
+							</l:HorizontalLayout>
+							<Label text="{lang>SE_OrderLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericOrder'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_OutcomeLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<l:HorizontalLayout>
+								<l:content>
+
+									<Text
+										text="{
+							       path: 'GenericOutcome'						      
+							     }" />
+									<Text
+										text="{
+							       path: 'GenericOutcomeReason'						      
+							     }" />
+								</l:content>
+								<l:layoutData>
+									<l:GridData>
+									</l:GridData>
+								</l:layoutData>
+
+							</l:HorizontalLayout>
+
+							<Label text="{lang>SE_PathLab}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="true"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<l:HorizontalLayout>
+								<l:content>
+									<Text
+										text="{
+							       path: 'GenericPath'						      
+							     }" />
+									<Text
+										text="{
+							       path: 'GenericPathPrior'						      
+							     }" />
+								</l:content>
+								<l:layoutData>
+									<l:GridData>
+									</l:GridData>
+								</l:layoutData>
+
+							</l:HorizontalLayout>
+							<Label text="{lang>SE_RiskLevelLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericRiskLevel'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ScoreLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericScore'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_SessionLab}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="false"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericSession'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_URILab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericURI'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>													
+							<Label text="{lang>SE_PurposeLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="false"></l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'GenericPurpose'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel expandable="true" headerText="{lang>SE_ParameterTitle}"
+				expanded="{ parts:[{
+							       path: 'ParameterType'						      
+							     },{
+							       path: 'ParameterType'						      
+							     },{
+							       path : 'ParameterValueDouble'
+							       },{path : 'ParameterValueNumber'},
+							       {path : 'ParameterValueString'},
+							       {path : 'ParameterValueTimestamp'},
+							       {path : 'ParameterType'}]  , 
+								   formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'}">
+
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_ParamNameLab}">
+							</Label>
+							<Text
+								text="{
+							       path: 'ParameterName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ParamTypeLab}">
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ParameterType'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>							
+							<Label text="{lang>SE_ParameterDirectionLab}">
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ParameterDirection'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ParameterDataTypeLab}">
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ParameterDataType'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ParamValueLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+
+							<Text
+								text="{
+							       parts : [ {path : 'applicationContext>/UTC'}, 
+							       {path : 'ParameterValueDouble'},
+							       {path : 'ParameterValueNumber'},
+							       {path : 'ParameterValueString'},
+							       {path : 'ParameterValueTimestamp'},
+							       {path : 'ParameterType'}
+							       ],
+							       formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.parameterFormatter'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label>
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Label>
+								<layoutData>
+									<l:GridData linebreak="true"></l:GridData>
+								</layoutData>
+							</Label>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel expandable="true" headerText="{lang>SE_PrivilegeTitle}"
+				expanded="{parts : [{
+							       path: 'PriviledgeGranteeName'							      
+							     },{
+							       path: 'PriviledgeGranteeType'							      
+							     },{
+							       path: 'PriviledgeName'						      
+							     },{
+							       path: 'PriviledgeType'							      
+							     }], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_PrivGranteeLab}" />
+
+							<Text
+								text="{
+							       path: 'PriviledgeGranteeName'							      
+							     }">
+								<layoutData>
+									<l:GridData />
+
+
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_PrivGranteeTypLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'PriviledgeGranteeType'							      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_PrivilegeLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'PriviledgeName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_PrivTypeLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'PriviledgeType'							      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_PrivGrantabLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+
+							<Text
+								text="{
+							       path: 'PriviledgeIsGrantable'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel headerText="{lang>SE_Trigger}" expandable="true"
+				expanded="{parts :[{path: 'TriggerNameActing'},{path : 'TriggerNameTargeted'},{path : 'TriggerTypeActing'},{path : 'TriggerTypeTargeted'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_Acting}"></Label>
+							<Text
+								text="{parts :[{path: 'TriggerNameActing'},{path : 'TriggerTypeActing'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'}">
+								<layoutData>
+									<l:GridData span="L8 M8 S12">
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_NameTargeted}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{parts : [{path : 'TriggerNameTargeted'},{path : 'TriggerTypeTargeted'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.systemFormatter'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L12 M12 S12">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+			<Panel expandable="true"
+				expanded="{parts :[{
+							       path: 'ServiceType'						      
+							     },{
+							       path: 'ServiceAccess'						      
+							     },{
+							       path: 'ServiceApplicationName'						      
+							     },{
+							       path: 'ServiceExecutableName'						      
+							     },{
+							       path: 'ServiceExecutableType'						      
+							     },{
+							       path: 'ServiceFunctionName'						      
+							     },{
+							       path: 'ServiceInstanceName'						      
+							     },{
+							       path: 'ServiceOutcome'						      
+							     },{
+							       path: 'ServiceOutcome'						      
+							     },{
+							       path: 'ServicePartId'						      
+							     },{
+							       path: 'ServiceProcessId'						      
+							     },{
+							       path: 'ServiceProgramName'						      
+							     },{
+							       path: 'ServiceReferrer'						      
+							     },{
+							       path: 'ServiceRequestLine'						      
+							     },{
+							       path: 'ServiceTransactionName'						      
+							     },{
+							       path: 'ServiceVersion'						      
+							     },{
+							       path: 'ServiceUserAgent'						      
+							     },{
+							       path: 'ServiceWorkflowName'						      
+							     }], formatter: 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }"
+				headerText="{lang>SE_ServiceTitle}">
+				<layoutData></layoutData>
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_ServTypeLab}"></Label>
+							<Text
+								text="{
+							       path: 'ServiceType'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+
+							<Label text="{lang>SE_ServAccessLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceAccess'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+
+							<Label text="{lang>SE_ServApplicationLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceApplicationName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ServExecutableLab}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="false"
+										linebreakS="true"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceExecutableName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ServExecTypeLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceExecutableType'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ServFuncNameLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceFunctionName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ServInstanceLab}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceInstanceName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServTransactionLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceTransactionName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ServProgramLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceProgramName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+
+
+
+							<Label text="{lang>SE_ServiceVersionLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceVersion'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceOutcomeLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceOutcome'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceReferrerLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceReferrer'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceRequestLineLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceRequestLine'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServicePartIdLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServicePartId'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceProcessIdLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceProcessId'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceUserAgentLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceUserAgent'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ServiceWorkflowNameLab}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'ServiceWorkflowName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel headerText="{lang>SE_ResourceTitle}" expandable="true"
+				expanded="{parts : [{path : 'ResourceContainerName'},{path : 'ResourceContainerType'},{path : 'ResourceContent'},
+				{path : 'ResourceContentType'},{path : 'ResourceCount'},{path : 'ResourceName'},{path : 'ResourceNamePrior'},{path : 'ResourceRequestSize'},
+				{path : 'ResourceResponseSize'},{path : 'ResourceSize'},{path : 'ResourceType'},{path : 'ResourceSumCriteria'},{path : 'ResourceSumOverTime'},
+				{path : 'ResourceUnitsOfMeasure'} ], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter'}">
+				<layoutData></layoutData>
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_Container}"></Label>
+							<Text text="{path : 'ResourceContainerName'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ContainerType}">
+								<layoutData linebreakL="false" linebreakM="false"
+									linebreakS="true">
+
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceContainerType'}">
+								<layoutData>
+									<l:GridData>
+
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_Content}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+
+									</l:GridData>
+
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceContent'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ContentType}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceContentType'}" />
+							<Label text="{lang>SE_ContentCount}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceCount'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceName}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceName'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ResourceNamePrior}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceNamePrior'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceRequestSize}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceRequestSize'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceResponseSize}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceResponseSize'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceSize}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceSize'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ResourceType}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceType'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceSumCriteria}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceSumCriteria'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_ResourceSumOverTime}">
+								<layoutData>
+									<l:GridData linebreakL="true" linebreakM="true"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceSumOverTime'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_ResourceUnitsOfMes}">
+								<layoutData>
+									<l:GridData linebreakL="false" linebreakM="false"
+										linebreakS="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path : 'ResourceInitsOfMeasure'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+
+			</Panel>
+
+			<Panel headerText="{lang>SE_NetActorTitle}" expandable="true"
+				expanded="{parts :[{
+						path: 'NetworkHostDomainActor'
+					},{
+						path : 'NetworkHostnameActor'
+					},{
+						path : 'NetworkIPAddressActor'
+					},{
+						path : 'NetworkSubnetAddressActor'
+					},{
+						path : 'NetworkSubnetLocationActor'
+					},{
+						path : 'NetworkSubnetDescriptionActor'
+					},{
+						path : 'NetworkSubnetCategoryActor'
+					}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_DomainLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path: 'NetworkHostDomainActor'}" />
+
+							<Label text="{lang>SE_HostNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkHostnameActor'}" />
+
+							<Label text="{lang>SE_IPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkIPAddressActor'}" />
+
+							<Label text="{lang>SE_MACAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkMACAddressActor'}" />
+
+							<Label text="{lang>SE_InterfaceLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkInterfaceActor'}" />
+
+							<Label text="{lang>SE_PortLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkPortActor'}" />
+
+							<Label text="{lang>SE_NetworkSubId}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetAddressActor'}" />
+
+							<Label text="{lang>SE_NetworkLocation}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetLocationActor'}" />
+
+							<Label text="{lang>SE_NetworkSubDescr}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetDescriptionActor'}" />
+
+							<Label text="{lang>SE_NetworkSubCat}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetCategoryActor'}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel headerText="{lang>SE_NetInitiatorTitle}" expandable="true"
+				expanded="{parts :[{
+						path: 'NetworkHostDomainInitiator'
+					},{
+						path: 'NetworkHostnameInitiator'
+					},{
+						path: 'NetworkIPAddressInitiator'
+					},{
+						path: 'NetworkMACAddressInitiator'
+					},{
+						path: 'NetworkInterfaceInitiator'
+					},{
+						path: 'NetworkPortInitiator'
+					},{
+						path: 'NetworkSubnetAddressInitiator'
+					},{
+						path: 'NetworkSubnetLocationInitiator'
+					},{
+						path: 'NetworkSubnetDescriptionInitiator'
+					},{
+						path: 'NetworkSubnetCategoryInitiator'
+					}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>						
+							<Label text="{lang>SE_DomainLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path: 'NetworkHostDomainInitiator'}" />
+
+							<Label text="{lang>SE_HostNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkHostnameInitiator'}" />
+
+							<Label text="{lang>SE_IPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkIPAddressInitiator'}" />
+
+							<Label text="{lang>SE_MACAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkMACAddressInitiator'}" />
+
+							<Label text="{lang>SE_InterfaceLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkInterfaceInitiator'}" />
+
+							<Label text="{lang>SE_PortLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkPortInitiator'}" />
+
+							<Label text="{lang>SE_NetworkSubId}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetAddressInitiator'}" />
+
+							<Label text="{lang>SE_NetworkLocation}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetLocationInitiator'}" />
+
+							<Label text="{lang>SE_NetworkSubDescr}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetDescriptionInitiator'}" />
+
+							<Label text="{lang>SE_NetworkSubCat}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetCategoryInitiator'}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L8 M12 S12" visibleM="true" visibleL="false">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+
+			<Panel headerText="{lang>SE_NetTargetTitle}" expandable="true"
+				expanded="{parts :[{
+						path: 'NetworkHostDomainTarget'
+					},{
+						path: 'NetworkHostnameTarget'
+					},{
+						path: 'NetworkIPAddressTarget'
+					},{
+						path: 'NetworkMACAddressTarget'
+					},{
+						path: 'NetworkInterfaceTarget'
+					},{
+						path: 'NetworkPortTarget'
+					},{
+						path: 'NetworkSubnetAddressTarget'
+					},{
+						path: 'NetworkSubnetLocationTarget'
+					},{
+						path: 'NetworkSubnetDescriptionTarget'
+					},{
+						path: 'NetworkSubnetCategoryTarget'
+					}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_DomainLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path: 'NetworkHostDomainTarget'}" />
+
+							<Label text="{lang>SE_HostNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkHostnameTarget'}" />
+
+							<Label text="{lang>SE_IPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkIPAddressTarget'}" />
+
+							<Label text="{lang>SE_MACAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkMACAddressTarget'}" />
+
+							<Label text="{lang>SE_InterfaceLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkInterfaceTarget'}" />
+
+							<Label text="{lang>SE_PortLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkPortTarget'}" />
+
+							<Label text="{lang>SE_NetworkSubId}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetAddressTarget'}" />
+
+							<Label text="{lang>SE_NetworkLocation}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetLocationTarget'}" />
+
+							<Label text="{lang>SE_NetworkSubDescr}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetDescriptionTarget'}" />
+
+							<Label text="{lang>SE_NetworkSubCat}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetCategoryTarget'}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L8 M12 S12" visibleL="true" visibleM="false">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+
+			<Panel headerText="{lang>SE_NetReporterTitle}" expandable="true"
+				expanded="{parts :[{
+						path: 'NetworkHostDomainReporter'
+					},{
+						path: 'NetworkHostnameReporter'
+					},{
+						path: 'NetworkIPAddressReporter'
+					},{
+						path: 'NetworkMACAddressReporter'
+					},{
+						path: 'NetworkInterfaceReporter'
+					},{
+						path: 'NetworkPortReporter'
+					},{
+						path: 'NetworkSubnetAddressReporter'
+					},{
+						path: 'NetworkSubnetLocationReporter'
+					},{
+						path: 'NetworkSubnetDescriptionReporter'
+					},{
+						path: 'NetworkSubnetCategoryReporter'
+					}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_DomainLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path: 'NetworkHostDomainReporter'}" />
+
+							<Label text="{lang>SE_HostNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkHostnameReporter'}" />
+
+							<Label text="{lang>SE_IPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkIPAddressReporter'}" />
+
+							<Label text="{lang>SE_MACAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkMACAddressReporter'}" />
+
+							<Label text="{lang>SE_InterfaceLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkInterfaceReporter'}" />
+
+							<Label text="{lang>SE_PortLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkPortReporter'}" />
+
+							<Label text="{lang>SE_NetworkSubId}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetAddressReporter'}" />
+
+							<Label text="{lang>SE_NetworkLocation}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetLocationReporter'}" />
+
+							<Label text="{lang>SE_NetworkSubDescr}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetDescriptionReporter'}" />
+
+							<Label text="{lang>SE_NetworkSubCat}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetCategoryReporter'}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L12 M12 S12" visibleL="false"
+						visibleM="true">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+
+			<Panel headerText="{lang>SE_NetIntermediaryTitle}" expandable="true"
+				expanded="{parts :[{
+						path: 'NetworkHostDomainIntermediary'
+					},{
+						path: 'NetworkHostnameIntermediary'
+					},{
+						path: 'NetworkIPAddressIntermediary'
+					},{
+						path: 'NetworkMACAddressIntermediary'
+					},{
+						path: 'NetworkInterfaceIntermediary'
+					},{
+						path: 'NetworkPortIntermediary'
+					},{
+						path: 'NetworkSubnetAddressIntermediary'
+					},{
+						path: 'NetworkSubnetLocationIntermediary'
+					},{
+						path: 'NetworkSubnetDescriptionIntermediary'
+					},{
+						path: 'NetworkSubnetCategoryIntermediary'
+					}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.visibleFormatter' }">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_DomainLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path: 'NetworkHostDomainIntermediary'}" />
+
+							<Label text="{lang>SE_HostNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkHostnameIntermediary'}" />
+
+							<Label text="{lang>SE_IPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkIPAddressIntermediary'}" />
+
+							<Label text="{lang>SE_MACAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkMACAddressIntermediary'}" />
+
+							<Label text="{lang>SE_InterfaceLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkInterfaceIntermediary'}" />
+
+							<Label text="{lang>SE_PortLab}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkPortIntermediary'}" />
+
+							<Label text="{lang>SE_NetworkSubId}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetAddressIntermediary'}" />
+
+							<Label text="{lang>SE_NetworkLocation}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetLocationIntermediary'}" />
+
+							<Label text="{lang>SE_NetworkSubDescr}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetDescriptionIntermediary'}" />
+
+							<Label text="{lang>SE_NetworkSubCat}">
+								<layoutData>
+									<l:GridData linebreak="true" />
+								</layoutData>
+							</Label>
+							<Text text="{path : 'NetworkSubnetCategoryIntermediary'}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+			<Panel expandable="true" expanded="false" headerText="{lang>SE_TechnicalTitle}">
+				<layoutData>
+					<l:GridData span="L4 M6 S12">
+					</l:GridData>
+				</layoutData>
+				<content>
+					<l:Grid defaultSpan="L2 M3 S6" vSpacing="0" hSpacing="0"
+						containerQuery="true">
+						<l:content>
+							<Label text="{lang>SE_CorrelationIdLab}"></Label>
+							<Link text="{path: 'CorrelationId'}"
+								visible="{parts : [{path : 'CorrelationId'},{path : 'TechnicalLogEntryType'}], formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.anomalyLinkFormatter'}"
+								press="onAnomalyClicked">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Link>
+							<Text text="{path: 'CorrelationId'}"
+								visible="{parts : [{path : 'CorrelationId'},{path : 'TechnicalLogEntryType'}], 
+							formatter : 'sap.secmon.ui.m.semanticEventViewer.util.Formatter.anomalyTextFormatter'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_CorrelationSubIdLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{path: 'CorrelationSubId'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_NumberRangeLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'TechnicalNumberRange'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_TechnicalLogCollectorNameLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'TechnicalLogCollectorName'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_TechnicalLogCollectorIPAddressLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'TechnicalLogCollectorIPAddress'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+							<Label text="{lang>SE_TechnicalLogCollectorPortLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{
+							       path: 'TechnicalLogCollectorPort'						      
+							     }">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+							<Label text="{lang>SE_InsertTimestampdLab}">
+								<layoutData>
+									<l:GridData linebreak="true">
+									</l:GridData>
+								</layoutData>
+							</Label>
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'TechnicalTimestampOfInsertion'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}">
+								<layoutData>
+									<l:GridData>
+									</l:GridData>
+								</layoutData>
+							</Text>
+
+						</l:content>
+					</l:Grid>
+				</content>
+			</Panel>
+
+			<FlexBox width="100%" height="0">
+				<layoutData>
+					<l:GridData span="L12 M12 S12">
+					</l:GridData>
+				</layoutData>
+			</FlexBox>
+
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

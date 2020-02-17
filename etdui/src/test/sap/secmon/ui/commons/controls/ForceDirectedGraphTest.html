@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+
+<script id="sap-ui-bootstrap"
+	src="https://sapui5.hana.ondemand.com/sdk/resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-xx-bindingSyntax="complex">
+    
+</script>
+
+<style type="text/css">
+.debugBorders>graph {
+	border: red;
+	border-color: red;
+	border-style: dashed;
+}
+</style>
+
+<script>
+    // VERY SIMPLE TEST ENVIRONMENT FOR FORCE DIRECTED GRAPH CONTROL
+
+    sap.ui.getCore().attachInit(function() {
+        jQuery.sap.require("sap.ui.thirdparty.d3");
+
+        jQuery.sap.registerModulePath("sap.secmon.ui", "/sap/secmon/ui");
+
+        jQuery.sap.require("sap.secmon.ui.commons.controls.ForceDirectedGraph");
+
+        var legendButton = new sap.m.Button({
+            text : "Toggle Legend",
+            press : function() {
+                force.setShowLegend(!force.getShowLegend());
+            }
+        });
+
+        var actionButton = new sap.m.Button({
+            text : "getForceLayout",
+            press : function() {
+                force.setBusy(true);
+            }
+        });
+
+        var addButton = new sap.m.Button({
+            text : "Add Nodes",
+            press : function() {
+//                 setInterval(function() {
+                    var nodes = model.getProperty("/nodes").slice();
+                    nodes.push({});
+                    model.setProperty("/nodes", nodes);
+
+//                 }, 500);
+            }
+        });
+
+        var removeButton = new sap.m.Button({
+            text : "Remove Nodes",
+            press : function() {
+                setInterval(function() {
+                    var nodes = model.getProperty("/nodes").slice();
+                    var oldNode = nodes.pop();
+                    model.setProperty("/nodes", nodes);
+
+                    if (oldNode.id === 10) {
+                        model.setProperty("links", []);
+                    }
+                }, 500);
+            }
+        });
+
+        var nodes = [];
+        for (var i = 0; i < 30; i++) {
+            nodes.push({
+                id : i
+            });
+        }
+
+        var model = new sap.ui.model.json.JSONModel({
+            nodes : nodes,
+            links : [ {
+                source : 10,
+                target : 2
+            }, {
+                source : 10,
+                target : 3
+            }, {
+                source : 10,
+                target : 4
+            }, {
+                source : 10,
+                target : 5
+            }, {
+                source : 2,
+                target : 4
+            } ]
+        });
+
+        var force = new sap.secmon.ui.commons.controls.ForceDirectedGraph({
+            height : "50%",
+            width : "50%",
+            enableCollisionDetection : true,
+            nodes : "{/nodes}",
+            links : "{/links}",
+            tick : function() {
+                debugger;
+            },
+            showLegend : true,
+            legend : new sap.secmon.ui.commons.controls.Legend({
+                items : [ new sap.secmon.ui.commons.controls.LegendItem({
+                    text : "My Title",
+                    isTitle : true
+                }), new sap.secmon.ui.commons.controls.LegendItem({
+                    icon : new sap.secmon.ui.commons.controls.LegendIcon({
+                        color : "rgb(217, 152, 203)",
+                        type : "circle"
+                    }),
+                    text : "My Circle"
+                }) ]
+            })
+        }).addStyleClass("debugBorders").setModel(model);
+
+        //         var hb = new sap.m.HBox({
+        //             height : "500px",
+        //             width : "100%",
+        //             items : force
+        //         });
+
+        //         var tabContainer = new sap.m.IconTabBar({
+        //             //            
+        //             //             width : "100%",
+        //             //             height : "100%",
+        //             items : [ new sap.m.IconTabFilter({
+        //                 //                 width : "100%",
+        //                 //                 height : "100%",
+        //                 icon : "sap-icon://hint",
+        //                 content : [ new sap.m.Button({
+        //                     text : "Click"
+        //                 }), hb ]
+        //             }) ]
+        //         });
+
+        new sap.m.Shell({
+            appWidthLimited : false,
+            app : new sap.m.App({
+                pages : new sap.m.Page({
+                    enableScrolling : true,
+                    width : "100%",
+                    height : "100%",
+                    content : [ legendButton, actionButton, addButton, removeButton, force ]
+                })
+            })
+        }).placeAt("content");
+    });
+</script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

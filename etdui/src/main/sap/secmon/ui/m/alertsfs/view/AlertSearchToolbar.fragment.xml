@@ -1,0 +1,294 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:variants="sap.ui.comp.variants" xmlns:fb="sap.ui.comp.filterbar">
+
+	<fb:FilterBar clear="onReset" search="onSearch"
+		showRestoreButton="false" showClearButton="true"
+		class="filterBarWithSameSizedItems" filterBarExpanded="true" id="filterBar"
+		considerGroupTitle="true">
+		<fb:filterItems>
+			<fb:FilterItem name="dateTime" label="{i18n>MAlertsFS_ConsidTimeRange}">
+				<fb:control>
+					<Input id="dateTimeFilterInput" showValueHelp="true"
+						valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" />
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="pattern" label="{i18n>MobAlert_Pattern}">
+				<fb:control>
+					<MultiInput id="patternFilterInput" filterSuggests="false"
+						placeholder="{i18nCommon>Pattern_Suggestion}"
+						showSuggestion="true" startSuggestion="2" suggest="onPatternSuggest"
+						suggestionItemSelected="handleSuggestionItemSelected"
+						valueHelpRequest="onPatternValueHelpRequest"
+						showTableSuggestionValueHelp="true" showValueHelp="true">
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternId" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_Pattern}" />
+						</customData>
+						<suggestionColumns>
+							<Column visible="false">
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+								<Label text="{i18n>MAlertsFS_PatternName}" />
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true"
+								width="8em">
+								<Label text="{i18nCommon>AnomalyPattern}" />
+							</Column>
+						</suggestionColumns>
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+								</cells>
+							</ColumnListItem>
+						</suggestionRows>
+					</MultiInput>
+				</fb:control>
+			</fb:FilterItem>
+			
+			<fb:FilterItem name="patternType" label="{i18nCommon>AnomalyPattern}">
+				<fb:control>
+					<MultiComboBox id="patternTypeFilterInput"
+						items="{enums>/sap.secmon.services.ui.m/Pattern/Type/enumValues}">
+
+						<items>
+							<c:Item key="{enums>Key}"
+                                        text="{parts: [{path : 'enums>Key'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternType" />
+							<c:CustomData key="i18nText" value="{i18nCommon>AnomalyPattern}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="status" label="{i18n>MobAlert_Status}">
+				<fb:control>
+					<MultiComboBox id="statusFilterInput"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Status/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="AlertStatus" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_Status}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="severity" label="{i18n>MobAlert_Severity}">
+				<fb:control>
+					<MultiComboBox id="severityFilterInput"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="AlertSeverity" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_Severity}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="attack" label="{i18n>MobAlert_Attack}">
+				<fb:control>
+					<MultiComboBox id="attackFilterInput"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Attack/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="AlertAttack" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_Attack}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+			<fb:FilterItem name="measureContext" label="{i18n>MobAlert_MeasureContext}">
+				<fb:control>
+					<MultiComboBox id="measureContextFilterInput"
+						items="{enums>/sap.secmon.services.ui/Alert/MeasureContext/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="AlertMeasureContext" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_MeasureContext}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+		</fb:filterItems>
+
+		<fb:filterGroupItems>
+		<fb:FilterGroupItem id="patternNamespaceFilterGroupItem" groupName="additional" groupTitle="{i18n>MobAlert_Additional}" name="patternNamespace" label="{i18n>MobAlert_PatternNamespace}" >
+				<fb:control>
+					<MultiComboBox id="PatternNamespaceFilterInput"
+                        items="{path: 'patternNameSpace>/PatternAggregation', parameters: { select: 'NameSpace,NameSpaceId' },sorter : { path: 'NameSpace', descending: false} }">
+                        <items>
+                            <c:Item key="{path: 'patternNameSpace>NameSpaceId', formatter: 'sap.secmon.ui.m.commons.Formatter.guidFormatter'}" text="{patternNameSpace>NameSpace}" />
+                        </items>
+                        <customData>
+                            <c:CustomData key="urlParamName" value="PatternNameSpaceId" />
+                            <c:CustomData key="i18nText" value="{i18n>MobAlert_PatternNamespace}" />
+                            <c:CustomData key="filterItem" value="patternNamespaceFilterGroupItem" />
+                        </customData>
+                    </MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+			<fb:FilterGroupItem id="caConfidentialityFilterGroupItem" groupName="credibilityOfAttack" groupTitle="{i18n>MobAlert_CredAtt}"
+				                name="caConfidentiality" label="{i18n>MobAlert_Confidentiality}">
+				<fb:control>
+					<MultiComboBox id="caConfidentialityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodConfidentiality/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternLikelihoodConfidentiality" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_CredConf}" />
+							<c:CustomData key="filterItem" value="caConfidentialityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="caSystemDataIntegrityFilterGroupItem"
+				groupName="credibilityOfAttack" groupTitle="{i18n>MobAlert_CredAtt}"
+				name="caSystemDataIntegrity" label="{i18n>MobAlert_SystemDataInt}">
+				<fb:control>
+					<MultiComboBox id="caSystemDataIntegrityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegritySystem/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternLikelihoodIntegritySystem" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_CredSys}" />
+							<c:CustomData key="filterItem"
+								value="caSystemDataIntegrityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="caBusinessDataIntegrityFilterGroupItem"
+				groupName="credibilityOfAttack" groupTitle="{i18n>MobAlert_CredAtt}"
+				name="caBusinessDataIntegrity" label="{i18n>MobAlert_BusinessDataInt}">
+				<fb:control>
+					<MultiComboBox id="caBusinessDataIntegrityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegrityData/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternLikelihoodIntegrityData" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_CredBus}" />
+							<c:CustomData key="filterItem"
+								value="caBusinessDataIntegrityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="caAvailabilityFilterGroupItem"
+				groupName="credibilityOfAttack" groupTitle="{i18n>MobAlert_CredAtt}"
+				name="caAvailability" label="{i18n>MobAlert_Availability}">
+				<fb:control>
+					<MultiComboBox id="caAvailabilityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodAvailability/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternLikelihoodAvailability" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_CredAvl}" />
+							<c:CustomData key="filterItem" value="caAvailabilityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="saConfidentialityFilterGroupItem"
+				groupName="successOfAttack" groupTitle="{i18n>MobAlert_SuccessAtt}"
+				name="saConfidentiality" label="{i18n>MobAlert_Confidentiality}">
+				<fb:control>
+					<MultiComboBox id="saConfidentialityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/SuccessConfidentiality/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternSuccessConfidentiality" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_SuccConf}" />
+							<c:CustomData key="filterItem" value="saConfidentialityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="saSystemDataIntegrityFilterGroupItem"
+				groupName="successOfAttack" groupTitle="{i18n>MobAlert_SuccessAtt}"
+				name="saSystemDataIntegrity" label="{i18n>MobAlert_SystemDataInt}">
+				<fb:control>
+					<MultiComboBox id="saSystemDataIntegrityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/SuccessIntegritySystem/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternSuccessIntegritySystem" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_SuccSys}" />
+							<c:CustomData key="filterItem"
+								value="saSystemDataIntegrityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="saBusinessDataIntegrityFilterGroupItem"
+				groupName="successOfAttack" groupTitle="{i18n>MobAlert_SuccessAtt}"
+				name="saBusinessDataIntegrity" label="{i18n>MobAlert_BusinessDataInt}">
+				<fb:control>
+					<MultiComboBox id="saBusinessDataIntegrityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/SuccessIntegrityData/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternSuccessIntegrityData" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_SuccBus}" />
+							<c:CustomData key="filterItem"
+								value="saBusinessDataIntegrityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterGroupItem>
+
+			<fb:FilterGroupItem id="saAvailabilityFilterGroupItem"
+				groupName="successOfAttack" groupTitle="{i18n>MobAlert_SuccessAtt}"
+				name="saAvailability" label="{i18n>MobAlert_Availability}">
+				<fb:control>
+					<MultiComboBox id="saAvailabilityFilterInput"
+						items="{enums>/sap.secmon.ui.browse/Pattern/SuccessAvailability/enumValues}">
+						<items>
+							<c:Item key="{enums>Key}" text="{enums>Value}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternSuccessAvailability" />
+							<c:CustomData key="i18nText" value="{i18n>MobAlert_SuccAvl}" />
+							<c:CustomData key="filterItem" value="saAvailabilityFilterGroupItem" />
+						</customData>
+					</MultiComboBox>
+
+				</fb:control>
+			</fb:FilterGroupItem>
+
+		</fb:filterGroupItems>
+	</fb:FilterBar>
+
+</c:FragmentDefinition>

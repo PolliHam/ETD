@@ -1,0 +1,50 @@
+<mvc:View 
+    id = "GraphVisualizationId"
+	controllerName="sap.secmon.ui.malimon.foa.GraphVisualization" 
+	height="100%"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.core"
+	xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:foa="sap.secmon.ui.malimon.foa" >
+	<Page 
+	    id="page" 
+	    title="{/title}" 
+	    showNavButton="true"
+		navButtonPress="onNavBack" 
+		backgroundDesign="Solid" 
+		enableScrolling="true">
+		<headerContent>
+		    <Button 
+		      id="etdEntityGraphSettingsBtn" 
+		      icon="sap-icon://settings" 
+              tooltip="{i18n>MM_TOL_GSETTINGS}" 
+              press="onSettingsPress" />
+              <Button 
+              id="etdEntityGraphFilterBtn" 
+              icon="sap-icon://filter" 
+              tooltip="{i18n>MM_TOL_GFILTER}" 
+              press="onFilterPress" />
+              <Button 
+              id="etdEntityGraphLegendBtn" 
+              icon="sap-icon://legend" 
+              tooltip="{i18n>MM_TOL_GLEGEND}" 
+              press="onLegendPress" />
+            <Button 
+              id="etdEntityGraphHelpBtn" 
+              icon="sap-icon://sys-help" 
+              tooltip="{i18n>MM_TOL_Help}" 
+              press="onHelpPress" />
+		</headerContent>
+		<content>
+			<VBox id="etdEntityGraphContainer">
+			    <foa:ETDEntityGraph
+                    id="etdEntityGraph"
+                    nodePress="onNodePress">
+                </foa:ETDEntityGraph>
+			</VBox>
+		</content>
+		<footer>
+		</footer>
+	</Page>
+</mvc:View>

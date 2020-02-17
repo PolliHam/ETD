@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem key="GroupName" text="{i18n>Interpret_Group}"
+				selected="true" />
+			<ViewSettingsItem key="GroupNameSpace" text="{i18n>Interpret_Namespace}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

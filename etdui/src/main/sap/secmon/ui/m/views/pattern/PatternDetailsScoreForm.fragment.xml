@@ -1,0 +1,247 @@
+<core:FragmentDefinition
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:commonControls="sap.secmon.ui.commons.controls"
+		xmlns:u="sap.ui.unified">
+	<Panel>
+		<IconTabBar select="onTabSelected" id="idIconTabBar"
+					expandable="false"
+					visible="{parts: [{path:'config>/displayMode'},{path:'ExecutionOutput'}],
+                        formatter: 'sap.secmon.ui.m.views.pattern.Formatter.displayIconTabBar'
+                        }">
+			<items>
+				<IconTabFilter key="alertValidity" text="{i18n>AlertValidity}"
+							   visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}">
+					<f:SimpleForm id="SimpleFormCredibility"
+								  maxContainerCols="2" editable="false">
+						<f:title>
+							<core:Title text="{i18n>PatternCredibility}"/>
+						</f:title>
+						<f:content>
+							<Label text="{i18n>PatternConfidentiality}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/LikelihoodConfidentiality/'},{path : 'LikelihoodConfidentiality'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternSystemDataIntegrity}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegritySystem/'},{path : 'LikelihoodIntegritySystem'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternBusDataIntegrity}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegrityData/'},{path : 'LikelihoodIntegrityData'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternAvailability}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/LikelihoodAvailability/'},{path : 'LikelihoodAvailability'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm id="SimpleFormattack" maxContainerCols="2"
+								  editable="false">
+						<f:title>
+							<core:Title text="{i18n>PatternAttack}"/>
+						</f:title>
+						<f:content>
+							<Label text="{i18n>PatternSucConfidentiality}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/SuccessConfidentiality/'},{path : 'SuccessConfidentiality'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternSucSystemDataInteg}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/SuccessIntegritySystem/'},{path : 'SuccessIntegritySystem'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternSucBusDataInteg}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/SuccessIntegrityData/'},{path : 'SuccessIntegrityData'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+							<Label text="{i18n>PatternSucAvailability}"/>
+							<Text
+									text="{parts: [{path: 'enums>/sap.secmon.ui.browse/Pattern/SuccessAvailability/'},{path : 'SuccessAvailability'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+						</f:content>
+					</f:SimpleForm>
+				</IconTabFilter>
+				<IconTabFilter key="valuelists"
+							   text="{parts: [{path:'i18n>PatternUsedVLists'},{path:'uiModel>/usedValuelists/'}],
+                                        formatter: 'sap.secmon.ui.m.commons.Formatter.countArrayFormatter'}">
+					<Table
+							items="{
+                        path: 'uiModel>/usedValuelists/',
+                        sorter: {
+                            path: 'Name'
+                        }
+                        }"
+							growing="true" growingScrollToLoad="true" growingThreshold="100">
+						<columns>
+							<Column>
+								<Text text="{i18n>ValueListName}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>ValueListNs}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>ValueListDescr}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem
+									type="{path: 'config>/displayMode', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.setLineType'}"
+									press="onValuelistPress">
+								<cells>
+									<Text text="{uiModel>Name}"/>
+									<Text text="{uiModel>Namespace}"/>
+									<Text text="{uiModel>Description}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</IconTabFilter>
+
+				<IconTabFilter key="exemptions"
+							   text="{parts: [{path:'i18n>PatternExemptions'},{path:'uiModel>/exemptions/'}],
+                                        formatter: 'sap.secmon.ui.m.commons.Formatter.countArrayFormatter'}">
+					<Table
+							items="{
+								path: 'uiModel>/exemptions/',
+								sorter: {
+									path: 'Name'
+								}
+							}"
+							growing="true" growingScrollToLoad="true" growingThreshold="100">
+						<columns>
+							<Column>
+								<Text text="{i18n>Exemption_Description}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>Exemption_Validity}"/>
+							</Column>
+
+						</columns>
+						<items>
+							<ColumnListItem
+									type="{path: 'config>/displayMode',
+                                        formatter: 'sap.secmon.ui.m.views.pattern.Formatter.setLineType'}"
+									press="onExemptionPress">
+								<cells>
+									<Text text="{uiModel>ExceptionDescription}"/>
+									<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, {path : 'uiModel>ExceptionValidity'}, { path : 'uiModel>ExceptionValid'} ],
+                                                    formatter: 'sap.secmon.ui.m.exemptions.util.Formatter.exemptionValidityFormatter'}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</IconTabFilter>
+
+				<IconTabFilter key="Files"
+							visible="{applicationContext>/userPrivileges/patternRead}"
+							text="{parts: [{path:'i18n>Files'},{path:'uiModel>/attachmentsCount'}],
+										formatter: 'sap.secmon.ui.m.commons.Formatter.countFormatter'}">
+					<Table id="fileTable"
+						   items="{
+							path: 'Attachments/',
+							sorter: {
+								path: 'ContentName'
+							}
+                        }"
+						   updateFinished="onAttachmentsUpdateFinished"
+						   growing="true" growingScrollToLoad="true" growingThreshold="20"
+						   mode="SingleSelectLeft">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<!--  docx not supported: mime type too long (> 50 chars): application/vnd.openxmlformats-officedocument.wordprocessingml.document, -->
+								<u:FileUploader id="fileuploader" name="upload"
+												class="sapMBtn"
+												uploadUrl="/sap/secmon/services/ui/m/patterns/patternDocument.xsjs"
+												maximumFilenameLength="100" maximumFileSize="50" buttonText="{i18n>Upload}"
+												buttonOnly="true" fileType="pdf,doc,xml,txt,csv,tsv,rtf"
+												uploadOnChange="true" change="onUploadChange" sendXHR="true"
+												
+												sameFilenameAllowed="true"
+												visible="{applicationContext>/userPrivileges/patternWrite}"
+												filenameLengthExceed="onFileNameLengthExceed" typeMissmatch="onFileTypeMissmatch"
+												fileSizeExceed="onFileSizeExceed" uploadComplete="onUploadComplete"/>
+								<Button visible="{applicationContext>/userPrivileges/patternWrite}" text="{i18n>DeleteSelected}" press="onDeletePressed"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="40em">
+								<Text text="{i18nCommon>FileName}"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="5em">
+								<Text text="{i18nCommon>FileType}"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="5em">
+								<Text text="{i18nCommon>Created_By_COL}"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="5em">
+								<Text text="{i18nCommon>Created_At_COL}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+
+									<Link text="{ContentName}" target="_blank"
+										  href="/sap/secmon/services/ui/m/patterns/patternDocument.xsjs?patternId={PatternId}&amp;filename={ContentName}&amp;filetype={ContentType}"
+										  wrapping="true"/>
+									<Text text="{ContentType}"/>
+									<Text text="{CreatedBy}"/>
+									<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreatedAt'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</IconTabFilter>
+
+
+				<IconTabFilter key="InvestigationTemplates"
+							   text="{parts: [{path:'i18n>InvTempl_LBL'},{path:'uiModel>/invTemplatesCount'}],
+                                        formatter: 'sap.secmon.ui.m.commons.Formatter.countFormatter'}">
+					<content>
+						<Table
+								items="{
+									path: 'InvestigationTemplates/',
+									sorter: {
+										path: 'TemplateCreationDate'
+									}
+								}"
+								updateFinished="onTemplatesUpdateFinished"
+								growing="true" growingScrollToLoad="true" growingThreshold="20">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer/>
+									<Button text="{i18nCommon>Add_BUT}" press="onAddTemplatePressed" visible="{applicationContext>/userPrivileges/admin}"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>InvTemplName_LBL}"/>
+								</Column>
+								<Column>
+									<Text text="{i18nCommon>Created_By_COL}"/>
+								</Column>
+								<!-- Column>
+									<Text text="{i18nCommon>Created_At_COL}" />
+								</Column -->
+							</columns>
+							<items>
+								<ColumnListItem
+										type="Navigation"
+										press="onTemplatePress">
+									<cells>
+										<!-- Text text="{TemplateDescription}" /-->
+										<commonControls:LongTapLink text="{TemplateDescription}" wrapping="true"
+																	href="{path : 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationTemplateURL'}"/>
+										<!-- Text
+											text="{TemplateCreatedBy}" />
+										<Text
+											text="{TemplateCreationDate}" / -->
+										<ObjectIdentifier title="{TemplateCreatedBy}"
+														  text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'TemplateCreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</IconTabFilter>
+
+			</items>
+		</IconTabBar>
+	</Panel>
+</core:FragmentDefinition>

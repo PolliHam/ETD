@@ -1,0 +1,10 @@
+<mvc:View controllerName="sap.secmon.ui.domainrating.DomainGraph"
+    id="domainAnalysis" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+    xmlns:cc="sap.secmon.ui.commons.controls" xmlns:dr="sap.secmon.ui.domainrating">
+    <Page id="page" title="{i18n>DA_DomAnalysis}" enableScrolling="false"
+        showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <dr:DomainForceDirectedGraph id="domainForceDirectedGraph" />
+        </content>
+    </Page>
+</mvc:View>

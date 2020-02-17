@@ -1,0 +1,386 @@
+# TRANSLATE
+
+#XTIT:Mobile Alert UI
+MobAlert_Patterns_Title=Patterns
+#XLBL:Mobile Alert UI
+MobAlert_AlByPatt_Title=Alerts by Pattern
+#XLBL:Mobile Alert UI, Alert with ID
+MobAlert_Detail_Title=Alert {0}
+#XLBL:Mobile Alert UI, Alert with ID
+MobAlert_Detail_NoAlert=No Alert Selected
+#XTIT:Mobile Alert UI
+MobAlert_Pattern=Pattern
+#XTIT:Mobile Alert UI
+MobAlert_PatternNamespace = Pattern Namespace
+#XTIT:Mobile Alert UI
+MobAlert_Additional = Additional
+#XLBL:Mobile Alert UI
+MobAlert_PatternWorkspace=Pattern Workspace
+#XLBL:Mobile Alert UI
+MobAlert_Scenarios=Scenarios
+#XTIT:Mobile Alert UI
+MobAlert_Configuration=Configuration
+#XTIT: Anomaly Full screen Application Title
+MobAlert_evTrendXTIT=Events on Day of Anomaly
+#XTIT: Anomaly Full screen Application Title
+MobAlert_hiTrendXTIT=Event History (Comparison Sample)
+#XTIT: Anomaly Full screen Application Title
+MobAlert_NewOccXTIT=New Occurrence
+#XLBL:Mobile Alert UI
+MobAlert_Creation_Date=Creation Time
+#XLBL:Mobile Alert UI
+MobAlert_ResTimeRange=Result Time Range
+#XTIT:Mobile Alert UI
+MobAlert_Alerts_Title=Alerts
+#XLBL:Mobile Alert UI
+MobAlert_Severity=Severity
+#XLBL:Mobile Alert UI
+MobAlert_Score=Score
+#XCOL:Mobile Alert UI
+MobAlert_EvalResult=Result
+#XCOL:Mobile Alrt UI
+MobAlert_EvCol=Events
+#XLBL:Mobile Alert UI
+MobAlert_ScoreFunc=Output Created When
+#XTOL:Mobile Alert UI
+MobAlert_ScoreFTOL=The score function determines how the total score is calculated from individual scores.
+#XTOL:Mobile Alert UI
+MobAlert_ResultTOL=The bar visualizes the anomaly strength. A long red bar represents a strong anomaly, a short green bar signifies a measure value very close to its expectation value.
+#XLBL:Mobile Alert UI
+MobAlert_Trigger=Trigger
+#XLBL:Mobile Alert UI
+MobAlert_Edit=Edit
+#XLBL:Mobile Alert UI
+MobAlert_Save=Save
+#XLBL:Mobile Alert UI
+MobAlert_Cancel=Cancel
+#XLBL:Mobile Alert UI
+MobAlert_Analyze=Analyze
+#XLBL:Mobile Alert UI
+MobAlert_CreateException=Create Exemption
+#XLBL:Mobile Alert UI
+MobAlert_Status=Status
+#XLBL:Mobile Alert UI
+MobAlert_User_Col=User Pseudonym, Acting
+#XCOL:Mobile Alert UI
+MobAlert_TargetUser_Col=User Pseudonym, Targeting
+#XLBL:Mobile Alert UI
+MobAlert_Measure_Col=Measurement
+#XLBL:Mobile Alert UI
+MobAlert_Term_Col=Network, Hostname, Actor
+#XLBL:Mobile Alert UI
+MobAlert_Initiator_Col=Network, Hostname, Initiator
+#XLBL:Mobile Alert UI
+MobAlert_SystemActor_Lbl=System, Actor
+#XLBL:Mobile Alert UI
+MobAlert_SystemInit_Lbl=System, Initiator
+#XLBL:Mobile Alert UI
+MobAlert_SystemIntm_Lbl=System, Intermediary
+#XLBL:Mobile Alert UI
+MobAlert_SystemRepo_Lbl=System, Reporter
+#XLBL:Mobile Alert UI
+MobAlert_SystemTarget_Lbl=System, Target
+#XLBL:Mobile Alert UI
+MobAlert_SystemActor_Col=System Id, Actor
+#XLBL:Mobile Alert UI
+MobAlert_System_Col=System Id
+#XCOL:Mobile Alert UI
+MobAlert_TargetSysId_Col=System Id, Target
+#XCOL:Mobile Alert UI
+MobAlert_TargetSysType_Col=System Type, Target
+#XCOL:Mobile Alert UI
+MobAlert_InstanceName_Col=Service, Instance Name
+#XLBL:Mobile Alert UI
+MobAlert_Date_Col=Date
+#XMSG:Mobile Alert UI
+MobAlert_CommentPlaceHold=Enter a new Comment
+#XLBL:Mobile Alert UI
+MobAlert_Investigation=Investigation
+#XBUT:Mobile Alert UI
+MobAlert_StartInvest=Start Investigation
+#XBUT:Mobile Alert UI
+MobAlert_AddToInvest=Add to Investigation
+#XBUT:Mobile Alert UI
+MobAlert_RemoveFromInvest=Remove from Investigation
+#XBUT:Mobile Alert UI
+MobAlert_ShowInvestigation=Show Investigation
+#XTIT:Mobile Alert UI
+MobAlert_AffectedSys=Affected Systems ({0})
+#XTIT:Mobile Alert UI
+MobAlert_MeasurementDistr=Measurement Distribution ({0})
+#XTIT:Mobile Alert UI
+MobAlert_Evaluations=Evaluations ({0})
+#XTIT:Mobile Alert UI
+MobAlert_Investigations=Investigations ({0})
+#XTIT:Mobile Alert UI
+MobAlert_PattRAtt=Pattern Related Attachments ({0})
+#XTIT:Mobile Alert UI
+MobAlert_EdgeDims=New Occurence
+#XLBL:Mobile Alert UI
+MobAlert_AnomalyOn=Anomaly Occurred At
+#XLBL:Mobile Alert UI
+MobAlert_AnomGaussDistr=Standard Normal Distribution
+#XCOL: Mobile Alert UI
+MobAlert_Aggregating=Aggregation
+#XCOL: Mobile Alert UI
+MobAlert_NewOcc=New Occurrence
+#XCOL: Mobile Alert UI
+MobAlert_Feature=Evaluation
+#XCOL: Mobile Alert UI
+MobAlert_AggrFields=Aggregation Fields
+#XCOL: Mobile Alert UI
+MobAlert_Method=Based On
+#XCOL: Mobile Alert UI
+MobAlert_ZScore=ZScore and ZScore Threshold
+#XCOL: Mobile Alert UI
+MobAlert_ValueBelow={0} below confidence interval [{1}, {2}]
+#XCOL: Mobile Alert UI
+MobAlert_ValueAbove={0} above confidence interval [{1}, {2}]
+#XCOL: Mobile Alert UI
+MobAlert_ValueWithin={0} within confidence interval [{1}, {2}]
+#XCOL: Mobile Alert UI
+MobAlert_ValueNew=New Occurence ({0})
+#XCOL: Mobile Alert UI
+MobAlert_ValueNotNew=No New Occurrence
+#XCOL: Mobile Alert UI
+MobAlert_ValueNoDatapoints=Not enough datapoints
+#XCOL: Mobile Alert UI
+MobAlert_MeasureVal=Measure Value
+#XCOL: Mobile Alert UI
+MobAlert_Observation=Observation
+#XCOL: Mobile Alert UI
+MobAlert_Average=Average \u00B1 Std. Deviation
+#XCOL: Mobile Alert UI
+MobAlert_ValueWithRange={0} \u00B1 {1}
+#XCOL:Mobile Alert UI
+MobAlert_Dimension=Dimension
+#XLBL:Mobile Alert UI
+MobAlert_RelatedEvents=Related Events
+#XLBL:Mobile Alert UI
+MobAlert_Comment=Timeline & Comments ({0})
+#XTIT:Mobile Alert UI
+MobAlert_SingleAlertView=Alert Details
+#XLBL:Mobile Alert UI
+MobAlert_Id=ID
+#XLBL:Mobile Alert UI
+MobAlert_CredConf=Credibility of Attack on Confidentiality
+#XLBL:Mobile Alert UI
+MobAlert_CredSys=Credibility of Attack on System Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_CredBus=Credibility of Attack on Business Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_CredAvl=Credibility of Attack on Availability
+#XLBL:Mobile Alert UI
+MobAlert_SuccConf=Success of Attack on Confidentiality
+#XLBL:Mobile Alert UI
+MobAlert_SuccSys=Success of Attack on System Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_SuccBus=Success of Attack on Business Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_SuccAvl=Success of Attack on Availability
+#XLBL:Mobile Alert UI
+MobAlert_CredAtt=Credibility of Attack
+#XLBL:Mobile Alert UI
+MobAlert_SuccessAtt=Success of Attack
+#XLBL:Mobile Alert UI
+MobAlert_Confidentiality=Confidentiality
+#XLBL:Mobile Alert UI
+MobAlert_SystemDataInt=System Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_BusinessDataInt=Business Data Integrity
+#XLBL:Mobile Alert UI
+MobAlert_Availability=Availability
+#XTIT:Mobile Alert UI
+MobAlert_GraphSettings=Graph Settings
+#XTIT:Mobile Alert UI
+MobAlert_VisNode=Visible Nodes
+#XLBL:Mobile Alert UI
+MobAlert_NodeType=Node Type
+#XLBL:Mobile Alert UI
+MobAlert_GraphType=Graph Type
+#XLBL:Mobile Alert UI
+MobAlert_Color=Node colored by type
+#XLBL:Mobile Alert UI
+MobAlert_Symbol=Node colored by severity, icons by type
+#XTOL:Mobile Alert UI Button Tooltip to show or hide the chart legend
+MobAlert_GraphLegend=Show/Hide Legend
+#XTIT:Mobile Alert UI Alert Graph Legend Window Title
+MobAlert_GraphLegendTitle=ETD: Alert Graph Legend
+#XLBL:Mobile Alert UI: Label in Detailbox for Legend
+MobAlert_GraphLegendLbl=Legend
+#XLBL: Mobile Alert UI
+MobAlert_TriggEvent=Triggering Events
+#XLBL: Mobile Alert UI
+MobAlert_TriggMeasure=Triggering Measurement
+#XLBL: Mobile Alert UI
+MobAlert_RelEvent=Related Events
+#XLBL: Mobile Alert UI
+MobAlert_RelEventShow=Show
+#XLBL: Mobile Alert UI
+MobAlert_Event=Events
+#XLBL: Mobile Alert UI
+MobAlert_HealthCheck=Health Checks
+#XLBL: Mobile Alert UI
+MobAlert_Alert=Alerts
+#XLBL: Mobile Alert UI
+MobAlert_MeasureContext=Source
+#XLBL: Mobile Alert UI
+MobAlert_Version=Version
+#XBUT: Mobile Alert UI
+MobAlert_ShowLogs=Open in Technical Event Details
+#XLBL: Mobile Alert: Attack
+MobAlert_Attack=Attack
+#XLBL: Mobile Alert: Related Indicators
+MobAlert_RelInd=Related Indicators
+#XLBL: Mobile Alert: Related Indicators
+MobAlert_RelIndTimeframe=Could not be loaded. Please configure a time frame for this pattern.
+#XLBL: Mobile Alert: Related Indicators
+MobAlert_Link=Link
+#XMSG: Monile Alert: Set attack value
+MobAlert_AttackNo=Attack value set to 'No'
+#XMSG: Mobile Alert: Remove alert from investigation
+MobAlert_ConfRemAlert=Remove alert from investigation {0} ("{1}")?
+#XMSG: Mobile Alert: Show related events
+MobAlert_ConfOpenRelAlert=The processed data of the pattern are not (only) log events. Do You still want to show related events?
+#XLBL: Mobile Alert UI Label
+MCreationDate=Creation Date
+#XTIT: Mobile Alert UI
+MobAlert_AddComment=Added Comment
+#XTIT: Mobile Alert UI
+MobAlert_changed=Changed Alert
+
+
+
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_startInvest=Start Investigation
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_addToInvest=Add to Investigation
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_editAlerts=Edit
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_analyze=Analyze
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_Alerts=Alerts
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_AlertsWithCount=Alerts ({0})
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Severity=Severity
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Status=Status
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Processor=Processor
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_editAlert=Edit Alert
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_AlertText=Alert Details
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_InernalErrorMsg=An internal error occurred.
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_SeverityXcol=Severity
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ScoreXcol=Score
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_AttackXcol=Attack
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_IDXcol=ID
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_PatternXcol=Pattern
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_Cause=Trigger
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ConfigXcol=Configuration
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_StatusXcol=Status
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_CreaTimeXcol=Creation Time
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ProcessorXcol=Processor
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_InvestXcol=Investigations
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_PickActionXLBL=Choose Actions
+#XTOL:Mobile Full Screen Alets UI
+MAlertsFS_ExportXTOL=Export
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_ConsidTimeRange=Creation Time Range
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_SelectTimeRange=Select Time Range
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_ConsTimeRangeFT={0} - {1}
+MAlertsFS_ConsTimeRangeFR=since {0}
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_TimeRange_Active=Active
+#XBUT:Mobile Full Screen Alerts UI Button for opening Alert Graph
+MAlertsFS_showGraph=View Threat Situation
+#XBUT:Mobile Full Screen Alerts UI Button for opening Alert Table
+MAlertsFS_showTable=Alerts List
+#XBUT:Mobile Full Screen Alerts UI Button for opening System Location
+MAlertsFS_showLocation=View System Locations
+#XTIT:Mobile Full Screen Alert Graph Page Title
+MAlertsFS_alertGraphTitle=Alert Graph
+#XBUT:Mobile Full Screen Alerts UI Button for opening System Alert History
+MAlertsFS_showSystemHist=Explore Trends...
+#XBUT:Mobile Full Screen Alerts UI Button for opening System Alert History
+MAlertsFS_showSystemConn=Explore Connections...
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_SystemType=System Type
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_FilterBar=Filter Bar
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_FilterBarPrefix=Filtered by:
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_NoSysLocation={0} Alerts not Displayed due to Missing System Location Assignments
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_NoSysLocLong=No location maintained. Open the "Systems" administration UI and maintain the location.
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_SysAlerts=System {0} ({1} Alerts)
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Systems=Systems
+#XCOL: Mobile Full Screen Alerts UI
+MAlertsFS_PatternName=Pattern Name
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_Events={0} Events
+MAlertsFS_EventsNoCount=Events
+
+#XCOL:Investigation Tab ManagementVisibility
+MAlertsFS_ManagementVisi=Management Visibility
+#XLBL:Mobile Investigation UI
+MAlertsFS_RemoveAlert=Remove Alert from Investigation
+
+#XTIT: Mobile Alerts FS UI
+MAlerts_chgDetected=Changes Detected
+#XMSG: Mobile Alerts FS UI
+MAlertsFS_allChgDetect=All {0} selected alerts were modified by your colleagues. Review their changes, and adapt your next steps accordingly.\nDeselect modified alerts?
+#XMSG: Mobile Alerts FS UI
+MAlertsFS_someChgDetect={0} alert(s) of {1} selected were modified by your colleagues. Review their changes, and adapt your next steps accordingly.\nThese alert(s) are:
+#XMSG: Mobile Alerts FS UI
+MAlertsFS_otherChgDetect={0} alert(s) of {1} have been updated. The other {2} alert(s) were modified by your colleagues. Review their changes, and adapt your next steps accordingly.\nThese alert(s) are:
+#XMSG: Mobile Alerts FS
+MAlertsFS_deselect=Deselect modified alerts?
+#XMSG: Mobile Alerts FS
+MAlertsFS_noChange=Alerts are unchanged
+#XMSG: Mobile Investigation UI
+MAlertsFS_alrtChgDetect=The alert was modified by your colleague while you were working on it. Review their changes, and adapt your next steps accordingly.
+#XMSG: Mobile Alerts UI
+MAlertsFS_alrtLock=The alert(s) are currently locked for update. This is a temporary problem. Check if the alert(s) have been changed, then try again.
+
+#XTIT: Mobile Alerts FS UI
+MQuick_Link_Button=Go
+
+#XLBL: Bookmark
+MBookmark_AlertsXLBL=Alerts
+
+#XTIT: AlertEmail
+AlertEmail_XTIT=Send Email
+#XMSG: AlertEmail
+AlertEmail_SubjectXMSG=Alert List
+#XMSG: AlertEmail
+AlertEmail_BodyXMSG=View the Alert List with the URL below.
+
+#XLBL: Help Entries for alerts
+WorkingWithAlertsLBL=Working with a List of Alerts
+#XLBL: Help Entries for alerts
+ExamThreatSitLBL=Examining the Threat Situation
+
+MobAlert_Unknown=unknown
+

@@ -1,0 +1,11 @@
+imports dslVersion: "1.2", {
+	targetRootDir id : "default", {
+		unzip {
+			artifactFile groupId: "com.sap.ui5.dist",
+						 artifactId: "sapui5-dist",
+						 extension : "zip",
+						 version : "1.28.51",
+						 classifier : "static"
+		}
+	}
+}

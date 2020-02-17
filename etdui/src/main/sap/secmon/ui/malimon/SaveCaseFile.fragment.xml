@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:etd="sap.secmon.ui.browse"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>MM_TIT_SaveCFAs}">
+		<form:SimpleForm maxContainerCols="2">
+            <Label text="{i18n>MM_LBL_CFName}" labelFor="tfCFName">
+			</Label>
+			<Input id="tfCFName" value="{path:'/name'}">
+			</Input>
+			
+			<Label text="{i18n>MM_LBL_CFNamespace}" labelFor="tfCFNamespace">
+            </Label>
+            <Select
+				items="{
+					path: 'NamespacesModel>/',
+					sorter: { path: 'NamespacesModel>NameSpace' }
+				}">
+				<core:Item key="{NamespacesModel>NameSpace}" text="{NamespacesModel>NameSpace}" />
+			</Select>
+		</form:SimpleForm>
+
+		<buttons>
+			<Button id="btCFSaveOK" text="{i18n>MM_BUT_OK}" press="pressedOK" />
+			<Button text="{i18n>MM_BUT_Cancel}" press="pressedCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

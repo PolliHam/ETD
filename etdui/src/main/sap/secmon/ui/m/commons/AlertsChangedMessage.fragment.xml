@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%">
+		<l:content>
+			<Text text="{parts: [{path: 'i18n>MInvest_someAlrtsChgDetect'},
+					{path:'messages>/acceptedCount'}, 
+					{path:'messages>/totalCount'}, 
+					{path:'messages>/investigationNumber'}, 
+					{path:'messages>/rejectedCount'}], 
+					formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+			<sscc:CommaSeparatedLinks links="{messages>/rejectedLinks/}" />
+		</l:content>
+	</l:VerticalLayout>
+</core:FragmentDefinition>

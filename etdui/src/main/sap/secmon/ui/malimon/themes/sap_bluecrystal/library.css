@@ -1,0 +1,165 @@
+/*
+** SAP UI5 styles overwritten
+** Note: this is only an exception until other solution found
+*/
+
+/* workaround for the RawData
+** Detail table should be rendered below Header table
+*/
+.sapUiVlt {
+  display: block;
+  overflow: hidden;
+}
+
+.sapUiPanelHdr > .sapUiPanelTb {
+    text-align: right;
+    margin-right: 0px;  
+}
+
+.sapUiTbInner > .sapUiIcon {
+    vertical-align: top;
+}
+
+
+.sapUiFormResLayout>div {
+    padding: 8px;
+}
+
+/*
+** No padding left for delete button in Carousel
+*/
+.sapUiCrslCnt button.sapUiBtn {
+    padding-left: 0px;
+}
+.sapUiCrslCnt td{
+    text-align: left;
+}
+
+
+
+.resize path {
+  fill: white;
+  stroke: black;
+}
+
+/*
+* End Settings for Outlier Detection
+*/
+
+.sapUiUx3ShellCanvas {
+  overflow-x: visible;
+  overflow-y: visible;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+
+.sapUiUx3DSSVFloating > .sapUiUx3DSSVItem > .sapEtdCustomItemLayout {
+    width: 200px;
+}
+
+html[dir="rtl"] .sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutCntnt {
+    right: 255px;
+    left: 3px;
+}
+
+.sapEtdEventSeries text {
+    font: 12px sans-serif;    
+}
+
+.sapEtdEventSeries path, .sapEtdEventSeries line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.sapEtdEventSeries .grid-line{
+    stroke: black;
+    shape-rendering: crispEdges;
+    stroke-opacity: .2;
+}
+
+/*
+** Tooltip for shown entities/events
+*/
+.sapEtdEventSeriesTooltip, .sapEtdEntityGraphTooltip{
+    position: absolute; 
+    text-align: left;   
+    padding: 5px;
+    box-shadow: 3px 3px 5px #888888;
+    background: white;
+    font-weight: normal;
+    z-index: 10;
+}
+
+.sapEtdEntityGraph  {
+    height: 100%;
+}
+
+.sapEtdEntityGraphSettings {
+	
+}
+
+.sapEtdEntityGraphTop10Margin {
+    margin-left : 2em;
+}
+
+.sapEtdEntityGraphTop10Multi {
+    margin-left : 0.5em;
+    width: 97% !important; 
+    height: 100% !important;
+}
+
+.sapEtdPopoverTransparent {
+    opacity: 0.94; 
+}
+
+.sapEtdEntityGraphResponsive {
+}
+
+.sapEtdEntityGraphBackup  {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.sapEtdEntityGraphResponsiveBackup {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.sapMPage{
+    height: 100%;
+}
+.sapMFlexBox{
+    height:100%
+}
+.sapMFlexItem{
+    height:100%
+}
+
+.hull {
+	fill: steelblue;
+	stroke: steelblue;
+	stroke-width: 32px;
+	stroke-linejoin: round;
+	opacity: 0.2;
+}
+
+rect.selection {
+    stroke          : gray;
+    stroke-dasharray: 4px;
+    stroke-opacity  : 0.5;
+    fill            : transparent;
+}
+
+g.state.selected circle.outer {
+    display         : inline;
+}
+

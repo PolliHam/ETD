@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>PatternFilter_Add_XTIT}" class="sapUiPopupWithPadding"
+		contentWidth="50em">
+		<content>
+			<f:SimpleForm maxContainerCols="2" editable="true"
+				layout="ResponsiveGridLayout" class="editableForm">
+				<f:content>
+					<Label text="{i18nCommon>Name_LBL}" />
+					<Input id="nameInput" valueStateText="{i18n>PatternFilter_EntName_XMSG}"
+						value="{path:'/name', type: 'sap.ui.model.type.String', constraints : {minLength : 1, maxLength : 255}}">
+					</Input>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18nCommon>OK_BUT}" app:dialogType="Std"
+				press="onAddPatternFilterDialogOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" app:dialogType="Std"
+				press="onAddPatternFilterDialogCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

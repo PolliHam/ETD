@@ -1,0 +1,90 @@
+/*
+** Donut is responsive and takes 60% of the area
+** The rest belongs to legends
+*/
+.sapEtdDonutContainer {
+	height: 100%;
+}
+
+.sapEtdDonut {
+    display: inline-block;
+    position: relative;   
+    width: 60%; 
+    padding-bottom: 60%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+    float: left;
+}
+
+.sapEtdDonutResponsive {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+/*
+** Button for inverting include a circle and
+** a text, which should not be selectable
+*/
+.sapEtdDonutButton {
+	 fill: steelblue;
+	 opacity: 1; 
+}
+.sapEtdDonutButton > text {
+	text-anchor: middle;
+	-webkit-user-select: none;
+  	-khtml-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	-o-user-select: none;
+  	user-select: none;
+}
+
+.sapEtdDonutButton:hover {
+	 cursor: pointer;	
+}
+
+/*
+** Tooltip for Donuts
+*/
+.sapEtdDonutTooltip {
+	position: absolute;	
+	text-align: left;	
+	padding: 10px;
+/*	font: 12px sans-serif; */
+	box-shadow: 3px 3px 5px #888888;
+	background: white;
+    font-weight: bold;
+	z-index: 10;
+}
+
+.sapEtdDonutTooltipleftColumn {
+    text-align: right;
+    font-weight: normal;
+}
+
+/*
+** Legend for Donuts with vertical scrollbar, while
+** the horizontal scrollbar is deactivated
+*/
+.sapEtdDonutLegend {
+	cursor: pointer;
+	position: relative;
+	width: 40%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	text-align: left;
+	height: inherit;
+}
+
+.sapEtdDonutLegend rect {
+	 fill:none;
+	 stroke:none;
+	 opacity:0.8;
+}
+
+.sapEtdDonutLegend g.legend-items text:hover, circle:hover {
+	 fill: #888888;
+	 cursor: pointer;
+}

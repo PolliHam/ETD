@@ -1,0 +1,178 @@
+<mvc:View controllerName="sap.secmon.ui.m.systems.view.EventTrendAnalysis"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%">
+		<!-- filter container -->
+		<l:Grid
+			defaultSpan="L3 M6 S12"
+            hSpacing="10"
+            vSpacing="0"
+            position="Center" 
+            class="filterBarForm">
+            
+            <!-- chartContainer  -->
+            <l:VerticalLayout width="100%">
+            	<l:layoutData>
+            		<l:GridData span="L6 M6 S12"/>
+            	</l:layoutData>
+            	<Label text="{i18n>MEventTrend_Chart}:" />
+            	<ComboBox id="chartInput"
+            		width="100%"
+            		items="{path: 'chartModel>/Qube',
+            				sorter: {path: 'Name'},
+            				filters: [{path: 'Type', operator: 'EQ', value1: 'Chart'}]
+            				}"
+            		selectedKey="{uiModel>/chart}"
+            		selectionChange="onChartSelected"
+            		enabled="{=${uiModel>/loading}!==true}" >
+            		<ViewSettingsItem
+                    	key="{chartModel>Id}"
+                    	text="{chartModel>Name}"
+                    	tooltip="{chartModel>Name}" />
+            	</ComboBox>
+            </l:VerticalLayout>
+            	
+           	<!-- day container -->
+           	<l:VerticalLayout width="100%"
+           		enabled="{=${uiModel>/loading}!==true}" >
+           		<Label text="{i18n>MEventTrend_Day}:"/>
+           		<DatePicker width="155px"
+           			placeholder="DD.MM.YYYY"
+           			value="{
+		                path : 'uiModel>/day',
+		                type : 'sap.ui.model.type.Date',
+           				formatOptions : {
+		                    style : 'medium',
+		                    strictParsing : true
+		                },
+		                UTC: '{applicationContext>/UTC}'
+		            }"
+           			change="updateData"
+           			enabled="{=${uiModel>/loading}!==true}" />
+           	</l:VerticalLayout>
+            	
+           	<!-- time container -->
+           	<l:VerticalLayout width="100%">
+           		<Label text="{path: 'applicationContext>/UTC', formatter: 'sap.secmon.ui.m.systems.util.Formatter.timeLabelFormatter'}" />
+           		<l:HorizontalLayout enabled="{=${=uiModel>/loading}!==true}" >
+           			<DateTimeInput id="fromInput" width="75px"       				
+           				type="Time"
+           				maxLength="5"
+           				valueFormat="HH:mm"
+           				displayFormat="HH:mm"
+           				value="{
+			                path : 'uiModel>/from',
+							formatOptions : {
+			                    strictParsing : true,
+			                    source: {pattern: 'HH:mm'},
+			                    pattern: 'HH:mm'
+			                }
+			            }"
+           				change="validateTime"
+           				enabled="{=${uiModel>/loading}!==true}" />
+           			<l:VerticalLayout width="10px" />
+           			<Text text="-" class="hyphen" />
+           			<l:VerticalLayout width="10px" />
+           			<DateTimeInput type="Time"
+           			 	id="toInput"
+           				width="75px"
+           				maxLength="5"
+           				valueFormat="HH:mm"
+           				displayFormat="HH:mm"
+           				value="{
+			                path : 'uiModel>/to',
+			                formatOptions : {
+			                    strictParsing : true,
+			                    source: {pattern: 'HH:mm'},
+			                    pattern: 'HH:mm'
+			                }
+			            }"
+           				change="validateTime"
+           				enabled="{=${uiModel>/loading}!==true}" />
+           		</l:HorizontalLayout>
+           	</l:VerticalLayout>
+            
+           	<!-- time unit container -->
+               <l:VerticalLayout width="100%">
+            	<l:layoutData>
+            		<l:GridData span="L4 M6 S12"/>
+            	</l:layoutData>
+            	<Label text="{i18n>MEventTrend_TimeInterval}:" />
+            	<Select id="timeInterval" width="155px" 
+            		selectedKey="{uiModel>/timeslotSize}"
+           			change="onChartSelected"
+           			enabled="{=${uiModel>/loading}!==true}" 
+           			items="{timeRange>/}">
+            		<core:Item text="{parts: [{path: 'i18n>MEventTrend_Minutes'}, {path: 'timeRange>key'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" key="{timeRange>key}"/>
+            	</Select>
+           	</l:VerticalLayout>
+           	
+           	<!--  button container -->
+           	<l:VerticalLayout width="100%">
+           		<Label />
+           		<l:HorizontalLayout>
+           			<Button text="{i18n>MEventTrend_Reset}"
+            			width="80px"
+            			press="onResetPress"
+            			enabled="{=${uiModel>/loading}!==true}"/>
+           			<l:VerticalLayout width="10px" />
+           		</l:HorizontalLayout>
+           	</l:VerticalLayout> 	
+            
+		</l:Grid>
+		
+		<!-- container -->
+		<l:VerticalLayout width="100%">
+			<BusyIndicator class="sapEtdCenteredBusyIndicator"
+				visible="{=${uiModel>/loading}===true}"/>
+			<!--  chartContainer2  -->
+			<l:VerticalLayout id="chartContainer" class="chartContainer"
+				width="100%" height="100%" 
+				visible="{=${uiModel>/loading}!==true}">
+					<viz:VizFrame id="lineChart"
+						uiConfig="{applicationSet:'fiori'}"
+						vizType="line"
+						width="100%"
+            			height="500px">
+            			<viz:feeds>
+            				<vizFeeds:FeedItem uid="categoryAxis" type="Dimension" values="Time" />
+            				<vizFeeds:FeedItem uid="valueAxis" type="Measure" values="Events" />
+            				<vizFeeds:FeedItem uid="color" type="Dimension" values="Day" />
+            			</viz:feeds>
+            		</viz:VizFrame>
+					<Bar id="chartBar" class="chartBar">
+						<contentLeft>
+							<Button text="&lt;"
+	                			tooltip="{i18n>MEventTrend_Earlier}"
+	                			press="onLeftEarlierPress"
+	                			enabled="{=${uiModel>/from}!=='00:00'}" />
+	                		<Button text=">"
+				                tooltip="{i18n>MEventTrend_Later}"
+				                press="onLeftLaterPress" />
+			            </contentLeft>
+			            <contentMiddle>
+				            <Button text="&lt;"
+				                tooltip="{i18n>MEventTrend_PrevDay}"
+				                press="onCenterEarlierPress" />
+				            <Button text=">"
+	                			tooltip="{i18n>MEventTrend_NextDay}"
+	                			press="onCenterLaterPress"
+	                			enabled="{	parts: [{path: 'applicationContext>/UTC'}, {path: 'uiModel>/day'}], 
+	                						formatter: 'sap.secmon.ui.m.systems.util.Formatter.nextDayEnabled'
+	                					}"/>
+                		</contentMiddle>
+                		<contentRight>
+	                		<Button text="&lt;"
+				                tooltip="{i18n>MEventTrend_Earlier}"
+				                press="onRightEarlierPress" />
+				            <Button text=">"
+	                			tooltip="{i18n>MEventTrend_Later}"
+	                			press="onRightLaterPress"
+	                			enabled="{=${uiModel>/to}!=='23:59'}" />
+                		</contentRight>
+					</Bar>
+			</l:VerticalLayout>
+		</l:VerticalLayout>
+	</l:VerticalLayout>
+</mvc:View>

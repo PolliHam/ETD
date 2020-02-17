@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+		<u:Menu>
+			<u:MenuItem
+				text="{i18n>MM_LBL_showAttr}"
+				select="handleMenuItemPress"
+				icon="sap-icon://list"/>
+			<u:MenuItem
+				text="{i18n>MM_LBL_nextEvent}"
+				select="handleMenuItemPress"
+				icon="sap-icon://search"/>
+		</u:Menu>
+</core:FragmentDefinition>

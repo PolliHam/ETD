@@ -1,0 +1,148 @@
+/* PRINT STYLES */
+@media print { 
+    /* usage of !important hard overwrites, because UI5 uses inline style directives (style="width:990px")  */
+    
+    /* define print page default settings */
+    @page {
+        size: portrait;
+        margin: 1.5cm 1cm;
+    }
+    
+    /* scale content to fit print page */
+    html, body {
+        width: 100% !important;
+        max-width:790px;
+        height: auto !important;
+    }
+    
+    /* reset body */
+    body {
+        margin: 0;
+        padding: 0;
+        float: none; 
+        color: #000;
+        orphans: 2;
+   		widows: 2;
+    }
+    
+   /* no page-break directly after a header*/
+   h1,h2,h3,h4,h5,h6 {
+	   font-family: "trebuchet ms",arial,helvetica,sans-serif;
+	   color: #000;
+	   padding: 1mm 0;
+	   margin: 1em 0 1mm;
+	   page-break-inside: avoid;
+	   break-inside: avoid;  
+	   page-break-after: avoid;
+	   break-after: avoid;  
+   }
+   
+   table {
+   	   max-width:790px;
+   }
+   
+   .sapMListTbl th .sapMText {
+   		font-weight: bold;
+   }
+   
+   .sapMLIBShowSeparator>td {
+   		border-top: 0px none;
+   }
+   
+   .sapMListShowSeparatorsAll .sapMLIBShowSeparator:last-child>td {
+      	border-bottom: 0px none;
+   }
+    
+    /* helper class to allow selective hiding elements from printing (example: buttons and navigation icons)  */
+    .noPrint {
+        display: none;
+    }  
+    
+    /** helper class to make text tiny (e.g. for URLs)
+    */
+    .tinyPrint {
+    	font-size: 0.5rem;
+    }
+    
+    /* fix overflow scrolling */
+    * {
+        overflow-x: visible !important; 
+        overflow-y: visible !important;
+        font-family: "times new roman",times,serif;
+    	text-align: justify;
+    }
+    
+    /* visualize anchors 
+    a[href]::after {
+	  content: " <"attr(href)">";
+	  color: #888;
+	  background-color: inherit;
+	  font-style: italic;
+	  size: 80%;
+	} 
+	*/
+    
+    /* auto expand collapsed panel contents */
+    .sapMPanelExpandablePart {
+        display: block !important;
+    }
+    
+    .sapSuiteUiCommonsTimelineContents {
+    	display: block !important;
+    }
+    
+    .sapSuiteUiCommonsTimelineItemShellBody {
+    	display: block !important;
+    }
+    
+    .sapMPanelExpandableIcon {
+        display: none;
+    }
+    
+    .sapMBtnBack {
+        display: none;
+    }
+    
+    /* disable panel content border */
+    .sapMPanelContent {
+        border: 0 !important;
+    }
+    
+    .sapMPanelHdrExpandable.sapMPanelHdr {
+    	margin-left: 1rem;    
+    }
+    
+    /* the panel header is used as title */
+    .sapMPanelHdr {
+    	font-weight: bold;
+    	margin-left: 0;
+    	break-inside: avoid;
+    	page-break-inside: avoid;
+    	break-after: avoid;
+    	page-break-after: avoid;
+    }
+    
+    /* reset flexed textareas height */ 
+    .sapMTextArea>.sapMTextAreaInner {
+        height: auto !important;
+    }
+    
+    /* add a page-break before the element */
+    .page-break	{
+    	display: block;
+    	break-inside: avoid;
+    	page-break-inside: avoid;
+    	break-before: always;
+    	page-break-before: always;
+    }
+    	
+}
+
+/* SCREEN STYLES */
+@media screen, handheld { 
+
+	/* helper class to allow selective hiding elements from display on screen (example: XML fragments with print-only content)  */
+    .noScreen {
+        display: none;
+    }  
+}

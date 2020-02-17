@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style contains styles related to the Legend Control.
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/commons/controls/css/Legend.css");
+*/
+.sapEtdLegendCircle {
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+}
+
+.sapEtdLegendTriangle {
+	width: 0px;
+	height: 0px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 12px solid;
+}
+
+.sapEtdLegendRectangle {
+	width: 12px;
+	height: 12px;
+}
+
+.sapEtdLegendPlus {
+	width: 12px;
+	height: 2px;
+	position: relative;
+}
+
+.sapEtdLegendPlus:after {
+	width: 2px;
+	height: 12px;
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	content: "";
+	background: inherit;
+}
+
+.sapEtdLegendCross {
+	font-size: 18px;
+	font-weight: bold;
+	cursor: default;
+}

@@ -1,0 +1,12 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.stagingLog" height="100%" width="100%"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns:commons="sap.ui.commons">
+
+    <t:Table id="tableStagingLog" selectionMode="Single" visibleRowCountMode="Auto" 
+        height="100%" width="100%" busyIndicatorDelay="250" showColumnVisibilityMenu="true" enableGrouping="true"
+        rows="{path: 'TestResults', sorter: {path: 'OriginalData', descending: true}}">
+        <t:title>
+            <commons:TextView class="tableTitle" text="{parts: [{path : 'applicationContext>/UTC'}, {path : 'RunModel>/testResultTimestamp'}], formatter:'sap.secmon.ui.loglearning.util.Formatter.stagingLogTableTitle' }" />
+        </t:title>
+    </t:Table>
+
+</mvc:View>

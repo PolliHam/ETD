@@ -1,0 +1,95 @@
+<core:FragmentDefinition
+    xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:commonControls="sap.secmon.ui.m.commons.controls">
+    <Toolbar class="sapUiTinyMarginEnd">
+        <Label text="{parts: [{path: 'i18n>Repl_expObjects'}, {path: 'UIModel>/exportCount'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" />
+        <Label text="" width="25px" />
+        <Label text="{UIModel>/tableTitle}"/>
+    </Toolbar>
+    <ScrollContainer height="100%" width="100%"	horizontal="false" vertical="true">
+        <customControls:ColumnClickableTable inset="false" mode="MultiSelect" class="sapEtdScrollTable"
+            id="exportTable" fixedLayout="false" firstColumnIsForSelection="true"
+            updateFinished="onExportUpdateFinished" items="{/Export}"
+            columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+            growing="true" growingScrollToLoad="true" growingThreshold="100"
+            selectionChange="onExportSelectionChange">
+            <customControls:infoToolbar>
+                <Toolbar visible="{UIModel>/visibleInfoToolBar}"> 
+                    <Label text="{UIModel>/infoToolBarText}"/>
+                </Toolbar>
+            </customControls:infoToolbar>
+
+            <customControls:columns>
+                <customControls:SortableColumn
+                    sortProperty="ObjectType" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_ObjType}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="ObjectName" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_ObjName}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="ObjectNamespace" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_ObjNameSpace}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="Status" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_Status}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="Operation" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_Operation}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="CreatedTimestamp" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_CreatedTS}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+                <customControls:SortableColumn
+                    sortProperty="CreatedBy" hAlign="Begin" vAlign="Inherit"
+                    minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+                    <customControls:header>
+                        <customControls:SortableItem text="{i18n>Repl_CreatedBy}" />
+                    </customControls:header>
+                </customControls:SortableColumn>
+            </customControls:columns>
+
+            <customControls:items>
+                <ColumnListItem width="100%">
+                    <cells>
+                        <Text text="{path : 'ObjectType', formatter : 'sap.secmon.ui.replication.util.Formatter.exportTypeFormatter'}"  />
+                        <Text text="{ObjectName}" />
+                        <Text text="{ObjectNamespace}" />
+                        <Text text="{path : 'Status', formatter : 'sap.secmon.ui.replication.util.Formatter.exportStatusFormatter'}"  />
+                        <Text text="{path : 'Operation', formatter : 'sap.secmon.ui.replication.util.Formatter.exportOperationFormatter'}"  />
+                        <Text text="{parts : [ {
+                                                path : 'applicationContext>/UTC'
+                                            }, {
+                                                path : 'CreatedTimestamp'
+                                            } ],
+                                        formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+                        <Text text="{CreatedBy}" />
+                    </cells>
+                </ColumnListItem>
+            </customControls:items>
+        </customControls:ColumnClickableTable>
+    </ScrollContainer>
+</core:FragmentDefinition>

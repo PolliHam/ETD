@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form"
+	xmlns:unified="sap.ui.unified">
+	<Dialog title="{i18n>Locations_FileUpload}">
+		<layout:SimpleForm>
+			<Label text="{i18n>Locations_File}" />
+			<unified:FileUploader id="locationsFileUploader"
+				name="locationFileUploader" multiple="false" maximumFileSize="50"
+				fileType="csv" sendXHR="true" uploadOnChange="false"
+				uploadUrl="/sap/secmon/iphandler/locationFileUpload.xsjs?command=createLocations"
+				uploadComplete="onUploadComplete" fileSizeExceed="onFileSizeExceed"
+				typeMissmatch="onTypeMissmatch" />
+		</layout:SimpleForm>
+		<buttons>
+			<Button id="Ok" text="{i18n>Subnets_Ok}" press="onCloseUploadLocationDialog" />
+			<Button id="Cancel" text="{i18n>Subnets_Cancel}" press="onCloseUploadLocationDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

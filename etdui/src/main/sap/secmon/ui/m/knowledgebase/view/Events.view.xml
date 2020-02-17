@@ -1,0 +1,21 @@
+<mvc:View controllerName="sap.secmon.ui.m.knowledgebase.view.Events"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page" title="{i18n>KB_Events}">
+		<headerContent>
+
+		</headerContent>
+		<content>
+			<c:Fragment fragmentName="sap.secmon.ui.m.knowledgebase.view.Table"
+				type="XML" />
+
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+							</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

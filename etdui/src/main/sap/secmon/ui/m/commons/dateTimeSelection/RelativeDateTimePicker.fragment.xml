@@ -1,0 +1,23 @@
+<c:FragmentDefinition 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<HBox>
+		<RadioButton id="relativeTimeRange" groupName="timeRangeGroup" selected="false"></RadioButton>
+		<items>
+			<Input editable="false" value="{i18nCommon>TimeRange_Last_LBL}" width="70px"></Input>
+			<Input id="inputTimeLast" value="" width="150px"></Input>
+			<Select class= "sapUiSmallMarginBegin" id="selectTimeLast" enabled="true" width="150px">
+				<layoutData>
+					<l:GridData span="L2 M5 S5" />
+				</layoutData>
+				<items>
+					<c:Item key="minutes" text="{i18nCommon>TimeRange_Min_LBL}" />
+					<c:Item key="hours" text="{i18nCommon>TimeRange_Hours_LBL}" />
+					<c:Item key="days" text="{i18nCommon>TimeRange_Days_LBL}" />
+				</items>
+			</Select>
+		</items>
+		</HBox>
+</c:FragmentDefinition>

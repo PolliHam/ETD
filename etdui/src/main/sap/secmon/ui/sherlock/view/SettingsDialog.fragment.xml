@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+                         xmlns="sap.m"
+                         xmlns:l="sap.ui.layout">
+    <Dialog id="idSettingsDialog"
+            title="{i18n>SH_TOL_Settings}"
+            contentWidth="500px"
+            contentHeight="400px">
+        <content>
+            <IconTabBar
+                expandable="false"
+                stretchContentHeight="true"
+                backgroundDesign="Transparent"
+                class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter
+                        key="Search"
+                        text="{i18n>SH_Search_Options}">
+                        <l:VerticalLayout>
+                            <Label text="{i18n>SH_Other_Options}"/>
+                            <CheckBox selected="{/caseSensitivity}"
+                                      text="{i18n>SH_Case_Mode_Sensitive}"
+                                      class="sapUiSmallMarginEnd"/>
+                            <CheckBox selected="{/wildcardOn}"
+                                      text="{i18n>SH_Wildcard_On}"
+                                      class="sapUiSmallMarginEnd"/>          
+                            <Label class="sapUiSmallMarginTop" text="{i18n>SH_Request_Timeout}"/>
+                            <Input type="Number" id="idTimeout"
+                                   value="{path: '/timeoutRequest', type: 'sap.ui.model.type.Integer', constraints: {minimum:0, maximum: 1800}}"/>
+                            <Label class="sapUiSmallMarginTop" text="{i18n>SH_RetentionPeriodInfo}"/>
+                            <VBox>
+                                <HBox>
+                                    <Label class="sapUiSmallMarginBegin" text="{i18n>SH_RetentionPeriodRec}"/>
+                                    <Text class="sapUiTinyMarginBegin"
+                                          text="{ConfigurationParameters>/ConfigurationParameters('RetentionPeriodOriginalEvents')/ValueInteger}"/>
+                                </HBox>
+                                <HBox>
+                                    <Label class="sapUiSmallMarginBegin" text="{i18n>SH_RetentionPeriodUnrec}"/>
+                                    <Text class="sapUiTinyMarginBegin"
+                                          text="{ConfigurationParameters>/ConfigurationParameters('RetentionPeriodUnrecognizedEvents')/ValueInteger}"/>
+                                </HBox>
+                            </VBox>
+                        </l:VerticalLayout>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        Key="sort"
+                        text="{i18n>SH_Sort_Options}">
+                        <l:VerticalLayout>
+                            <Label text="{i18n>SH_Sort_Option_Label}"/>
+                            <RadioButtonGroup select="onSortModeChange" selectedIndex="1">
+                                <RadioButton text="{i18n>SH_Ascending}"/>
+                                <RadioButton text="{i18n>SH_Descending}"/>
+                            </RadioButtonGroup>
+                        </l:VerticalLayout>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <buttons>
+            <Button text="{i18nCommon>OK_BUT}" press="onPressOkSettingsDialog"/>
+            <Button text="{i18nCommon>Close_BUT}" press="onPressCloseSettingsDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

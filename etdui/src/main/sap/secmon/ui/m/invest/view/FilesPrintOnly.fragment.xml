@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	controllerName="sap.secmon.ui.m.invest.view.Detail" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns="sap.m">
+		<Table id="fileTablePrintOnly"
+							items="{
+	                        path: 'File/',
+	                        sorter: {
+	                            path: 'ContentName'
+	                        }
+	                        }"
+							growing="false" growingThreshold="1000" mode="None">
+							<columns>
+								<Column demandPopin="true" hAlign="Begin" vAlign="Inherit" 
+									 width="45%" minScreenWidth="10em">
+									<Text text="{i18nCommon>FileName}"/>
+								</Column>
+								<Column demandPopin="false" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet">
+									<Text text="{i18nCommon>Created_By_COL}" />
+								</Column>
+								<Column demandPopin="false" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet">
+									<Text text="{i18nCommon>Created_At_COL}" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Link text="{ContentName}" target="_blank"
+											href="{path: 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationFileURL'}"
+											wrapping="true" />
+										<Text text="{CreatedBy}" wrapping="true"/>
+										<Text wrapping="true"
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+</core:FragmentDefinition>

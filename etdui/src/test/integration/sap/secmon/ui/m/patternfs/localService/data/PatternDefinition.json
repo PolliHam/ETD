@@ -1,0 +1,23 @@
+{
+  "d": {
+    "results": [
+      {
+        "Id": "VYKjIOGw/ivhAAAACkzxCQ==",
+        "NameSpace": "http://sap.com/secmon/basis",
+        "NameSpaceId": "746U8LWFQv+VizMoEgFSHA==",
+        "Name": "Logon success same user from different Terminal IDs",
+        "PatternType": "FLAB",
+        "Description": "The number of successful logons with the same user from different terminal IDs has exceeded a threshold.",
+        "AlertSeverity": "HIGH",
+        "Status": "ACTIVE",
+        "QueryDefinitionId": "VYKjIOGw/ivhAAAACkzxCQ==",
+        "OpenAlertCount": "94944",
+        "CreatedBy": "C5285514",
+        "TestMode": "FALSE",
+        "ExecutionOutput": "ALERT",
+        "PatternScenarios": "BLUB (http://engelsi), Conny (http://Accenture), New Scenario JH (http://Anne), asdsdasd (http://engelsi)",
+        "CountScheduledJobs": "0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+.chartBar {
+	width: 80.25%;
+	margin-left: auto;
+	margin-right: 7rem;
+	margin-top: -20px;
+	background-color: transparent;
+	box-shadow: none;
+}

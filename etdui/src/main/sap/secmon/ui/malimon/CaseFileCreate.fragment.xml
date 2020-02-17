@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:etd="sap.secmon.ui.browse"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+	<Dialog title="Create">
+		<form:SimpleForm maxContainerCols="2">
+            <Label text="{i18n>CF_TIT_Create}" />
+			<Input value ="{caseFileModel>/name}" />
+			
+			<Label text="{i18n>MM_LBL_CFNamespace}"/>
+			<Select
+				selectedKey="{caseFileModel>/namespace}"
+				items="{
+					path: 'NamespacesModel>/',
+					sorter: { path: 'NamespacesModel>NameSpace' }
+				}">
+				<core:Item key="{NamespacesModel>NameSpace}" text="{NamespacesModel>NameSpace}" />
+			</Select>
+		</form:SimpleForm>
+		<buttons>
+			<Button text="{i18n>Commons_Ok}" press="createCaseFile" />
+			<Button text="{i18n>Commons_Cancel}" press="onCancelCreateDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

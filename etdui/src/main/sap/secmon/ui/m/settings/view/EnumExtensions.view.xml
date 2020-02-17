@@ -1,0 +1,81 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.EnumExtensions"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Page showNavButton="{device>/isPhone}"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{i18n>CustProcessFields_LBL}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>		
+		<content>
+			<Panel expandable="false" expanded="true">
+				<content>
+					<Table id="enumExtensionsTable"
+						items="{path: '/enumValues'}"
+						mode="None" >
+						<headerToolbar>
+							<Toolbar>
+								<HBox id="breadcrumbContainer">
+								</HBox>
+								<ToolbarSpacer />
+								<Button text="{i18nCommon>Add_BUT}" visible="{=${uiModel>/leafReached} &amp;&amp; ${applicationContext>/userPrivileges/settingsCustomValuesWrite} }"
+									press="onAddValue" />
+								<Button id="deleteButton" text="{i18nCommon>Delete_BUT}" 
+									visible="{=${uiModel>/leafReached} &amp;&amp; ${applicationContext>/userPrivileges/settingsCustomValuesWrite} }"
+									enabled="{uiModel>/checked}" press="onDeleteValue" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="2rem" >
+							</Column>
+							<Column visible="{=${uiModel>/leafReached}?false: true}">
+								<Text text="{i18nCommon>Name_COL}" />
+							</Column>
+							<Column visible="{uiModel>/leafReached}">
+								<Text text="{i18nCommon>Value_COL}" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="listItemTemplate" type="{=${Name}?'Navigation':'Inactive'}" press="onSelectListItem" >
+								<cells>
+									<!-- A dedicated column with checkboxes is used because the standard checkbox column of a 
+										table with mode "MultiSelect"
+										does not allow to disable a single checkbox.
+										A single line  is checked with controller.getCheckedContexts()
+									 -->
+									<CheckBox editable="{=${editable} === 'true'?true:false}"  enabled="{applicationContext>/userPrivileges/settingsCustomValuesWrite}"
+										selected="{checked}"
+										select="onCheck" />
+									<Text text="{Name}" />
+									<Input value="{Value}" maxLength="60" enabled="{applicationContext>/userPrivileges/settingsCustomValuesWrite}"
+										editable="{ parts: [{path:'editable'}, {path:'isNew'}], 
+	                                        	formatter: 'sap.secmon.ui.m.settings.util.Formatter.isEnumEntryEditable'}"
+	                                    liveChange="onValueChange" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button xmlns="sap.m" text="{i18nCommon>Save_BUT}"
+                    	visible="{=${uiModel>/leafReached} &amp;&amp; ${applicationContext>/userPrivileges/settingsCustomValuesWrite} }" enabled="{uiModel>/changed}" press="onSave"
+                        type="Emphasized">
+                    </Button>
+                    <Button xmlns="sap.m" text="{i18nCommon>Cancel_BUT}"
+                    	visible="{=${uiModel>/leafReached} &amp;&amp; ${applicationContext>/userPrivileges/settingsCustomValuesWrite} }" enabled="{uiModel>/changed}" press="onCancel">
+                    </Button>
+                    <Button xmlns="sap.m" id="exportBtn" text="{i18nCommon>Export_BUT}" 
+                    	enabled="{uiModel>/checked}"
+                    	visible="{=!${uiModel>/leafReached} &amp;&amp; ${applicationContext>/userPrivileges/contentRepExport} }" press="onExportSelectedPressed" />
+                </contentRight>
+            </Bar>
+        </footer>
+	</Page>
+</mvc:View>
+

@@ -1,0 +1,4 @@
+<View controllerName="sap.secmon.ui.m.alertsfs.view.AlertGraph"
+	displayBlock="true" xmlns="sap.ui.core.mvc" xmlns:controls="sap.secmon.ui.commons.controls">
+	<controls:AlertForceDirectedGraph id="forceDirectedGraph" />
+</View>

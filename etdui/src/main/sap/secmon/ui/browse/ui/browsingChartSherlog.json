@@ -1,0 +1,193 @@
+{
+    "Log": {
+        "dimensions": [
+            {
+                "context" : "Log",
+                "key": "53CDE6150DC572EEE10000000A4CF109",
+                "name": "Event Log Type",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "Log",
+                "key": "54F913D5CCC44E8AE10000000A4CF109",
+                "name": "Event (Semantic)",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "Log",
+                "key": "53D8FCF497FB1B2EE10000000A4CF109",
+                "name": "User Pseudonym, Acting",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "Log",
+                "key": "56424E801B2FA51BE22A044B51CC7B4D",
+                "name": "User Pseudonym, Targeted",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            }          
+        ]
+    },
+    "Alert": {
+        "dimensions": [ 
+            {
+                "context" : "Alert",
+                "key": "53EE56541AA9066CE10000000A4CF109",
+                "name": "System Id",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },           
+            {
+                "context" : "Alert",
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "name": "Pattern",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "Alert",
+                "key": "53EE56561AA9066CE10000000A4CF109",
+                "name": "Status",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "Alert",
+                "key": "53EE56521AA9066CE10000000A4CF109",
+                "name": "Timestamp",
+                "dataType": "ValueTimeStamp",
+                "filterOperators" : [ "=", "BETWEEN" ],
+                "distinct" : false,
+                "chartType" : "column"
+            }
+        ]
+    },
+    "HealthCheck": {
+        "dimensions": [
+            {
+                "context" : "HealthCheck",
+                "key": "547DF3D6DD747331E10000000A4CF109",
+                "name": "System Id",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "HealthCheck",
+                "key": "547DF3D7DD747331E10000000A4CF109",
+                "name": "Event Id",
+				"dataType": "ValueVarChar",
+				"filterOperators" : [ "=", "LIKE", "IN" ],
+				"distinct" : false,
+				"chartType" : "donut"
+            },
+            {
+                "context" : "HealthCheck",
+                "key": "547E59BAFC1C7331E10000000A4CF109",
+                "name": "Timestamp",
+				"dataType": "ValueTimeStamp",
+				"filterOperators" : [ "=", "BETWEEN" ],
+				"distinct" : false,
+				"chartType" : "column"
+            }
+        ]
+    },
+    "ConfigurationCheck": {
+        "dimensions": [
+            {
+                "context" : "ConfigurationCheck",
+                "key": "C8609A58E3DF3F69E16000000A600446",
+                "name": "DisplayName",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "ConfigurationCheck",
+                "key": "D1609A58E3DF3F69E16000000A600446",
+                "name": "System Id, Actor",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "ConfigurationCheck",
+                "key": "CE609A58E3DF3F69E16000000A600446",
+                "name": "Status Level",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "ConfigurationCheck",
+                "key": "C9609A58E3DF3F69E16000000A600446",
+                "name": "Timestamp",
+                "dataType": "ValueTimeStamp",
+                "filterOperators" : [ "=", "BETWEEN" ],
+                "distinct" : false,
+                "chartType" : "column"
+            }
+        ]
+    },
+    "SecurityNote": {
+        "dimensions": [
+            {
+                "context" : "SecurityNote",
+                "key": "2584189015ECF88716007C28C4749C63",
+                "name": "Note Number",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "SecurityNote",
+                "key": "921B269015ECF88716007C28C4749C63",
+                "name": "CVSS Base Score",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "SecurityNote",
+                "key": "5E1B269015ECF88716007C28C4749C63",
+                "name": "Component",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            },
+            {
+                "context" : "SecurityNote",
+                "key": "451B269015ECF88716007C28C4749C63",
+                "name": "Pattern Category",
+                "dataType": "ValueVarChar",
+                "filterOperators" : [ "=", "LIKE", "IN" ],
+                "distinct" : false,
+                "chartType" : "donut"
+            }
+        ]
+    }
+}

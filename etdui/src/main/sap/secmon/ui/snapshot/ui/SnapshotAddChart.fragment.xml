@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" 
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>Snapshot_Title}">
+		<form:SimpleForm maxContainerCols="2" >
+            <Label text="{i18n>Snapshot_Dropdown_Label}" >
+			</Label>
+			<ComboBox items="{AddChartModel>/d/results}">
+			<core:ListItem key="{AddChartModel>Id}" text="{AddChartModel>Name}">
+			<core:customData>
+			<core:CustomData key ="key" value="{AddChartModel>SerializedData}"/>
+			</core:customData>
+			</core:ListItem>
+			</ComboBox>
+			<Label text="{i18n>Snapshot_Comment_Label}" >
+            </Label>
+           <TextArea tooltip ="{i18n>Snapshot_ComArea_Tooltip}">
+           </TextArea>
+		</form:SimpleForm>
+		<buttons>
+			<Button text="{i18n>Snapshot_BUT_OK}" press="onOKPress" />
+			<Button text="{i18n>Snapshot_BUT_Cancel}" press="onCancelPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

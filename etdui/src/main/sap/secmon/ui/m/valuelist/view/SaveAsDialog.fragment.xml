@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog id="saveAsDialog" title="{i18n>VL_SaveAs_NewVL}">
+		<content>
+			<f:SimpleForm showHeader="false" editable="true">
+				<f:content>
+					<Label text="{i18nCommon>Name_LBL}" />
+					<Input value="{local>/Name}" />
+					<Label text="{i18nCommon>Description_LBL}" />
+					<Input value="{local>/Description}" />
+					<Label text="{i18nCommon>Namespace_LBL}" />
+					<Select id="nameSpaceSelectForSaveAs"
+						selectedKey="{
+							path: 'local>/Namespace',
+      						formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.defaultNamespaceFormatter'
+    								}">
+						<core:Item key="{nameSpaces>NameSpace}" text="{nameSpaces>NameSpace}" />
+					</Select>
+					<Label text="{i18n>VL_ValuesUpdateLBL}" />
+					<sscc:RadioButtonGrid id="updateModeRadioButtons"
+						width="100%" vSpacing="0" hSpacing="0" defaultSpan="L6 M6 S12"
+						selectedKey="{local>/UpdateMode}"
+						buttons="{enums>/sap.secmon.ui.m.valuelist/ValueList/UpdateMode/enumValues}">
+						<sscc:buttons>
+							<sscc:RadioButton text="{enums>Value}" key="{enums>Key}" />
+						</sscc:buttons>
+					</sscc:RadioButtonGrid>
+					<Label text="{i18n>VL_NewVL_LBL}" />
+					<CheckBox selected="{local>/includeInactiveValues}" 
+						text="{i18n>VL_inclInactV_LBL}" 
+						enabled="{=${valueCount>/InactiveValuesNumber} > 0}"/>
+					<Text text="{i18n>VL_Save_ValuesMSG}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18nCommon>Save_BUT}" press="onSaveNewVL" />
+			<Button text="{i18nCommon>Cancel_BUT}" press="onDialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
+

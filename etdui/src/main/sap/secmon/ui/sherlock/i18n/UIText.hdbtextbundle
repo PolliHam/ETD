@@ -1,0 +1,185 @@
+#XMSG: Log Interpretation UI
+Interpret_EnterAllFields=Enter all required fields
+#XMSG: Log Interpretation UI
+Interpret_UploadSuc=Run {0} created. File has been uploaded. Now processing discovery phase
+#XMSG
+BU_MSG_CrFilterFromGRTo=Enter a valid time period
+#XMSG: Log Processing Error
+LogProcessingError=An error occurred. Please try again. If the error persists contact your system administrator.
+#XTIT
+BU_TIT_TimePeriod=Time Period Selection
+#XTIT : Sherlog
+SH_Title=Sherlog
+#XTIT : Sherlog
+SH_Page_Title=Sherlog
+#XMSG: Sherlog: You are not authorized.
+SH_noAuth=You are not authorized.
+#XLBL : Sherlog
+SH_Other_Options=Message Filter:
+#XLBL : Sherlog
+SH_Request_Timeout=Request timeout (in sec):
+#XLBL : Sherlog
+SH_Log_Type=Log Type
+#XLBL : Sherlog
+SH_Storage_Type=Storage Type
+#XTXT : Sherlog
+SH_All_Logs=All Logs
+#XTXT : Sherlog
+SH_Recognized_Log=Recognized
+#XTXT : Sherlog
+SH_Unrecognized_Log=Unrecognized
+#XLBL : Sherlog
+SH_Warm_Storage=Warm Storage
+#XLBL : Sherlog
+SH_Hot_and_Warm_Storage=Hot and Warm Storage
+#XTXT : Sherlog
+SH_Hot=Hot
+#XTXT : Sherlog
+SH_Warm=Warm
+#XTXT : Sherlog
+SH_Timestamp=Timestamp
+#XTXT : Sherlog
+SH_Message=Message
+#XTXT : Sherlog
+SH_EventSourceId=Source Id
+#XTXT : Sherlog
+SH_TechnicalLogCollectorIPAddress=Log Collector IP-Address
+#XTXT : Sherlog
+SH_TechnicalLogCollectorName=Log Collector Name
+#XTXT : Sherlog
+SH_TechnicalLogCollectorPort=Log Collector Port
+#XTXT : Sherlog
+SH_EventLogType=Event Log Type
+#XTXT : Sherlog
+SH_EventSourceType=Source Type
+#XTXT : Sherlog
+SH_Search_Options=General Options
+#XLBL : Sherlog
+SH_Sort_Options=Sort Options
+#XLBL : Sherlog
+SH_Columns=Columns
+#XLBL : Sherlog
+SH_Column_Visibility=Change visibility:
+#XTXT : Sherlog
+SH_Case_Mode_Sensitive=Case Mode Sensitive
+#XTXT : Sherlog
+SH_Wildcard_On=Enable using of underscore as wildcard for single character
+#XTXT : Sherlog
+SH_Timestamp=Timestamp
+#XTXT : Sherlog
+SH_Process=Process
+#XTXT : Sherlog
+SH_Ascending=Ascending
+#XTXT : Sherlog
+SH_Descending=Descending
+#XTXT : Sherlog
+SH_Sort_Option_Label = Timestamp:
+#XTXT : Sherlog
+SH_Search_PlaceHolder=Enter search term
+#XTXT : Sherlog
+SH_Timeout=Timeout
+#XMSG : Sherlog
+SH_DayRestriction_MSG=The datetime range should not exceed the retention period for the hot storage plus one day ({0} days in total). Please reduce the datetime range.
+#XMSG : Sherlog
+SH_DayRestriction_OnlyWarm_MSG=The search is conducted in the warm storage. The maximum datetime range for the warm storage is one day. Please reduce the datetime range!
+#XMSG : Sherlog
+SH_EndBeforeStart_MSG=Please enter datetimes within a valid timerange.
+#XMSG : Sherlog
+SH_OnlyRecognizedLogs=The time range selection exceeds the retention period in hot storage for Unrecognized logs and therefore the search is only performed for Recognized logs in hot storage.
+#XMSG : Sherlog
+SH_OnlyUnrecognizedLogs=The time range selection exceeds the retention period in hot storage for Recognized logs and therefore the search is only performed for Unrecognized logs in hot storage.
+#XMSG : Sherlog
+SH_Invalid_Timeout_MSG=Please enter a valid number (in seconds).
+#XMSG : Sherlog
+SH_Timeout_Too_Large_MSG=The maximum possible timerange is {0} seconds.
+#XTOL :
+SH_TOL_Search=Search
+#XTOL :
+SH_TOL_Timerange=Select a timerange for the search.
+#XTOL:
+SH_TOL_Settings=Settings
+#XTOL:
+SH_TOL_Help=Help
+#XTOL:
+SH_TOL_Personalize=Personalize the result table by showing/hiding selected columns.
+#XTOL:
+SH_Download_tip=Download search result.
+#XTXT : Sherlog
+SH_Selected_Logs={0} selected.
+#XLBL : Sherlog
+SH_RetentionPeriodInfo=Retention periods for the hot storage (in days):
+#XLBL : Sherlog
+SH_RetentionPeriodRec=Recognized (Original) logs:
+#XLBL : Sherlog
+SH_RetentionPeriodUnrec=Unrecognized logs:
+#XTXT : Sherlog Header Toolbar Prefix
+headerToolbarSelectionPrefix=Selected Items ({0})
+#XTXT : Sherlog Header Toolbar Prefix
+headerToolbarItemPrefix=Items ({0})
+#XCOL : Log Interpretation UI
+Interpret_ReasonCode=Reason
+#XTXT:  Unrecognized Logs UI
+Interpret_NoRTRuleMatch=No runtime rule
+#XTXT:  Unrecognized Logs UI
+Interpret_NoFinalRXMatch=Extraction failed
+#XTXT:  Unrecognized Logs UI
+Interpret_IncomplTS=Incomplete timestamp
+#XTXT:  Unrecognized Logs UI
+SH_All_Reason_Codes=All Reason Codes
+
+#XCOL: Malimon Case File list
+MM_COL_CFName=Name
+#XCOL: Malimon Case File list
+MM_COL_CFNamespace=Namespace
+#XCOL: Malimon Case File list
+MM_COL_CreatedBy=Created By
+#XCOL: Malimon Case File list
+MM_COL_CreatedAt=Creation Time
+#XCOL: Malimon Case File list
+MM_COL_ChangedBy=Changed By
+#XCOL: Malimon Case File list
+MM_COL_ChangedAt=Change Time
+#XTIT: Malimon Case File
+Create_Attack_path=Create Attack Path
+#XLBL: Malimon Case File
+Name_attack_path=Attack Path Name
+#XLBL: Malimon Case File
+Description_attack_path=Attack Path Description
+#XBUT: Malimon Case File
+Save_attack_path=Save Attack Path
+#XTIT: Malimon Case File
+MM_TIT_CaseFile = Case Files
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddShow=Add and Show
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddReturn=Add and Return
+#XBUT : Malimon Case File Dialog
+SPL_BUT_Close=Close
+#XTXT : Malimon Case File Dialog
+CF_TOL_Create=Create new Case File
+#XTXT : Malimon Case File Dialog
+CF_TIT_Create = Name
+#XMSG
+MM_MSG_CaseFileNoName=Enter name for case file
+#XLBL: Malimon Case File list
+MM_Search_Placeholder=Enter the name of a Case File
+#XLBL
+MM_LBL_CFNamespace=Namespace
+#XLBL
+AddToCaseFile=Process in Case File
+#XLBL
+SH_Process_In_ForensicLab=Process in the Forensic Lab
+#XLBL
+SH_Create_LogLearning_Run=Start a new log learning run
+#XTIT
+SH_Process_Logs=Process Logs
+#XLBL
+addValueToFilter=Add selected value to filter
+
+#XBUT:Commons
+Commons_Ok=OK
+#XBUT:Commons
+Commons_Cancel=Cancel
+
+#XMSG: Timeout Error
+TimeoutError=A timeout occurred while requesting of logs.

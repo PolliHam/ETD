@@ -1,0 +1,79 @@
+<mvc:View controllerName="sap.secmon.ui.m.investTemplateFS.view.InvestigationTemplateDisplay"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+
+
+	<Page id="page" title="{parts: [{path: 'i18n>Template_Title_TIT'}, {path: 'TemplateDescription'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}"
+		enableScrolling="false" showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" />
+		</headerContent>
+		<subHeader>
+		</subHeader>
+		<content>
+			<Panel expandable="true" expanded="true" headerText="{i18n>Header_LBL}">
+				<content>
+					<f:SimpleForm editable="false">						
+						<f:content>
+							<Label text="{i18n>TemplateName_LBL}">
+							</Label>
+							<Text text="{TemplateDescription}"/>
+							<Label text="{i18nInvestigation>MCreationDate}">
+							</Label>
+							<Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'TemplateCreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+							<Label text="{i18nCommon>Created_By_COL}">
+							</Label>
+							<Text text="{TemplateCreatedBy}" />
+							<Label text="{i18n>SelByPattern_LBL}" tooltip="{i18n>SelByPattern_TOL}"/>
+							<Text text="{parts : [ { path : 'PatternName'}, { path : 'PatternNameSpace' }, {path : 'PatternType'} ], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.patternFormatter'}"/>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel expandable="false" expanded="true" headerText="{i18n>Content_LBL}">
+				<content>
+					<f:SimpleForm editable="false">					
+						<f:content>
+							<Label text="{i18nCommon>Description_LBL}">
+							</Label>
+							<Text text="{Description}">
+							</Text>
+							<Label text="{i18nCommon>Severity_LBL}">
+							</Label>
+							<Text
+								text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/'},{path : 'Severity'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}">
+							</Text>
+							<Label text="{i18nInvestigation>MInvest_Attack}">
+							</Label>
+							<Text
+								text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/'},{path : 'Attack'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}">
+							</Text>
+							<Label text="{i18nInvestigation>MManagementVisibility}">
+							</Label>
+							<Text
+								text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/'},{path : 'ManagementVisibility'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}">
+							</Text>
+							<Label text="{i18n>Comment_LBL}" />
+							<TextArea enabled="true" editable="false" width="100%" rows="5" value="{Comment}" />	
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>	
+			
+		</content>
+			<footer>
+				<OverflowToolbar>
+						<content>
+							<ToolbarSpacer />
+							<Button text="{i18nCommon>Edit_BUT}" press="onEdit" 
+								visible="{applicationContext>/userPrivileges/investigationTemplateWrite}"/>
+							<Button text="{i18nCommon>Delete_BUT}" press="onDelete" 
+								visible="{applicationContext>/userPrivileges/investigationTemplateWrite}"/>
+							<Button xmlns="sap.m" text="{i18nCommon>Export_BUT}" 
+								visible="{applicationContext>/userPrivileges/contentRepExport}" press="onExportPressed" />
+						</content>
+				</OverflowToolbar>
+			</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,49 @@
+<c:FragmentDefinition 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:c="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:variants="sap.ui.comp.variants">
+	<VBox>
+		<HBox>
+			<RadioButton selected="true" class="sapUiSmallMarginTop" id="absoluteTimeRange" groupName="timeRangeGroup"> </RadioButton>
+				<items>
+					<Input class="sapUiSmallMarginTop" editable="false" value="{i18nCommon>TimeRange_From_LBL}" width="70px" />
+					<DatePicker class="sapUiSmallMarginTop" value="{type:'sap.ui.model.type.Date', formatOptions: { style: 'long'}}" id="datePickerTimeRangeFrom" width="150px">
+						<layoutData>
+							<l:GridData span="L2 M5 S5" />
+						</layoutData>
+					</DatePicker>
+					<Input id="inputTimeRangeFrom" class="sapUiSmallMarginTop sapUiSmallMarginBeginEnd" value="" placeholder="{i18nCommon>TimeFormat_LBL}" width="150px">
+						<layoutData>
+							<l:GridData span="L1 M5 S5" />
+						</layoutData>
+					</Input>
+					<Input class="sapUiSmallMarginTop sapUiSmallMarginEnd" editable="false" value="UTC" width="4em" visible="{applicationContext>/UTC}"/>
+				</items>
+		</HBox>
+		<HBox>
+			<items>
+				<Input class="sapUiMediumMarginBegin sapUiSmallMarginBottom" value="{i18nCommon>TimeRange_To_LBL}" editable="false" width="70px">
+					<layoutData>
+						<l:GridData span="L1 M2 S2" position="Center" />
+					</layoutData>
+				</Input>
+				<DatePicker class="sapUiSmallMarginBottom" value="{type:'sap.ui.model.type.Date', formatOptions: { style: 'long'}}" id="datePickerTimeRangeTo" width="150px" 
+							change="onScheduleDateChange">
+					<layoutData>
+						<l:GridData span="L2 M5 S5" />
+					</layoutData>
+				</DatePicker>
+			</items>
+			<items>
+				<Input class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom"  id="inputTimeRangeTo" value="" placeholder="{i18nCommon>TimeFormat_LBL}" width="150px">
+					<layoutData>
+						<l:GridData span="L1 M5 S5" />
+					</layoutData>
+				</Input>
+				<Input class="sapUiSmallMarginBottom sapUiSmallMarginEnd" editable="false" value="UTC" width="4em" visible="{applicationContext>/UTC}"/>
+			</items>
+		</HBox>
+	</VBox>
+</c:FragmentDefinition>

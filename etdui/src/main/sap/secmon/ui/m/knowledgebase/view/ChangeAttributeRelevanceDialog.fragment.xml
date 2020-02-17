@@ -1,0 +1,19 @@
+<c:FragmentDefinition xmlns="sap.m"
+xmlns:c="sap.ui.core"
+xmlns:l="sap.ui.layout">
+    <Dialog id="ChangeAttributeRelevanceDialog" title="{i18n>KB_ChangeRelevance}">
+        <content>
+            <l:VerticalLayout>
+                <RadioButtonGroup>
+                    <RadioButton text="{i18n>KB_Mandatory}" selected="{RelevanceModel>/mandatory}" />
+                    <RadioButton text="{i18n>KB_Likely}" selected="{RelevanceModel>/likely}" />
+                    <RadioButton text="{i18n>KB_Less_Likely}" selected="{RelevanceModel>/lessLikely}" />
+                </RadioButtonGroup>
+           </l:VerticalLayout>
+       </content>
+       <buttons>
+           <Button text="{i18nCommon>Save_BUT}" press="onSaveChangeRelevance" />
+           <Button text="{i18nCommon>Cancel_BUT}" press="onCancelChangeRelevance" />
+       </buttons>
+    </Dialog>
+</c:FragmentDefinition>

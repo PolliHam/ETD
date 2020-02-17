@@ -1,0 +1,148 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.runs"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<VBox>
+		<fb:FilterBar clear="onClear" search="onSearch"
+			showRestoreButton="false" showClearButton="true" filterBarExpanded="false"
+			id="filterBar">
+
+			<fb:filterItems>
+
+				<fb:FilterItem name="RunName" label="{i18n>Interpret_RunName}">
+					<fb:control>
+						<Input />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="Description" label="{i18n>Interpret_Description}">
+					<fb:control>
+						<Input />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="CommandType" label="{i18n>Interpret_CommandType}">
+					<fb:control>
+						<ComboBox>
+							<core:Item key="" text="{i18n>Interpret_All}" />
+							<core:Item key="Staging" text="{i18n>Interpret_Discovery}" />
+							<core:Item key="KeyGeneration" text="{i18n>Interpret_Activation}" />
+							<core:Item key="Test" text="{i18n>Interpret_Testing}" />
+							<core:Item key="UpdateRTRules" text="{i18n>Interpret_Synchronization}" />
+						</ComboBox>
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="Status" label="{i18n>Interpret_Status}">
+					<fb:control>
+						<ComboBox>
+							<core:Item key="" text="{i18n>Interpret_All}" />
+							<core:Item key="Open" text="{i18n>Interpret_Open}" />
+							<core:Item key="Read" text="{i18n>Interpret_InProcess}" />
+							<core:Item key="Error" text="{i18n>Interpret_Error}" />
+							<core:Item key="Successful" text="{i18n>Interpret_Successful}" />
+						</ComboBox>
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="StagingRulesStatus" label="{i18n>Interpret_StageStatus}">
+					<fb:control>
+						<ComboBox>
+							<core:Item key="" text="{i18n>Interpret_All}" />
+							<core:Item key="InSync" text="{i18n>Interpret_InSync}" />
+							<core:Item key="OutOfSync" text="{i18n>Interpret_OutOfSync}" />
+							<core:Item key="NotExisting" text="{i18n>Interpret_NotExist}" />
+						</ComboBox>
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="ProductiveRulesStatus" label="{i18n>Interpret_ProdStatus}">
+					<fb:control>
+						<ComboBox>
+							<core:Item key="" text="{i18n>Interpret_All}" />
+							<core:Item key="InSync" text="{i18n>Interpret_InSync}" />
+							<core:Item key="OutOfSync" text="{i18n>Interpret_OutOfSync}" />
+							<core:Item key="NotExisting" text="{i18n>Interpret_NotExist}" />
+						</ComboBox>
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="CreatedBy" label="{i18n>Interpret_CreatedBy}">
+					<fb:control>
+						<Input />
+					</fb:control>
+				</fb:FilterItem>
+
+				<fb:FilterItem name="ChangedBy" label="{i18n>Interpret_ChangedBy}">
+					<fb:control>
+						<Input />
+					</fb:control>
+				</fb:FilterItem>
+
+			</fb:filterItems>
+		</fb:FilterBar>
+		<Table id="tableRuns" items="{/Run}" growing="true" mode="MultiSelect"
+			itemPress="onPressOpenRun" selectionChange="onRowSelectionChange">
+			<headerToolbar>
+				<OverflowToolbar>
+					<ToolbarSpacer />
+					<Button icon="sap-icon://drop-down-list" press="onPressSettings" />
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<Text text="{i18n>Interpret_RunName}" />
+				</Column>
+				<Column minScreenWidth="1980px" demandPopin="true">
+					<Text text="{i18n>Interpret_Description}" />
+				</Column>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<Text text="{i18n>Interpret_CommandType}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Interpret_Status}" />
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true">
+					<Text text="{i18n>Interpret_StageStatus}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Interpret_ProdStatus}" />
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true">
+					<Text text="{i18n>Interpret_CreatedBy}" />
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true">
+					<Text text="{i18n>Interpret_CreatedTS}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Interpret_ChangedBy}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Interpret_ChangedTS}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation" vAlign="Middle">
+					<cells>
+						<Text text="{RunName}" />
+						<Text text="{Description}" />
+						<Text
+							text="{ path : 'CommandType', formatter : 'sap.secmon.ui.loglearning.util.Formatter.formatCommandTypeESP2UI' }" />
+						<Text
+							text="{ path : 'Status', formatter : 'sap.secmon.ui.loglearning.util.Formatter.formatStatusESP2UI' }" />
+						<Text
+							text="{ path : 'StagingRulesStatus', formatter : 'sap.secmon.ui.loglearning.util.Formatter.formatRuleStatusESP2UI' }" />
+						<Text
+							text="{ path : 'ProductiveRulesStatus', formatter : 'sap.secmon.ui.loglearning.util.Formatter.formatRuleStatusESP2UI' }" />
+						<Text text="{CreatedBy}" />
+						<Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'CreatedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+						<Text text="{ChangedBy}" />
+						<Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ChangedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</mvc:View>

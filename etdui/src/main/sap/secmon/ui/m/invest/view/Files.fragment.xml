@@ -1,0 +1,105 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	controllerName="sap.secmon.ui.m.invest.view.Detail" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:u="sap.ui.unified" xmlns="sap.m">
+	<Panel expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_Att'},{path:'uiModel>/filesCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}" >
+		<Table id="investigationFileTable"
+			items="{
+	                        path: 'File/',
+	                        sorter: {
+	                            path: 'ContentName'
+	                        }
+	                }"
+			growing="true" growingScrollToLoad="true" growingThreshold="100"
+			updateFinished="onFilesUpdateFinished"
+			mode="SingleSelectLeft">
+			<headerToolbar height="2rem">
+				<Toolbar height="2rem">
+					<ToolbarSpacer />
+					<!-- docx not supported: mime type too long (>50 chars): application/vnd.openxmlformats-officedocument.wordprocessingml.document, -->
+					<u:FileUploader id="fileuploader" name="upload"
+						uploadUrl="/sap/secmon/services/ui/m/invest/InvestigationDocument.xsjs"
+						maximumFilenameLength="100" maximumFileSize="50" buttonText="{i18n>MInvest_Upload}"
+						buttonOnly="true" fileType="pdf,doc,xml,txt,csv,tsv,rtf"
+						uploadOnChange="true" change="onUploadChange" sendXHR="true"
+						filenameLengthExceed="onFileNameLengthExceed" typeMissmatch="onFileTypeMissmatch"
+						fileSizeExceed="onFileSizeExceed" uploadComplete="onUploadComplete" visible = "{applicationContext>/userPrivileges/investigationWrite}"/>
+    				 <Button text="{i18n>MInvest_DeleteSelected}" press="onDeleteFilePressed"  visible = "{applicationContext>/userPrivileges/investigationWrite}"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="66%" hAlign="Begin" vAlign="Inherit" >
+					<Text text="{i18nCommon>FileName}" />
+				</Column>
+				<Column demandPopin="false" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet">
+					<Text text="{i18nCommon>Created_By_COL}" />
+				</Column>
+				<Column demandPopin="true" hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet">
+					<Text text="{i18nCommon>Created_At_COL}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Link text="{ContentName}" target="_blank"
+							href="{path: 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationFileURL'}"
+							wrapping="true" />
+						<Text text="{CreatedBy}" />
+						<Text
+							text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Panel>
+	
+	<VBox height="30px"/>
+	
+	<Panel expandable="true" expanded="true" headerText="{parts: [{path:'i18nInvest>MInvest_PattRAtt'},{path:'uiModel>/patternAttachmentsCount'}],
+                                        formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}">
+		<Table id="fileTable"
+			items="{
+		                        path: 'PatternRelatedAttachments/',
+		                        sorter: {
+		                            path: 'PatternName'
+		                        }
+		                        }"
+		    updateFinished="onPatternAttachmentsUpdateFinished"
+			growing="true" growingScrollToLoad="true" growingThreshold="100">
+			<columns>
+				<Column mergeDuplicates="true" demandPopin="true" hAlign="Begin"
+					width="25%" vAlign="Inherit" minScreenWidth="8rem">
+					<Text text="{i18nCommon>Pattern_LBL}" />
+				</Column>
+				<Column demandPopin="true" hAlign="Begin" vAlign="Inherit"
+					width="45%" minScreenWidth="10em">
+					<Text text="{i18nCommon>FileName}" />
+				</Column>
+				<Column demandPopin="false" hAlign="Begin" vAlign="Inherit"
+					minScreenWidth="Tablet">
+					<Text text="{i18nCommon>Created_By_COL}" />
+				</Column>
+				<Column demandPopin="false" hAlign="Begin" vAlign="Inherit"
+					minScreenWidth="Tablet">
+					<Text text="{i18nCommon>Created_At_COL}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Link text="{PatternName}"
+							href="{path: 'PatternId', formatter: 'sap.secmon.ui.m.commons.NavigationService.patternURLWithHexGuid'}"
+							wrapping="true" />
+						<Link text="{ContentName}" target="_blank"
+							href="/sap/secmon/services/ui/m/patterns/patternDocument.xsjs?patternId={PatternId}&amp;filename={ContentName}&amp;filetype={ContentType}"
+							wrapping="true" />
+						<Text text="{CreatedBy}" wrapping="true" />
+						<Text wrapping="true"
+							text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreatedAt'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Panel>
+</core:FragmentDefinition>

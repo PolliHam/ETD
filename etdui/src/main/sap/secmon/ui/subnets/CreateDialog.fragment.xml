@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form">
+	<Dialog title="{i18n>Subnets_CreateSubnet}">
+		<layout:SimpleForm>
+			<Label text="{i18n>Subnets_NetAddress}" required="true"/>
+			<Input id="inputNetAddress" 
+				value="{/NetAddressString}"
+				valueState="{/invalidNetAddress}"
+				valueStateText="{i18n>Subnets_Format}"/>
+			<Label text="{i18n>Subnets_Prefix}" required="true"/>
+			<Input id="inputPrefix" 
+				value="{/PrefixString}" 
+				valueState="{/invalidPrefix}"
+				valueStateText="{i18n>Subnets_Format}"/>
+			<Label text="{i18n>Subnets_Description}" />
+			<Input value="{/Description}" />
+		</layout:SimpleForm>
+		<buttons>
+			<Button id="Ok" text="{i18n>Subnets_Ok}" press="onCloseCreateSubnetDialog" />
+			<Button id="Cancel" text="{i18n>Subnets_Cancel}" press="onCloseCreateSubnetDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

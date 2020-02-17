@@ -1,0 +1,24 @@
+#XMSG,0
+AddNameSpace_btn=Add Namespace
+#XMSG,0
+Conf_Delete_NS=Are you sure that you want to delete namespace "{0}"?
+#XTIT,0
+CreateNamespaceTitle=Add Namespace
+#XMSG,0
+NAMESPACE_ERROR=Error
+#XMSG,0
+NAMESPACE_OD_ERR1=Namespace must start with http://
+#XMSG,0
+NAMESPACE_OD_ERR2=Namespaces starting with http://sap.com are reserved for SAP
+#XMSG,0
+NAMESPACE_OD_ERR3=Namespace already exists
+#XMSG,0
+NAMESPACE_OD_ERRxxx=Internal error: {0}
+#XMSG,0
+NS_Create_Success=Namespace added
+#XMSG,0
+NS_Del_Success=Namespace deleted
+#XTIT,0
+NamespaceTitle=Namespaces
+#XMSG,0
+NewNamespace_lbl=New Namespace

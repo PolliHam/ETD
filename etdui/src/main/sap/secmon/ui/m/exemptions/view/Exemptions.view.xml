@@ -1,0 +1,207 @@
+<mvc:View controllerName="sap.secmon.ui.m.exemptions.view.Exemptions"
+	id="Exemptions" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:c="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page" title="{i18n>ExemptionsTitle}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" visible="{editModel>/displayMode}" />
+		</headerContent>
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset" 
+						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+						showRestoreButton="false" showClearButton="true"
+						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true" id="filterBar"
+						considerGroupTitle="true">
+						<fb:filterItems>
+
+							<fb:FilterItem name="pattern" label="{i18n>PatternNameOfExemption}">
+								<fb:control>
+									<MultiInput id="patternFilterInput" filterSuggests="false"
+										placeholder="{i18nCommon>Pattern_Suggestion}"
+										showSuggestion="true" startSuggestion="2" suggest="onPatternSuggest"
+										suggestionItemSelected="handleSuggestionItemSelected"
+										valueHelpRequest="onPatternValueHelpRequest"
+										showTableSuggestionValueHelp="true" showValueHelp="true">
+										<!-- c:Item key="{Id}" text="{Name}"/ -->
+										<customData>
+											<c:CustomData key="urlParamName" value="Id" />
+											<c:CustomData key="i18nText" value="{i18n>PatternNameOfExemption}" />
+										</customData>
+										<suggestionColumns>
+											<Column visible="false">
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline"
+												demandPopin="true">
+												<Label text="{i18n>PatternNameOfExemption}" />
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline"
+												demandPopin="true" width="8em">
+												<Label text="{i18nCommon>AnomalyPattern}" />
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<cells>
+												</cells>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="patternType" label="{i18nCommon>AnomalyPattern}">
+								<fb:control>
+									<MultiComboBox id="patternTypeFilterInput"
+										items="{enums>/sap.secmon.services.ui.m/Pattern/Type/enumValues}">
+
+										<items>
+											<c:Item key="{enums>Key}"
+												text="{parts: [{path : 'enums>Key'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="PatternType" />
+											<c:CustomData key="i18nText" value="{i18nCommon>AnomalyPattern}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="validity" label="{i18n>ExemptionValidity}">
+								<fb:control>
+									<MultiComboBox id="validityFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.exemption/Exemption/Validity/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="ExceptionValidity" />
+											<c:CustomData key="i18nText" value="{i18n>ExemptionValidity}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+
+						<fb:filterGroupItems>
+
+							<fb:FilterGroupItem id="caPatternAttributesStatusFilterGroupItem"
+								groupName="patternAttributes" groupTitle="{i18n>FB_PatternAttr}"
+								name="caPatternAttributesStatus" label="{i18n>PatternStatusXLBL}">
+								<fb:control>
+									<MultiComboBox id="statusFilterInput"
+										items="{enums>/sap.secmon.ui.browse/Pattern/Status/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Status" />
+											<c:CustomData key="i18nText" value="{i18n>PatternStatusXLBL}" />
+											<c:CustomData key="filterItem"
+												value="caPatternAttributesStatusFilterGroupItem" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterGroupItem>
+
+							<fb:FilterGroupItem id="caPatternAttributesTestModeFilterGroupItem"
+								groupName="patternAttributes" groupTitle="{i18n>FB_PatternAttr}"
+								name="caPatternAttributesTestMode" label="{i18n>PatternTestModeXLBL}">
+								<fb:control>
+									<MultiComboBox id="testModeFilterInput"
+										items="{enums>/sap.secmon.ui.browse/Pattern/TestMode/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="TestMode" />
+											<c:CustomData key="i18nText" value="{i18n>PatternTestModeXLBL}" />
+											<c:CustomData key="filterItem"
+												value="caPatternAttributesTestModeFilterGroupItem" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterGroupItem>
+
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+				</l:fixContent>
+
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<customControls:ColumnClickableTable
+							id="exemptionsTable" inset="false" mode="MultiSelect" class="sapEtdScrollTable"
+							items="{path: 'exemptions>/AlertException' }" growing="true"
+							growingScrollToLoad="true" growingThreshold="100" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+							<customControls:infoToolbar>
+								<Toolbar id="vsdFilterBar" active="false" visible="false">
+									<Label id="vsdFilterLabel" text="?" />
+								</Toolbar>
+							</customControls:infoToolbar>
+							<customControls:columns>
+
+								<customControls:SortableColumn
+									sortProperty="ExceptionDescription">
+									<customControls:SortableItem text="{i18n>ExemptionReason}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="Name">
+									<customControls:SortableItem text="{i18n>PatternNameOfExemption}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="NameSpace">
+									<customControls:SortableItem text="{i18n>PatternNspace}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="Description">
+									<customControls:SortableItem text="{i18n>PatternDescr}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="ExceptionValidity,ExceptionValid">
+									<customControls:SortableItem text="{i18n>ExemptionValidity}" />
+								</customControls:SortableColumn>
+
+							</customControls:columns>
+							<customControls:items>
+								<ColumnListItem vAlign="Middle" type="Navigation"
+									press="onExemptionPress">
+									<cells>
+										<Text text="{exemptions>ExceptionDescription}" />
+										<commonControls:LongTapLink text="{exemptions>Name}"
+											href="{path: 'exemptions>Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.patternURLWithHexGuid'}"
+											wrapping="true" />
+										<Text text="{exemptions>NameSpace}" />
+										<Text text="{exemptions>Description}" />
+										<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, {path : 'exemptions>ExceptionValidity'}, { path : 'exemptions>ExceptionValid'} ],
+																formatter: 'sap.secmon.ui.m.exemptions.util.Formatter.exemptionValidityFormatter'}" />
+										<Text text="{exemptions>Context}" />
+									</cells>
+								</ColumnListItem>
+							</customControls:items>
+						</customControls:ColumnClickableTable>
+					</ScrollContainer>
+            	</l:flexContent>
+    		</l:FixFlex>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="deleteButton" text="{i18nCommon>Delete_BUT}"
+						visible="{applicationContext>/userPrivileges/exemptionWrite}"
+						press="onDeleteExemptions" />
+                    <Button icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+                        press="handleBookmarkDialogButtonPressed" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

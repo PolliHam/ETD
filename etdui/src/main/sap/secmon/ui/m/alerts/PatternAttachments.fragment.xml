@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls">
+	<Table id="fileTable"
+		items="{
+	                        path: 'PatternAttachments/',
+	                        sorter: {
+	                            path: 'ContentName'
+	                        }
+	                        }"
+		growing="true" growingScrollToLoad="true" growingThreshold="100"
+		updateFinished="onPatternAttachmentsUpdateFinished" >
+		<columns>
+			<Column width="40%" demandPopin="true" popinDisplay="Inline" minScreenWidth="10rem">
+				<Text text="{i18nCommon>FileName}" />
+			</Column>
+			<Column width="20%" demandPopin="true" popinDisplay="Inline" minScreenWidth="8rem">
+				<Text text="{i18nCommon>Created_By_COL}" />
+			</Column>
+			<Column demandPopin="false" minScreenWidth="Tablet">
+				<Text text="{i18nCommon>Created_At_COL}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+
+					<Link text="{ContentName}" target="_blank"
+						href="/sap/secmon/services/ui/m/patterns/patternDocument.xsjs?patternId={PatternId}&amp;filename={ContentName}&amp;filetype={ContentType}"
+						wrapping="true" />
+					<Text text="{CreatedBy}" wrapping="true"/>
+					<Text wrapping="true"
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreatedAt'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

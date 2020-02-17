@@ -1,0 +1,15 @@
+<mvc:View controllerName="sap.secmon.ui.m.anomaly.ui.Analysis"
+	id="analysis" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:cc="sap.secmon.ui.commons.controls" xmlns:anomaly="sap.secmon.ui.m.anomaly.ui">
+	<Page id="page" title="{i18n>BU_TIT_ETD_ADL}" enableScrolling="false"
+		showNavButton="true" navButtonPress="onNavBack">
+		<!-- <headerContent> <Button id="nav2AnomalyPatternsPage" icon="sap-icon://settings" 
+			text ="{i18n>Definitions_TXT}" tooltip="{i18n>BU_FLOD_TOL_DefSEP}" visible 
+			= "{/outlierBUTVisible}" press="handleNavToPattern"/> </headerContent> -->
+		<content>
+			<anomaly:FeatureSpace id="featureSpace" />
+		</content>
+		<!-- <footer> <Toolbar > <cc:GlobalMessageButton id="messagesButton" type="Emphasized"/> 
+			<ToolbarSpacer/> </Toolbar> </footer> -->
+	</Page>
+</mvc:View>

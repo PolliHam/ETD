@@ -1,0 +1,17 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.TagsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Tags(null)"
+        },
+        "Id": null,
+        "Name": "aaaa",
+        "Namespace": "http://Anna",
+        "Prefix": null,
+        "Original": 1
+      }
+    ]
+  }
+}

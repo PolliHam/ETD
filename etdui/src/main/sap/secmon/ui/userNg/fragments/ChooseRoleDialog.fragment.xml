@@ -1,0 +1,27 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
+    <Dialog title="{i18n>ResolveUser_RoleSelection}" contentHeight="60%">
+        <subHeader>
+			<OverflowToolbar>
+				<SearchField id="rolesSearch" search="onSearchRoles" width="100%" />
+			</OverflowToolbar>
+		</subHeader>
+		<List
+			id="rolesList"
+			items="{path: 'roles>/Roles',  sorter : { path: 'displayName', descending: false} }"
+			mode="MultiSelect"
+            selectionChange="onSelectionChange">
+			<StandardListItem 
+                title="{roles>displayName}"
+                iconDensityAware="false" 
+                iconInset="false">
+                <customData>
+                    <c:CustomData key="attributeId" value="{roles>key}" />
+                </customData>
+            </StandardListItem>
+		</List>
+        <buttons>
+	       <Button text="{i18nCommon>OK_BUT}" press="onConfirmRoleSelectDialog" enabled="{UIModel>/enableOKButton}"/>
+	       <Button text="{i18nCommon>Cancel_BUT}" press="onCloseRoleSelectDialog"/>
+        </buttons> 
+    </Dialog>    
+</c:FragmentDefinition>

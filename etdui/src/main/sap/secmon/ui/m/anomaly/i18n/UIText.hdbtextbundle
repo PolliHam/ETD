@@ -1,0 +1,524 @@
+# TRANSLATE
+#XTIT: Outlier Detection
+BU_FLOD_TIT_Entity=Entity  
+#XTXT: Outlier Detection
+BU_FLOD_TXT_No_Entity=<No entities available>
+#XTXT: Outlier Detection
+BU_FLOD_TXT_NotA=Not available
+#XCOL:  Outlier Detection
+BU_FLOD_LBL_Entity_Value=Entity Value
+#XCOL:  Outlier Detection
+BU_FLOD_LBL_Norm_TScore=Normalized Total Score
+#XTIT:  Outlier Detection
+BU_FLOD_LBL_SSelector=Score Selector
+#XTIT:  Outlier Detection
+BU_FLOD_LBL_Selected=Selected
+#XLBL: Outlier Detection
+BU_FLOD_LBL_OutlierType=Outlier Type: 
+#XLBL: Outlier Detection
+BU_FLOD_LBL_TimeFrom=Time range from
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Time1HFrom=Time range 1 hour from
+#XLBL: Outlier Detection
+BU_FLOD_LBL_TimeTo=Time range to
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Retrieve=Retrieve
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Retrieve=Retrieve Entity
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Close=Close
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Select_Entity=Select Entity
+#XTOL: Outlier Detection
+BU_FLOD_TOL_AnalyzeFL=Analyze Forensic Lab
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Open_Mon=Open Monitoring
+#XTIT: Outlier Detection
+BU_FLOD_TIT_ESDetails=Evaluation Details
+
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Evaluation=Evaluation
+#XLBL: Outlier Detection
+BU_FLOD_LBL_RawValue=Actual Value
+#XLBL: Outlier Detection
+BU_FLOD_LBL_RawValueRef=Reference Value
+
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Score=Score
+#XTXT: Outlier Detection
+BU_FLOD_TXT_FScore_Diagram=Evaluation Score Diagram
+#XTXT: Outlier Detection
+BU_FLOD_TXT_Diagram=Diagram
+#XTXT: Outlier Detection
+BU_FLOD_TXT_FBarCharts=Feature Bar
+#XTXT: Outlier Detection
+BU_FLOD_TXT_EBarCharts=Scores per Evaluation
+#XTXT: Outlier Detection
+BU_FLOD_TXT_Total=Total
+#XTXT: Outlier Detection
+BU_FLOD_TXT_Anomalies=Anomalies
+#XTXT: Outlier Detection
+BU_FLOD_TXT_SD=Standard Deviation
+#XTXT: Outlier Detection
+BU_FLOD_TXT_NCR=Normalized Confidence Region
+#XLBL: Outlier Detection
+BU_FLOD_LBL_ScoreO=Score Overview
+#XLBL: Outlier Detection
+BU_FLOD_LBL_EScores=Evaluation Scores
+#XLBL: Outlier Detection
+BU_FLOD_LBL_ScoreD=Score Diversity
+#XLBL: Outlier Detection
+BU_FLOD_LBL_EDiversity=Evaluation Diversity
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Max=Max.
+#XLBL: Outlier Detection
+BU_FLOD_LBL_MaxScore=Maximum Score
+#XLBL: Outlier Detection
+BU_FLOD_LBL_MinScore=Minimum Score
+#XLBL: Outlier Detection
+BU_FLOD_LBL_AvgScore=Average Score
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Count=Count
+#XTIT: Outlier Detection
+BU_FLOD_TIT_NODET=No details available  
+#XMSG: Outlier Detection
+BU_FLOD_MSG_NODET=No events available for selected entity {0}  
+#XLBL: Outlier Detection
+AXIS_LBL_AREA=Area
+#XLBL: Outlier Detection
+AXIS_LBL_CENTROIDX=Centroid [X]
+#XLBL: Outlier Detection
+AXIS_LBL_CENTROIDY=Centroid [Y]
+#XTIT: Outlier Detection
+BU_FLOD_BACK_DIAGRAM=Back to diagram 
+#XTIT: Outlier Detection
+BU_FLOD_NAV2WSFILTER=Open Forensic Lab with filter "{0}"
+#XTIT: Outlier Detection
+BU_FLOD_SHOWDETAILS=Show details of "{0}"
+#XTIT: Outlier Detection
+BU_FLOD_Overview=Overview
+#XMSG : Outlier Detection
+Txt_InputValidation=Input Validation
+#XMSG : Outlier Detection
+Txt_OneHourAllowed=Only time range of 1 hour allowed
+#XTOL: Outlier Detection
+BU_FLOD_TOL_PatternTime=Select Pattern and Time Range
+#XTOL: Outlier Detection
+BU_FLOD_TOL_AnPatternRes=Analyze result of Pattern "{0}: {1}"
+#XTOL: Outlier Detection
+AnPatternRes_TOL=Analyze Pattern Execution Result
+#XTOL: Anomaly Detection
+BU_FLOD_TOL_AnPatternsRes=Analyze Pattern Execution Results
+
+#XTOL: Anomaly Detection
+BU_FLOD_TOL_DefSEP=Define Scenarios, Evaluations and Patterns
+#XBUT:Anomaly Detection
+Open_BUT=Open
+#XBUT:Anomaly Detection
+Delete_BUT=Delete
+
+#XTIT:Anomaly Detection UI Window Title
+BU_Window_Title_AD=Anomaly Detection
+#XTIT:Anomaly Detection UI Window Title
+BU_Window_Title_ADL=Anomaly Detection Lab
+#XTIT:Anomaly Detection
+BU_TIT_ETD_AD=SAP Enterprise Threat Detection: Anomaly Detection Lab
+#XTIT:Anomaly Detection
+BU_TIT_ETD_ADL=SAP Enterprise Threat Detection: Anomaly Detection Lab
+
+#XTOL: Anomaly Detection
+BU_Chart_Table=Table
+#XTOL: Anomaly Detection
+BU_Chart_Pie=Pie
+#XTOL: Anomaly Detection
+BU_Chart_Line=Line Chart
+#XTOL: Anomaly Detection
+BU_Chart_Treemap=Treemap
+#XTOL: Anomaly Detection
+BU_Chart_BarChart=Bar Chart
+#XTOL: Anomaly Detection
+BU_Chart_Column=Column Chart
+#XTXT: Outlier Detection
+CopyOf_TXT=Copy of
+#XBUT: Anomaly Detection
+BU_Chart_Invert=Invert
+#XBUT: Anomaly Detection
+BU_Chart_Revert=Revert
+#XLBL: Anomaly Detection
+BU_LBL_DonutNoValue=No value
+#XMSG: Anomaly Detection
+BU_MSG_DonutNoData=No data
+
+#XTTP : Anomaly Detection
+ChooseFacet_TTP=Select a chart
+#XTTP : Anomaly Detection
+ChangeTags_TTP=Change tags
+#XLBL : Anomaly Detection
+AnomalyType_LBL=Evaluate for
+#XLBL : Anomaly Detection
+EvaluationMethod_LBL=Base Evaluation on
+#XTXT : Anomaly Detection
+SND_TXT=Standard Normal Distribution
+#XTXT : Anomaly Detection
+RVM_TXT=New Occurrence
+#XTXT : Anomaly Detection
+DefineEvaluationChar_TXT=Define Evaluation Characteristics
+#XTXT : Anomaly Detection
+DefinePatternChar_TXT=Define Pattern Characteristics
+#XTXT : Anomaly Detection
+ReferenceData_TXT=Specify Reference Data
+#XLBL : Anomaly Detection
+TimeRange_LBL=Time range
+#XLBL : Anomaly Detection
+TimeRangeInWeeks_LBL=Time range (in weeks)
+#XLBL : Anomaly Detection
+TimeUnit_LBL=Compare with
+#XTXT : Anomaly Detection
+QuarterlyDay_TXT=6 hours in same day quarter
+#XTXT : Anomaly Detection
+HourlyDay_TXT=same hour
+#XTXT : Anomaly Detection
+inweeks_TXT=[in weeks]
+
+#XTXT : Anomaly Detection
+OnlyAbove_TXT=Above confidence interval
+#XTXT : Anomaly Detection
+AboveAndBelow_TXT=Above and below confidence interval
+#XLBL : Anomaly Detection
+IncludeNegativeScore_LBL=Consider values
+
+#XTOL : Anomaly Detection
+CreateEntity_TOL=Create selected item
+#XTOL : Anomaly Detection
+DeleteEntity_TOL=Delete selected item
+#XTOL : Anomaly Detection
+ListExpand_TOL=Expand all nodes
+#XTOL : Anomaly Detection
+ListCollapse_TOL=Collapse all nodes
+
+#XTXT : Anomaly Detection
+ComponentsComparison_TXT=Historical comparison to
+#XTOL: Anomaly Detection
+AddPatToScen_TOL=Assign Pattern "{0}: {1}" to Scenarios
+#XTOL: Anomaly Detection
+AddEvaToScen_TOL=Assign Evaluation "{0}: {1}" to Scenarios
+#XTOL: Anomaly Detection
+APatToScen_TOL=Assign Pattern to Scenarios
+#XTOL: Anomaly Detection
+AEvaToScen_TOL=Assign Evaluation to Scenarios
+#XTXT : Anomaly Detection
+AddTag_TXT=Assign to Scenario
+#XTXT : Anomaly Detection
+RemoveTag_TXT=Remove tag
+#XTXT : Anomaly Detection
+Assign_TXT=Assign
+#XBUT : Anomaly Detection
+Unassign_BUT=Unassign
+#XTOL : Anomaly Detection
+UnassignEPS_TOL=Remove assignments of Evaluations or Patterns from Scenario
+#XTXT : Anomaly Detection
+AssignEvaluation_TXT=Assign Evaluation
+#XTXT : Anomaly Detection
+RemoveEvaluation_TXT=Remove Evaluation
+#XTOL : Anomaly Detection
+OpenChart_TOL=Open Chart in Forensic Lab
+#XTXT : Anomaly Detection
+Chart_TXT=Chart
+#XBUT : Anomaly Detection
+AssignChart_BUT=Assign Chart
+#XTXT : Anomaly Detection
+SelectChart_TXT=Select Chart
+#XTIT : Anomaly Detection
+SelectEvaluation_TIT=Select Evaluation
+#XTIT : Anomaly Detection
+AssignEvaluation_TIT=Assign Evaluation
+#XTXT : Anomaly Detection
+NoChartSelected_TXT=Select Chart...
+#XTXT : Anomaly Detection
+ChangeChartTimeRange_TXT= Change Time Range for Chart
+#XTXT : Anomaly Detection
+OK_TXT=OK
+#XTXT : Anomaly Detection
+Cancel_TXT=Cancel
+#XLBL : Anomaly Detection
+TimerangeFrom_LBL=Time range from
+#XLBL : Anomaly Detection
+UTCTimerangeFrom_LBL=Time range from (UTC)
+#XLBL : Anomaly Detection
+TimerangeTo_LBL=Time range to
+#XLBL : Anomaly Detection
+UTCTimerangeTo_LBL=Time range to (UTC)
+#XLBL : Anomaly Detection
+ShowAllEntities_LBL=Also show entities within confidence interval
+#XTXT : Anomaly Detection
+All_TXT=All
+#XTXT : Anomaly Detection
+ShowAll_TXT=Show All
+#XTXT : Anomaly Detection
+Scenarios_TXT=Scenarios
+#XTXT : Anomaly Detection
+Scenario_TXT=Scenario
+#XTXT : Anomaly Detection
+CreateScenario_TXT=Create Scenario
+#XTOL : Anomaly Detection
+CreateNewScenario_TOL=Create new Scenario
+#XBUT : Anomaly Detection
+SaveScenario_BUT=Save Scenario
+#XBUT : Anomaly Detection
+SaveScenarioAs_BUT=Save Scenario As ...
+#XBUT : Anomaly Detection
+DeleteScenario_BUT=Delete Scenario
+#XTXT : Anomaly Detection
+CreateNewScenario_TXT=Create new Scenario
+#XTXT : Anomaly Detection
+ShowScenarios_TXT=Show Scenarios
+#XTXT : Anomaly Detection
+Evaluations_TXT=Evaluations
+#XTXT : Anomaly Detection
+Evaluation_TXT=Evaluation
+#XTXT : Anomaly Detection
+TheEvaluation_TXT=the evaluation
+#XTXT : Anomaly Detection
+CreateEval_TXT=Create Evaluation
+#XTOL : Anomaly Detection
+CreateNewEval_TOL=Create new Evaluation
+#XBUT : Anomaly Detection
+Evaluation_BUT=Evaluation
+#XTOL : Anomaly Detection
+CAEval2Scen_TOL=Create and assign Evaluation to Scenario
+#XBUT : Anomaly Detection
+SaveEvaluation_BUT=Save Evaluation
+#XBUT : Anomaly Detection
+SaveEvaluationAs_BUT=Save Evaluation As ...
+#XBUT : Anomaly Detection
+DeleteEvaluation_BUT=Delete Evaluation
+#XTXT : Anomaly Detection
+CreateNewEvaluation_TXT=Create new Evaluation
+#XTXT : Anomaly Detection
+CreateEvaluation_TXT=Create Evaluation
+#XTXT : Anomaly Detection
+AddEvaluation_TXT=Assign Evaluation
+#XTXT : Anomaly New Detection
+#XTOL : Anomaly Detection
+AddEval2Scen_TOL=Assign existing Evaluation to Scenario
+ShowEvaluations_TXT=Show Evaluations
+#XTXT : Anomaly Detection
+Patterns_TXT=Patterns
+#XTXT : Anomaly Detection
+CreateNewPattern_TXT=Create new Pattern
+#XTOL : Anomaly Detection
+CreateNewPattern_TOL=Create new Pattern
+#XTXT : Anomaly Detection
+AssignEV2Pattern_TXT=Assign Evaluations to Pattern
+#XTXT : Anomaly Detection
+NoTagsAvailable_TXT=No Scenarios assigned
+#XTXT : Anomaly Detection
+CreatePattern_TXT=Create Pattern
+#XTXT : Anomaly Detection
+AddPattern_TXT=Assign Pattern
+#XTXT : Anomaly Detection
+Pattern_TXT=Pattern
+#XBUT : Anomaly Detection
+Pattern_BUT=Pattern
+#XTOL : Anomaly Detection
+CAPat2Scen_TOL=Create and assign Pattern to Scenario
+#XTOL : Anomaly Detection
+AddPat2Scen_TOL=Assign existing Pattern to Scenario
+#XBUT : Anomaly Detection
+SavePattern_BUT=Save Pattern
+#XBUT : Anomaly Detection
+SavePatternAs_BUT=Save Pattern As ...
+#XBUT : Anomaly Detection
+DeletePattern_BUT=Delete Pattern
+#XTXT : Anomaly Detection
+ShowPatterns_TXT=Show Patterns
+#XTXT : Anomaly Detection
+DefineNNS_TXT=Define Name and Namespace
+#XTXT : Anomaly Detection
+Change_TXT=Change
+#XTXT : Anomaly Detection
+SelectSFP_TXT=Select scenario, evaluation or pattern
+#XTIT : Anomaly Detection
+SelectSFP_TIT=Select Scenario, Evaluation or Pattern
+#XTIT : Anomaly Detection
+SelectScen_TIT=Select Scenario
+#XTIT : Anomaly Detection
+SelectPattern_TIT=Select Pattern
+#XTIT : Anomaly Detection
+SelectCreateScen_TXT=Select or create new Scenario
+#XTOL : Anomaly Detection
+OpenSFP_TOL=Open Scenario, Evaluation or Pattern
+#XTOL : Anomaly Detection
+CreateNewSFP_TOL=Create new Scenario, Evaluation or Pattern
+#XLBL : Anomaly Detection
+Pattern_LBL=Pattern
+#XLBL : Anomaly Detection
+Patterns_LBL=Pattern
+#XLBL : Anomaly Detection
+Evaluation_LBL=Evaluation
+#XLBL : Anomaly Detection
+Evaluations_LBL=Evaluations
+#XTXT : Anomaly Detection
+Testmode_LBL=Testmode
+#XTXT : Anomaly Detection
+Alert_TXT=Alert
+#XTXT : Anomaly Detection
+Indicator_TXT=Indicator
+#XTXT : Anomaly Detection
+AllEvaluationInPattern_TXT=Anomaly is detected by all evaluations
+#XTXT : Anomaly Detection
+OneEvaluationInPattern_TXT=Anomaly is detected by at least one evaluation
+#XTXT : Anomaly Detection
+AvgEvaluationInPattern_TXT=The average output of all evaluations is an anomaly
+#XLBL : Anomaly Detection
+NotificationMode_LBL=Create output when
+#XLBL : Anomaly Detection
+ChangeOutputMode_LBL=Change output rule to
+#XLBL : Anomaly Detection
+NotificationType_LBL=Execution Output
+#XTOL : Anomaly Detection
+ExportPattern_TOL=Export Pattern "{0}: {1}"
+#XBUT : Anomaly Detection
+Notifications_BUT=Notifications
+#XTXT : Anomaly Detection
+Slide2ChangeTH_TXT=Slide to change threshold
+#XTXT : Anomaly Detection
+Definition_TXT=Definition
+#XTXT : Anomaly Detection
+Definitions_TXT=Definition
+#XTXT : Anomaly Detection
+Analysis_TXT=Analysis
+#XTOL : Anomaly Detection
+Remove_TOL=Remove
+#XTOL : Anomaly Detection
+SimulatePattern_TOL=Simulate Pattern Settings
+#XTOL : Anomaly Detection
+OpenHelp_TTP=Open Help
+
+#XMSG: Anomaly Detection
+ChartIdNotRetrieved_MSG=Chart with Id "{0}" could not be retrieved
+#XMSG: Anomaly Detection
+SaveSuccess_MSG={0} "{1}: {2}" saved
+
+#XMSG: Anomaly Detection
+DeletionSuccess_MSG={0} "{1}: {2}" deleted
+
+#XMSG: Anomaly Detection
+TagDelSuccess_MSG=Scenario assignment deleted
+
+#XMSG: Anomaly Detection
+ExportSuccess_MSG={0} "{1}: {2}" exported
+#XMSG: Anomaly Detection
+ExportError_MSG=The Scenario must be saved before export
+
+#XMSG: Anomaly Detection
+PatternCalcSucces=Pattern calculations retrieved
+
+#XMSG: Anomaly Detection
+PatternCalcNoData=Pattern calculations retrieved: No anomalies found
+
+#XTIT
+BU_TIT_NotificationBar=ETD Notifications
+#XTIT: Anomaly Detection
+SaveSuccessful_TIT=Save successful
+#XTIT: Anomaly Detection
+SaveFailed_TIT=Save failed
+#XXT: Anomaly Detection
+ConfirmDeletion_TXT=Do you really want to delete {0} "{1}: {2}"?
+#XXT: Anomaly Detection
+TagAssignSuccess_TXT={0} "{1}: {2}" has been assigned to Scenario
+#XXT: Anomaly Detection
+ErrorNoTagSelected_TXT=Select a Scenario that is to be unassigned
+
+#XMSG: Anomaly Detection
+NSNotDefined_MSG=Define namespace in order to save {0}
+#XMSG: Anomaly Detection
+TNSNotDefined_MSG=Define namespace in order to save the {0}
+#XMSG: Anomaly Detection
+NNSNotDefined_MSG=Define name and namespace of scenario to be assigned
+#XMSG: Anomaly Detection
+NameNotDefined_MSG=Define name in order to save {0}
+#XMSG: Anomaly Detection
+TNameNotDefined_MSG=Define name in order to save the {0}
+#XMSG: Anomaly Detection
+EvaluationIsEmpty_MSG=Save scenario without evaluation is not allowed
+#XMSG: Anomaly Detection
+ChartNotAss_MSG=Assign a chart specifying what is being observed in order to save {0} "{1}: {2}"
+#XMSG: Anomaly Detection
+TChartNotAss_MSG=Assign a chart specifying what is being observed in order to save the {0} "{1}: {2}"
+#XMSG: Anomaly Detection
+EvaNotAss_MSG=Assign at least one evaluation in order to save {0} "{1}: {2}"
+#XMSG: Anomaly Detection
+TEvaNotAss_MSG=Assign at least one evaluation in order to save the {0} "{1}: {2}"
+#XMSG: Anomaly Detection
+TimeRangeNotDef_MSG=Define time range for {0} "{1}: {2}"
+#XMSG: Anomaly Detection
+TRNotValid_MSG=Time range defined for {0} "{1}: {2}" is not allowed. Define a time range of at least {3} weeks!
+#XMSG: Anomaly Detection
+TRTooBig_MSG=Time range defined for {0} "{1}: {2}" is not allowed. Define a time range of at most {3} weeks!
+#XMSG: Anomaly Detection
+EstimatedDataAmountMoreThan500M=Estimated data amount is more than 500 million. Performance can be worse.
+#XMSG: Anomaly Detection
+EstimatedDataAmountMoreThan1B=Estimated data amount is more than 1 billion. Processing such a large amount of data is not supported
+#TIT: Anomaly Detection
+ConsistencyCheck_TIT=Consistency Check
+#TIT: Anomaly Detection
+Error_TIT=Error
+#XMSG: Anomaly Detection
+DimensionDif_MSG=Evaluation "{0}: {1}" cannot be added. Choose an evaluation that is based on the same dimensions as the evaluations already assigned 
+#XMSG: Anomaly Detection
+ObjectsNotRet_MSG=Objects information cannot be retrieved
+#XMSG: Anomaly Detection
+ChartsNotRet_MSG=Charts information cannot be retrieved
+#XMSG: Anomaly Detection
+PatternNotFound_MSG=Pattern to be analyzed does not exist. Select another Pattern
+#XMSG: Anomaly Detection
+Alerts=Alerts
+#XMSG: Anomaly Detection
+DataResetTooltip=Due to this change, alerts from patterns in which this evaluation is used and the aggregated data will be deleted. You will be asked for confirmation when saving.
+#XMSG: Anomaly Detection
+EvalConfirmWithPattern=Do you want to save these changes? This leads to deletion of {0} alerts from patterns in which this evaluation was used and the aggregated data. 
+#XMSG: Anomaly Detection
+EvalConfirmWithoutPattern=Do you want to save these changes? This leads to a deletion of the aggregated data. The Evaluation was not used in a pattern therefore no alerts will be deleted.
+
+#XTOL: Description of Scenarios
+ScenarioDescr=Group your patterns and evaluations to scenarios
+#XTOL: Description of Patterns
+PatternDescr=Assign evaluations to your pattern and add a rule for creation of alerts
+#XTOL:  Description of Scenarios
+FeatureDescr=Define method of evaluation on the basis of charts
+
+#XLBL:  Anomaly Detection
+IsAlreadyAss_LBL=Is already assigned
+#XTXT:  Anomaly Detection
+Yes_TXT=Yes
+#XTXT:  Anomaly Detection
+No_TXT=No
+
+#XTXT: Anomaly Detection Evaluation Status
+NOT_IN_ACTIVE_PATTERN=Collection of reference data is not started, because Evaluation is not assigned to an active Anomaly Detection Pattern.
+#XTXT: Anomaly Detection Evaluation Status
+NOT_COMPLETED_YET=Collection of reference data has already started but is not yet complete
+#XTXT: Anomaly Detection Evaluation Status
+DATA_IS_COLLECTED=Reference data is up to date. Patterns using this evaluation can be executed.
+#XTXT: Anomaly Detection Evaluation Status
+NO_REFERENCE_DATA=There is no reference data yet because the evaluation has just been created or the statistics job is inactive.
+
+#XTXT: Anomaly Detection Short Evaluation Status
+NOT_IN_ACTIVE_PATTERN_SHORT=Collection of reference data is not started.
+#XTXT: Anomaly Detection Short Evaluation Status
+NOT_COMPLETED_YET_SHORT=Collection of reference data is not completed.
+#XTXT: Anomaly Detection Short Evaluation Status
+DATA_IS_COLLECTED_SHORT=Reference data is up to date.
+#XTXT: Anomaly Detection Short Evaluation Status
+NO_REFERENCE_DATA_SHORT=There is no reference data yet.
+
+#XTXT: Anomaly Detection Pattern Status
+IS_READY=Pattern is ready to run. All evaluations are taken into account.
+#XTXT: Anomaly Detection Pattern Status
+PARTLY_READY=Pattern is ready to run. Not all evaluations are taken into account.
+#XTXT: Anomaly Detection Pattern Status
+NOT_READY=Pattern is not ready to run. Check the related evaluation statuses.
+
+#XTXT: Anomaly Detection Information Message
+StatusRelatesToSavedPattern=Information about reference data is referring to the saved version of pattern "{0}" and not to the modified version

@@ -1,0 +1,4 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" displayBlock="true"  controllerName="sap.secmon.ui.m.investTemplateFS.view.App"
+	xmlns="sap.m">
+	<App id="idAppControl" />
+</mvc:View>

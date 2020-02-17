@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls">
+	<Table fixedLayout="false" growing="true" growingScrollToLoad="true"
+		growingThreshold="100"
+		updateFinished="onInvestigationsUpdateFinished"
+		items="{path: 'InvestAssignments/',  sorter : { path: 'Number', descending: true}}">
+		<columns>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline" width="8em">
+				<Text text="{i18n>MAlertsFS_IDXcol}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18nCommon>Description_COL}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MAlertsFS_StatusXcol}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MAlertsFS_AttackXcol}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MAlertsFS_ManagementVisi}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MAlertsFS_ProcessorXcol}" />
+			</Column>
+			<Column width="3em" hAlign="End" vAlign="Inherit">
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<sscc:LinkOrText text="{Number}" linkEnabled="{editModel>/displayMode}"
+						href="{path : 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationURL'}" />
+					<Text text="{Description}" />
+					<Text
+						text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Status/'},{path : 'Status'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+					<Text
+						text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/'},{path : 'Attack'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+					<Text
+						text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/'},{path : 'ManagementVisibility'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+					<Text text="{Processor}" />
+					<core:Icon src="sap-icon://sys-cancel" class="size1"
+						color="#031E48" press="handleRemoveFromInvestigationButtonPressed"
+						tooltip="{i18n>MAlertsFS_RemoveAlert}"
+						visible="{
+                        parts: [{path:'editModel>/displayMode'},{path:'Status'}, {path: 'applicationContext>/userPrivileges/investigationWrite'} ],
+                        formatter: 'sap.secmon.ui.m.invest.util.Formatter.removeAlertActionVisibility'
+                        }">
+					</core:Icon>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

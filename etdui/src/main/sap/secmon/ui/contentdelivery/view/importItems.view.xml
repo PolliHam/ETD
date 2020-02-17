@@ -1,0 +1,82 @@
+<mvc:View controllerName="sap.secmon.ui.contentdelivery.view.importItems"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns:controls="sap.secmon.ui.commons.controls">
+
+	<Page id="page" title="{i18n>CD_TitleItems}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+
+		<headerContent>
+		</headerContent>
+
+		<content>
+			<VBox>
+				<f:SimpleForm>
+					<f:content>
+						<Label text="{i18n>CD_Id}" />
+						<Text text="{Id}" />
+						<Label text="{i18n>CD_Name}" />
+						<Text text="{Name}" />
+						<Label text="{i18n>CD_Namespace}" />
+						<Text text="{Namespace}" />
+						<Label text="{i18n>CD_Description}" />
+						<Text text="{Description}" />
+						<Label text="{i18n>CD_Status}" />
+						<Text text="{Status}" />
+						<Label text="{i18n>CD_Releases}"/>
+						<Text text="{Validity}"/>
+					</f:content>
+				</f:SimpleForm>
+				<Table id="table"
+					items="{ path : 'Items', sorter : [ { path : 'ObjectType', group : true }, { path : 'ObjectName' } ] }"
+					growing="true">
+					<headerToolbar>
+						<OverflowToolbar>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://drop-down-list" press="onPressSettings" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>CD_ObjType}" />
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>CD_ObjName}" />
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true">
+							<Text text="{i18n>CD_ObjNamespace}" />
+						</Column>
+						<Column minScreenWidth="XXLarge" demandPopin="true">
+							<Text text="{i18n>CD_Description}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>CD_Version}" />
+						</Column>
+						
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text text="{ObjectType}" />
+								<Text text="{ObjectName}" />
+								<Text text="{ObjectNamespace}" />
+								<Text text="{Description}" />
+								<Text text="{Version}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>OPA tests Runner</title>
+
+        <script id="sap-ui-bootstrap"
+                src="/sap/ui5/1/resources/sap-ui-core.js"
+                data-sap-ui-libs="sap.m"
+                data-sap-ui-theme="sap_bluecrystal"
+                data-sap-ui-xx-bindingSyntax="complex">
+        </script>
+
+        <!--register paths-->
+        <script>
+            jQuery.sap.registerModulePath('test', "./");
+            jQuery.sap.registerModulePath("sap.secmon.ui", "../../main/sap/secmon/ui");
+            jQuery.sap.registerModulePath("sap.secmon.ui.browse", "../../main/sap/secmon/ui/browse/ui");
+        </script>
+
+        <!--loading OPA Qunit resources-->
+        <script>
+            jQuery.sap.require("sap.ui.test.opaQunit");
+            jQuery.sap.require("sap.ui.qunit.qunit-css");
+            jQuery.sap.require("sap.ui.thirdparty.qunit");
+            jQuery.sap.require("sap.ui.qunit.qunit-junit");
+            jQuery.sap.require("test.TestRunner");
+
+            window.QUnitClone = jQuery.extend(true, {}, QUnit);
+            QUnit.config.autostart = false;
+        </script>
+
+
+        <script>
+            opaTests = [
+                "test/apps/alertsfs/Journeys"
+//                "test/apps/Namespace/Journeys"
+            ];
+
+            sap.ui.getCore().attachInit(function () {
+                sap.ui.require([
+                    "test/sap/secmon/ui/m/commons/localService/mockserver"
+                ], function (mCommonMockServer) {
+                    mCommonMockServer.init();
+
+                    window.opaShell = new sap.m.Shell();
+                    window.opaShell.placeAt("content");
+
+                    sap.ui.require(opaTests, function(){
+                         QUnit.start();
+                    });
+
+
+//                    function methodThatReturnsAPromise(sJourneyPath) {
+//                        return new Promise(function (resolve, reject) {
+//                            new TestRunner(sJourneyPath).run();
+//                            QUnit.done(function () {
+//                                setTimeout(function(){
+//                                    resolve();
+//                                }, 0)
+//                            });
+//                        });
+//                    }
+//
+//                    opaTests.reduce(function (accumulatorPromise, sJourneyPath) {
+//                        return accumulatorPromise.then(function () {
+//                            return methodThatReturnsAPromise(sJourneyPath);
+//                        });
+//                    }, Promise.resolve());
+                });
+            });
+        </script>
+    </head>
+
+
+    <body>
+        <div id="qunit" style="white-space: nowrap; height: 0px; width: 25%;">
+            <h1 id="qunit-header">OPA tests Runner</h1>
+            <h2 id="qunit-banner"></h2>
+            <h2 id="qunit-userAgent"></h2>
+            <ol id="qunit-tests"></ol>
+        </div>
+        <div id="content" style="white-space: nowrap; margin-left: 25%"></div>
+    </body>
+</html>

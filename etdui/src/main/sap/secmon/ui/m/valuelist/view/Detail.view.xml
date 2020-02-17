@@ -1,0 +1,76 @@
+<mvc:View controllerName="sap.secmon.ui.m.valuelist.view.Detail"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form">
+
+	<Page id="valuelistDetailsContainer" showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack" class="sapUiFioriObjectPage" title="{editModel>/pageTitle}">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>	
+		<content>
+			<!-- DetailEdit and DetailDisplay inserted at runtime -->
+
+			<core:Fragment fragmentName="sap.secmon.ui.m.valuelist.view.ValueTable"
+				type="XML" />
+		</content>
+		<footer>
+			<OverflowToolbar>
+			
+				<!-- DISPLAY MODE -->
+				<content>
+					<ToolbarSpacer />
+					<Button xmlns="sap.m" text="{i18nCommon>Edit_BUT}"
+						visible="{ 	parts: [{path:'editModel>/displayMode'}, {path: 'uiModel>/countLocalNamespaces'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.hasLocalNamespaceAndDisplayMode' }"
+						press="onEdit">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="false" />
+						</layoutData>
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Save_As_BUT}"
+						visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"
+						press="onSaveAs">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="true" />
+						</layoutData>
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Delete_BUT}"
+						visible="{parts: [{path:'NameSpace'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}, {path:'uiModel>/usingObjects/'}],
+                            formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.isSystemNsAndNotUsed'
+                                    }"
+						press="onDeleteValuelist">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="false" />
+						</layoutData>
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Export_BUT}"
+						visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/contentRepExport'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"
+						press="onExportPressed">
+					</Button>
+					<OverflowToolbarButton icon="sap-icon://download" text="{i18n>VL_Entry_Download}" press="onDownloadPressed"
+								tooltip="{i18n>VL_Download_ttip}"
+								enabled="{ path:'valueCount>/Number',formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.valuesExist' }" 
+								visible="{ 	parts:[{path:'editModel>/displayMode'}, {path: 'applicationContext>/userPrivileges/contentDownload'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"/>
+								
+
+					<!-- EDIT MODE -->
+					<Button xmlns="sap.m" text="{i18nCommon>Save_BUT}" 
+						visible="{ 	parts:[{path:'editModel>/editMode'}, {path: 'applicationContext>/userPrivileges/valuelistWrite'}],
+									formatter: 'sap.secmon.ui.commons.Formatter.booleanANDed' }"
+						press="onSave" type="Emphasized">
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Cancel_BUT}"
+						visible="{editModel>/editMode}" press="onCancel">
+					</Button>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

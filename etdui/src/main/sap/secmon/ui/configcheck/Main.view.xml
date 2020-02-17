@@ -1,0 +1,142 @@
+<mvc:View controllerName="sap.secmon.ui.configcheck.Main"
+    xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+    xmlns:fb="sap.ui.comp.filterbar" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+    xmlns:controls="sap.secmon.ui.commons.controls" xmlns:c="sap.ui.core"
+    displayBlock="true">
+    <Page id="page" title="{i18n>CfgCheck_Header}" showNavButton="true"
+        navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+        <headerContent>
+        </headerContent>
+        <content>
+            <fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset" 
+                search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+                showRestoreButton="false" showClearButton="true" filterBarExpanded="true"
+                id="filterBar">
+                <fb:filterItems>
+                    <fb:FilterItem name="MainSystemId" label="{i18n>SysCtx_IdMainSys}">
+                        <fb:control>
+                        <MultiComboBox id="mainSystemIdFilterInput"
+                                items="{path : 'FilterValues>/MainSystemIds'}">
+                                <items>
+                                    <c:Item key="{FilterValues>MainSystemId}"
+                                       text="{FilterValues>MainSystemId}" />
+                                </items>
+                                <customData>
+                                    <c:CustomData key="urlParamName" value="MainSystemId" />
+                                    <c:CustomData key="i18nText" value="{i18n>SysCtx_IdMainSys}" />
+                                </customData>
+                            </MultiComboBox>
+                        </fb:control>
+                    </fb:FilterItem>
+                    <fb:FilterItem name="SystemId" label="{i18nCommon>System_LBL}">
+                        <fb:control>
+                        <MultiComboBox id="systemIdFilterInput"
+                                items="{path : 'FilterValues>/SystemIds'}">
+                                <items>
+                                    <c:Item key="{FilterValues>SystemId}"
+                                       text="{FilterValues>SystemId}" />
+                                </items>
+                                <customData>
+                                    <c:CustomData key="urlParamName" value="SystemId" />
+                                    <c:CustomData key="i18nText" value="{i18nCommon>System_LBL}" />
+                                </customData>
+                            </MultiComboBox>
+                        </fb:control>
+                    </fb:FilterItem>
+                    <fb:FilterItem name="Role" label="{i18n>CfgCheck_Role}">
+                        <fb:control>
+                         <MultiComboBox id="roleFilterInput"
+                                items="{path : 'FilterValues>/Roles'}">
+                                <items>
+                                    <c:Item key="{FilterValues>Role}"
+                                       text="{parts : [ {path : 'FilterValues>Role'}, { path : 'i18n>CfgCheck_NoRole'}],
+                                                    formatter: 'sap.secmon.ui.configCheck.Formatter.RoleFormatter'}"
+                                       
+                                       
+                                      />
+                                </items>
+                                <customData>
+                                    <c:CustomData key="urlParamName" value="Role" />
+                                    <c:CustomData key="i18nText" value="{i18n>SysCtx_Role}" />
+                                </customData>
+                            </MultiComboBox>
+                        </fb:control>
+                    </fb:FilterItem>
+                    <fb:FilterItem name="DataSource" label="{i18n>CfgCheck_Cat}">
+                        <fb:control>
+                            <MultiComboBox id="dataSourceFilterInput"
+                                items="{path : 'FilterValues>/DataSources'}">
+                                <items>
+                                    <c:Item key="{FilterValues>DataSource}"
+                                       text="{FilterValues>DataSource}" />
+                                </items>
+                                <customData>
+                                    <c:CustomData key="urlParamName" value="DataSource" />
+                                    <c:CustomData key="i18nText" value="{i18n>CfgCheck_Cat}" />
+                                </customData>
+                            </MultiComboBox>
+                        </fb:control>
+                    </fb:FilterItem>
+                </fb:filterItems>
+            </fb:FilterBar>
+            <Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+                <ToolbarSpacer></ToolbarSpacer>
+                <SegmentedButton id="segmentedButton">
+                </SegmentedButton>
+            </Toolbar>
+            
+            <customControls:ColumnClickableTable
+                id="table" inset="false" firstColumnIsForSelection="false"
+                items="{ path : '/Header' }"
+                 growing="true" growingScrollToLoad="true" growingThreshold="100" 
+                 columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort" itemPress="onItemPress"> 
+                <customControls:infoToolbar>
+                    <Toolbar id="vsdFilterBar" active="false" visible="false">
+                        <Label id="vsdFilterLabel" text="?" />
+                    </Toolbar>
+                </customControls:infoToolbar>
+                <customControls:columns>
+                    <customControls:SortableColumn minScreenWidth="Phone" demandPopin="true" sortProperty="MainSystemId">
+                        <customControls:SortableItem text="{i18n>SysCtx_IdMainSys}" />
+                    </customControls:SortableColumn>
+                    <customControls:SortableColumn minScreenWidth="Phone" demandPopin="true" sortProperty="SystemId">
+                        <customControls:SortableItem text="{i18nCommon>System_LBL}" />
+                    </customControls:SortableColumn>
+                    <customControls:SortableColumn minScreenWidth="Phone" demandPopin="true" sortProperty="Role">
+                        <customControls:SortableItem text="{i18n>CfgCheck_Role}" />
+                    </customControls:SortableColumn>
+                    <customControls:SortableColumn minScreenWidth="Phone" demandPopin="true" sortProperty="DataSource">
+                        <customControls:SortableItem text="{i18n>CfgCheck_Cat}"/>
+                    </customControls:SortableColumn>
+                    <customControls:SortableColumn minScreenWidth="Phone" demandPopin="true" sortProperty="AggregatedStatusLevel">
+                        <customControls:SortableItem text="{i18n>CfgACheck_Level}" />
+                    </customControls:SortableColumn>
+                </customControls:columns>
+                <customControls:items>
+                    <ColumnListItem vAlign="Middle" type="Navigation">
+                        <cells>
+                            <Text text="{MainSystemId}" />
+                            <Text text="{SystemId}" />
+                            <Text text="{Role}" />
+                            <Text text="{DataSource}" />
+                            <customControls:IconWithLinkOrText iconSrc="{path: 'AggregatedStatusLevel', formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconSrc'}" 
+                                iconColor="{path: 'AggregatedStatusLevel', formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconColor'} "
+                                text="{parts : [ {path : 'AggregatedStatusLevel'}, { path : 'i18n>CfgLevel0'}, { path : 'i18n>CfgLevel1'}, { path : 'i18n>CfgLevel2'},{ path : 'i18n>CfgLevel3'}, { path : 'i18n>CfgLevel4'}, { path : 'i18n>CfgLevel255'} ],
+                                                    formatter: 'sap.secmon.ui.configCheck.Formatter.formatIconTooltip'}"
+                                />
+                        </cells>
+                    </ColumnListItem>
+                </customControls:items>
+            </customControls:ColumnClickableTable>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer/>
+                    <Button id="bookmarkButton" icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+                        press="handleBookmarkDialogButtonPressed" />
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

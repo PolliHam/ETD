@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>InvestFS_EditMultiple}" class="sapUiPopupWithPadding"
+		contentWidth="800px">
+		<content>
+			<l:Grid position="Center" defaultSpan="L6 M6 S6" layout="ResponsiveGridLayout">
+				<l:content>
+					<CheckBox text="{i18n>InvestFS_ChangeSeverity}" selected="{editModel>/updateSeverity}" />
+					<Select selectedKey="{editModel>/Severity}" enabled="{editModel>/updateSeverity}"
+						items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/enumValues}"
+						width="100%">
+						<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+					</Select>
+					<CheckBox text="{i18n>InvestFS_ChangeProcessor}" selected="{editModel>/updateProcessor}">
+						<layoutData>
+							<l:GridData linebreak="true" />
+						</layoutData>
+					</CheckBox>
+					<Select selectedKey="{editModel>/Processor}"
+						items="{path: 'hanaUsers>/',  sorter : { path: 'USER_NAME', descending: false} }"
+						enabled="{editModel>/updateProcessor}" width="100%">
+						<core:Item key="{hanaUsers>USER_NAME}" text="{hanaUsers>USER_NAME}" />
+						<layoutData>
+							<l:GridData linebreak="false" span="L5 M4 S4"/>
+						</layoutData>
+					</Select>
+					<Button icon="sap-icon://employee-approvals" width="100%"
+						tooltip="{i18nCommon>AssignToMe}" press="onAssignMyselfAsProcessor"
+						enabled="{= ${editModel>/updateProcessor} === true &amp;&amp; ${applicationContext>/userName} !== ${editModel>/Processor} }" >
+						<layoutData>
+							<l:GridData linebreak="false" span="L1 M2 S2"/>
+						</layoutData>
+					</Button>
+					<CheckBox text="{i18n>InvestFS_ChangeMgmtVsbl}" selected="{editModel>/updateManagementVisibility}">
+						<layoutData>
+							<l:GridData linebreak="true" />
+						</layoutData>
+					</CheckBox>
+					<Select selectedKey="{editModel>/ManagementVisibility}"
+						enabled="{editModel>/updateManagementVisibility}"
+						items="{enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/enumValues}"
+						width="100%">
+						<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+					</Select>
+				</l:content>
+			</l:Grid>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Commons_Ok}" app:dialogType="Std"
+				press="onUpdateInvestigationsDialogOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Commons_Cancel}" app:dialogType="Std"
+				press="onUpdateInvestigationsDialogCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

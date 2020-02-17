@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleSettingsConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>ResolveUser_User}" key="User" />
+			<ViewSettingsItem text="{i18n>ResolveUser_EntityName}" key="EntityName" />
+			<ViewSettingsItem text="{i18n>ResolveUser_Timestamp}" key="Timestamp" />
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>ResolveUser_User}"
+				key="User" multiSelect="true"
+				items="{ path: 'log>/Users', sorter : { path: 'User', descending: false} }">
+				<items>
+					<ViewSettingsFilterItem text="{log>User}" key="{log>User}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>ResolveUser_EntityName}"
+				key="EntityName" multiSelect="true"
+				items="{ path: 'log>/Pseudonyms', sorter : { path: 'Pseudonym', descending: false} }">
+				<items>
+					<ViewSettingsFilterItem text="{log>Pseudonym}" key="{log>Pseudonym}" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

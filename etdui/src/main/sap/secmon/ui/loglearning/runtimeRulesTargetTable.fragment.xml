@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:commons="sap.ui.commons">
+
+    <t:Table id="RunTableTarget" visibleRowCountMode="Auto"
+        height="100%" width="100%" selectionMode="Multi" rowSelectionChange="onRowSelectionChange" 
+        minAutoRowCount="2" busyIndicatorDelay="250" showColumnVisibilityMenu="true" 
+        title="{i18n>Interpret_Target}"
+        rows="{path: 'RunJSONModel>/runtimeRules/valueMapping/target',
+                templateShareable : true}">
+
+        <t:columns>
+            <t:Column id="columnTargetId" sortProperty="Id"
+                filterProperty="Id" visible="false">
+                <Label text="{i18n>Interpret_Id}" />
+                <t:template>
+                    <Text text="{RunJSONModel>Id}" />
+                </t:template>
+			</t:Column>
+
+             <t:Column id="columnTableName" sortProperty="TableName"
+                filterProperty="TableName" >
+                <Label text="{i18n>Interpret_TableName}" />
+                <t:template>
+                    <Text text="{RunJSONModel>TableName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnFieldName" sortProperty="FieldName"
+                filterProperty="FieldName">
+                <Label text="{i18n>Interpret_FieldName}" />
+                <t:template>
+                    <Text text="{RunJSONModel>FieldName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnTargetValue" sortProperty="TargetValue"
+                filterProperty="TargetValue" visible="true">
+                <Label text="{i18n>Interpret_TargetValue}" />
+                <t:template>
+                    <Input id="textFieldTargetValue"
+                        editable="false"
+                        change="onChangeTextField"
+                        value="{parts : [ {path :'RunJSONModel>TargetValue'}, {path : 'RunJSONModel>Event.DisplayName'} ],
+                            formatter:'sap.secmon.ui.loglearning.util.Formatter.targetValueText', mode : 'sap.ui.model.BindingMode.OneWay' }"
+                     
+                        tooltip="{parts : [ {path :'RunJSONModel>Event.Name'}, {path : 'RunJSONModel>Event.Namespace'} ],
+                            formatter:'sap.secmon.ui.loglearning.util.Formatter.targetValueTooltipText', mode : 'sap.ui.model.BindingMode.OneWay' }" />
+                </t:template>
+			</t:Column>
+        </t:columns>
+
+    </t:Table>
+</core:FragmentDefinition>

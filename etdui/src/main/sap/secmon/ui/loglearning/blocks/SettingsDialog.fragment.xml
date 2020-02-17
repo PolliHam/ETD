@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem key="AttrName" text="{i18n>Interpret_AttrName}"
+				selected="true" />
+			<ViewSettingsItem key="Value" text="{i18n>Interpret_Value}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,151 @@
+
+#XTXT : Subnets UI
+Subnets_NetAddress=Network Address
+#XTXT : Subnets UI
+Subnets_Prefix=Subnet Mask
+#XTXT : Subnets UI
+Subnets_Description=Description
+#XTXT : Subnets UI
+Subnets_Category=Category
+#XTXT : Subnets UI
+Subnets_Format=Should be in the format 0-255.0-255.0-255.0-255
+#XTXT : Subnets UI
+Subnets_TechContName=Technical Contact Name
+#XTXT : Subnets UI
+Subnets_TechContTele=Technical Contact Telephone Number
+#XTXT : Subnets UI
+Subnets_TechContEmail=Technical Contact EMail-Address
+#XTXT : Subnets UI
+Subnets_Confidentiality=Confidentiality
+#XTXT : Subnets UI
+Subnets_IntSystem=Integrity System
+#XTXT : Subnets UI
+Subnets_IntData=Integrity Data
+#XTXT : Subnets UI
+Subnets_Availability=Availability
+#XTIT : Subnets UI
+Subnets_Header=Subnets
+#XBUT : Subnets UI
+Subnets_Ok=OK
+#XTXT : Subnets UI
+Subnets_Subnet=Subnet
+#XTXT : Subnets UI
+Subnets_SubnetDet=Subnet Details
+#XBUT : Subnets UI
+Subnets_Cancel=Cancel
+#XCOL : Subnets UI
+Subnets_Location=Location
+#XCOL : Subnets UI
+Subnets_ParentLocation=Parent Location
+#XCOL : Subnets UI
+Subnets_Type=Type
+#XBUT : Subnets UI
+Subnets_Save=Save changes
+#XTXT : Subnets UI
+Subnets_Contacts=Contacts
+#XTXT : Subnets UI
+Subnets_Bus_Sig=Business Significance
+#XBUT : Subnets UI
+Subnets_CreateSubnet=Create Subnet
+#XTIT : Subnets UI
+Subnets_DeleteSubnet=Delete Subnet
+#XBUT : Subnets UI
+Subnets_ExportSubnet=Export Subnet
+#XMSG : Subnets UI
+Subnets_FileTooBigText=File size exceeded
+#XMSG : Subnets UI
+Subnets_FileTypeWrong=Wrong File Type
+#XFLD : Subnets UI
+Subnets_File=File
+#XBUT : Subnets UI
+Subnets_FileUpload=Upload CSV File
+#XBUT : Subnets UI
+Subnets_FileExport=Download as CSV
+#XMSG : Subnets UI
+Subnets_DelReally=Do you really want to delete the selected subnets?
+#XMSG : Subnets UI
+Subnets_CreateSuc=Subnet {0} created successfully
+#XMSG : Subnets UI
+Subnets_DelSuc=Selected subnet(s) deleted
+#XMSG : Subnets UI
+Subnets_DelErr=Error when trying to delete subnet {0}: {1}
+#XMSG : Subnets UI
+Subnets_DelAllErr=Error when trying to delete all subnets: {0}
+#XMSG : Subnets UI
+Subnets_CreateErr=Error when trying to create subnet(s) {0}: {1}
+#XMSG : Subnets UI
+Subnets_EnterAllFields=Enter all required fields
+#XSMG : Subnets UI
+Subnets_UploadSuc=File has been uploaded
+#XMSG : Subnets UI
+Subnets_UplErrEmptyFile=The uploaded file was empty
+#XMSG : Subnets UI
+Subnets_UplErr=Upload Error
+#XMSG : Subnets UI
+Subnets_SaveSuc=Subnet {0} saved
+#XTIT : Subnets UI
+Subnets_DelSubnetAll=Delete all Subnets
+#XMSG : Locations UI
+Subnets_DelSucAll=All subnets deleted
+#XMSG : Subnets UI
+Subnets_InvDetails=Correct invalid subnet details in order to save changes
+#XMSG : Subnets UI
+Subnets_SaveErr=Error when trying to save subnet {0}: {1}
+#XMSG : Subnets UI
+Subnets_ReplErr=Error when trying to add the deletion of subnet {0} into content replication: {1}
+#XTXT : Subnets UI
+Subnets_NotSel=Select at least one subnet
+#XTXT : Subnets UI
+Subnets_ReplSuc=Subnet {0} added to content replication
+#XLBL : Subnets UI
+Subnets_FileHeader=File contains header
+#XLBL : Subnets UI
+Subnets_ImportButtonText=Import
+#XLBL : Subnets UI
+Subnets_CancelButtonText=Cancel
+#XBUT : Subnets UI
+Subnets_FileUploadError=Import file contains errors
+#XBUT : Subnets UI
+Subnets_Error=Error
+#XBUT : Subnets UI
+Subnets_ImportErrorHeading=The following lines contained Errors
+#XBUT : Subnets UI
+Subnets_ValidEntries=Valid entries
+#XBUT : Subnets UI
+Subnets_Errors=Errors
+#XBUT : Subnets UI
+Subnets_ImportQuestion=Do you want to import the valid entries and ignore the errors?
+#XBUT : Subnets UI
+Subnets_Overwrite=Import and overwrite existing entry
+#XBUT : Subnets UI
+Subnets_CannotOverwrite=Error in Line - Cannot be imported
+#XBUT : Subnets UI
+Subnets_NoDiffs=No Differences
+#XBUT : Subnets UI
+Subnets_Fieldname=Name
+#XBUT : Subnets UI
+Subnets_OldValue=Old Value
+#XBUT : Subnets UI
+Subnets_NewValue=New Value
+#XBUT : Subnets UI
+Subnets_Diff=Differences
+#XBUT : Subnets UI
+Subnets_HelpFileUploadTitle=Upload File Help
+#XBUT : Subnets UI
+Subnets_HelpFileUpload=Please select a CSV file. The fields need to be separated by ";".\nThe following fields will be imported from the file in order: \n\n - Net Address\n - Netmask\n - Description\n - Category\n - Name of Contact\n - Phone Number for Contact\n - E-Mail Address for Contact\n - Confidentiality\n - Integrity System\n - Integrity Data\n - Availability
+#XBUT : Subnets UI
+Subnets_BrowserNotSupported=Error when downloading data. Your browser might not be supported.
+#XLBL : Subnets UI
+Subnets_ChangedBy=Changed By
+#XLBL : Subnets UI
+Subnets_ChangedAt=Changed At
+#XLBL : Subnets UI
+Subnets_CreatedBy=Created By
+#XLBL : Subnets UI
+Subnets_CreatedAt=Created At
+#XTIT : Subnets UI
+Subnets_General=General
+#XLBL:System Context UI
+Subnets_FilterBarPrefix=Filtered by:
+#XBUT : System Context UI
+Subnets_Delete= Delete

@@ -1,0 +1,61 @@
+<mvc:View controllerName="sap.secmon.ui.userNg.views.ResolveReverse" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<VBox>
+
+		<!-- User Pseudonym input -->
+		<Label text="{i18n>RsUsr_ResolveAccName}" class="sapUiSmallMarginLeft" width="100%" />
+		<HBox>
+			<Input id="userng-resolvereverse-user" value="" placeholder="{i18n>RsUsr_InputAccName}" class="sapUiTinyMargin" width="12em" change="onInputChange"/>
+			<Button text="{i18n>ResolveUser_ActionResolve}" press="onResolvePressed" class="sapUiTinyMargin" />
+		</HBox>
+		
+		<Panel expandable="true" expanded="false" headerText="{i18n>RsUsr_RelatedAccounts_T}">
+			<VBox id="userng-resolvereverse-relatedAccountsContainer">
+				<Button id="userng-resolvereverse-resolve" text="{i18n>ResolveUser_ActionResolve}" press="onRelatedAccountsResolvePressed" class="sapUiTinyMargin" />
+			</VBox>
+		</Panel>
+
+		<!-- Active User Pseudonyms -->
+		<Label text="{i18n>ResolveUser_ActivePseudonyms}" width="100%" visible="{pseudonyms>/bHasPseudonyms}" class="sapUiMediumMarginTop" />
+		<Table id="userng-resolvereverse-userpseudonyms"
+			growing="true" mode="MultiSelect" growingScrollToLoad="true" growingThreshold="50"
+			items="{pseudonyms>/aPseudonyms}" updateFinished="onPseudonymTableUpdate"  visible="{pseudonyms>/bHasPseudonyms}" class="sapUiTinyMargin">
+			<columns>
+				<Column>
+					<Label text="{i18n>ResolveUser_Pseudonym}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>ResolveUser_Created}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>ResolveUser_ValidTo}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{pseudonyms>Pseudonym}" />
+						<Text text="{
+							parts : [ {
+								path: 'applicationContext>/UTC'
+							}, {
+								path: 'pseudonyms>Created'
+							} ],
+							formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'
+						}" />
+						<Text text="{
+							parts : [ {
+								path: 'applicationContext>/UTC'
+							}, {
+								path: 'pseudonyms>ValidTo'
+							} ],
+							formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'
+						}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Button id="userng-resolvereverse-navToFL" text="{i18n>ResolveUser_ActionNavigateToFL}" press="onNavigatePressed" class="sapUiTinyMargin"/>
+		
+
+	</VBox>
+</mvc:View>

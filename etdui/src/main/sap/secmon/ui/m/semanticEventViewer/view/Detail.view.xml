@@ -1,0 +1,18 @@
+<mvc:View controllerName="sap.secmon.ui.m.semanticEventViewer.view.Detail"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page id="LogsShowDetail" showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack" title="{path:'i18n>DetailTitle'}">
+		<content>
+			<core:Fragment fragmentName="sap.secmon.ui.m.commons.semanticEvents.LogDetail"
+				type="XML" />
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<ToolbarSpacer />
+					<Button press="handleAddToInvestigationPressed" text="{i18n>AddToInvestigation}" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

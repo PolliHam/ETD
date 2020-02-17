@@ -1,0 +1,220 @@
+<mvc:View controllerName="sap.secmon.ui.m.investfs.view.Investigations"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls" xmlns:l="sap.ui.layout">
+	<Page id="page" title="{i18n>MInvest_List_Title}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<headerContent>
+			<Input
+				id="inputInvestigationId"
+				width = "10em"
+				type="Number"/>
+			<Button text="{i18n>MQuick_Link_Button}" press="onNavigateById"/>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" visible="{editModel>/displayMode}" />
+		</headerContent>		
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+						showRestoreButton="false" showClearButton="true"
+						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+						id="filterBar" considerGroupTitle="true">
+						<fb:filterItems>
+
+							<fb:FilterItem name="status" label="{i18nCommon>Status_LBL}">
+								<fb:control>
+									<MultiComboBox id="statusFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Status/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Status" />
+											<c:CustomData key="i18nText" value="{i18nCommon>Status_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							
+							<fb:FilterItem name="severity" label="{i18nCommon>Severity_LBL}">
+								<fb:control>
+									<MultiComboBox id="severityFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Severity" />
+											<c:CustomData key="i18nText" value="{i18nCommon>Severity_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="managementVisibility" label="{i18n>MManagementVisibility}">
+								<fb:control>
+									<MultiComboBox id="managementVisibilityFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="ManagementVisibility" />
+											<c:CustomData key="i18nText" value="{i18n>MManagementVisibility}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="attack" label="{i18nCommon>Attack_COL}">
+								<fb:control>
+									<MultiComboBox id="attackFilterInput"
+										items="{enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Attack" />
+											<c:CustomData key="i18nText" value="{i18nCommon>Attack_COL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="createdBy" label="{i18nCommon>Created_By_LBL}">
+								<fb:control>
+									<MultiComboBox id="createdByFilterInput"
+										items="{path: 'hanaUsers>/',  sorter : { path: 'USER_NAME', descending: false}}">
+										<items>
+											<c:Item text="{hanaUsers>USER_NAME}" key="{hanaUsers>USER_NAME}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="CreatedBy" />
+											<c:CustomData key="i18nText" value="{i18nCommon>Created_By_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="processor" label="{i18nCommon>Processor_LBL}">
+								<fb:control>
+									<MultiComboBox id="processorFilterInput"
+										items="{path: 'hanaUsers>/',  sorter : { path: 'USER_NAME', descending: false}}">
+
+										<items>
+											<c:Item text="{hanaUsers>USER_NAME}"  key="{hanaUsers>USER_NAME}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="Processor" />
+											<c:CustomData key="i18nText" value="{i18nCommon>Processor_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+
+					<Toolbar>
+						<Label id="toolbarOfInvestigationTable" text="{i18n>MInvest_List_Title}"></Label>
+					</Toolbar>
+				</l:fixContent>
+
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<customControls:ColumnClickableTable
+							id="investigationTable" inset="false" mode="MultiSelect" class="sapEtdScrollTable"
+							items="{path: '/Investigation'}" growing="true" growingScrollToLoad="true"
+							selectionChange="onSelect" growingThreshold="100"
+							columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+
+							<customControls:infoToolbar>
+								<Toolbar id="vsdFilterBar" active="false" visible="false"
+									type="Light">
+									<Label id="vsdFilterLabel" />
+								</Toolbar>
+							</customControls:infoToolbar>
+							<customControls:columns>
+								<customControls:SortableColumn
+									sortProperty="Severity">
+									<customControls:SortableItem text="{i18nCommon>Severity_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									sortProperty="ManagementVisibility">
+									<customControls:SortableItem text="{i18n>MManagementVisibility}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn width="4em"
+									sortProperty="Number">
+									<customControls:SortableItem text="{i18n>MInvest_ID}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn width="12em"
+									sortProperty="Description">
+									<customControls:SortableItem text="{i18nCommon>Description_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="Status">
+									<customControls:SortableItem text="{i18nCommon>Status_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="Attack">
+									<customControls:SortableItem text="{i18n>MInvest_Attack_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="CreationDate">
+									<customControls:SortableItem text="{i18n>MCreationDate}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="CreatedBy">
+									<customControls:SortableItem text="{i18nCommon>Created_By_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="Processor">
+									<customControls:SortableItem text="{i18nCommon>Processor_COL}" />
+								</customControls:SortableColumn>
+								<customControls:SortableColumn
+									minScreenWidth="Small" sortProperty="LastUpdated">
+									<customControls:SortableItem text="{i18nCommon>LastTimestamp_COL}" />
+								</customControls:SortableColumn>
+							</customControls:columns>
+							<customControls:items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/'},{path : 'Severity'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/'},{path : 'ManagementVisibility'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<commonControls:LongTapLink text="{Number}"
+											href="{path : 'Id', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationURL'}" />
+										<Text text="{Description}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Status/'},{path : 'Status'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/'},{path : 'Attack'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+										<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+										<Text text="{CreatedBy}" />
+										<Text text="{Processor}" />
+										<Text text="{parts : [{path : 'applicationContext>/UTC'}, {path : 'LastUpdated'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+									</cells>
+								</ColumnListItem>
+							</customControls:items>
+						</customControls:ColumnClickableTable>
+					</ScrollContainer>
+				</l:flexContent>
+			</l:FixFlex>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button id="Edit_Button" text="{i18nCommon>Edit_BUT}" 
+						press="onEditPress" visible = "{applicationContext>/userPrivileges/investigationWrite}"/>
+					<Button icon="sap-icon://email" tooltip="{i18n>AlertEmail_XTIT}"
+						press="handleEmailButtonPressed"  visible = "{applicationContext>/userPrivileges/investigationRead}"/>
+					<Button icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+						press="handleBookmarkDialogButtonPressed" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

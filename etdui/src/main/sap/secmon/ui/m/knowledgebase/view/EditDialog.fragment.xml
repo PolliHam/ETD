@@ -1,0 +1,25 @@
+<c:FragmentDefinition xmlns="sap.m"
+xmlns:c="sap.ui.core"
+xmlns:sscc="sap.secmon.ui.m.commons.controls"
+xmlns:f="sap.ui.layout.form">
+    <Dialog id="EditDialog">
+        <content>
+            <f:SimpleForm showHeader="false" editable="true">
+                <f:content>
+                    <Label text="{i18n>Name}" />
+                     <Text text="{edit>/name}" />
+                     <Label text="{i18n>KB_NameSpaceLbl}" />
+                    <Text text="{edit>/NameSpace}" />
+                    <Label text="{i18n>KB_DisplayNameLbl}" required="true"/>
+                    <Input id="editDisplayName" value="{path:'edit>/displayName', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" valueStateText="{i18n>KB_NameNotEmpty}" change="onChange"/>
+                    <Label text="{i18n>KB_DescriptionLbl}" />
+                    <Input value="{edit>/description}" maxLines="2"/>
+                </f:content>
+            </f:SimpleForm>
+       </content>
+       <buttons>
+           <Button text="{i18nCommon>Save_BUT}" press="onSaveEdit" />
+           <Button text="{i18nCommon>Cancel_BUT}" press="onCancelEdit" />
+       </buttons>
+    </Dialog>
+</c:FragmentDefinition>

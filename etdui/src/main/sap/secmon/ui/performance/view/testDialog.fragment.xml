@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+    <Dialog id="idTestDialog" title="Manage Tests">
+        <content>
+            <Panel expandable="true" expanded="true" headerText="Throughput in Events/Secs">
+                <content>
+                  <l:HorizontalLayout>
+                    <Input type="Number"/>
+                    <Button text="Set"/>
+                  </l:HorizontalLayout>
+                </content>
+            </Panel>
+            <Panel expandable="true" expanded="false" headerText="Clear Tests">
+                <content>
+                  <l:HorizontalLayout>
+                    <Button text="Delete Test Events" class="sapUiTinyMarginEnd" press="onDeleteTestEvents"/>
+                    <Button text="Delete Test Results" press="onDeleteTestResults"/>
+                  </l:HorizontalLayout>
+                </content>
+            </Panel>
+        </content>
+        <buttons>
+            <Button type="Emphasized" text="Close" press="onCloseDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

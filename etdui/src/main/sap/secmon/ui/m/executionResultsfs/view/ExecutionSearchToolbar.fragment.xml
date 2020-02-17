@@ -1,0 +1,102 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar">
+	
+	<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+		search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+		showRestoreButton="false" showClearButton="true"
+		class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+		id="filterBar" considerGroupTitle="true">
+		<fb:filterItems>
+
+			<fb:FilterItem name="dateTime" label="{i18n>ConsidTimeRangeLbl}">
+				<fb:control>
+					<Input id="dateTimeFilterInput" showValueHelp="true"
+						   valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" />
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="pattern" label="{i18nCommon>Pattern_LBL}">
+				<fb:control>
+					<MultiInput id="patternFilterInput" filterSuggests="false"
+						placeholder="{i18nCommon>PatternNamePlaceholder}"
+						showSuggestion="true" startSuggestion="2" suggest="onPatternSuggest"
+						suggestionItemSelected="handleSuggestionItemSelected"
+						valueHelpRequest="onPatternValueHelpRequest"
+						showTableSuggestionValueHelp="true" showValueHelp="true">
+						<!-- c:Item key="{Id}" text="{Name}"/ -->
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternDefinitionId.Id" />
+							<c:CustomData key="i18nText" value="{i18nCommon>Pattern_LBL}" />
+						</customData>
+						<suggestionColumns>
+							<Column visible="false">
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline"
+								demandPopin="true">
+								<Label text="{i18nCommon>Pattern_LBL}" />
+							</Column>
+							<Column hAlign="Begin" popinDisplay="Inline"
+								demandPopin="true" width="8em">
+								<Label text="{i18nCommon>AnomalyPattern}" />
+							</Column>
+						</suggestionColumns>
+						<suggestionRows>
+							<ColumnListItem>
+								<cells>
+								</cells>
+							</ColumnListItem>
+						</suggestionRows>
+					</MultiInput>
+				</fb:control>
+			</fb:FilterItem>
+			
+			<fb:FilterItem name="patternNamespace" label="{i18nCommon>Namespace_LBL}">
+				<fb:control>
+					<MultiComboBox id="patternNamespaceFilterInput"
+						items="{path : '/Result', parameters :{select :'PatternNamespace,PatternNamespaceId'}}">
+						<items>
+							<c:Item key="{PatternNamespaceId}" text="{PatternNamespace}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="PatternNamespaceId" />
+							<c:CustomData key="i18nText" value="Namespace" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="resultStatus" label="{i18nCommon>Status_LBL}">
+				<fb:control>
+					<MultiComboBox id="resultStatusFilterInput"
+						items="{path : '/Result', parameters :{select :'ResultStatus'}}">
+						<items>
+							<c:Item key="{ResultStatus}" text="{ResultStatus}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="ResultStatus" />
+							<c:CustomData key="i18nText" value="{i18nCommon>Status_LBL}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+
+			<fb:FilterItem name="executionMode" label="{i18n>ExecutionMode}">
+				<fb:control>
+					<MultiComboBox id="executionModeFilterInput"
+						items="{path:'/Result/',parameters:{select:'ExecutionMode'}}">
+
+						<items>
+							<c:Item key="{ExecutionMode}" text="{ExecutionMode}" />
+						</items>
+						<customData>
+							<c:CustomData key="urlParamName" value="ExecutionMode" />
+							<c:CustomData key="i18nText" value="{i18n>ExecutionMode}" />
+						</customData>
+					</MultiComboBox>
+				</fb:control>
+			</fb:FilterItem>
+		</fb:filterItems>
+
+	</fb:FilterBar>
+	
+</c:FragmentDefinition>	

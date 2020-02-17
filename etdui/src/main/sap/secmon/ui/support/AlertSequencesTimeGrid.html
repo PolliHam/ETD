@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+svg text {
+	font-size: 12px;
+}
+
+rect {
+	shape-rendering: crispEdges;
+}
+</style>
+<META charset="utf-8">
+<STYLE>
+.node {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.link {
+	stroke: #999;
+	stroke-opacity: .6;
+}
+
+body.wait, body.wait * {
+	cursor: wait !important;
+}
+</STYLE>
+<body>
+
+	<script src="/sap/ui5/1/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+		data-sap-ui-libs="sap.m, sap.viz" data-sap-ui-theme="sap_bluecrystal">
+    
+</script>
+
+	<script>
+//This is necessary to find sap secmon objects. Without it, they will be sought under sap.ui packages
+jQuery.sap.registerResourcePath("/sap/secmon", "../../../../../../../sap/secmon");
+jQuery.sap.registerModulePath("sap.secmon", "../../../../../../../sap/secmon");
+</script>
+
+	<div>
+		<span>From (UTC)</span>&nbsp;<input type="text" id="from"
+			value="2016-02-22T00:00:00" /> <span>To (UTC)</span>&nbsp;<input
+			type="text" id="to" value="2016-02-22T02:00:00" /> <input
+			type="button" value="Go" onclick="go() " /> <span id="status"></span>
+
+	</div>
+	<h3>Alert Sequences</h3>
+
+	<div id="as"></div>
+
+	<script>
+function getfromDateString(){
+	return document.getElementById("from").value;
+}
+
+function getToDateString(){
+	return document.getElementById("to").value;
+}
+
+var context = { 
+	fromDateString : "",
+	toDateString : "",
+	alerts: [],
+	userIds: new Set(),
+	systemIds: new Set(),
+	terminalIds: new Set(),
+	patternIds: new Set(),
+	minDate : null,
+	maxDate : null,
+	screenWidth : 1800,
+	screenHeight : 900
+};
+
+function setStatus(){
+    
+    var text = context.alerts.length + ' Alerts, ' + 
+    context.userIds.size + ' Users, ' + 
+    context.patternIds.size + ' Patterns, ' + 
+    context.terminalIds.size + ' Terminals, ' + 
+    context.systemIds.size + ' Systems';
+    
+    var span = document.getElementById("status");
+    while( span.firstChild ) {
+        span.removeChild( span.firstChild );
+    }
+	span.appendChild( document.createTextNode( text ) );
+}
+
+function handleAlerts( response ){
+	
+    var alertSourceTargets = response.d.results;
+	var alertByIds = {};
+
+	var userIds = new Set(), 
+	systemIds = new Set(), 
+	terminalIds = new Set(), 
+	patternIds = new Set(); 
+
+	alertSourceTargets.forEach(function(value, index) {
+
+	    var alert = alertByIds[value.AlertId];
+	    if( alert == null ){
+		    alert = 
+		    	{
+			        alertId : value.AlertId,
+			        alertCreationTimestamp : value.AlertCreationTimestamp,
+			        patternId: value.PatternId, 
+			        patternName : value.PatternName,
+			        patternNamespace : value.PatternNamespace,
+			        systemIds : new Set(),
+			        terminalIds : new Set(),
+			        userIds : new Set(),
+			        minTimestamp : value.MinTimestamp,
+			        maxTimestamp : value.MaxTimestamp
+		    	};
+		    alertByIds[value.AlertId] = alert;
+	    }
+	    
+	    patternIds.add( value.PatternId );
+
+	    if( ( value.SystemId != null ) && ( value.SystemId.length > 0 ) ) {
+	    	alert.systemIds.add( value.SystemId );
+	    	systemIds.add( value.SystemId );
+	    }
+	    
+	    if( ( value.TerminalId != null ) && ( value.TerminalId.length > 0 ) ) {
+		    alert.terminalIds.add( value.TerminalId );
+		    terminalIds.add( value.TerminalId );
+	    }
+	    
+	    if( ( value.UserId != null ) && ( value.UserId.length > 0 ) ) {
+	        alert.userIds.add(value.UserId);
+	        userIds.add(value.UserId);
+	    }
+
+	});
+
+	// create array from the map
+	var alerts = Object.keys(alertByIds).map(function(key) {
+	    return alertByIds[key];
+	});
+
+	// sort by time
+	alerts.sort(function(a, b) {
+	    var keyA = a.alertCreationTimestamp, keyB = b.alertCreationTimestamp;
+	    // Compare the 2 dates
+	    if (keyA < keyB)
+	        return -1;
+	    if (keyA > keyB)
+	        return 1;
+	    return 0;
+	});
+
+	var minDate = null;
+	var maxDate = null;
+	//transform alertCreationTimestamp (e.g. /Date(1439969008117)/ ) into Date object alertCreationTimestampDate
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+		
+		var alertCreationTimestamp = alert.alertCreationTimestamp;	
+		alertCreationTimestamp = alertCreationTimestamp.replace(/\//g, '');
+		var date;
+		eval( 'date = new ' + alertCreationTimestamp );
+		alert.alertCreationTimestampDate = date;
+				
+		var minTimestamp = alert.minTimestamp;	
+		minTimestamp = minTimestamp.replace(/\//g, '');
+		eval( 'date = new ' + minTimestamp );
+		alert.minTimestamp = date;
+		
+		if( minDate == null ) minDate = date;
+		else {
+		    if( date < minDate ) minDate = date;
+		}
+
+		var maxTimestamp = alert.maxTimestamp;	
+		maxTimestamp = maxTimestamp.replace(/\//g, '');
+		eval( 'date = new ' + maxTimestamp );
+		alert.maxTimestamp = date;
+		
+		if( maxDate == null ) maxDate = date;
+		else {
+		    if( date > maxDate ) maxDate = date;    
+		}
+	}
+	
+	context.minDate = minDate;
+	context.maxDate = maxDate;
+	
+	$("body").toggleClass("wait");
+	
+	context.alerts = alerts;
+	context.userIds = userIds; 
+	context.systemIds = systemIds;
+	context.terminalIds = terminalIds; 
+	context.patternIds = patternIds;
+	
+	draw();
+}
+
+function alertGetTitle( alert ){
+    var title = alert.patternName + ", " + alert.minTimestamp.toString() + ", " + alert.maxTimestamp.toString();
+    title += ", Users:";
+    title += setToString(alert.userIds);
+    title += ", Systems:";
+    title += setToString(alert.systemIds);
+    title += ", Terminals:";
+    title += setToString(alert.terminalIds);
+    
+    return title;
+}
+
+function createAlertCell(alert) {
+    var cell = {};
+    cell.text = "";
+    cell.title = alertGetTitle( alert );
+
+    return cell;
+}
+
+function scale(y, source, target ){
+    
+    return ( ( ( y * 1.0 ) / source ) * target );
+}
+
+function computeAlertCells(){
+    
+    // color pattern executions by patterns
+    var bgColor = d3.scale.category20();
+    var patternIdNumber = {};
+    var nr = 1;
+    for ( var patternId of context.patternIds) {
+
+        patternIdNumber[patternId] = nr;
+        nr++;
+    }
+        
+	var cells = [];
+	
+	var height = context.maxDate.getTime() - context.minDate.getTime();
+
+	var x = 0;
+    for (userId of context.userIds) {
+        
+        var cell = {};
+        cell.text = "";
+        cell.title = userId;
+        cell.bgColor = "#FAC364";
+        cell.x = x;
+        cell.y = 0;
+        cell.width = 38;
+        cell.height = 8;
+        cells.push( cell );
+
+        context.alerts.forEach(function(alert) {
+            var userIds = alert.userIds;
+
+            if ( userIds.has( userId ) ) {
+
+                var cell = createAlertCell(alert);
+                cell.x = x;
+                cell.y = scale( alert.minTimestamp.getTime() - context.minDate.getTime(), height, context.screenHeight ) + 10;
+                cell.height = scale( alert.maxTimestamp.getTime() - alert.minTimestamp.getTime(), height, context.screenHeight ) + 5;
+                cell.width = 38;
+                cell.bgColor = bgColor(alert.patternId)
+                cells.push( cell );
+	         }
+        });
+        
+        x+= 40;
+    }
+
+    for (terminalId of context.terminalIds) {
+
+        var cell = {};
+        cell.text = "";
+        cell.title = terminalId;
+        cell.bgColor = "#B6D957";
+        cell.x = x;
+        cell.y = 0;
+        cell.width = 38;
+        cell.height = 8;
+        cells.push( cell );
+
+        context.alerts.forEach(function(alert) {
+            var terminalIds = alert.terminalIds;
+
+            if ( terminalIds.has( terminalId ) ) {
+
+                var cell = createAlertCell(alert);
+                cell.x = x;
+                cell.y = scale( alert.minTimestamp.getTime() - context.minDate.getTime(), height, context.screenHeight ) + 10;
+                cell.height = scale( alert.maxTimestamp.getTime() - alert.minTimestamp.getTime(), height, context.screenHeight );
+                cell.width = 38;
+                cell.bgColor = bgColor(alert.patternId)
+                cells.push( cell );
+ 
+           }
+        });
+        
+        x+= 40;
+    }
+    
+    console.log( x );
+    
+    for( var i=0; i<cells.length; i++){
+        
+        var cell = cells[i];
+        
+        cell.x = scale( cell.x, x, context.screenWidth );
+        cell.width = scale( cell.width, x, context.screenWidth );
+    }
+
+	return cells;
+}
+
+function setToString( set ){
+	var s = '[';
+	var first = true;
+	for( var x of set ){
+		if( first ) first = false;
+		else s+= ',';
+		s+= x;
+	}
+	s+= ']';
+	return s;
+}
+
+function drawCells(cells){
+    
+	var width = context.screenWidth,
+    height = 1200;
+
+	d3.select("#as" ).html("");
+	
+    var svgContainer = d3.select("#as").append("svg").attr("width", context.screenWidth).attr("height", 1200);
+
+    // add arrow template
+    svgContainer.append("svg:defs").selectAll("marker").data([ "end" ]).enter().append("svg:marker").attr("id", String).attr("viewBox", "0 -5 10 10").attr("refX", 10).attr("refY", 0).attr(
+            "markerWidth", 6).attr("markerHeight", 6).attr("orient", "auto").append("svg:path").attr("d", "M0,-5L10,0L0,5");
+
+    var svgGroup = svgContainer.append("g");
+
+    for (var i = 0; i < cells.length; i++) {
+        var cell = cells[i];
+
+        var cellGroup = svgGroup.append("g");
+
+        var bgColor = cell.bgColor;
+        if (typeof bgColor === "string") {
+            cellGroup.style("fill", bgColor);
+        }
+
+        var oCell = cellGroup.append("rect");
+        
+        var x = cell.x;
+        var y = cell.y;
+        var width = cell.width;
+        var height = cell.height;
+        
+        oCell.style("opacity", 0.5);
+        
+        oCell.attr("x", x).attr("y", y).attr("width", width).attr("height", height);
+        if (typeof cell.title === "string") {
+            oCell.append("title").text(cell.title);
+        }
+    }
+}
+
+function computeAndDrawCells(){
+	var cells = computeAlertCells();	
+	drawCells( cells );
+}
+
+function loaddata( url ){
+    
+    $.ajax({
+        url : url,
+        async : true
+    }).done( handleAlerts );
+        
+}
+
+function go(){
+    
+    var fromDateString = getfromDateString();
+    var toDateString = getToDateString();
+    
+    if( fromDateString.length > 19 ){
+	    alert("From does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !fromDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'From' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !toDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'To' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    fromDateString = "datetime'" + fromDateString + "'";
+    toDateString = "datetime'" + toDateString + "'";
+    
+    var loadAlerts = true;
+    if( ( context.fromDateString == fromDateString ) && ( context.toDateString == toDateString ) ) loadAlerts = false;
+    
+    context.fromDateString = fromDateString;
+    context.toDateString = toDateString;
+    
+    fromDateString = escape( fromDateString );
+    toDateString = escape( toDateString );
+        
+    if( loadAlerts ){
+        
+        var url = "/sap/secmon/services/ui/m/alerts/AlertSourceTargetPattern.xsodata/AlertData?$filter=(AlertCreationTimestamp%20ge%20" +
+        fromDateString + //"datetime%272015-08-18T11%3a49%3a12%27" +
+                "%20and%20AlertCreationTimestamp%20le%20" + 
+        toDateString + // "datetime%272015-08-19T11%3a49%3a12%27" +
+                ")&$format=json";
+        
+        $("body").toggleClass("wait");
+        loaddata( url );
+        
+    } else {
+    	draw();
+    }
+}
+
+function draw(){
+	computeAndDrawCells();
+	setStatus();
+}
+	
+</SCRIPT>
+
+</body>

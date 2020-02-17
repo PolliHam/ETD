@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:lf="sap.ui.layout.form">
+	<ResponsivePopover title="{i18n>MobAlert_hiTrendXTIT}"
+		modal="true" class="sapUiPopupWithPadding" showCloseButton="true"
+		contentWidth="1000px" placement="Right">
+		<endButton>
+			<Button text="{i18nCommon>Close_BUT}" press="closeHistoryTrendPopover" />
+		</endButton>
+		<content>
+			<mvc:XMLView id="historyTrendView"
+				viewName="sap.secmon.ui.m.alerts.anomaly.HistoryTrendAnalysis">
+			</mvc:XMLView>
+		</content>
+
+	</ResponsivePopover>
+</core:FragmentDefinition>

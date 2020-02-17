@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core"
+		xmlns:form="sap.ui.layout.form">
+	<Dialog title="{i18n>BU_TIT_WSAttributes}">
+		<form:SimpleForm maxContainerCols="2">
+			<Label text="{i18n>BU_LBL_Comment}"/>
+			<TextArea value="{path:'/comment'}"/>
+
+			<Label text="{i18n>BU_LBL_Category}"/>
+			<Input value="{path:'/category'}"/>
+
+			<Label text="{i18n>BU_LBL_UseCase}"/>
+			<TextArea value="{path:'/useCase'}"/>
+
+			<Label text="{i18n>BU_LBL_Status}"/>
+			<Select selectedKey="{path:'/processStatus'}"
+					width="100%"
+					items="{enums>/sap.secmon.ui.browse/Workspace/ProcessStatus/enumValues}">
+				<core:ListItem key="{enums>Key}" text="{enums>Value}"/>
+			</Select>
+
+			<Label text="{i18n>BU_LBL_Risk}" />
+			<Select selectedKey="{path:'/riskClassification'}"
+					width="100%"
+					items="{enums>/sap.secmon.ui.browse/Workspace/RiskClassification/enumValues}">
+				<core:ListItem key="{enums>Key}" text="{enums>Value}"/>
+			</Select>
+		</form:SimpleForm>
+
+		<buttons>
+			<Button text="{i18n>BU_BUT_OK}" press="pressedOK"/>
+			<Button text="{i18n>BU_BUT_Cancel}" press="pressedCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

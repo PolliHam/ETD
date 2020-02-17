@@ -1,0 +1,134 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleSettingsConfirm"
+		class="largeListItems">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>MobAlert_Pattern}"
+				key="PatternName" />
+			<ViewSettingsItem text="{i18n>MobAlert_Severity}"
+				key="AlertSeveritySortOrder" />
+			<ViewSettingsItem text="{i18n>MobAlert_Creation_Date}"
+				key="AlertCreationTimestamp" />
+			<ViewSettingsItem text="{i18n>MobAlert_Score}" key="Score" />
+			<ViewSettingsItem text="{i18n>MobAlert_Status}" key="AlertStatus" />
+			<ViewSettingsItem text="{i18n>MobAlert_Id}" key="Number" />
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_Pattern}"
+				key="PatternId" multiSelect="true"
+				items="{path: 'Patterns>/WorkspacePatterns',  sorter : { path: 'Name', descending: false} }">
+				<items>
+					<ViewSettingsCustomItem
+						text="{parts : [ { path : 'Patterns>Name'}, { path : 'Patterns>NameSpace' }, {path : 'Patterns>PatternType'} ], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.patternFormatter'}"
+						key="{path: 'Patterns>Id', formatter: 'sap.secmon.ui.m.commons.Formatter.guidFormatter'}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18nCommon>AnomalyPattern}"
+				key="PatternType" multiSelect="true"
+				items="{enums>/sap.secmon.services.ui.m/Pattern/Type/enumValues}">
+				<items>
+
+					<ViewSettingsCustomItem
+						text="{parts: [{path : 'enums>Key'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_Severity}"
+				key="AlertSeverity" multiSelect="true"
+				items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_Status}"
+				key="AlertStatus" multiSelect="true"
+				items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Status/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_Attack}"
+				key="AlertAttack" multiSelect="true"
+				items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Attack/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_MeasureContext}"
+				key="AlertMeasureContext" multiSelect="true"
+				items="{enums>/sap.secmon.services.ui/Alert/MeasureContext/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_CredConf}"
+				key="PatternLikelihoodConfidentiality" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodConfidentiality/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_CredSys}"
+				key="PatternLikelihoodIntegritySystem" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegritySystem/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_CredBus}"
+				key="PatternLikelihoodIntegrityData" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodIntegrityData/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_CredAvl}"
+				key="PatternLikelihoodAvailability" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/LikelihoodAvailability/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_SuccConf}"
+				key="PatternSuccessConfidentiality" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/SuccessConfidentiality/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_SuccSys}"
+				key="PatternSuccessIntegritySystem" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/SuccessIntegritySystem/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_SuccBus}"
+				key="PatternSuccessIntegrityData" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/SuccessIntegrityData/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>MobAlert_SuccAvl}"
+				key="PatternSuccessAvailability" multiSelect="true"
+				items="{enums>/sap.secmon.ui.browse/Pattern/SuccessAvailability/enumValues}">
+				<items>
+					<ViewSettingsCustomItem text="{enums>Value}"
+						key="{enums>Key}" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

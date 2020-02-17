@@ -1,0 +1,7 @@
+<mvc:View controllerName="sap.secmon.ui.m.alerts.App"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<SplitApp id="splitApp"
+		homeIcon="{
+                'precomposed' : false
+            }" />
+</mvc:View>

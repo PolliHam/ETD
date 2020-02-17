@@ -1,0 +1,93 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<VBox>
+		<Label text="{i18n>RsUsr_ChoosePropert}"
+			class="sapUiSmallMarginLeft" width="100%" />
+		<l:Grid position="Center" defaultSpan="L4 M4 S4"
+			layout="ResponsiveGridLayout">
+			<l:content>
+				<CheckBox text="{i18n>RsUsr_AccountName}"
+					selected="{relatedAccounts>/includeAccountName}" />
+				<CheckBox text="{i18n>RsUsr_PersNumber}"
+					selected="{relatedAccounts>/includePersonalNumber}" />
+				<CheckBox text="{i18n>RsUsr_emailadr}"
+					selected="{relatedAccounts>/includeEmail}">
+					<layoutData>
+						<l:GridData linebreak="true" />
+					</layoutData>
+				</CheckBox>
+				<CheckBox text="{i18n>RsUsr_alias}"
+					selected="{relatedAccounts>/includeAlias}" />
+				<CheckBox text="{i18n>RsUsr_SAPName}"
+					selected="{relatedAccounts>/includeSAPName}">
+					<layoutData>
+						<l:GridData linebreak="true" />
+					</layoutData>
+				</CheckBox>
+				<CheckBox text="{i18n>RsUsr_SNCNameP}"
+					selected="{relatedAccounts>/includeSNCNameP}" />
+				<CheckBox text="{i18n>RsUsr_AccountNumber}"
+					selected="{relatedAccounts>/includeAccountNumber}">
+					<layoutData>
+						<l:GridData linebreak="true" />
+					</layoutData>
+				</CheckBox>
+			</l:content>
+		</l:Grid>
+		<Button id="calculateRelatedAccountsButton"
+			text="{i18n>RsUsr_Calculate}" app:dialogType="Std"
+			press="onCalculateRelatedAccounts" />
+		<Label text="" class="sapUiTinyMargin" width="100%" />
+		<Table id="accountNameProperties"
+			items="{relatedAccountsResult>/accountsNameProperties}"
+			visible="{relatedAccounts>/accountsAvailable}" 
+			growing="true"
+			mode="{ path: 'viewModel>/sSelectedTabKey', formatter: 'sap.secmon.ui.userNg.util.Formatter.tableModeFormatter'}"
+			growingScrollToLoad="true" 
+			growingThreshold="50"
+			class="sapUiTinyMargin">
+			<columns>
+				<Column>
+					<Label text="{i18n>RsUsr_AccountName_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_FirstName_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_SurName_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_Email_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>i18n>RsUsr_SAPName_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_AccountNumber_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_PersNumber_C}" />
+				</Column>
+				<Column>
+					<Label text="{i18n>RsUsr_Alias_C}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{relatedAccountsResult>AccountName}" />
+						<Text text="{relatedAccountsResult>FirstName}" />
+						<Text text="{relatedAccountsResult>SurName}" />
+						<Text text="{relatedAccountsResult>EmailAddress}" />
+						<Text text="{relatedAccountsResult>SAPName}" />
+						<Text text="{relatedAccountsResult>AccountNumber}" />
+						<Text text="{relatedAccountsResult>PersonalNumber}" />
+						<Text text="{relatedAccountsResult>Alias}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</core:FragmentDefinition>

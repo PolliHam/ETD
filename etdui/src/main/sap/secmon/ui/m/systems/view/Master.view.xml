@@ -1,0 +1,39 @@
+<mvc:View controllerName="sap.secmon.ui.m.systems.view.Master"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page id="page" title="{i18n>MSystems_App_Title}" navButtonPress="onBackButtonPressed"
+		showNavButton="true">
+		<subHeader>
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{device>/isNoTouch}"
+						search="onSearch" width="100%">
+					</SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<List id="list"
+				items="{path: '/SystemHeader',
+				        sorter: {path: 'Id', 
+                                	descending: false                                }
+                       }"
+				mode="{device>/listMode}" noDataText="{i18n>MSystems_No_Data}"
+				selectionChange="onSelect" growing="true" growingScrollToLoad="true"
+				growingThreshold="100">
+				<items>
+					<StandardListItem type="{device>/listItemType}"
+						press="onSelect" title="{Id}"
+						description="{path : 'Type', formatter: 'sap.secmon.ui.m.systems.util.Formatter.systemTypeFormatter'}" />
+
+
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

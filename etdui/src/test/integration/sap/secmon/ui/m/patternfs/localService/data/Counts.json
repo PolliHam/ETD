@@ -1,0 +1,19 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.CountsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Counts(X'000000190E197B4C82C16B3B467E1E37')"
+        },
+        "AlertId": "AAAAGQ4Ze0yCwWs7Rn4eNw==",
+        "Number": 11756604,
+        "Count": "99103",
+        "TriggeringEventCount": "0",
+        "AttachmentCount": "0",
+        "SourceCount": "1",
+        "InvestigationCount": "0"
+      }
+    ]
+  }
+}

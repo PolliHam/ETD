@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form">
+	<Dialog title="{i18n>Locations_CreateLocation}">
+		<layout:SimpleForm>
+			<Label text="{i18n>Locations_Location}" required="true" />
+			<Input id="inputLocation" value="{NewLocation>/Location}" />
+			<Label text="{i18n>Locations_Description}" />
+			<Input value="{NewLocation>/Description}" />
+			<Label text="{i18n>Locations_Type}" />
+			<ComboBox
+				items="{ path : 'Enum>/Enum', filters : [ { path : 'Package', operator : 'EQ', value1 : 'sap.secmon.ui.locations' }, { path : 'Attribute', operator : 'EQ', value1 : 'Category' } ] }"
+				value="{NewLocation>/Type}" change="onChangeNewLocationType">
+				<core:Item key="{Enum>Key}" text="{Enum>Value}" />
+			</ComboBox>
+			<Label text="{i18n>Locations_ParentLocation}" />
+			<Input id="inputParentLocation" type="Text"
+				editable="{applicationContext>/userPrivileges/execute}"
+				showSuggestion="true" showValueHelp="true"
+				valueHelpRequest="onShowParentLocationValueHelp4NewLocation"
+				value="{ path : 'NewLocation>/ParentLocationName', mode : 'TwoWay' }"
+				change="onChangeParentLocation4NewLocation"
+				suggestionItems="{ModelParentLocation>/Locations}">
+				<suggestionItems>
+					<core:Item text="{ModelParentLocation>Location}" />
+				</suggestionItems>
+			</Input>
+		</layout:SimpleForm>
+		<buttons>
+			<Button id="Ok" text="{i18nCommon>OK_BUT}" press="onCloseCreateLocationDialog" />
+			<Button id="Cancel" text="{i18nCommon>Cancel_BUT}" press="onCloseCreateLocationDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

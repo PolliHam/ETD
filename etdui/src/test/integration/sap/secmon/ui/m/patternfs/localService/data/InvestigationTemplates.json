@@ -1,0 +1,26 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.InvestigationTemplatesType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/InvestigationTemplates(Id=X'019A4B77AAE97D42A8357788117480A2',PatternId=X'FE7A096FF306344EA22A0B62F5AB339B')"
+        },
+        "Id": "AZpLd6rpfUKoNXeIEXSAog==",
+        "TemplateDescription": "test2",
+        "Severity": "VERY_HIGH",
+        "ManagementVisibility": "NOT_NEEDED",
+        "Description": "fsdhgshsdgh",
+        "Attack": "NO",
+        "PatternId": "/noJb/MGNE6iKgti9aszmw==",
+        "Comment": "",
+        "TemplateCreatedBy": "C5274754",
+        "TemplateCreationDate": "\/Date(1536845023615)\/",
+        "PatternNameSpace": "http://sap.com/secmon/basis",
+        "PatternName": "Calls from a non-productive to a productive system",
+        "PatternDescription": "A non-productive system has called a productive system.",
+        "PatternType": "FLAB"
+      }
+    ]
+  }
+}

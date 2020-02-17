@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:etd="sap.secmon.ui.browse"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{path : '/workspaceTitle/'}">
+		<form:SimpleForm maxContainerCols="2">
+            <Label text="{i18n>BU_LBL_FL_Name}" labelFor="tfWsName">
+			</Label>
+			<Input id="tfWsName" value="{path:'/name'}" maxLength = "60">
+			</Input>
+			
+			<Label text="{i18n>BU_LBL_Namespace}" labelFor="tfWsNamespace">
+            </Label>
+            <Select
+				id="tfWsNamespace"
+				selectedKey="{/namespace}"
+				items="{
+					path: 'NamespacesModel>/',
+					sorter: { path: 'NamespacesModel>NameSpace' }
+				}">
+				<core:Item key="{NamespacesModel>NameSpace}" text="{NamespacesModel>NameSpace}" />
+			</Select>
+		</form:SimpleForm>
+
+		<buttons>
+			<Button id="btWSSaveOK" text="{i18n>BU_BUT_OK}" press="pressedOK" />
+			<Button text="{i18n>BU_BUT_Cancel}" press="pressedCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

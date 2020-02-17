@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style is used by the control IconWithLinkOrText. 
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/commons/controls/IconWithLinkOrText.css");
+*/
+.LinkOrText {
+	padding-left: 1rem;
+	padding-right: 2.5rem;
+}
+
+.Icon {
+	vertical-align: top;
+}

@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns="sap.m" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog
+		title="{i18n>Interpret_CloneEntryType}"
+		class="sapUiPopupWithPadding">
+		<content>
+		    <Text text="{i18n>Interpret_cloneMsg}" />
+			<f:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0">
+				<f:content>
+					<Label text="{i18n>Interpret_prependAnno}" />
+					<MultiInput id="cloneMultiInput" filterSuggests="false" placeholder="" showSuggestion="false"
+					    liveChange="onMultiInputLiveChange" enableMultiLineMode="false"
+                        tokens="{cloneModel>/Annotations}"
+                        valueHelpRequest="onOpenNewAnnotationMenu"
+						valueState="{=${cloneModel>/AnnotationCount} ? 'None' : 'Error' }"
+                        showTableSuggestionValueHelp="false" showValueHelp="true">
+                            <tokens>
+								<Token
+									select="onOpenEditAnnotationMenu"
+									delete="onTokenDelete"
+									editable="true"
+									key="{cloneModel>Type}"
+									text="{= ${cloneModel>Type}==='Word'?${cloneModel>FixedValue}:'&lt;' + ${cloneModel>Type}+'&gt;' }" />
+                                </tokens>
+                    </MultiInput>
+
+                    <Label text="{i18n>Interpret_origMarkup}" />
+                    <Text wrapping="true" text="{Markup}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>Interpret_Clone}"
+			    enabled="{= !!${cloneModel>/AnnotationCount}}"
+                press="handleCloneEntryType"/>
+			<Button text="{i18n>Interpret_Close}"
+                press="closeCloneEntryTypeDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

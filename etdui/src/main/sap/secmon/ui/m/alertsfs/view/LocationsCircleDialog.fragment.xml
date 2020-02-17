@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:lf="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<lf:SimpleForm class="sapUiSmallMargin">
+		<lf:content>
+			<commonControls:LongTapLink text="{i18n>MAlertsFS_showSystemHist}" 
+				href="{parts: [{path: 'system'}, {path: 'systemType'}], formatter : 'sap.secmon.ui.m.commons.NavigationService.eventTrendOfSystemURL'}"/>
+			<commonControls:LongTapLink text="{i18n>MAlertsFS_showSystemConn}"
+				href="{parts: [{path: 'system'}, {path: 'systemType'}], formatter : 'sap.secmon.ui.m.commons.NavigationService.connectedSystemsOfSystemURL'}"/>
+		</lf:content>
+	</lf:SimpleForm>
+</core:FragmentDefinition>

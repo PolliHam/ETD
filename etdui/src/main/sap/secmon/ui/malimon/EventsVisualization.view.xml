@@ -1,0 +1,73 @@
+<mvc:View     
+    id = "EventsVisualizationId"
+    controllerName="sap.secmon.ui.malimon.EventsVisualization"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:etd="sap.secmon.ui.malimon" xmlns:core="sap.ui.core"
+	displayBlock="true">
+	<Page id="page" title="{/title}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+
+		<headerContent>
+		</headerContent>
+
+		<content>
+			<VBox id="etdCaseFileContainer">
+				<etd:CaseFile
+				    id="etdCaseFile"
+				    visible="{path : '/details/', formatter: '.caseFileVisibleFormatter'}"
+				    displayAttributes="onDisplayAttributes"				
+                    detailsDeleted="onDetailsDeleted"                     
+                    tableUpdateFinished="onTableUpdateFinished"
+                    displayPath="onDisplayPath">
+				</etd:CaseFile>
+				<customControls:ColumnClickableTable id="attackPathTable" inset="false"
+                    fixedLayout="false" items="{path: 'tableModel'}" growing="true"
+                    growingScrollToLoad="true" growingThreshold="100" selectionChange="onSelectionChange"
+                    columnPress="handleSort" itemPress="onPressOpenCaseFile"
+                    mode="{path: 'applicationContext>/userPrivileges/casefileWrite', formatter: 'sap.secmon.ui.commons.Formatter.tableModeFormatter'}">
+ 					<customControls:headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="{i18n>attackPath_title}" level="H3"/>
+                            <ToolbarSpacer />
+                            <Button id ="idDeleteAttackPath" tooltip="{i18n>Delete_attack_path}" 
+                                press="onDeleteAttackPath"  icon="sap-icon://delete"
+                                visible="applicationContext>/userPrivileges/casefileWrite"/>
+                        </OverflowToolbar>
+                  	</customControls:headerToolbar>	
+                    <customControls:columns>
+                        <customControls:SortableColumn sortProperty="name">
+                        <customControls:SortableItem text="{i18n>CF_TIT_Create}" />
+                        </customControls:SortableColumn>
+                        <customControls:SortableColumn sortProperty="description">
+                        <customControls:SortableItem text="{i18n>MM_LBL_Description}" />
+                        </customControls:SortableColumn>
+                    </customControls:columns>
+                    <customControls:items>
+                        <ColumnListItem vAlign="Middle" type="Navigation" press="onSelect">
+                            <cells>
+                                <Text text="{path: 'tableModel>name'}"  />
+                                <Text text="{path: 'tableModel>description'}" />
+								</cells>
+                        </ColumnListItem>
+                    </customControls:items>
+                </customControls:ColumnClickableTable>		
+				<Panel>   
+				    <content>
+                        <Title text="{/eventSeriesTitle}"/>
+                    </content>
+                </Panel>
+				<etd:EventSeries 
+				    id="etdEventSeries" 
+				    color="{ConfigModel>/config/displaySettings/Events}" 
+					circlePress="onCirclePress"
+					zoomOut="onZoomOut">
+				</etd:EventSeries>
+			</VBox>
+		</content>
+
+		<footer>		
+		</footer>
+		
+	</Page>
+</mvc:View>

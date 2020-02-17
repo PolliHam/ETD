@@ -1,0 +1,156 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:variants="sap.ui.comp.variants" xmlns:fb="sap.ui.comp.filterbar">
+
+    <fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+        search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+        showRestoreButton="false" showClearButton="true"
+        class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+        id="filterBar" considerGroupTitle="true">
+        <fb:filterItems>
+            <fb:FilterItem name="CreatedTimestamp" label="{i18nCommon>ConsidTimeRange_LBL}">
+                <fb:control>
+                    <Input id="createdFilterInput" showValueHelp="true"
+                        valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" />
+                </fb:control>
+            </fb:FilterItem>
+            <fb:FilterItem name="exportObjectTypeArea" label="{i18n>Repl_ObjTypeArea}" visible="{=${UIModel>/selectedTab} === 'Export' }">
+                <fb:control>
+                    <MultiComboBox id="exportObjectAreaFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Export/ObjectArea/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" enabled="{= ${enums>Key} !== ' '}"/>
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="ObjectTypeArea" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_ObjTypeArea}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+
+            <fb:FilterItem name="importObjectTypeArea" label="{i18n>Repl_ObjTypeArea}" visible="{=${UIModel>/selectedTab} === 'Import' }">
+                <fb:control>
+                    <MultiComboBox id="importObjectAreaFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Import/ObjectArea/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" enabled="{= ${enums>Key} !== ' '}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="ObjectTypeArea" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_ObjTypeArea}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+     
+            <fb:FilterItem name="exportObjectType" label="{i18n>Repl_ObjType}" visible="{=${UIModel>/selectedTab} === 'Export' }">
+                <fb:control>
+                    <MultiComboBox id="exportObjectTypeFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Export/ObjectType/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="ObjectType" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_ObjType}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+            
+            <fb:FilterItem name="importObjectType" label="{i18n>Repl_ObjType}" visible="{=${UIModel>/selectedTab} === 'Import' }">
+                <fb:control>
+                    <MultiComboBox id="importObjectTypeFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Import/ObjectType/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="ObjectType" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_ObjType}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+     
+            <fb:FilterItem name="exportStatus" label="{i18n>Repl_Status}" visible="{=${UIModel>/selectedTab} === 'Export' }">
+                <fb:control>
+                    <MultiComboBox id="exportStatusFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Export/Status/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="Status" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_Status}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+
+            <fb:FilterItem name="importStatus" label="{i18n>Repl_Status}" visible="{=${UIModel>/selectedTab} === 'Import' }">
+                <fb:control>
+                    <MultiComboBox id="importStatusFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Import/Status/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="Status" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_Status}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+
+            <fb:FilterItem name="exportOperation" label="{i18n>Repl_Operation}" visible="{=${UIModel>/selectedTab} === 'Export' }">
+                <fb:control>
+                    <MultiComboBox id="exportOperationFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Export/Operation/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="Operation" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_Operation}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+
+            <fb:FilterItem name="importOperation" label="{i18n>Repl_Operation}" visible="{=${UIModel>/selectedTab} === 'Import' }">
+                <fb:control>
+                    <MultiComboBox id="importOperationFilterInput"
+                        items="{enums>/sap.secmon.services.replication/Import/Operation/enumValues}">
+                        <items>
+                            <core:Item key="{enums>Key}" text="{enums>Value}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="Operation" />
+                            <core:CustomData key="i18nText" value="{i18n>Repl_Operation}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+
+
+            <fb:FilterItem name="CreatedBy" label="{i18nCommon>Created_By_LBL}">
+                <fb:control>
+                    <MultiComboBox id="createdByFilterInput"
+                        items="{path: 'hanaUsers>/',  sorter : { path: 'USER_NAME', descending: false}}">
+                        <items>
+                            <core:Item
+                                text="{hanaUsers>USER_NAME}"
+                                key="{hanaUsers>USER_NAME}" />
+                        </items>
+                        <customData>
+                            <core:CustomData key="urlParamName" value="CreatedBy" />
+                            <core:CustomData key="i18nText" value="{i18nCommon>Created_By_LBL}" />
+                        </customData>
+                    </MultiComboBox>
+                </fb:control>
+            </fb:FilterItem>
+        </fb:filterItems>
+    </fb:FilterBar>
+</core:FragmentDefinition>

@@ -1,0 +1,100 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.stagingRuntimeRules" busyIndicatorDelay="250" height="100%" width="100%"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<l:Splitter orientation="Vertical" height="100%" width="100%">
+        <t:Table id="tableRules" visibleRowCountMode="Auto"
+        height="100%" width="100%" selectionMode="Multi" rowSelectionChange="onHeaderSelection" 
+        busyIndicatorDelay="250" busy="{uiModel>/busyRulesTable}" showColumnVisibilityMenu="true"
+        rows="{path: '/runtimeRules/header',
+            templateShareable : true}">
+            <t:layoutData>
+                <l:SplitterLayoutData size="35%" />
+            </t:layoutData>          
+            <t:columns>
+                <t:Column visible="false" sortProperty="Id" filterProperty="Id" width="23em">
+                    <Label text="{i18n>Interpret_EntryTypeId}" />
+                    <t:template>
+                        <Text text="{Id}" />
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="Markup" filterProperty="Markup" width="35em">
+                    <Label text="{i18n>Interpret_Markup}" />
+                    <t:template>
+                        <Text class="proportionalFont" text="{Markup}" width="100%" height="100%" wrapping="true" />
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="BrancherName" filterProperty="BrancherName" width="10em">
+                    <Label text="{i18n>Interpret_Brancher}" />
+                    <t:template>
+                        <Text text="{BrancherName}"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="BrancherNamespace" filterProperty="BrancherNamespace" width="12em" visible="false">
+                    <Label text="{i18n>Interpret_BrancherNS}" />
+                    <t:template>
+                        <Text text="{BrancherNamespace}"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="Result" filterProperty="Result" width="20em">
+                    <Label text="{i18n>Interpret_Result}" />
+                    <t:template>
+                        <Text text="{Result}" width="100%" wrapping="true"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="ResultIndex" filterProperty="ResultIndex" width="6em" visible="false">
+                    <Label text="{i18n>Interpret_ResultIndex}" />
+                    <t:template>
+                        <Text text="{ResultIndex}" width="100%"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="Regex" filterProperty="Regex" width="35em">
+                    <Label text="{i18n>Interpret_Regex}" />
+                    <t:template>
+                        <Text class="proportionalFont" text="{Regex}" width="100%" height="100%" wrapping="true"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="CustomRegex" filterProperty="CustomRegex" width="35em" visible="false">
+                    <Label text="{i18n>Interpret_CustRegex}" />
+                    <t:template>
+                        <TextArea value="{CustomRegex}"
+                            change="onChangeCustomRegex"
+                            liveChange="validateCustomRegex"
+                            tooltip="{i18n>Interpret_RegexJava}"
+                            rows="5"
+                            width="100%"
+                            height="100%"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="LogType" filterProperty="LogType" width="10em" visible="false">
+                    <Label text="{i18n>Interpret_LogType}" />
+                    <t:template>
+                        <Text text="{LogType}"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="CompleteExtractionType" filterProperty="CompleteExtractionType" width="13em" visible="false">
+                    <Label text="{i18n>Interpret_TecExtype}" />
+                    <t:template>
+                        <Text text="{CompleteExtractionType}"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column sortProperty="IsProdRule" filterProperty="IsProdRule" width="6em">
+                    <Label text="{i18n>Interpret_IsProd}" />
+                    <t:template>
+                        <CheckBox checked="{=${IsProdRule} === 'true'}" editable="false"/>
+                    </t:template>
+                </t:Column>
+            </t:columns>
+        </t:Table>
+
+        <core:Fragment fragmentName="sap.secmon.ui.loglearning.StagingRuntimeRuleDetails" type="XML" />
+    </l:Splitter>
+</mvc:View>

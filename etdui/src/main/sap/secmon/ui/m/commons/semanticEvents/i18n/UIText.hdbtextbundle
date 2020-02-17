@@ -1,0 +1,238 @@
+# TRANSLATE
+#XTIT: SemanticEventViewer: Title of Message Panel
+SE_MessageTitle=Message
+#XTIT: SemanticEventViewer: Title of Basic Data Panel
+SE_BasicTitle=Basic Data
+#XTIT: SemanticEventViewer: Title of Original Data Panel
+SE_OrigData=Original Data
+#XTIT: SemanticEventViewer: Title of Log Information Panel
+SE_LogInfoTitle=Log Information
+#XTIT: SemanticEventViewer: Title of System Information Panel
+SE_SystemInfoTitle=System Information
+#XTIT: SemanticEventViewer: Title of User Information Panel
+SE_UserInfoTitle=User Information
+#XTIT: SemanticEventViewer: Title of Generic Information Panel
+SE_GenericInfoTitle=Generic Information
+#XTIT: SemanticEventViewer: Title of Parameter Panel
+SE_ParameterTitle=Parameter
+#XTIT: SemanticEventViewer: Title of Privilege Panel
+SE_PrivilegeTitle=Privilege Information
+#XTIT: SemanticEventViewer: Title of Service Information Panel
+SE_ServiceTitle=Service Information
+#XTIT: SemanticEventViewer: Title of Technical Information Panel
+SE_TechnicalTitle=Technical Information
+#XTIT: SemanticEventViewer: Title of Network Data Actor Panel
+SE_NetActorTitle=Network Data Actor
+#XTIT: SemanticEventViewer: Title of Network Data Initiator Panel
+SE_NetInitiatorTitle=Network Data Initiator
+#XTIT: SemanticEventViewer: Title of Network Data Target Panel
+SE_NetTargetTitle=Network Data Target
+#XTIT: SemanticEventViewer: Title of Network Data Reporter Panel
+SE_NetReporterTitle=Network Data Reporter
+#XTIT: SemanticEventViewer: Title of Network Data Intermediary Panel
+SE_NetIntermediaryTitle=Network Data Intermediary
+#XTIT: SemanticEventViewer: Title of Information Panel
+SE_Information=Information
+#XLAB: SemanticEventViewer: Label of Timestamp Field
+SE_TimestampLab=Timestamp:
+#XLAB: SemanticEventViewer: Label of System Actor Field
+SE_SysIdActorLab=Actor System:
+#XLAB: SemanticEventViewer: Label of System Acting User Field
+SE_ActingUserLab=Acting User:
+#XLAB: SemanticEventViewer: Label of Semantic Event Field
+SE_SemanticEventLab=Semantic Event:
+#XLAB: SemanticEventViewer: Label of Log Type Field
+SE_LogTypeLab=Log Type:
+#XLAB: SemanticEventViewer: Label of Event Field
+SE_EventLab=Technical Event:
+#XLAB: SemanticEventViewer: Event, Severity Code
+SE_EventSeverityCodeLab=Severity Code:
+#XLAB: SemanticEventViewer: Label of Event Name Field
+SE_EventNameLab=Event:
+#XLAB: SemanticEventViewer: Event Source ID
+SE_EventSourceIdLab=Source ID:
+#XLAB: SemanticEventViewer: Event Source Type
+SE_EventSourceTypeLab=Source Type:
+#XLAB: SemanticEventViewer: Event, Scenario Role Of Actor
+SE_EventScenarioRoleOfActorLab=Role Of Actor:
+#XLAB: SemanticEventViewer: Event, Scenario Role Of Initiator
+SE_EventScenarioRoleOfInitiatorLab=Role Of Initiator:
+#XLAB: SemanticEventViewer: Label of Service Outcome Field
+SE_ServOutcomeLab=Service Outcome:
+#XLAB: SemanticEventViewer: Label of Outcome Reason Field
+SE_GenericOutReasonLab=Outcome Reason:
+#XLAB: SemanticEventViewer: Label of Acting Field
+SE_ActingLab=Acting:
+#XLAB: SemanticEventViewer: Label of Actor Field
+SE_ActorLab=Actor:
+#XLAB: SemanticEventViewer: Label of Targeting Field
+SE_TargetingLab=Targeting:
+#XLAB: SemanticEventViewer: Label of Target Field
+SE_TargetLab=Target:
+#XLAB: SemanticEventViewer: Label of Targeted Field
+SE_TargetedLab=Targeted:
+#XLAB: SemanticEventViewer: Label of Initiating Field
+SE_InitiatingLab=Initiating:
+#XLAB: SemanticEventViewer: Label of Initiator Field
+SE_InitiatorLab=Initiator:
+#XLAB: SemanticEventViewer: Label of Reporter System Field
+SE_ReporterLab=Reporter:
+#XLAB: SemanticEventViewer: Label of Action Field
+SE_ActionLab=Action:
+#XLAB: SemanticEventViewer: Label of Device Type Field
+SE_DeviceTypeLab=Device Type:
+#XLAB: SemanticEventViewer: Label of Geolocation Field
+SE_GeolocationLab=Geolocation:
+#XLAB: SemanticEventViewer: Label of Outcome Field
+SE_OutcomeLab=Outcome:
+#XLAB: SemanticEventViewer: Label of Risk Level Field
+SE_RiskLevelLab=Risk Level:
+#XLAB: SemanticEventViewer: Label of Session Field
+SE_SessionLab=Session:
+#XLAB: SemanticEventViewer: Label of Category Field
+SE_CategoryLab=Category:
+#XLAB: SemanticEventViewer: Label of Explanation Field
+SE_ExplanationLab=Explanation:
+#XLAB: SemanticEventViewer: Label of Order Field
+SE_OrderLab=Order:
+#XLAB: SemanticEventViewer: Label of Purpose Field
+SE_PurposeLab=Purpose:
+#XLAB: SemanticEventViewer: Label of Path Field
+SE_PathLab=Path:
+#XLAB: SemanticEventViewer: Label of Score Field
+SE_ScoreLab=Score:
+#XLAB: SemanticEventViewer: Label of URI Field
+SE_URILab=URI:
+#XLAB: SemanticEventViewer: Label of Parameter Name Field
+SE_ParamNameLab=Parameter Name:
+#XLAB: SemanticEventViewer: Label of Parameter Type Field
+SE_ParamTypeLab=Parameter Type:
+#XLAB: SemanticEventViewer: Label of Parameter Data Type Field
+SE_ParameterDataTypeLab=Parameter Data Type:
+#XLAB: SemanticEventViewer: Label of Parameter Value Field
+SE_ParamValueLab=Parameter Value:
+#XLAB: SemanticEventViewer: Label of Parameter Direction Field
+SE_ParameterDirectionLab=Parameter Direction:
+#XLAB: SemanticEventViewer: Label of Privilege Grantee Field
+SE_PrivGranteeLab=Grantee:
+#XLAB: SemanticEventViewer: Label of Privilege Grantee Type Field
+SE_PrivGranteeTypLab=Grantee Type:
+#XLAB: SemanticEventViewer: Label of Privilege Field
+SE_PrivilegeLab=Privilege:
+#XLAB: SemanticEventViewer: Label of Privilege Type Field
+SE_PrivTypeLab=Privilege Type:
+#XLAB: SemanticEventViewer: Label of Privilege is Grantable Field
+SE_PrivGrantabLab=Grantable Privilege:
+#XLAB: SemanticEventViewer: Label of Service Type Field
+SE_ServTypeLab=Type:
+#XLAB: SemanticEventViewer: Label of Service Access  Field
+SE_ServAccessLab=Access:
+#XLAB: SemanticEventViewer: Label of Service Appication Field
+SE_ServApplicationLab=Application:
+#XLAB: SemanticEventViewer: Label of Service Ececutable Field
+SE_ServExecutableLab=Executable:
+#XLAB: SemanticEventViewer: Label of Service Executable Type Field
+SE_ServExecTypeLab=Executable Type:
+#XLAB: SemanticEventViewer: Label of Service Function Name Field
+SE_ServFuncNameLab=Function Name:
+#XLAB: SemanticEventViewer: Label of Service Instance Name Field
+SE_ServInstanceLab=Instance:
+#XLAB: SemanticEventViewer: Label of Correlation Id Field
+SE_CorrelationIdLab=Correlation ID:
+#XLAB: SemanticEventViewer: Label of Correlation Sub Id Field
+SE_CorrelationSubIdLab=Correlation Sub ID:
+#XLAB: SemanticEventViewer: Label of Number Range Field
+SE_NumberRangeLab=Number Range:
+
+#XLAB: SemanticEventViewer: Log Collector Name
+SE_TechnicalLogCollectorNameLab=Log Collector Name:
+#XLAB: SemanticEventViewer: Log Collector IP Address
+SE_TechnicalLogCollectorIPAddressLab=Log Collector IP Address:
+#XLAB: SemanticEventViewer: Log Collector Port
+SE_TechnicalLogCollectorPortLab=Log Collector Port:
+
+#XLAB: SemanticEventViewer: Label of Insert Timestamp Field
+SE_InsertTimestampdLab=Insert Timestamp:
+#XLAB: SemanticEventViewer: Label of Domain Field
+SE_DomainLab=Domain:
+#XLAB: SemanticEventViewer: Label of Hostname Field
+SE_HostNameLab=Hostname:
+#XLAB: SemanticEventViewer: Label of Networkinterface Field
+SE_InterfaceLab=Interface:
+#XLAB: SemanticEventViewer: Label of MAC Address Field
+SE_MACAddressLab=MAC Address:
+#XLAB: SemanticEventViewer: Label of Port Field
+SE_PortLab=Port:
+#XLAB: SemanticEventViewer: Label of IpAddress Field
+SE_IPAddressLab=IP-Address:
+#XLAB: SemanticEventView: Label of Network Sub Id Field
+SE_NetworkSubId=Subnet ID:
+#XLAB: SemanticEventView: Label of Network Location Field
+SE_NetworkLocation=Subnet Location:
+#XLAB: SemanticEventView: Label of Network Description Field
+SE_NetworkSubDescr=Subnet Description:
+#XLAB: SemanticEventView: Label of Network Category Field
+SE_NetworkSubCat=Subnet Category:
+#XLAB: SemanticEventView: Label of Service Transaction Name Field
+SE_ServTransactionLab=Transaction:
+#XLAB: SemanticEventView: Label of Service Program Name Field
+SE_ServProgramLab=Program:
+#XLAB: SemanticEventView: Label of Service Version Field
+SE_ServiceVersionLab=Version:
+#XLAB: SemanticEventView: Label of Service Outcome Field
+SE_ServiceOutcomeLab=Outcome:
+#XLAB: SemanticEventView: Label of Service Referrer Field
+SE_ServiceReferrerLab=Referrer:
+#XLAB: SemanticEventView: Label of Service Request Line Field
+SE_ServiceRequestLineLab=Request Line:
+#XLAB: SemanticEventView: Label of Service Part ID Field
+SE_ServicePartIdLab=Part ID:
+#XLAB: SemanticEventView: Label of Service Process ID Field
+SE_ServiceProcessIdLab=Process ID:
+#XLAB: SemanticEventView: Label of Service User Agent Field
+SE_ServiceUserAgentLab=User Agent:
+#XLAB: SemanticEventView: Label of Service Workflow Name Field
+SE_ServiceWorkflowNameLab=Workflow Name:
+#XLAB: SemanticEventView: Label of Intermediary Field
+SE_Intermediary=Intermediary:
+
+#XTIT: SemanticEventView: Title of Resource Panel
+SE_ResourceTitle=Resource
+#XLAB: SemanticEventView: Label of Container
+SE_Container=Container:
+#XLAB: SemanticEventView: Label of Resource Container Type
+SE_ContainerType=Container Type:
+#XLAB: SemanticEventView: Label of Resource Content
+SE_Content=Content:
+#XLAB: SemanticEventView: Label of Resource Prior Name
+SE_ResourceNamePrior=Prior Name:
+#XLAB: SemanticEventView: Label of Resource Request Size
+SE_ResourceRequestSize=Request Size:
+#XLAB: SemanticEventView: Label of Resource Response Size
+SE_ResourceResponseSize=Response Size:
+#XLAB: SemanticEventView: Label of Resource Size
+SE_ResourceSize=Size:
+#XLAB: SemanticEventView: Label of Resource Type
+SE_ResourceType=Type:
+#XLAB: SemanticEventView: Label of Sum Criterium
+SE_ResourceSumCriteria=Sum Criterium:
+#XLAB: SemanticEventView: Label of Resource Sum Over Time Field
+SE_ResourceSumOverTime=Sum Over Time:
+#XLAB: SemanticEventView: Label of Resource Units of Measure Field
+SE_ResourceUnitsOfMes=Units of Measure:
+#XLAB: SemanticEventView: Label of Resource Content Type
+SE_ContentType=Content Type:
+#XLAB: SemanticEventView: Label of Resource Content Count Field
+SE_ContentCount=Content Count:
+#XLAB: SemanticEventView: Label of Resource Name Field
+SE_ResourceName=Name:
+
+#XTIT: SemanticEventViewer: Title of Trigger Information Panel
+SE_Trigger=Trigger
+#XLAB: SemanticEventView: Label of Acting Trigger Field
+SE_Acting=Acting:
+#XLAB: SemanticEventView: Label of Targeted Trigger Field
+SE_NameTargeted=Targeted:
+#XLAB: SemanticEventView: Addition to Sementic Event Label
+SE_DetailsLab=(More Details)
+

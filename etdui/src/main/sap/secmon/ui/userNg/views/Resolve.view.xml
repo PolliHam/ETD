@@ -1,0 +1,23 @@
+<mvc:View controllerName="sap.secmon.ui.userNg.views.Resolve"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<VBox id="vbox">
+		<!-- User Pseudonym input -->
+		<Label text="{i18n>RsUsr_ResolveUserPseudo}"
+			class="sapUiSmallMarginLeft" width="100%" />
+		<HBox>
+			<Input id="userng-resolve-pseudonym" value=""
+				placeholder="{i18n>RsUsr_InputPseudo}" class="sapUiTinyMargin"
+				width="12em" change="onInputChange" />
+			<Button text="{i18n>ResolveUser_ActionResolve}"
+				press="onResolvePressed" class="sapUiTinyMargin" />
+		</HBox>
+		<HBox>
+			<Label text="{i18n>RsUsr_AccountName}" class="sapUiTinyMargin"
+				width="100%" />
+			<Label id="userng-resolve-accountName"
+				text="{viewModel>/accountName}" class="sapUiTinyMargin" width="12em" />
+		</HBox>
+		<Label text="" class="sapUiTinyMargin" width="100%" />
+	</VBox>
+
+</mvc:View>

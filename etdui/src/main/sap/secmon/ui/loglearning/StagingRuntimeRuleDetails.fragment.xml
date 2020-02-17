@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+    <IconTabBar id="tabStrip" height="100%" width="100%" expanded="{device>/isNoPhone}"
+        class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter text="{i18n>Interpret_Extraction}">
+                <core:Fragment fragmentName="sap.secmon.ui.loglearning.Extractions" id="extractions" type="XML"/>
+            </IconTabFilter>
+            
+             <IconTabFilter id="tabValueMapping" text="{i18n>Interpret_ValMap}">
+                <mvc:XMLView id="viewStagingRulesValueMapping" viewName="sap.secmon.ui.loglearning.stagingRuntimeRulesValueMapping"/>
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
+</core:FragmentDefinition>
+
+

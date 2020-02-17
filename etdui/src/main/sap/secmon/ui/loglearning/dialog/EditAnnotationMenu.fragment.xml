@@ -1,0 +1,62 @@
+<core:FragmentDefinition
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+    <u:Menu>
+        <u:MenuTextFieldItem label="{i18n>Annotation_ChangePattern}" value="{Pattern}" 
+            visible="{= ${Type} === 'Timestamp' || ${Type} === 'MAC'}" data:type="{Type}" select="onHandleEditAnnotationWithInput" />
+        <u:MenuTextFieldItem label="{i18n>Annotation_ChangeValue}" value="{FixedValue}"
+            visible="{= ${Type} === 'Word'}" data:type="Word" select="onHandleEditAnnotationWithInput" />
+        <u:MenuItem text="{i18n>Annotation_ChangeType}">
+	        <u:Menu>
+		        <u:MenuTextFieldItem label="Word" value="{FixedValue}" visible="{= ${Type} !== 'Word'}" 
+		          data:type="Word" select="onHandleEditAnnotationWithInput"/>
+		        <u:MenuTextFieldItem label="Timestamp" value="yyyy-MM-dd'T'HH:mm:ss.SSSXXX" visible="{= ${Type} !== 'Timestamp'}" 
+		          data:type="Timestamp" select="onHandleEditAnnotationWithInput"/>
+		        <u:MenuItem text="MAC" visible="{= ${Type} !== 'MAC'}"  data:type="MAC" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Integer" visible="{= ${Type} !== 'Integer'}"  data:type="Integer" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Var" visible="{= ${Type} !== 'Var'}" data:type="Var" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Host" visible="{= ${Type} !== 'Host'}" data:type="Host" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Url" visible="{= ${Type} !== 'Url'}" data:type="Url" select="onHandleEditAnnotation" />
+		        <u:MenuItem text="IP.IP" visible="{= ${Type} !== 'IP.IP'}" data:type="IP.IP" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="IP.PORT" visible="{= ${Type} !== 'IP.PORT'}" data:type="IP.PORT" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="FilePath" visible="{= ${Type} !== 'FilePath'}" data:type="FilePath" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Syslog" visible="{= ${Type} !== 'Syslog'}" data:type="Syslog" select="onHandleEditAnnotation"/>
+		        <u:MenuItem text="Symbolic" visible="{= ${Type} !== 'Symbolic'}" data:type="Symbolic" select="onHandleEditAnnotation"/>
+	        </u:Menu>
+        </u:MenuItem>
+        <u:MenuItem text="{i18n>Annotation_Before_token}" startsSection="true">
+            <u:Menu>
+                <u:MenuTextFieldItem label="Word" value="XXX" data:position="BEFORE" data:type="Word" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuTextFieldItem label="Timestamp" value="yyyy-MM-dd'T'HH:mm:ss.SSSXXX" data:position="BEFORE"
+		          data:type="Timestamp" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuTextFieldItem label="MAC" value="xx:xx:xx:xx:xx:xx" data:position="BEFORE" data:type="MAC" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuItem text="Integer" data:position="BEFORE" data:type="Integer" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Var" data:position="BEFORE" data:type="Var" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Host" data:position="BEFORE" data:type="Host" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Url" data:position="BEFORE" data:type="Url" select="onHandleAddAnnotation" />
+		        <u:MenuItem text="IP.IP" data:position="BEFORE" data:type="IP.IP" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="IP.PORT" data:position="BEFORE" data:type="IP.PORT" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="FilePath" data:position="BEFORE" data:type="FilePath" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Syslog" data:position="BEFORE" data:type="Syslog" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Symbolic" data:position="BEFORE" data:type="Symbolic" select="onHandleAddAnnotation"/>   
+            </u:Menu>
+        </u:MenuItem>
+        <u:MenuItem text="{i18n>Annotation_After_token}">
+            <u:Menu>
+                <u:MenuTextFieldItem label="Word" value="XXX" data:position="AFTER" data:type="Word" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuTextFieldItem label="Timestamp" value="yyyy-MM-dd'T'HH:mm:ss.SSSXXX" data:position="AFTER"
+		          data:type="Timestamp" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuTextFieldItem label="MAC" value="xx:xx:xx:xx:xx:xx" data:position="AFTER" data:type="MAC" select="onHandleAddAnnotationWithInput"/>
+		        <u:MenuItem text="Integer" data:position="AFTER" data:type="Integer" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Var" data:position="AFTER" data:type="Var" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Host" data:position="AFTER" data:type="Host" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Url" data:position="AFTER" data:type="Url" select="onHandleAddAnnotation" />
+		        <u:MenuItem text="IP.IP" data:position="AFTER" data:type="IP.IP" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="IP.PORT" data:position="AFTER" data:type="IP.PORT" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="FilePath" data:position="AFTER" data:type="FilePath" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Syslog" data:position="AFTER" data:type="Syslog" select="onHandleAddAnnotation"/>
+		        <u:MenuItem text="Symbolic" data:position="AFTER" data:type="Symbolic" select="onHandleAddAnnotation"/>    
+            </u:Menu>
+        </u:MenuItem>
+    </u:Menu>
+</core:FragmentDefinition>

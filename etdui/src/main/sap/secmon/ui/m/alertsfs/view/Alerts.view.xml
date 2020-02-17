@@ -1,0 +1,167 @@
+<mvc:View controllerName="sap.secmon.ui.m.alertsfs.view.Alerts"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:commonControls="sap.secmon.ui.commons.controls">
+	<Page id="page" title="{i18n>MobAlert_Alerts_Title}"
+		enableScrolling="false" showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+			<Input
+				id="inputAlertId"
+				width = "10em"
+				type="Number"/>
+			<Button text="{i18n>MQuick_Link_Button}" press="onNavigateById"/>		
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" visible="{editModel>/displayMode}" />
+		</headerContent>
+		<subHeader>
+		</subHeader>
+		<content>
+			<l:FixFlex class="fixFlexVertical">
+				<l:fixContent>
+					<c:Fragment fragmentName="sap.secmon.ui.m.alertsfs.view.AlertSearchToolbar"
+						type="XML" />
+					<Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+						<Button  icon="sap-icon://refresh" tooltip="{i18nCommon>Refresh_TOL}" press="onCheckForChange" 
+							text="{parts:[{path: 'i18n>MAlertsFS_AlertsWithCount'}, {path: 'uiModel>/alertsCount'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}"/>
+						<Label text="" width="25px" />
+						<Label id="timeRangeLabelInToolbarOfAlertsTable" text="{uiModel>/timeRange}"></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+						<SegmentedButton id="switchGraphTable" class="segmentedButtonClass"
+							selectedButton="showTableButton">
+							<Button id="showTableButton" icon="sap-icon://table-chart"
+								tooltip="{i18n>MAlertsFS_showTable}" press="onShowTable" />
+							<Button id="showGraphButton" icon="sap-icon://bubble-chart"
+								tooltip="{i18n>MAlertsFS_showGraph}" press="onShowGraph" />
+							<Button id="showLocationButton" icon="sap-icon://world"
+								tooltip="{i18n>MAlertsFS_showLocation}" press="onShowLocation" />
+						</SegmentedButton>
+						<Button id="graphSettingsButton" icon="sap-icon://settings"
+							tooltip="{i18n>MobAlert_GraphSettings}" press="handleGraphSettingsDialogButtonPressed"
+							enabled="true" />
+						<ToggleButton id="graphLegendButton" icon="sap-icon://list"
+							tooltip="{i18n>MobAlert_GraphLegend}" press="handleShowGraphLegendPress"
+							enabled="true" pressed="true" />
+
+					</Toolbar>
+					<customControls:ColumnClickableTable
+						id="alertsTableFixed" inset="false" mode="MultiSelect" showNoData="false"
+						columnPress="handleSort" growingThreshold="100">
+						<customControls:infoToolbar>
+							<Toolbar id="vsdFilterBar" active="false" visible="false">
+								<Label id="vsdFilterLabel" text="?" />
+							</Toolbar>
+						</customControls:infoToolbar>
+						<customControls:columns>
+							<customControls:SortableColumn
+								sortProperty="AlertSeveritySortOrder">
+								<customControls:SortableItem text="{i18n>MAlertsFS_SeverityXcol}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								sortProperty="Number">
+								<customControls:SortableItem text="{i18n>MAlertsFS_IDXcol}" />
+							</customControls:SortableColumn>
+							<customControls:SortableColumn
+								width="13em" sortProperty="PatternName">
+								<customControls:SortableItem text="{i18n>MAlertsFS_PatternXcol}" />
+							</customControls:SortableColumn>
+							<Column>
+								<Text text="{i18nCommon>AnomalyPattern}" />
+							</Column>
+
+
+							<Column width="{= ${device>/isDesktop} ? '26em' : '13em'}">
+								<Text text="{i18n>MAlertsFS_Cause}" width="100%" />
+							</Column>
+							<customControls:SortableColumn
+								sortProperty="AlertStatus">
+								<customControls:SortableItem text="{i18n>MAlertsFS_StatusXcol}" />
+							</customControls:SortableColumn>
+							<Column>
+								<Text text="{i18n>MAlertsFS_AttackXcol}" width="100%" />
+							</Column>
+							<customControls:SortableColumn
+								sortProperty="AlertCreationTimestamp">
+								<customControls:SortableItem text="{i18n>MAlertsFS_CreaTimeXcol}" />
+							</customControls:SortableColumn>
+							<Column>
+								<Text text="{i18n>MAlertsFS_InvestXcol}" width="100%" />
+							</Column>
+						</customControls:columns>
+					</customControls:ColumnClickableTable>
+				</l:fixContent>
+				<l:flexContent>
+					<ScrollContainer id="displayContainer" height="100%"
+						width="100%" horizontal="true" vertical="true" focusable="true"
+						class="scrollContainerWith100PerCentage">
+						<Table id="alertsTable" inset="false" mode="MultiSelect"
+							items="{path: '/Alerts', parameters: {expand: 'Details'} }"
+							growing="true" growingScrollToLoad="true" columnPress="handleSort"
+							growingThreshold="100">
+							<columns>
+								<Column />
+								<Column />
+								<Column width="13em" />
+								<Column />
+								<Column width="{= ${device>/isDesktop} ? '26em' : '13em'}" />  
+								<Column />
+								<Column />
+								<Column />
+								<Column />
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text
+											text="{path : 'AlertSeverity', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.severityFormatter'}" />
+										<commonControls:LongTapLink text="{Number}"
+											href="{path : 'AlertId', formatter: 'sap.secmon.ui.m.commons.NavigationService.alertURL'}" />
+										<commonControls:LongTapLink text="{PatternName}"
+											wrapping="true"
+											href="{parts : [ {path : 'PatternId'}, { path : 'AnomalyPattern'} ], formatter: 'sap.secmon.ui.m.commons.NavigationService.patternURL'}" />
+										<Text
+											text="{parts: [{path : 'PatternType'},{path: 'i18nCommon>Yes_FLD'},{path:'i18nCommon>No_FLD'}], formatter: 'sap.secmon.ui.m.commons.Formatter.patternTypeYesNoFormatter'}" />
+										<customControls:TextWithLinks
+											text="{parts : [ {path : 'Details'}, { path : 'PatternType'}, {path : 'AlertMeasureContext'} ],
+										            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringTextWithLinksFormatter'}"
+										    links="{parts: [{ path : 'PatternType'}, {path : 'AlertMeasureContext'}, {path : 'AlertId'}, {path: 'i18n>MAlertsFS_EventsNoCount'}],
+										            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringEventLinksFormatter'}"
+										/>
+										<Text
+											text="{path : 'AlertStatus', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.statusFormatter'}" />
+										<Text
+											text="{path: 'AlertAttack', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.attackFormatter'}" />
+										<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'AlertCreationTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+										<customControls:LinkOrText text="{InvestigationCount}"
+											linkEnabled="{path: 'InvestigationCount', formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.InvestigationCountFormatter' }"
+											href="{path : 'AlertId', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationsOfAlertURL'}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</l:flexContent>
+			</l:FixFlex>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button id="startInvestBtn" text="{i18n>MAlertsFS_startInvest}"
+      					press="onStartInvestigationFromTemplate" visible = "{applicationContext>/userPrivileges/investigationWrite}"/>
+					<Button id="addToInvestBtn" text="{i18n>MAlertsFS_addToInvest}"
+						press="onAddToInvestigation" visible = "{applicationContext>/userPrivileges/investigationWrite}" />
+					<Button id="updateAlertsBtn" text="{i18n>MAlertsFS_editAlerts}"
+						press="onUpdateAlerts" visible = "{applicationContext>/userPrivileges/alertWrite}" />
+					<Button id="analyzeButton" text="{i18n>MAlertsFS_analyze}"
+						press="onAnalyze" visible = "{applicationContext>/userPrivileges/monitoringPageRead}"/>
+					<Button id="emailButton" icon="sap-icon://email" tooltip="{i18n>AlertEmail_XTIT}"
+						press="handleEmailButtonPressed" visible = "{applicationContext>/userPrivileges/alertRead}"/>
+					<Button id="bookmarkButton" icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+						press="handleBookmarkDialogButtonPressed" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+
+	</Page>
+</mvc:View>

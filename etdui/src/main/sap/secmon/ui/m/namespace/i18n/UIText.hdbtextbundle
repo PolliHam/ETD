@@ -1,0 +1,28 @@
+# TRANSLATE
+#XTIT:Mobile Namespace UI
+NamespaceTitle=Namespaces
+#BTN:Mobile Namespace UI
+AddNameSpace_btn=Add Namespace
+#XMSG:Mobile Namespace UI
+Conf_Delete_NS=Are you sure you want to delete the namespace "{0}"?
+#XMSG:Mobile Namespace UI
+NS_Del_Success=Namespace deleted.
+#XTIT:Mobile Namespace UI
+CreateNamespaceTitle=Add Namespace
+#LBL:Mobile Namespace UI
+NewNamespace_lbl=New Namespace
+#XMSG:Mobile Namespace UI
+NS_Create_Success=Namespace was added.
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR1=Namespace must start with http:// and must not contain spaces
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR2=Namespaces starting with http://sap.com are reserved for SAP.
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR3=Namespace already exists.
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR4=Namespace shouldn't contain more than 100 symbols.
+#XMSG:Mobile Namespace UI
+NAMESPACE_ERROR=Error
+
+#XMSG:Namespace OData Error codes   
+NAMESPACE_OD_ERRxxx=Internal error: {0}

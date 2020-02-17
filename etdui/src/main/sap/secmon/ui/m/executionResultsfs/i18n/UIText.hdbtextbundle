@@ -1,0 +1,64 @@
+# TRANSLATE
+#XTIT:Mobile Full Screen Pattern Execution Results UI
+ExecutionResultsTitle=Pattern Executions
+#XCOL:Mobile Full Screen Pattern Execution Results UI
+ExecutionTimestamp=Execution Time 
+#XCOL:Mobile Full Screen Pattern Execution Results UI; dummy change for translation team
+TotalRuntime=Runtime (in ms)
+#XCOL:Mobile Full Screen Pattern Execution Results UI
+ExecutionMode=Execution
+#XCOL:Pattern Execution Results UI
+ER_PostProcessingEx=Post-Processing Timerange
+#XLBL:Mobile Full Screen Pattern Execution Results UI
+AlertsCount=Alerts (New/All)
+#XBUT:Mobile Full Screen Pattern Execution Results UI
+OpenExecResult=Open
+#XLBL:Mobile Full Screen Pattern Execution Results UI
+TotalRuntimeXlbl=Runtime
+#XTIT: Chart Title
+RunCountChartXTIT=Number of Runs
+#XTIT: Chart Title
+RuntimeChartXTIT=Runtime of All Pattern Runs
+#XTIT: Chart Title
+AlertChartXTIT=Number of New Alerts
+#XTIT: Chart Title
+RuntimePatternXTIT=Total Runtime for Patterns
+#XTIT: Chart Title
+NumberOfRunsXTIT=Number of Runs for Patterns
+#XTIT: x axis title
+DayTit=Time
+#XTIT: y axis Title
+NumberOfRuns=Number of Runs
+#XTIT: y axis Title
+RuntimeYAxis=Runtime (s)
+#XTIT: y axis title
+NumberOfAlerts=Number of New Alerts
+#XTIT: Chart Title
+RunCountVsNewAlertsTit=Number of Runs vs. New Alert
+#XTIT: Chart Title
+DistribOfRunCountsTit=Distribution of Number of Runs
+#XTIT: Chart Title
+PatternStatusTit=Pattern Status
+#XTIT: axis title
+PatternName=Pattern Name
+#XTIT: Chart Panel Title
+ChartsPanel=Charts
+#XMSG: Message, if Pattern is added to Filterbar
+PatternAddedToFilter=Pattern {0} has been added to filter bar
+#XLBL: Bookmark
+MBookmark_PatternExecXLBL=Pattern Executions
+#XLBL: Popup details
+Day_NUM=DayNumber
+#XLBL: Popup details
+Run_COUNT=RunCount
+#XLBL: Popup details
+Total_RUN=TotalRuntime
+#XLBL: Popup details
+Number_NewAlerts=NumberOfNewAlerts
+#XLBL:Mobile Full Screen Execution time
+ConsidTimeRangeLbl=Execution Time Range
+
+#XBUT:Mobile Full Screen UI Button for opening Pattern Executions List
+PatternsExecutionFS_showTable=Pattern Executions List
+#XBUT:Mobile Full Screen UI Button for opening Pattern Executions Charts
+PatternsExecutionFS_showCharts=Pattern Executions Charts

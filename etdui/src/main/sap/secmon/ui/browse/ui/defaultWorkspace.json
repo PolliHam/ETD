@@ -1,0 +1,27 @@
+{
+	"namespace":"",	
+    "name": "New Forensic Workspace",
+    "context": "Log",
+    "selectedSubsetId": "Path1",
+    "fullScreen": false,
+    "browsingView" : "BrowsingChart",
+    "period": {
+        "operator": "=",
+        "searchTerms": [
+            "last15Minutes"
+        ]
+    },
+    "count": "Unknown",
+    "workspaceId": "",
+    "paths": [
+        {
+    		"context": "Log",
+            "name": "Path1",
+            "luid": 1,
+            "filters": []
+        }
+    ],    
+    "splitter": {
+        "position": "10%"
+    }
+}

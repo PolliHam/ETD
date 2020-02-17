@@ -1,0 +1,57 @@
+# TRANSLATE
+#XTIT:Edit Value Dialog
+EditValue=Edit Value
+#XLBL: Log Interpretation UI
+Interpret_RunName=Run Name
+#XLBL: Log Interpretation UI
+Interpret_Description=Description
+#XLBL : Log Learning UI
+Interpret_IsST=Log Layout
+#XLBL : Log Learning UI
+Interpret_FreeText=Free Text/JSON
+#XLBL : Log Learning UI
+Interpret_KeyValue=Key-Value
+#XLBL : Log Learning UI
+Interpret_Structured=Structured List
+#XLBL : Log Learning UI
+Interpret_CEF_LEEF=CEF/LEEF
+#XLBL : Log Learning UI
+Interpret_STSep=Separator
+#XLBL : Log Learning UI
+Interpret_KVSep=Key Value Separator
+#XLBL : Log Learning UI
+#XLBL: Log Interpretation UI
+Interpret_File=File
+Interpret_KVPSep=Key Value Pair Separator
+#XTIT: Log Interpretation UI
+Interpret_CreateRun=Create Run
+#XTIT: Log Interpretation UI
+Interpret_UploadRun=Upload Run
+#XTIT: Log Interpretation UI
+Interpret_FileTooBig=File size exceeded
+#XTIT: Log Interpretation UI
+Interpret_FileTypeWrong=Wrong File Type
+#XMSG: Log Interpretation UI
+Interpret_FileTooBigText=File {0} is of size {1} MB which exceeds the file size limit of {2} MB
+#XMSG: Log Interpretation UI
+Interpret_FileTypeWrongTxt=Select a file with file name extension .txt or .log
+#XMSG: Log Interpretation UI
+Interpret_FileTypeWrongJson=Select a file with file name extension .json
+#XMSG: Log Interpretation UI
+Interpret_EnterAllFields=Enter all required fields
+#XMSG: Log Interpretation UI
+Interpret_UploadSuc=Run {0} created. Sample logs have been uploaded. Now processing discovery phase.
+#XMSG: Log Interpretation UI
+Interpret_UploadRunSuc=Run {0} successfully uploaded. Please note: You need to activate the run in order to create the corresponding runtime rules.
+#XMSG : Log Interpretation UI
+Interpret_CharCount={0} characters
+#XMSG : Log Interpretation UI
+Interpret_FaultyRun=Creation of run '{0}' finished with status "Error". Check traces in level "Error".
+#XTXT : Log Interpretation UI
+Interpret_Running=Running ({0}% processed)
+#XTXT : Log Interpretation UI
+Interpret_WaitSDS=Waiting for SDS ({0} seconds)
+#XTXT : Log Interpretation UI
+Interpret_WaitStart=Waiting to start ({0} seconds)
+#XFLD : Log Interpretation UI
+Interpret_Progress=Progress

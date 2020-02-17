@@ -1,0 +1,25 @@
+@CHARSET "ISO-8859-1";
+
+.sapEtdSystemLink {
+	stroke: #ccc;
+}
+
+.sapEtdSystemNode text {
+	pointer-events: none;
+	fill: #666666;
+}
+
+.chartContainer {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hyphen {
+	line-height: 28px;
+}
+
+.filterBarForm {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 1rem 2rem !important;
+	-moz-box-sizing: padding-box;
+	box-sizing: border-box;
+}

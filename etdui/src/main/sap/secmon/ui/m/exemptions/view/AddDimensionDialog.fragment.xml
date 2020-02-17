@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog id="addDimensionDialog" title="{i18n>DimensionAdd}"
+		initialFocus="valueInput">
+		<content>
+			<f:Form showHeader="false">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanL="2"
+						labelSpanM="2" emptySpanL="4" emptySpanM="4" columnsL="2"
+						columnsM="2" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<Label text="{i18nCommon>Pattern_GroupByAttr_COL}">
+									<layoutData>
+										<l:GridData span="L3 M3 S3" />
+									</layoutData>
+								</Label>
+								<Select id="dimensionSelect" selectedKey="{local>/Name}">
+									<core:Item key="{dimensions>AttributeKey}" text="{dimensions>Name}" />
+									<layoutData>
+										<l:GridData span="L9 M9 S9" />
+									</layoutData>
+								</Select>
+								<Label text="{i18nCommon>Value_COL}">
+									<layoutData>
+										<l:GridData span="L3 M3 S3" />
+									</layoutData>
+								</Label>
+								<Input id="valueInput" value="{local>/ValueVarChar}">
+									<layoutData>
+										<l:GridData span="L9 M9 S9" />
+									</layoutData>
+								</Input>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<buttons>
+			<Button id="Add_But" text="{i18nCommon>Add_BUT}" press="onAddDimension" />
+			<Button text="{i18nCommon>Cancel_BUT}" press="onDialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
+

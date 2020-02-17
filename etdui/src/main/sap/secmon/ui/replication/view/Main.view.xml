@@ -1,0 +1,45 @@
+<mvc:View controllerName="sap.secmon.ui.replication.controller.Main" xmlns:l="sap.ui.layout"
+	displayBlock="true" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="page" title="{i18n>Repl_Header}" navButtonPress="onBackButtonPressed"
+		showNavButton="true">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" />
+		</headerContent>
+
+		<content>
+            <l:FixFlex>
+                <l:fixContent>
+                    <core:Fragment fragmentName="sap.secmon.ui.replication.view.fragments.FilterBar" type="XML" />
+                </l:fixContent>
+                <l:flexContent>
+                    <IconTabBar id="tabs" expandable="false" select="onDetailSelect" selectedKey="{UIModel>/selectedTab}"
+                        stretchContentHeight="true" height="100%">
+                        <items>
+                            <IconTabFilter text="{i18n>Repl_Export}" id="export" key="Export">
+				                <core:Fragment fragmentName="sap.secmon.ui.replication.view.fragments.ExportTable" type="XML" />
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>Repl_Import}" id="import" key="Import">
+                                <core:Fragment fragmentName="sap.secmon.ui.replication.view.fragments.ImportTable" type="XML"/>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>	
+                </l:flexContent>
+            </l:FixFlex>
+		</content>
+        <footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button text="{i18n>Repl_StartImport}" icon="sap-icon://create"
+						press="onPressImport" visible="{=${applicationContext>/userPrivileges/contentRepImport} &amp;&amp; ${UIModel>/selectedTab} === 'Import' }"
+						enabled="{UIModel>/importItemsSelected}" />
+                    <Button text="{i18n>Repl_StartExport}" icon="sap-icon://create"
+                        press="onPressExport" visible="{=${applicationContext>/userPrivileges/contentRepExport} &amp;&amp; ${UIModel>/selectedTab} === 'Export' }"
+                        enabled="{UIModel>/exportItemsSelected}" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

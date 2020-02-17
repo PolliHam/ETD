@@ -1,0 +1,104 @@
+<mvc:View controllerName="sap.secmon.ui.contentdelivery.view.contentDelivery"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" > 
+	<Page id="page" title="{i18n>CD_TitleHeader}" showNavButton="true"
+		navButtonPress="onNavBack" enableScrolling="true">
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+
+					<fb:FilterBar id="filterBar" clear="onClear" search="onSearch" class="filterBarWithSameSizedItemsSmall"
+						showRestoreButton="false" showClearButton="true" filterBarExpanded="true">
+						<fb:filterItems>
+
+							<fb:FilterItem name="Name" label="{i18n>CD_Name}">
+								<fb:control>
+									<Input />
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="Namespace" label="{i18n>CD_Namespace}">
+								<fb:control>
+									<Input />
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="Description" label="{i18n>CD_Description}">
+								<fb:control>
+									<Input />
+								</fb:control>
+							</fb:FilterItem>
+
+							<fb:FilterItem name="Status" label="{i18n>CD_Status}">
+								<fb:control>
+									<Input />
+								</fb:control>
+							</fb:FilterItem>
+
+						</fb:filterItems>
+					</fb:FilterBar>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://drop-down-list" press="onPressSettings" type="Transparent" />
+					</OverflowToolbar>
+				</l:fixContent>
+
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<Table id="table" class="sapEtdScrollTable"
+							items="{ path : '/ImportHeader' , sorter : { path : 'Name' } }"
+							growing="true" mode="MultiSelect" itemPress="onItemPress" growingScrollToLoad="true"
+							growingThreshold="100" selectionChange="onSelectionChange">
+							<columns>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>CD_Name}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>CD_Namespace}" />
+								</Column>
+								<Column minScreenWidth="XXLarge" demandPopin="true">
+									<Text text="{i18n>CD_Description}" />
+								</Column>
+								<Column minScreenWidth="Phone" demandPopin="true">
+									<Text text="{i18n>CD_Status}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>CD_Releases}"/>
+								</Column>					
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle" type="Navigation">
+									<cells>
+										<Text text="{Name}" />
+										<Text text="{Namespace}" />
+										<Text text="{Description}" />
+										<Link text="{Status}" press="onPressStatusLink" />
+										<Text text="{Validity}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+            	</l:flexContent>
+    		</l:FixFlex>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+				<Button text="{i18n>CD_Reset}" tooltip="{i18n>CD_ResetTt}"
+						press="onPressReset" enabled="{=${UI>/importEnabled} === 'statusReset'}" 
+						visible= "{applicationContext>/userPrivileges/contentRepImport}"/>
+					<Button text="{i18n>CD_Import}" tooltip="{i18n>CD_ImportTt}"
+						icon="sap-icon://upload" press="onPressImport" enabled="{=${UI>/importEnabled} === 'importEnabled'}" 
+						visible= "{applicationContext>/userPrivileges/contentRepImport}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

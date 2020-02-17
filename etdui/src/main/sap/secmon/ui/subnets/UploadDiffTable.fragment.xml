@@ -1,0 +1,20 @@
+<Table xmlns="sap.m" items="{diff}" class="sapUiSizeCompact" width="40rem">
+	<columns>
+		<Column>
+			<Text text="{i18n>Subnets_Fieldname}" />
+		</Column>
+		<Column>
+			<Text text="{i18n>Subnets_OldValue}" />
+		</Column>
+		<Column>
+			<Text text="{i18n>Subnets_NewValue}" />
+		</Column>
+	</columns>
+	<items>
+		<ColumnListItem>
+			<Text text="{fieldname}" />
+			<Text text="{oldData}" />
+			<Text text="{newData}" />
+		</ColumnListItem>
+	</items>
+</Table>

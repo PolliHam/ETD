@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirmDomainSorting">
+		<sortItems>
+			<ViewSettingsItem key="Id" text="{i18n>SysCtx_System}" selected="true"/>
+			<ViewSettingsItem key="Type" text="{i18n>SysCtx_SystemType}" />
+			<ViewSettingsItem key="Group" text="{i18n>SysCtx_IdMainSys}" />
+			<ViewSettingsItem key="GroupType" text="{i18n>SysCtx_TypeMainSys}" />
+			<ViewSettingsItem key="Role" text="{i18n>SysCtx_Role}" />
+			<ViewSettingsItem key="Status" text="{i18n>SysCtx_Status}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

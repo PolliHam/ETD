@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:commons="sap.ui.commons">
+
+    <t:Table id="RunTableSource" visibleRowCountMode="Auto"
+        height="100%" width="100%" selectionMode="Multi" rowSelectionChange="onRowSelectionChange" 
+        minAutoRowCount="2" busyIndicatorDelay="250" showColumnVisibilityMenu="true"
+        title="{i18n>Interpret_Source}"
+        rows="{path: 'RunJSONModel>/runtimeRules/valueMapping/source',
+                templateShareable : true}">
+
+        <t:columns>
+            <t:Column id="columnSourceId" sortProperty="Id"
+                filterProperty="Id" visible="false">
+                <Label text="{i18n>Interpret_Id}" />
+                <t:template>
+                    <Text text="{RunJSONModel>Id}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnSourceName" sortProperty="SourceName"
+                filterProperty="SourceName">
+                <Label text="{i18n>Interpret_Annotation}" />
+                <t:template>
+                    <Text text="{RunJSONModel>SourceName}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnOperator" sortProperty="Operator"
+                filterProperty="Operator" visible="true">
+                <Label text="{i18n>Interpret_Operator}" />
+                <t:template>
+                   <ComboBox id="comboBoxOperator"
+                        editable="false"
+                        selectedKey="{path : 'RunJSONModel>Operator', mode : 'sap.ui.model.BindingMode.OneWay' }"
+                        items="{uiModel>/attributes}" >
+                            <core:ListItem text="{uiModel>text}" key="{uiModel>key}" /> 
+                    </ComboBox>
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnOperand1" sortProperty="Operand1"
+                filterProperty="Operand1" visible="true">
+                <Label text="{i18n>Interpret_Operand1}" />
+                <t:template>
+                   <Text text="{RunJSONModel>Operand1}"/>
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="Operand2"
+                filterProperty="Operand2" visible="true">
+                <Label text="{i18n>Interpret_Operand2}" />
+                <t:template>
+                   <Text text="{RunJSONModel>Operand2}"/>
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnExtractionType" sortProperty="ExtractionType"
+                filterProperty="ExtractionType">
+                <Label text="{i18n>Interpret_ExtractType}" />
+                <t:template>
+                    <Text id="textFieldExtractionType" text="{RunJSONModel>ExtractionType}" />
+                </t:template>
+			</t:Column>
+        </t:columns>
+    </t:Table>
+</core:FragmentDefinition>

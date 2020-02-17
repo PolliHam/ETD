@@ -1,0 +1,43 @@
+<c:FragmentDefinition xmlns="sap.m"
+xmlns:c="sap.ui.core"
+xmlns:sscc="sap.secmon.ui.m.commons.controls"
+xmlns:f="sap.ui.layout.form"
+xmlns:layout="sap.ui.layout">
+    <Dialog id="CopyEventDialog" title="{i18n>KB_CopyEvent}">
+        <content>
+            <f:SimpleForm showHeader="false" editable="true">
+                <f:content>
+                    <layout:VerticalLayout>
+                    <Label text="{i18nCommon>Namespace_LBL}" />
+                    <Select id="createNewEventNameSpace" selectedKey="{newEntry>/NameSpace}"
+                    class="sapUiSmallMarginBottom" width="100%"
+                       items="{
+                            path: 'Namespace>/NameSpaceOriginalInSystem',
+                            sorter: {
+                            path: 'NameSpace'
+                            }
+                        }">
+                    <c:Item key="{Namespace>NameSpace}" text="{Namespace>NameSpace}" />
+                    </Select>
+                    <Label  text="{i18n>KB_DisplayNameLbl}" required="true"/>
+                    <Input id="copyEventDisplayName" class="sapUiSmallMarginBottom"
+                        value="{path:'newEntry>/displayName', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" 
+                        valueStateText="{i18n>KB_NameNotEmpty}" change="onChange" liveChange="onLiveChangeDisplayName"/>
+                    <Label text="{i18nCommon>Name_LBL}" required="true"/>
+                    <Input id="copyEventName" class="sapUiSmallMarginBottom" 
+                        value="{path:'newEntry>/name', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}"
+                        valueStateText="{i18n>KB_NameNotEmpty}" change="onChange"/>
+                    <Label text="{i18nCommon>Description_LBL}" />
+                    <Input class="sapUiSmallMarginBottom" value="{newEntry>/description}"  maxLines="2"/>
+                    <CheckBox useEntireWidth="true" text="Copy also the assigned attributes."
+                        selected="{newEntry>/copyAttributes}"/>
+                    </layout:VerticalLayout>
+                </f:content>
+            </f:SimpleForm>
+       </content>
+       <buttons>
+           <Button text="{i18nCommon>Save_BUT}" press="onSaveCopyEvent" />
+           <Button text="{i18nCommon>Cancel_BUT}" press="onCancelCopyEvent" />
+       </buttons>
+    </Dialog>
+</c:FragmentDefinition>

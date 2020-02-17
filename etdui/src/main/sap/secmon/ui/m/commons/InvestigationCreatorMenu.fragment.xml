@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<u:Menu>
+		<u:MenuItem text="{i18n>MInvest_Freestyle}" select="handleFreestyleInvestigation" />
+		<u:MenuItem  startsSection="true" text="{i18n>MInvest_FromTemplate}" >
+			<u:Menu items="{Templates>/}">
+				<u:MenuItem text="{path: 'Templates>TemplateDescription', formatter: 'sap.secmon.ui.m.commons.Formatter.truncateText'}"
+					tooltip="{parts: [{path: 'Templates>TemplateDescription'}, {path: 'Templates>PatternName'}], formatter: 'sap.secmon.ui.m.commons.Formatter.textWithOptionalParam'}"
+					select="handleInvestigationFromTemplate" startsSection="{Templates>bNewPattern}"/>
+			</u:Menu>
+		</u:MenuItem>
+		
+	</u:Menu>
+</core:FragmentDefinition>

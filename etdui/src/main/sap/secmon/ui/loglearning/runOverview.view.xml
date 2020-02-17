@@ -1,0 +1,35 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.runOverview"
+	busyIndicatorDelay="250" xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<l:Grid id="EditForm" defaultSpan="L12 M12 S12" width="auto">
+		<l:content>
+			<lf:SimpleForm editable="true" maxContainerCols="2"
+				minWidth="1024" labelSpanL="3" labelSpanM="3" emptySpanL="0"
+				emptySpanM="0">
+				<lf:content>
+					<Label text="{i18n>Interpret_IsST}" labelFor="logLayoutText" />
+					<Text id="logLayoutText"
+						text="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.logLayout'}" />
+					<Label text="{i18n>Interpret_STSep}" labelFor="sepSTText"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isSTLogLayout'}" />
+					<Text id="sepSTText" design="Bold"
+						text="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.listSeparator'}"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isSTLogLayout'}" />
+					<Label text="{i18n>Interpret_KVSep}" labelFor="sepKVText"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isKVLogLayout'}" />
+					<Text id="sepKVText" design="Bold"
+						text="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.kvSeparator'}"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isKVLogLayout'}" />
+					<Label text="{i18n>Interpret_KVPSep}" labelFor="sepKVPText"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isKVLogLayout'}" />
+					<Text id="sepKVGText" design="Bold"
+						text="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.kvpSeparator'}"
+						visible="{path: 'LogLayout', formatter: 'sap.secmon.ui.loglearning.util.Formatter.isKVLogLayout'}" />
+					<Label text="{i18n>Interpret_Description}" labelFor="descriptionTextArea" />
+					<TextArea id="descriptionTextArea" value="{Description}"
+						cols="50" rows="10" liveChange="onChangeDescription" />
+				</lf:content>
+			</lf:SimpleForm>
+		</l:content>
+	</l:Grid>
+</mvc:View>

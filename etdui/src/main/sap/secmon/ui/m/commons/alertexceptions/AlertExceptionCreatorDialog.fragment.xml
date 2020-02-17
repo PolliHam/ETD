@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" 
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>MAEx_createTitle}" class="sapUiPopupWithPadding"
+		afterOpen="afterOpen" stretch="{device>/isPhone}" contentWidth="800px">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Text text="{i18n>MAEx_createTitle}" />
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+						press="onPressHelp" visible="{editModel>/displayMode}" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:SimpleForm editable="true">
+				<f:content>
+					<Label text="{i18nCommon>Pattern_LBL}" />
+					<Text text="{alertException>/PatternName}" />
+					<Label text="{i18n>MAEx_ValidFrom}" />
+					<DateTimeInput id="validFromDate" type="DateTime" dateValue="{alertException>/ValidFrom}" valueStateText="{i18n>MAEx_InvalidDates_XMSG}"/>
+					<Input editable="false" value="UTC" width="4em"
+						visible="{applicationContext>/UTC}" />
+					<Label text="{i18n>MAEx_ValidTo}" />
+					<DateTimeInput id="validToDate" type="DateTime" dateValue="{alertException>/ValidTo}" valueStateText="{i18n>MAEx_InvalidDates_XMSG}"/>
+					<Input editable="false" value="UTC" width="4em"
+						visible="{applicationContext>/UTC}" />
+					<Label text="{i18n>MAEx_Reason}" required="true" />
+					<Input id="descriptionInput"
+						value="{path: 'alertException>/Description', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}"
+						valueStateText="{i18n>MAEx_MissingReason_XMSG}" />
+				</f:content>
+			</f:SimpleForm>
+			<Table id="alertExceptionsTable" items="{alertException>/Details}">
+				<columns>
+					<Column minScreenWidth="XLarge">
+						<Text text="{i18nCommon>Pattern_GroupByAttr_COL}" />
+					</Column>
+					<Column minScreenWidth="XLarge">
+						<Text text="{i18nCommon>Value_COL}" />
+					</Column>
+					<Column width="3em" />
+					<Column width="3em" />
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{alertException>Name}" />
+							<Text text="{alertException>Value}" />
+							<Button icon="sap-icon://edit" press="onEditValue" />
+							<Button icon="sap-icon://delete" press="onDelete" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18nCommon>OK_BUT}" app:dialogType="Std" press="onOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" app:dialogType="Std"
+				press="onCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.locationHeader {
+    padding-top: 1px;
+    background-color: lightgray;
+}
+
+.sapUiBody .sapSuiteTvHeader{
+    background-color: transparent;
+    width: 50%;
+}
+.sapUiBody .sapSuiteTvFacet{
+    background-color: transparent;
+}
+.sapUiBody .sapUiUx3TVFacetThingGroupContentTitle{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.sapUiBody  .sapUiUx3TVFacetThingGroupContentTitle{
+	border-bottom: 0px;
+}
+
+.sapUiBody .sapSuiteTvPopupMenu{
+	width: 120px;
+}
+.myMatrixlayoutBGColor{
+	background-color: white;
+	border-top: 1px solid;
+	border-color: lightgray;
+}

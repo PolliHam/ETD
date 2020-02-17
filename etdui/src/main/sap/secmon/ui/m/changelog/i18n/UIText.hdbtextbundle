@@ -1,0 +1,41 @@
+# TRANSLATE
+#XTIT:Changelog UI
+ChangelogTitle=Record of Actions
+#XCOL:Changelog UI
+EntityType=Entity Type
+#XLBL:Changelog UI
+EntityTypeLbl=Entity Type
+#XCOL:Changelog UI
+EntityNamespace=Entity Namespace
+#XLBL:Changelog UI
+EntityNamespaceLbl=Entity Namespace
+#XCOL:Changelog UI
+EntityName=Entity Name
+#XLBL:Changelog UI
+EntityNameLbl=Entity Name
+#XCOL:Changelog UI
+EntityOperation=Entity Operation
+#XLBL:Changelog UI
+EntityOperationLbl=Entity Operation
+#XCOL:Changelog UI
+Text=Text
+#XLBL:Changelog UI
+EmptyNamespace=<Empty>
+#XLBL: Bookmark for Record of Actions
+MBookmark_ChangelogXLBL=Record of Actions
+#XLBL:Changelog UI
+TimeRange=Time Range
+#XLBL:Changelog UI
+RecordsLbl=Records ({0})
+#XLBL:Changelog UI
+DetailsLbl=Details
+#XLBL:Changelog UI
+TooBigLbl=Too large for display
+#XTIT:Changelog UI
+ActionDetailsTitle=Action Details
+#XLBL:Changelog UI
+OldStateLbl=Old Entity
+#XLBL:Changelog UI
+NewStateLbl=New Entity
+#XMSG: Search Pattern
+Name_Suggestion=Enter the name of an entity (at least 3 characters) ...

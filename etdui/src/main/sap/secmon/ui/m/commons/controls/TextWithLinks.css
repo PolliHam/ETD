@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style is used by the control TextWithLinks. 
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/commons/controls/TextWithLinks.css");
+*/
+.ownText {
+	white-space: pre-line;
+	word-wrap: break-word;
+	display: inline;
+}
+
+.ownLink {
+	white-space: pre-line;
+	word-wrap: break-word;
+	display: inline;
+}

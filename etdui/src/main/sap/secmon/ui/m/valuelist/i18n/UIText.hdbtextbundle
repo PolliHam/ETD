@@ -1,0 +1,269 @@
+# TRANSLATE
+#XTIT:Valuelist Configuration UI
+VL_Config_Title=Value Lists
+#XMSG:Valuelist Configuration UI
+VL_Config_ValueTypeUnknown=Unknown type {0} 
+#XTIT:Valuelist Configuration UI
+VL_Config_NewVL=New Value List
+#XLBL:Valuelist Configuration UI
+VL_NewVL_LBL=Copied Values
+#XLBL:Valuelist Configuration UI
+VL_inclInactV_LBL=Include Removed Values
+#XLBL:Valuelist Configuration UI
+VL_NewConfig_ValueType=Value Type
+#XMSG:Valuelist Configuration UI
+VL_Config_Delete_vl=Are you sure you want to delete value list "{0}"?
+#XMSG:Valuelist Configuration UI 
+VL_Config_DelNotPossible=The selected Value List could not be deleted as it is still in use.
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_NameSpaceMSG=Namespace is not defined
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_Name_msg=Name is not defined
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_Descr_msg=Description is not defined
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_ValueType_msg=No Value Type selected
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_Exists_msg=A Value List with this namespace and name already exists.
+#XMSG:Valuelist Configuration UI
+VL_NewConfig_NoNS_msg=You must configure a namespace for your content before you can create an object.
+#XTIT:Valuelist Configuration UI
+VL_ValuesTitle=Values ({0})
+#XTIT:Valuelist Configuration UI
+VL_DelValuesTitle=Removed Values ({0})
+#XBUT:Valuelist Configuration UI
+VL_Entry_Fill=Fill from Events
+#XBUT:Valuelist Configuration UI
+VL_Entry_Upload=Upload
+#XBUT:Valuelist Configuration UI
+VL_Entry_Download=Download
+#XTIT:Valuelist Configuration UI
+VL_Entry_Upload_Title=Upload
+#XMSG:Valuelist Configuration UI
+VL_Entry_Upload_Message=Your data is being uploaded.
+#XMSG:Valuelist Configuration UI
+VL_Entry_Upload_Empty=The file contains no data to upload.
+#XMSG:Valuelist Configuration UI
+VL_Entry_Upload_Failed=Upload failed
+#XMSG:Valuelist Configuration UI
+VL_Entry_Uploaded_Values={0} values uploaded.
+#XMSG:Valuelist Configuration UI
+VL_Values_Added={0} values added.
+#XMSG:Valuelist Configuration UI
+VL_Entry_Uploaded_Skipped={0} values uploaded and {1} already existing values skipped.
+#XMSG:Valuelist Configuration UI
+VL_Entry_Upload_Failed_No=Upload of {0} of {1} entries failed.
+#XMSG:Valuelist Configuration UI
+VL_Upload_Inv_FileType=Filetype '{0}' is not supported. Select a '{1}' file
+#XMSG:Valuelist Configuration UI
+VL_Entry_Delete_Selected=Are you sure to remove the selected entry? 
+#XMSG:Valuelist Configuration UI
+VL_Entry_NewValueEmpty=No value specified
+#XMSG:Valuelist Configuration UI   
+VL_Entry_NewValueExists=The specified value already exists
+#XMSG:Valuelist Configuration UI
+VL_Entry_NewValueInvalid=Invalid value defined
+#XMSG:Valuelist Configuration UI
+VL_Entry_valInvalidRegex=Value is not a valid regular expression
+#XTIT:Valuelist Configuration UI  
+VL_Config_NewEntry=New Value
+#XMSG:Valuelist Configuration UI  
+VL_Config_No_Data=No data
+#XTIT:Valuelist Configuration UI  
+VL_Config_Detail_Title=Value List {0}
+#XMSG:Valuelist Configuration UI  
+VL_Del_Success=Value list "{0}" deleted
+#XMSG:Valuelist Configuration UI  
+VL_Create_Success=Value list created
+#XTIT:Valuelist Configuration UI  
+VL_FillFromEv_Page_Title=Select distinct values from event storage
+#XMSG:Valuelist Configuration UI  
+VL_Update_Success=Value list saved
+#XMSG:Valuelist Configuration UI  
+VL_Save_ValuesMSG=All copied values are saved active with the new namespace.
+#XMSG:Valuelist Configuration UI  
+VL_Value_Del_Success=Value "{0}" removed
+#XTOL:Valuelist Configuration UI  
+VL_Value_Del=Remove Value
+#XBUT:Valuelist Configuration UI
+VL_CloseDialog=Close
+#XMSG:Valuelist Configuration UI
+VL_Value_Create_Success=Value added
+#XLBL:Valuelist Configuration UI
+VL_Field=Field
+#XBUT:Valuelist Configuration UI
+VL_LoadFromEvents=Load
+#XBUT:Valuelist Configuration UI
+VL_DeleteSelected=Remove Selected
+#XTOL:Valuelist Configuration UI
+VL_DeleteSelectedTOL=Remove selected (remove local values without recovery option, remove foreign values with recovery option)
+#XTIT:Valuelist Configuration UI
+VL_ReactivateTIT=Recover
+#XTIT:Valuelist Configuration UI
+VL_MaintenanceTIT=Update Mode
+#XBUT:Valuelist Configuration UI
+VL_ReactivateBUT=Recover
+#XBUT:Valuelist Configuration UI
+VL_ReactivateSelected=Recover Selected
+#XBUT:Valuelist Configuration UI
+VL_DeleteAll=Remove All
+#XTOL:Valuelist Configuration UI
+VL_DeleteAllTOL=Remove all (remove all local values without recovery option, remove all foreign values with recovery option)
+#XTOL:Valuelist Configuration UI
+VL_AddTOL=Add a custom value
+#XBUT:Valuelist Configuration UI
+VL_ReactivateAll=Recover All
+#XTIT:Valuelist Configuration UI
+#XMSG:Valuelist Configuration UI
+VL_chooseInactValues=The valuelist contains {0} removed values. Do you want to include them?
+#XTIT:Valuelist Configuration UI
+VL_SaveAs_NewVL=New Value List
+#XMSG:Valuelist Configuration UI
+VL_Conf_Delete_Value=Are you sure you want to remove value "{0}"?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Reactivate_AllMSG=Are you sure you want to recover all values?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Reactivate_SelMSG=Are you sure you want to recover the selected values?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Delete_Info={0} value(s) native to this system will be removed without a recovery option.
+#XMSG:Valuelist Configuration UI
+VL_Conf_Deactivate_Info={0} value(s) with a foreign namespace will be removed with recovery option.
+#XMSG:Valuelist Configuration UI
+VL_Conf_DeleteAll_Info=Values with a foreign namespace will be removed with recovery option.\nValues native to this ETD system will be removed without a recovery option.
+#XMSG:Valuelist Configuration UI
+VL_Conf_Delete_SelValue=Are you sure you want to remove the selected values?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Delete_AllValue=Are you sure you want to remove all values?
+#XMSG:Valuelist Configuration UI
+VL_SelV_Deleted_Success=Selected Values were removed
+#XMSG:Valuelist Configuration UI
+VL_SelV_React_Success=Selected Values were recovered
+#XMSG:Valuelist Configuration UI
+VL_AllV_Deleted_Success=All Values were removed
+#XMSG:Valuelist Configuration UI
+VL_AllV_React_Success=All Values were recovered
+#XMSG:Valuelist Configuration UI
+VL_Select_at_least_1V=Select at least one value
+#XMSG:Valuelist Configuration UI
+VL_noValues=The value list doesn't contain any values
+#XMSG:Valuelist Configuration UI
+VL_noInactValues=The list does not contain any removed values
+#XTOL:Valuelist Configuration UI  
+VL_Upload_ttip=Add Values from File (Value Fields Separated by Semicolon)
+#XTOL:Valuelist Configuration UI  
+VL_Download_ttip=Download Values to CSV File (Value Fields Separated by Semicolon)
+#XLBL:Valuelist Configuration UI
+VL_StartDate=Start Date
+#XLBL:Valuelist Configuration UI
+VL_EndDate=End Date
+#XTIT:Valuelist Configuration UI  
+VL_SelectNamespaceTitle=Select Namespace for Values
+#XMSG:Valuelist Configuration UI
+VL_No_Namespaces=No namespaces found
+#XTIT:Valuelist Configuration UI  
+VL_UploadResultTitle=Value Upload Result
+#XTIT:Valuelist Configuration UI: Event Values Result  
+VL_EventResultTitle=Event Values Result
+#XTIT:Valuelist Configuration UI  
+VL_ErrorTitle=Error
+#XMSG: Valuelist File for fileupload missing
+VL_NoFile=Choose a file
+#XLBL: Valuelist UI Icontabbar titel for using Objects
+VL_UsedBy=Used By ({0})
+#XCOL: Valuelist UI Shared Label
+VL_Shared=Shared
+#XTXT:Valuelist Configuration UI
+VL_General=General
+#XTXT:Valuelist Configuration UI
+VL_Admin=Administration
+#XCOL:Valuelist Configuration UI
+VL_OperatorCOL=Operator
+#XLBL:Valuelist Configuration UI
+VL_OperatorLBL=Operator
+#XBUT: Delete without Data Reset
+DelWithoutDataReset=Remove without Data Reset
+#XBUT: Delete with Data Reset
+DelWithDataReset=Remove with Data Reset
+#XBUT: Reactivate without Data Reset
+ReactWithoutDataReset=Recover without Reset
+#XBUT: Reactivate with Data Reset
+ReactWithDataReset=Recover with Data Reset
+#XBUT: Change without Data Reset
+ChangeWithoutDataReset=Change without Reset
+#XBUT: Reactivate with Data Reset
+ChangeWithDataReset=Change with Data Reset
+#XMSG: Alerts
+VL_Alerts={0} Alerts
+#XMSG: Pattern
+VL_Pattern=Pattern:
+#XMSG:Evaluation
+VL_Evaluation=Evaluation:
+#XMSG:Chart
+VL_Chart=Chart:
+#XMSG: Valuelist Configuration UI
+VL_UsedInADL=Dependencies exist.\nThe value list is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Del_SelValueReset=Are you sure you want to remove the selected values?\nDependencies exist. The valuelist is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Del_AllValueReset=Are you sure you want to remove all values?\nDependencies exist. the valuelist is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Deact_SelVReset=Are you sure you want to recover the selected values?\nDependencies exist. the valuelist is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+#XMSG:Valuelist Configuration UI
+VL_Conf_Deact_AllVReset=Are you sure you want to recover all values?\nDependencies exist. The valuelist is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+#XMSG:Valuelist Configuration UI
+VL_Conf_MaintMode=Are you sure you want to change the update mode?\nDependencies exist. The valuelist is used in charts which are used in the Anomaly Detection Lab.\nDo you want to discard the aggregated data and delete the {0} alerts?
+# Valuelist OData Error messages
+#XMSG:Valuelist OData Error codes
+VL_OD_ERR1=Value list with same name and namespace already exists
+#XMSG:Valuelist OData Error codes
+VL_OD_ERR2=Enter name and namespace.
+#XMSG:Valuelist OData Error codes
+VL_OD_ERR3=Illegal value for parameter ValueType
+#XMSG:Valuelist OData Error codes
+VL_OD_ERR20=Value list with same name and namespace already exists 
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR21=ValueType can only be changed for empty value lists
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR22=Illegal value for parameter ValueType
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR23=Enter name and namespace.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR40=Value list is still in use and cannot be deleted
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR100=Same value exists already 
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR101=Internal Error: Attempt to add a value to a non existing value list.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR102=Changing the value is not allowed. Its namespace does not originate in system.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR103=Changing the namespace is not allowed.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR104=Value skipped. It already exists
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR110=Same value in the same namespace already exists.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR111=Value can not be moved to different value list.
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERR120=Value does not exist
+#XMSG:Valuelist OData Error codes   
+VL_OD_ERRxxx=Internal error: {0}
+#XMSG:Success message after Export
+VL_ExportSuccess=Value list Exported
+#XMSG:Fail message after Export
+VL_ExportFail=Export of development objects is inactive. Enable it under Administration/Settings/Content Replication.
+#XMSG:Title error message after Export
+VL_ExportError=Error
+#XLBL: Tab label
+VL_ValuesUpdateLBL=Update Mode
+#XLBL: label
+VL_UpdateUrlLBL=Update Channel
+#XBUT: Mode for supplying values
+VL_manualModeBUT=Manual
+#XBUT: Mode for supplying values
+VL_dynModeBUT=Automated
+#XTOL: Mode for supplying values
+VL_manualModeTOL=In manual mode, values can be added, edited, and removed. An automated update through a service is not possible.
+#XTOL: Mode for supplying values
+VL_dynModeTOL=In automated mode, values of a local namespace are updated through a service. Changing local values manually is not possible. However, values of a foreign namespace can still be changed; these can be removed with recovery option.
+#XMSG: Successfully added value to a value list 
+VL_ValueAdded=Value successfully added

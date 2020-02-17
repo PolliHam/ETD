@@ -1,0 +1,102 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core"
+                         xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Dialog title="{i18n>MInvestAddToInvestTitle}"
+            stretch="{device>/isPhone}"
+            contentWidth="80%"
+            contentHeight="80%"
+            showHeader="false"
+            draggable="true"
+            resizable="true">
+        <content>
+            <Page title="{i18n>MInvestAddToInvestTitle}" backgroundDesign="Solid" enableScrolling="true">
+                <headerContent>
+                    <Button
+                        icon="sap-icon://sys-help"
+                        tooltip="{i18nCommon>Help_BUT}"
+                        press="onHelpPress"/>
+                </headerContent>
+                <subHeader>
+                    <Toolbar>
+                        <content>
+                            <SearchField placeholder="{i18n>MInvestSearchPlaceholder}"
+                                         showSearchButton="true" search="onSearchInvest"/>
+                        </content>
+                    </Toolbar>
+
+                </subHeader>
+                <content>
+                    <Table id="investigationsTable" mode="SingleSelectMaster" class="sapEtdScrollTable"
+                           growing="true" growingScrollToLoad="true" growingThreshold="100">
+                        <columns>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18n>MInvest_Number}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Description_COL}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Severity_COL}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18n>MManagementVisibility}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Status_COL}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Attack_COL}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18n>MInvest_CreationDate}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Created_By_COL}"/>
+                            </Column>
+                            <Column minScreenWidth="XLarge" demandPopin="true"
+                                    popinDisplay="Inline">
+                                <Text text="{i18nCommon>Processor_COL}"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{Investigations>Number}"/>
+                                    <Text text="{Investigations>Description}"/>
+                                    <Text
+                                        text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Severity/'},{path : 'Investigations>Severity'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+                                    <Text
+                                        text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/ManagementVisibility/'},{path : 'Investigations>ManagementVisibility'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+                                    <Text
+                                        text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Status/'},{path : 'Investigations>Status'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+                                    <Text
+                                        text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.invest/Investigation/Attack/'},{path : 'Investigations>Attack'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+                                    <Text
+                                        text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'Investigations>CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+                                    <Text text="{Investigations>CreatedBy}"/>
+                                    <Text text="{Investigations>Processor}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+                <footer>
+                </footer>
+            </Page>
+        </content>
+        <buttons>
+            <Button text="{i18n>AddAndShow}" app:dialogType="Std" press="onOkAndOpen" id="addAndShowButton"/>
+            <Button text="{i18n>AddAndReturn}" app:dialogType="Std" press="onOk" id="addAndReturnButton"/>
+            <Button text="{i18n>Commons_Cancel}" app:dialogType="Std"
+                    press="onCancel"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

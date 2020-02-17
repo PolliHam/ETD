@@ -1,0 +1,687 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                       m:DataServiceVersion="2.0">
+
+        <Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="log.services">
+            <EntityType Name="PatternDefinitionType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="NameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="NameSpaceId" Type="Edm.Binary"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PatternType" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AlertSeverity" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="255"/>
+                <Property Name="QueryDefinitionId" Type="Edm.Binary"/>
+                <Property Name="OpenAlertCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="TestMode" Type="Edm.String" MaxLength="50"/>
+                <Property Name="ExecutionOutput" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PatternScenarios" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="CountScheduledJobs" Type="Edm.Int64"/>
+                <NavigationProperty Name="Alerts" Relationship="log.services.AlertListType"
+                                    FromRole="PatternDefinitionPrincipal" ToRole="AlertsDependent"/>
+            </EntityType>
+            <EntityType Name="PatternDefinitionAndAlertCountLast24hType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="NameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PatternType" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ExecutionType" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ExecutionOutput" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Frequency" Type="Edm.Int32"/>
+                <Property Name="Severity" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ThresholdOperator" Type="Edm.String" MaxLength="2"/>
+                <Property Name="Threshold" Type="Edm.Int32"/>
+                <Property Name="TestMode" Type="Edm.String" MaxLength="50"/>
+                <Property Name="QueryDefinitionId" Type="Edm.Binary"/>
+                <Property Name="LikelihoodConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="OpenAlertCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="PatternScenarios" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="IndicatorTimeframe" Type="Edm.Int32"/>
+                <NavigationProperty Name="Attachments" Relationship="log.services.PatternAttachmentListType"
+                                    FromRole="PatternDefinitionAndAlertCountLast24hPrincipal"
+                                    ToRole="PatternAttachmentDependent"/>
+                <NavigationProperty Name="PatternTags" Relationship="log.services.PatternTagAssignmentListType"
+                                    FromRole="PatternDefinitionAndAlertCountLast24hPrincipal"
+                                    ToRole="PatternScenariosDependent"/>
+                <NavigationProperty Name="InvestigationTemplates"
+                                    Relationship="log.services.InvestigationTemplateListType"
+                                    FromRole="PatternDefinitionAndAlertCountLast24hPrincipal"
+                                    ToRole="InvestigationTemplatesDependent"/>
+                <NavigationProperty Name="PatternRuntime" Relationship="log.services.PatternToRuntimeType"
+                                    FromRole="PatternDefinitionAndAlertCountLast24hPrincipal"
+                                    ToRole="RuntimeDependent"/>
+            </EntityType>
+            <EntityType Name="AlertsType">
+                <Key>
+                    <PropertyRef Name="AlertId"/>
+                </Key>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Number" Type="Edm.Int32"/>
+                <Property Name="AlertHashCode" Type="Edm.Binary"/>
+                <Property Name="Score" Type="Edm.Int32"/>
+                <Property Name="ScoreFunction" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AlertCreationTimestamp" Type="Edm.DateTime"/>
+                <Property Name="AlertReadTimestamp" Type="Edm.DateTime"/>
+                <Property Name="UserId" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="SystemId" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="PatternName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PatternType" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AlertSeverity" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AlertSeveritySortOrder" Type="Edm.Int32"/>
+                <Property Name="AlertProcessor" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AlertStatus" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AlertAttack" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AlertMeasureContext" Type="Edm.String" MaxLength="100"/>
+                <Property Name="PatternSeverity" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PatternId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="MinTimestamp" Type="Edm.DateTime"/>
+                <Property Name="MaxTimestamp" Type="Edm.DateTime"/>
+                <Property Name="Count" Type="Edm.Int64"/>
+                <Property Name="Threshold" Type="Edm.Int32"/>
+                <Property Name="QueryStartTimestamp" Type="Edm.DateTime"/>
+                <Property Name="QueryEndTimestamp" Type="Edm.DateTime"/>
+                <Property Name="MeasureType" Type="Edm.String" MaxLength="50"/>
+                <Property Name="PatternDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="PatternNameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="PatternNameSpaceId" Type="Edm.Binary"/>
+                <Property Name="PatternLikelihoodConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternLikelihoodIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternLikelihoodIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternLikelihoodAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternSuccessConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternSuccessIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternSuccessIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternSuccessAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="WorkspaceName" Type="Edm.String" MaxLength="60"/>
+                <Property Name="TriggeringEventCount" Type="Edm.Int64"/>
+                <Property Name="AnomalyPattern" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="InvestigationCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="IndicatorTimeframe" Type="Edm.Int32"/>
+                <NavigationProperty Name="Attachments" Relationship="log.services.AttachmentListType"
+                                    FromRole="AlertsPrincipal" ToRole="AttachmentsDependent"/>
+                <NavigationProperty Name="Details" Relationship="log.services.DetailListType" FromRole="AlertsPrincipal"
+                                    ToRole="DetailsDependent"/>
+                <NavigationProperty Name="Groups" Relationship="log.services.GroupListType" FromRole="AlertsPrincipal"
+                                    ToRole="GroupsDependent"/>
+                <NavigationProperty Name="BinaryScores" Relationship="log.services.BinaryScoreListType"
+                                    FromRole="AlertsPrincipal" ToRole="BinaryScoresDependent"/>
+                <NavigationProperty Name="Scores" Relationship="log.services.ScoreListType" FromRole="AlertsPrincipal"
+                                    ToRole="ScoresDependent"/>
+                <NavigationProperty Name="PatternScenarios" Relationship="log.services.PatternScenarioListType"
+                                    FromRole="AlertsPrincipal" ToRole="PatternScenariosDependent"/>
+                <NavigationProperty Name="Counts" Relationship="log.services.CountListType" FromRole="AlertsPrincipal"
+                                    ToRole="CountsDependent"/>
+                <NavigationProperty Name="AnomalyCounts" Relationship="log.services.AnomalyCountListType"
+                                    FromRole="AlertsPrincipal" ToRole="AnomalyCountsDependent"/>
+            </EntityType>
+            <EntityType Name="CountsType">
+                <Key>
+                    <PropertyRef Name="AlertId"/>
+                </Key>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Number" Type="Edm.Int32"/>
+                <Property Name="Count" Type="Edm.Int64"/>
+                <Property Name="TriggeringEventCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="AttachmentCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="SourceCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="InvestigationCount" Type="Edm.Int64" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="AnomalyCountsType">
+                <Key>
+                    <PropertyRef Name="AlertId"/>
+                </Key>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Number" Type="Edm.Int32"/>
+                <Property Name="Count" Type="Edm.Int64"/>
+                <Property Name="ScoredCount" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="BinaryScoredCount" Type="Edm.Int64" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="AttachmentsType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AlertId.AlertId" Type="Edm.Binary"/>
+                <Property Name="Type" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CreationDate" Type="Edm.DateTime"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="256"/>
+                <Property Name="Content" Type="Edm.String" MaxLength="2147483647"/>
+            </EntityType>
+            <EntityType Name="DetailsType">
+                <Key>
+                    <PropertyRef Name="DetailId"/>
+                    <PropertyRef Name="AlertId.AlertId"/>
+                </Key>
+                <Property Name="DetailId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AlertId.AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ValueType" Type="Edm.String" MaxLength="20"/>
+                <Property Name="DimensionId" Type="Edm.Binary"/>
+                <Property Name="Value" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="DisplayKey" Type="Edm.String" MaxLength="26"/>
+            </EntityType>
+            <EntityType Name="GroupsType">
+                <Key>
+                    <PropertyRef Name="AlertId"/>
+                    <PropertyRef Name="SystemId"/>
+                    <PropertyRef Name="UserId"/>
+                    <PropertyRef Name="TerminalId"/>
+                    <PropertyRef Name="TargetUserId"/>
+                    <PropertyRef Name="TargetSystemType"/>
+                    <PropertyRef Name="TargetSystemId"/>
+                    <PropertyRef Name="InstanceName"/>
+                </Key>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AlertCreationTimestamp" Type="Edm.DateTime"/>
+                <Property Name="AlertSeverity" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AlertProcessor" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AlertStatus" Type="Edm.String" MaxLength="20"/>
+                <Property Name="PatternId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Score" Type="Edm.Int32"/>
+                <Property Name="MeasureContext" Type="Edm.String" MaxLength="100"/>
+                <Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="SystemType" Type="Edm.String" MaxLength="50"/>
+                <Property Name="UserId" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="TerminalId" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="TargetUserId" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="TargetSystemType" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="TargetSystemId" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="InstanceName" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Count" Type="Edm.Int64"/>
+                <Property Name="PatternName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PatternNamespace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="MinTimestamp" Type="Edm.DateTime"/>
+                <Property Name="MaxTimestamp" Type="Edm.DateTime"/>
+                <Property Name="SystemLongitude" Type="Edm.Decimal" Precision="10" Scale="6"/>
+                <Property Name="SystemLatitude" Type="Edm.Decimal" Precision="10" Scale="6"/>
+                <Property Name="SystemLink" Type="Edm.String" MaxLength="255"/>
+                <Property Name="TargetSystemLink" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="Alert" Relationship="log.services.AlertOfGroupType" FromRole="GroupsPrincipal"
+                                    ToRole="AlertsDependent"/>
+            </EntityType>
+            <EntityType Name="ScoresType">
+                <Key>
+                    <PropertyRef Name="AggregationCalculationId.Id"/>
+                    <PropertyRef Name="AlertId"/>
+                </Key>
+                <Property Name="AggregationCalculationId.Id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="EventId" Type="Edm.Binary"/>
+                <Property Name="NormalizedScore" Type="Edm.Double"/>
+                <Property Name="ZScore" Type="Edm.Double"/>
+                <Property Name="MeasureValue" Type="Edm.Double"/>
+                <Property Name="DimensionHash" Type="Edm.Binary"/>
+                <Property Name="AggregationHash" Type="Edm.Binary"/>
+                <Property Name="ReferenceStartTimestamp" Type="Edm.DateTime"/>
+                <Property Name="ReferenceEndTimestamp" Type="Edm.DateTime"/>
+                <Property Name="StatisticalDataId.Id" Type="Edm.Binary"/>
+                <Property Name="StatisticalRawDataId.Id" Type="Edm.Binary"/>
+                <Property Name="FeatureConfigurationId.Id" Type="Edm.String" MaxLength="32"/>
+                <Property Name="StatisticalScoreDataId.Id" Type="Edm.Binary"/>
+                <Property Name="AggregationName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="AggregationDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AggregationMethod" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="IncludeZeroValues" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="FeatureName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="FeatureDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ZScoreThreshold" Type="Edm.Double"/>
+                <Property Name="Mean" Type="Edm.Double"/>
+                <Property Name="Deviation" Type="Edm.Double"/>
+                <Property Name="ChartId" Type="Edm.Binary"/>
+                <Property Name="AbsoluteMaxThreshold" Type="Edm.Double"/>
+                <Property Name="AbsoluteMinThreshold" Type="Edm.Double"/>
+                <NavigationProperty Name="ScoreDetails" Relationship="log.services.ScoreDetailListType"
+                                    FromRole="ScoresPrincipal" ToRole="DetailsDependent"/>
+                <NavigationProperty Name="AggregationDetails" Relationship="log.services.AggregationDetailsListType"
+                                    FromRole="ScoresPrincipal" ToRole="AggregationDetailsDependent"/>
+                <NavigationProperty Name="DayHourData" Relationship="log.services.RawDataDetailsListType"
+                                    FromRole="ScoresPrincipal" ToRole="RawDataDetailsDependent"/>
+                <NavigationProperty Name="ScoreBinaryDetails" Relationship="log.services.ScoreBinaryDetailListType"
+                                    FromRole="ScoresPrincipal" ToRole="BinaryScoresDependent"/>
+                <NavigationProperty Name="EdgeDimensions" Relationship="log.services.EdgeDimensionListType"
+                                    FromRole="ScoresPrincipal" ToRole="EdgeDimensionsDependent"/>
+            </EntityType>
+            <EntityType Name="BinaryScoresType">
+                <Key>
+                    <PropertyRef Name="AggregationCalculationId.Id"/>
+                    <PropertyRef Name="AlertId"/>
+                    <PropertyRef Name="StatisticalScoreDataId.Id"/>
+                </Key>
+                <Property Name="AggregationCalculationId.Id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="AlertId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="EventId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="NormalizedScore" Type="Edm.Double"/>
+                <Property Name="ZScore" Type="Edm.Double"/>
+                <Property Name="MeasureValue" Type="Edm.Double"/>
+                <Property Name="DimensionHash" Type="Edm.Binary"/>
+                <Property Name="AggregationHash" Type="Edm.Binary"/>
+                <Property Name="ReferenceStartTimestamp" Type="Edm.DateTime"/>
+                <Property Name="ReferenceEndTimestamp" Type="Edm.DateTime"/>
+                <Property Name="StatisticalDataId.Id" Type="Edm.Binary"/>
+                <Property Name="StatisticalRawDataId.Id" Type="Edm.Binary"/>
+                <Property Name="FeatureConfigurationId.Id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="StatisticalScoreDataId.Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AggregationName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="AggregationDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="AggregationMethod" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="IncludeZeroValues" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="FeatureName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="FeatureDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ZScoreThreshold" Type="Edm.Double"/>
+                <Property Name="Mean" Type="Edm.Double"/>
+                <Property Name="Deviation" Type="Edm.Double"/>
+                <Property Name="ChartId" Type="Edm.Binary"/>
+                <Property Name="AbsoluteMaxThreshold" Type="Edm.Double"/>
+                <Property Name="AbsoluteMinThreshold" Type="Edm.Double"/>
+                <NavigationProperty Name="BinaryEdgeDimensions" Relationship="log.services.BinaryDimensionListType"
+                                    FromRole="BinaryScoresPrincipal" ToRole="EdgeDimensionsDependent"/>
+            </EntityType>
+            <EntityType Name="AggregationDetailsType">
+                <Key>
+                    <PropertyRef Name="AggregationHash"/>
+                    <PropertyRef Name="AggregationNumber"/>
+                </Key>
+                <Property Name="AggregationHash" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AggregationNumber" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="AggregationValue" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="ColumnName" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="RawDataDetailsType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="AggregationHash"/>
+                    <PropertyRef Name="DimensionHash"/>
+                    <PropertyRef Name="FeatureConfigurationId.Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="AggregationHash" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="DimensionHash" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="MeasureValue" Type="Edm.Double"/>
+                <Property Name="FromTimestamp" Type="Edm.DateTime"/>
+                <Property Name="ToTimestamp" Type="Edm.DateTime"/>
+                <Property Name="FeatureConfigurationId.Id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="DayName" Type="Edm.String" Nullable="false" MaxLength="5000"/>
+                <Property Name="Time" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Date" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DummyValue" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="PatternAttachmentType">
+                <Key>
+                    <PropertyRef Name="PatternId"/>
+                    <PropertyRef Name="ContentType"/>
+                    <PropertyRef Name="ContentName"/>
+                </Key>
+                <Property Name="PatternId" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="ContentType" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="ContentName" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="50"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime"/>
+            </EntityType>
+            <EntityType Name="InvestigationRelatedAttachmentType">
+                <Key>
+                    <PropertyRef Name="InvestigationId"/>
+                    <PropertyRef Name="ContentType"/>
+                    <PropertyRef Name="ContentName"/>
+                </Key>
+                <Property Name="InvestigationId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="PatternId" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="PatternName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ContentType" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="ContentName" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="PatternScenariosType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                    <PropertyRef Name="Namespace"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="Namespace" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="Type" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Prefix" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TagId" Type="Edm.Binary"/>
+                <Property Name="Original" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="TagsType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Namespace" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Prefix" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Original" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="EdgeDimensionsType">
+                <Key>
+                    <PropertyRef Name="ScoreId"/>
+                    <PropertyRef Name="RawDataDimensionNumber"/>
+                </Key>
+                <Property Name="AlertId" Type="Edm.Binary"/>
+                <Property Name="AggregationCalculationId" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="ScoreId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="RawDataDimensionHash" Type="Edm.Binary"/>
+                <Property Name="RawDataDimensionNumber" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="RawDataDimensionId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="RawDataDimensionValue" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="RawDataDimensionName" Type="Edm.String" MaxLength="255"/>
+            </EntityType>
+            <EntityType Name="InvestigationTemplatesType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="PatternId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="TemplateDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="Severity" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ManagementVisibility" Type="Edm.String" MaxLength="60"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="Attack" Type="Edm.String" MaxLength="60"/>
+                <Property Name="PatternId" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="Comment" Type="Edm.String" MaxLength="2147483647"/>
+                <Property Name="TemplateCreatedBy" Type="Edm.String" MaxLength="256"/>
+                <Property Name="TemplateCreationDate" Type="Edm.DateTime"/>
+                <Property Name="PatternNameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="PatternName" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PatternDescription" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="PatternType" Type="Edm.String" Nullable="false" MaxLength="7"/>
+            </EntityType>
+            <EntityType Name="RuntimeType">
+                <Key>
+                    <PropertyRef Name="GenId"/>
+                </Key>
+                <Property Name="GenId" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="PatternDefinitionId" Type="Edm.String" MaxLength="16"/>
+                <Property Name="TotalRuntime" Type="Edm.Decimal" Precision="34"/>
+                <Property Name="NumberOfNewAlerts" Type="Edm.Int32"/>
+                <Property Name="NumberOfAllAlerts" Type="Edm.Int32"/>
+                <Property Name="RunCount" Type="Edm.Int32"/>
+            </EntityType>
+            <Association Name="AlertListType">
+                <End Type="log.services.PatternDefinitionType" Role="PatternDefinitionPrincipal" Multiplicity="1"/>
+                <End Type="log.services.AlertsType" Role="AlertsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="AttachmentListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.AttachmentsType" Role="AttachmentsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="DetailListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.DetailsType" Role="DetailsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="GroupListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.GroupsType" Role="GroupsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="ScoreListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.ScoresType" Role="ScoresDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="ScoreDetailListType">
+                <End Type="log.services.ScoresType" Role="ScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.DetailsType" Role="DetailsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="AlertOfGroupType">
+                <End Type="log.services.GroupsType" Role="GroupsPrincipal" Multiplicity="*"/>
+                <End Type="log.services.AlertsType" Role="AlertsDependent" Multiplicity="1"/>
+            </Association>
+            <Association Name="AggregationDetailsListType">
+                <End Type="log.services.ScoresType" Role="ScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.AggregationDetailsType" Role="AggregationDetailsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="RawDataDetailsListType">
+                <End Type="log.services.ScoresType" Role="ScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.RawDataDetailsType" Role="RawDataDetailsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PatternScenarioListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.PatternScenariosType" Role="PatternScenariosDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PatternAttachmentListType">
+                <End Type="log.services.PatternDefinitionAndAlertCountLast24hType"
+                     Role="PatternDefinitionAndAlertCountLast24hPrincipal" Multiplicity="1"/>
+                <End Type="log.services.PatternAttachmentType" Role="PatternAttachmentDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="PatternTagAssignmentListType">
+                <End Type="log.services.PatternDefinitionAndAlertCountLast24hType"
+                     Role="PatternDefinitionAndAlertCountLast24hPrincipal" Multiplicity="1"/>
+                <End Type="log.services.PatternScenariosType" Role="PatternScenariosDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="InvestigationTemplateListType">
+                <End Type="log.services.PatternDefinitionAndAlertCountLast24hType"
+                     Role="PatternDefinitionAndAlertCountLast24hPrincipal" Multiplicity="1"/>
+                <End Type="log.services.InvestigationTemplatesType" Role="InvestigationTemplatesDependent"
+                     Multiplicity="*"/>
+            </Association>
+            <Association Name="PatternToRuntimeType">
+                <End Type="log.services.PatternDefinitionAndAlertCountLast24hType"
+                     Role="PatternDefinitionAndAlertCountLast24hPrincipal" Multiplicity="1"/>
+                <End Type="log.services.RuntimeType" Role="RuntimeDependent" Multiplicity="1"/>
+            </Association>
+            <Association Name="CountListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.CountsType" Role="CountsDependent" Multiplicity="1"/>
+            </Association>
+            <Association Name="AnomalyCountListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.AnomalyCountsType" Role="AnomalyCountsDependent" Multiplicity="1"/>
+            </Association>
+            <Association Name="BinaryScoreListType">
+                <End Type="log.services.AlertsType" Role="AlertsPrincipal" Multiplicity="1"/>
+                <End Type="log.services.BinaryScoresType" Role="BinaryScoresDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="BinaryDimensionListType">
+                <End Type="log.services.BinaryScoresType" Role="BinaryScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.EdgeDimensionsType" Role="EdgeDimensionsDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="ScoreBinaryDetailListType">
+                <End Type="log.services.ScoresType" Role="ScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.BinaryScoresType" Role="BinaryScoresDependent" Multiplicity="*"/>
+            </Association>
+            <Association Name="EdgeDimensionListType">
+                <End Type="log.services.ScoresType" Role="ScoresPrincipal" Multiplicity="1"/>
+                <End Type="log.services.EdgeDimensionsType" Role="EdgeDimensionsDependent" Multiplicity="*"/>
+            </Association>
+            <EntityContainer Name="patterndefinitionToAlerts" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="PatternDefinition" EntityType="log.services.PatternDefinitionType"/>
+                <EntitySet Name="PatternDefinitionAndAlertCountLast24h"
+                           EntityType="log.services.PatternDefinitionAndAlertCountLast24hType"/>
+                <EntitySet Name="Alerts" EntityType="log.services.AlertsType"/>
+                <EntitySet Name="Counts" EntityType="log.services.CountsType"/>
+                <EntitySet Name="AnomalyCounts" EntityType="log.services.AnomalyCountsType"/>
+                <EntitySet Name="Attachments" EntityType="log.services.AttachmentsType"/>
+                <EntitySet Name="Details" EntityType="log.services.DetailsType"/>
+                <EntitySet Name="Groups" EntityType="log.services.GroupsType"/>
+                <EntitySet Name="Scores" EntityType="log.services.ScoresType"/>
+                <EntitySet Name="BinaryScores" EntityType="log.services.BinaryScoresType"/>
+                <EntitySet Name="AggregationDetails" EntityType="log.services.AggregationDetailsType"/>
+                <EntitySet Name="RawDataDetails" EntityType="log.services.RawDataDetailsType"/>
+                <EntitySet Name="PatternAttachment" EntityType="log.services.PatternAttachmentType"/>
+                <EntitySet Name="InvestigationRelatedAttachment"
+                           EntityType="log.services.InvestigationRelatedAttachmentType"/>
+                <EntitySet Name="PatternScenarios" EntityType="log.services.PatternScenariosType"/>
+                <EntitySet Name="Tags" EntityType="log.services.TagsType"/>
+                <EntitySet Name="EdgeDimensions" EntityType="log.services.EdgeDimensionsType"/>
+                <EntitySet Name="InvestigationTemplates" EntityType="log.services.InvestigationTemplatesType"/>
+                <EntitySet Name="Runtime" EntityType="log.services.RuntimeType"/>
+                <AssociationSet Name="AlertList" Association="log.services.AlertListType">
+                    <End Role="PatternDefinitionPrincipal" EntitySet="PatternDefinition"/>
+                    <End Role="AlertsDependent" EntitySet="Alerts"/>
+                </AssociationSet>
+                <AssociationSet Name="AttachmentList" Association="log.services.AttachmentListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="AttachmentsDependent" EntitySet="Attachments"/>
+                </AssociationSet>
+                <AssociationSet Name="DetailList" Association="log.services.DetailListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="DetailsDependent" EntitySet="Details"/>
+                </AssociationSet>
+                <AssociationSet Name="GroupList" Association="log.services.GroupListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="GroupsDependent" EntitySet="Groups"/>
+                </AssociationSet>
+                <AssociationSet Name="ScoreList" Association="log.services.ScoreListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="ScoresDependent" EntitySet="Scores"/>
+                </AssociationSet>
+                <AssociationSet Name="ScoreDetailList" Association="log.services.ScoreDetailListType">
+                    <End Role="ScoresPrincipal" EntitySet="Scores"/>
+                    <End Role="DetailsDependent" EntitySet="Details"/>
+                </AssociationSet>
+                <AssociationSet Name="AlertOfGroup" Association="log.services.AlertOfGroupType">
+                    <End Role="GroupsPrincipal" EntitySet="Groups"/>
+                    <End Role="AlertsDependent" EntitySet="Alerts"/>
+                </AssociationSet>
+                <AssociationSet Name="AggregationDetailsList" Association="log.services.AggregationDetailsListType">
+                    <End Role="ScoresPrincipal" EntitySet="Scores"/>
+                    <End Role="AggregationDetailsDependent" EntitySet="AggregationDetails"/>
+                </AssociationSet>
+                <AssociationSet Name="RawDataDetailsList" Association="log.services.RawDataDetailsListType">
+                    <End Role="ScoresPrincipal" EntitySet="Scores"/>
+                    <End Role="RawDataDetailsDependent" EntitySet="RawDataDetails"/>
+                </AssociationSet>
+                <AssociationSet Name="PatternScenarioList" Association="log.services.PatternScenarioListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="PatternScenariosDependent" EntitySet="PatternScenarios"/>
+                </AssociationSet>
+                <AssociationSet Name="PatternAttachmentList" Association="log.services.PatternAttachmentListType">
+                    <End Role="PatternDefinitionAndAlertCountLast24hPrincipal"
+                         EntitySet="PatternDefinitionAndAlertCountLast24h"/>
+                    <End Role="PatternAttachmentDependent" EntitySet="PatternAttachment"/>
+                </AssociationSet>
+                <AssociationSet Name="PatternTagAssignmentList" Association="log.services.PatternTagAssignmentListType">
+                    <End Role="PatternDefinitionAndAlertCountLast24hPrincipal"
+                         EntitySet="PatternDefinitionAndAlertCountLast24h"/>
+                    <End Role="PatternScenariosDependent" EntitySet="PatternScenarios"/>
+                </AssociationSet>
+                <AssociationSet Name="InvestigationTemplateList"
+                                Association="log.services.InvestigationTemplateListType">
+                    <End Role="PatternDefinitionAndAlertCountLast24hPrincipal"
+                         EntitySet="PatternDefinitionAndAlertCountLast24h"/>
+                    <End Role="InvestigationTemplatesDependent" EntitySet="InvestigationTemplates"/>
+                </AssociationSet>
+                <AssociationSet Name="PatternToRuntime" Association="log.services.PatternToRuntimeType">
+                    <End Role="PatternDefinitionAndAlertCountLast24hPrincipal"
+                         EntitySet="PatternDefinitionAndAlertCountLast24h"/>
+                    <End Role="RuntimeDependent" EntitySet="Runtime"/>
+                </AssociationSet>
+                <AssociationSet Name="CountList" Association="log.services.CountListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="CountsDependent" EntitySet="Counts"/>
+                </AssociationSet>
+                <AssociationSet Name="AnomalyCountList" Association="log.services.AnomalyCountListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="AnomalyCountsDependent" EntitySet="AnomalyCounts"/>
+                </AssociationSet>
+                <AssociationSet Name="BinaryScoreList" Association="log.services.BinaryScoreListType">
+                    <End Role="AlertsPrincipal" EntitySet="Alerts"/>
+                    <End Role="BinaryScoresDependent" EntitySet="BinaryScores"/>
+                </AssociationSet>
+                <AssociationSet Name="BinaryDimensionList" Association="log.services.BinaryDimensionListType">
+                    <End Role="BinaryScoresPrincipal" EntitySet="BinaryScores"/>
+                    <End Role="EdgeDimensionsDependent" EntitySet="EdgeDimensions"/>
+                </AssociationSet>
+                <AssociationSet Name="ScoreBinaryDetailList" Association="log.services.ScoreBinaryDetailListType">
+                    <End Role="ScoresPrincipal" EntitySet="Scores"/>
+                    <End Role="BinaryScoresDependent" EntitySet="BinaryScores"/>
+                </AssociationSet>
+                <AssociationSet Name="EdgeDimensionList" Association="log.services.EdgeDimensionListType">
+                    <End Role="ScoresPrincipal" EntitySet="Scores"/>
+                    <End Role="EdgeDimensionsDependent" EntitySet="EdgeDimensions"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+
+
+
+
+        <Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+                Namespace="sap.secmon.services.ui.m.patterns.WorkspacePatternDefinition">
+            <EntityType Name="WorkspacePatternsType">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="QueryDefinitionId" Type="Edm.Binary"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="NameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="NameSpaceId" Type="Edm.Binary"/>
+                <Property Name="PatternType" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="Frequency" Type="Edm.Int32"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Threshold" Type="Edm.Int32"/>
+                <Property Name="Severity" Type="Edm.String" MaxLength="50"/>
+                <Property Name="LikelihoodConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TestMode" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="PatternAggregationType">
+                <Key>
+                    <PropertyRef Name="GenID"/>
+                </Key>
+                <Property Name="GenID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="Id" Type="Edm.Binary"/>
+                <Property Name="QueryDefinitionId" Type="Edm.Binary"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="NameSpace" Type="Edm.String" MaxLength="500"/>
+                <Property Name="NameSpaceId" Type="Edm.Binary"/>
+                <Property Name="PatternType" Type="Edm.String" MaxLength="7"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="Frequency" Type="Edm.Int32"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Threshold" Type="Edm.Int32"/>
+                <Property Name="Severity" Type="Edm.String" MaxLength="50"/>
+                <Property Name="LikelihoodConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="LikelihoodAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessConfidentiality" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegritySystem" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessIntegrityData" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SuccessAvailability" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TestMode" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityContainer Name="WorkspacePatternDefinition" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="WorkspacePatterns"
+                           EntityType="sap.secmon.services.ui.m.patterns.WorkspacePatternDefinition.WorkspacePatternsType"/>
+                <EntitySet Name="PatternAggregation"
+                           EntityType="sap.secmon.services.ui.m.patterns.WorkspacePatternDefinition.PatternAggregationType"/>
+            </EntityContainer>
+        </Schema>
+
+
+    </edmx:DataServices>
+</edmx:Edmx>

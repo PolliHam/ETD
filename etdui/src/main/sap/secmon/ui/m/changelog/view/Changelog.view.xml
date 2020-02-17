@@ -1,0 +1,201 @@
+<mvc:View controllerName="sap.secmon.ui.m.changelog.view.Changelog"
+	id="Changelog" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page" title="{i18n>ChangelogTitle}" showNavButton="true"
+		enableScrolling="true" navButtonPress="onNavBack">
+        <headerContent>
+            <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp" />
+        </headerContent>
+		<content>
+			<l:FixFlex>
+				<l:fixContent>
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
+						showRestoreButton="false" showClearButton="true"
+						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true"
+						id="filterBar" considerGroupTitle="true">
+						<fb:filterItems>
+							<fb:FilterItem name="dateTime" label="{i18n>TimeRange}">
+								<fb:control>
+									<Input id="dateTimeFilterInput" showValueHelp="true"
+										valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="user" label="{i18nCommon>User_LBL}">
+								<fb:control>
+									<MultiComboBox id="userInput" items="{/User}">
+										<items>
+											<c:Item key="{User}" text="{User}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="User" />
+											<c:CustomData key="i18nText" value="{i18nCommon>User_LBL}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="entityType" label="{i18n>EntityTypeLbl}">
+								<fb:control>
+									<MultiComboBox id="entityTypeFilterInput"
+										items="{path: 'enums>/sap.secmon.services.protocol/Protocol/EntityType/enumValues', sorter : {path : 'Value', descending : false}}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="EntityType" />
+											<c:CustomData key="i18nText" value="{i18n>EntityTypeLbl}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="entityNamespace" label="{i18n>EntityNamespaceLbl}">
+								<fb:control>
+									<MultiComboBox id="entityNamespaceInput" items="{/EntityNamespace}">
+										<items>
+											<c:Item key="{EntityNamespace}"
+												text="{parts : [ {path : 'EntityNamespace'}, {path : 'i18n>EmptyNamespace'}], formatter: 'sap.secmon.ui.m.changelog.util.Formatter.entityNamespaceFormatter'}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="EntityNamespace" />
+											<c:CustomData key="i18nText" value="{i18n>EntityNamespaceLbl}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="entityOperation" label="{i18n>EntityOperationLbl}">
+								<fb:control>
+									<MultiComboBox id="entityOperationFilterInput"
+										items="{enums>/sap.secmon.services.protocol/Protocol/EntityOperation/enumValues}">
+										<items>
+											<c:Item key="{enums>Key}" text="{enums>Value}" />
+										</items>
+										<customData>
+											<c:CustomData key="urlParamName" value="EntityOperation" />
+											<c:CustomData key="i18nText" value="{i18n>EntityOperationLbl}" />
+										</customData>
+									</MultiComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							
+							<fb:FilterItem name="EntityName" label="{i18n>EntityNameLbl}">
+								<fb:control>
+									<MultiInput id="entityNameFilterInput" filterSuggests="false"
+										placeholder="{i18n>Name_Suggestion}"
+										showSuggestion="true" startSuggestion="3" suggest="onItemSuggest"
+										suggestionItemSelected="handleSuggestionItemSelected"
+										showTableSuggestionValueHelp="false" showValueHelp="false">
+										<customData>
+											<c:CustomData key="urlParamName" value="EntityName" />
+											<c:CustomData key="i18nText" value="{i18n>EntityNameLbl}" />
+										</customData>
+										<suggestionColumns>
+											<Column visible="false">
+											</Column>
+											<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<cells>
+												</cells>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
+								</fb:control>
+							</fb:FilterItem>					
+						</fb:filterItems>
+					</fb:FilterBar>
+
+					<Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+						<Label id="toolbarOfTable" text=""/>
+						<Label text="" width="25px" />
+						<Label id="timeRangeLabelInToolbarOfTable" text=""/>
+					</Toolbar>
+            	 </l:fixContent>
+	    
+				<l:flexContent>
+					<ScrollContainer height="100%" vertical="true">
+						<customControls:ColumnClickableTable
+							id="changelogTable" inset="false" class="sapEtdScrollTable"
+							items="{path: '/ProtocolHeader', parameters: {select: 'Id,Timestamp,User,EntityId,EntityType,EntityNamespace,EntityName,EntityOperation,Text,SerializedObjectOldLength,SerializedObjectNewLength'} }"
+							growing="true" growingScrollToLoad="true" growingThreshold="100"
+							columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+							firstColumnIsForSelection="false"> <!-- firstColumnIsForSelection must be set if there is no selection column!!! -->
+							<customControls:infoToolbar>
+								<Toolbar id="vsdFilterBar" active="false" visible="false">
+									<Label id="vsdFilterLabel" text="?" />
+								</Toolbar>
+							</customControls:infoToolbar>
+							<customControls:columns>
+
+								<customControls:SortableColumn
+									sortProperty="Timestamp">
+									<customControls:SortableItem text="{i18nCommon>Timestamp_COL}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="User">
+									<customControls:SortableItem text="{i18nCommon>User_COL}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="EntityType">
+									<customControls:SortableItem text="{i18n>EntityType}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="EntityNamespace">
+									<customControls:SortableItem text="{i18n>EntityNamespace}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="EntityName">
+									<customControls:SortableItem text="{i18n>EntityName}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn
+									sortProperty="EntityOperation">
+									<customControls:SortableItem text="{i18n>EntityOperation}" />
+								</customControls:SortableColumn>
+
+								<customControls:SortableColumn width="30em"
+									sortProperty="Text">
+									<customControls:SortableItem text="{i18n>Text}" />
+								</customControls:SortableColumn>
+
+							</customControls:columns>
+							<customControls:items>
+								<ColumnListItem press="onRecordClicked" type="{parts : [ {path : 'SerializedObjectOldLength'}, { path : 'SerializedObjectNewLength'}, { path : 'i18n>DetailsLbl'}], formatter: 'sap.secmon.ui.m.changelog.util.Formatter.columnListItemTypeFormatter'}">
+									<cells>
+										<Text
+											text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'Timestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+										<Text text="{User}" />
+										<Text
+											text="{path : 'EntityType', formatter: 'sap.secmon.ui.m.changelog.util.Formatter.entityTypeFormatter'}" />
+										<Text text="{EntityNamespace}" />
+										<customControls:LinkOrText text="{EntityName}"
+														linkEnabled="{path: 'EntityType', formatter: 'sap.secmon.ui.m.changelog.util.Formatter.entityHistoryURLEnabled'}"
+														href="{parts: [{path : 'EntityId'}, {path: 'EntityType'}], formatter: 'sap.secmon.ui.m.changelog.util.Formatter.entityHistoryURL'}" />
+										<Text
+											text="{path : 'EntityOperation', formatter: 'sap.secmon.ui.m.changelog.util.Formatter.entityOperationFormatter'}" />
+										<Text text="{Text}" />
+									</cells>
+								</ColumnListItem>
+							</customControls:items>
+						</customControls:ColumnClickableTable>
+					</ScrollContainer>
+            	</l:flexContent>
+    		</l:FixFlex>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://add-favorite" tooltip="{i18nCommon>MBookmark_TitleXTIT}"
+						press="handleBookmarkDialogButtonPressed" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

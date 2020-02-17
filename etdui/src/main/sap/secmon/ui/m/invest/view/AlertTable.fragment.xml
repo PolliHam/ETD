@@ -1,0 +1,71 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	controllerName="sap.secmon.ui.m.invest.view.Detail" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"  xmlns:sscc="sap.secmon.ui.m.commons.controls" xmlns="sap.m">
+	<Table fixedLayout="false" updateFinished="onAlertsUpdateFinished"
+		items="{path:'Alerts', 
+				parameters:{expand: 'AlertsPattern,AlertsPattern/Details,AlertsPattern/Groups'},
+				sorter:{path:'Number'}
+		}" 
+      	growing="true" growingScrollToLoad="true" growingThreshold="100">
+		<columns>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline">
+				<header>
+					<Text text="{i18nInvest>MInvest_ID}" />
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Pattern_COL}"/>
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" width="50%" demandPopin="true" popinDisplay="Inline">
+				<header>
+					<Text text="{i18nAlert>MAlertsFS_Cause}"/>
+				</header>
+			</Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" minWidth="10%" demandPopin="true" popinDisplay="Inline">
+                <header>
+                    <Text text="{i18nInvest>MInvest_Attack_COL}" />
+                </header>
+            </Column>
+			<Column hAlign="Begin" vAlign="Inherit" minScreenWidth="Tablet" minWidth="10%" demandPopin="true" popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Severity_COL}"/>
+				</header>
+			</Column>
+			<Column vAlign="Inherit" minScreenWidth="Tablet" width="10%"
+				demandPopin="true" popinDisplay="Inline">
+				<header>
+					<Text text="{i18nCommon>Created_At_COL}" />
+				</header>
+			</Column>
+			<Column width="3em" hAlign="End" vAlign="Inherit">
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<sscc:LinkOrText text="{Number}" linkEnabled="{editModel>/displayMode}" wrapping="true"
+						href="{path : 'AlertId', formatter: 'sap.secmon.ui.m.commons.NavigationService.alertURL'}" />
+					<sscc:LinkOrText text="{PatternName}" press="onPatternClicked" linkEnabled="{editModel>/displayMode}" wrapping="true"
+						href="{parts : [ {path : 'PatternId'}, { path : 'PatternType'} ], formatter: 'sap.secmon.ui.m.commons.NavigationService.patternURLWithHexGuid'}" />
+					<sscc:TextWithLinks
+						text="{parts : [ {path : 'AlertsPattern/Details'}, { path : 'PatternType'}, {path : 'AlertsPattern/AlertMeasureContext'}, {path : 'AlertsPattern/Count'}, {path : 'AlertsPattern/Tzhreshold'}, {path : 'AlertsPattern/Text'} ],
+					            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringTextWithLinksFormatter'}"
+					    links="{parts: [{ path : 'PatternType'}, {path : 'AlertsPattern/AlertMeasureContext'}, {path : 'AlertId'}, {path: 'i18nAlert>MAlertsFS_EventsNoCount'}],
+					            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringEventLinksFormatter'}" />													
+				    <Text text="{path: 'AlertAttack', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.attackFormatter'}" />
+					<Text text="{path: 'AlertSeverity', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.severityFormatter'}" />
+					<Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'AlertsPattern/AlertCreationTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					<core:Icon src="sap-icon://sys-cancel" class="size1"
+						color="#031E48" press="onRemoveAlert" tooltip="{i18nInvest>MInvest_RemoveAlert}"
+						visible="{
+						parts: [{path:'editModel>/displayMode'},{path:'investigation>/Status'}, {path: 'applicationContext>/userPrivileges/alertWrite'} ],
+			         	formatter: 'sap.secmon.ui.m.invest.util.Formatter.removeAlertActionVisibility'
+			         	}">
+					</core:Icon>
+				</cells>
+			</ColumnListItem>
+        </items>
+	</Table>
+</core:FragmentDefinition>

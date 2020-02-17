@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="Timestamp"
+				text="{i18n>Interpret_Timestamp}" />
+			<ViewSettingsItem key="LoggerName" text="{i18n>Interpret_LoggerName}" />
+			<ViewSettingsItem key="ThreadName" text="{i18n>Interpret_ThreadName}" />
+			<ViewSettingsItem key="LogLevel" text="{i18n>Interpret_Level}" />
+			<ViewSettingsItem key="Message" text="{i18n>Interpret_MessageText}" />
+			<ViewSettingsItem key="Location" text="{i18n>Interpret_Location}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

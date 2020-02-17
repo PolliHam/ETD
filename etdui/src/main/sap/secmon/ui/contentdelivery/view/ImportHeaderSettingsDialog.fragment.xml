@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="Name"
+				text="{i18n>CD_Name}" />
+			<ViewSettingsItem key="Namespace" text="{i18n>CD_Namespace}" />
+			<ViewSettingsItem key="Description" text="{i18n>CD_Description}" />
+			<ViewSettingsItem key="Status" text="{i18n>CD_Status}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

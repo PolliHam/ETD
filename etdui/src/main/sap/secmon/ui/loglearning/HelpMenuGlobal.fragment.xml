@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core">
+    <u:Menu>
+        <u:MenuItem text="{i18n>Interpret_Overview}" select="onPressHelpOverview"/>
+        <u:MenuItem text="{i18n>Interpret_IsST}" select="onPressHelpCreateRun"/>
+    </u:Menu>
+</core:FragmentDefinition>

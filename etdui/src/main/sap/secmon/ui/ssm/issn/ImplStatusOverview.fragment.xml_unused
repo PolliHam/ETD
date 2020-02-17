@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog title="{i18n>SSM_TIT_SortBy}"
+        confirm="handleConfirm">
+        <sortItems>
+            <ViewSettingsItem text="Note Number" key="NoteNumber"/>
+            <ViewSettingsItem text="System Id" key="SystemId" />
+            <ViewSettingsItem text="Note Title" key="NoteTitle" />
+            <ViewSettingsItem text="Note Version" key="NoteVersion" />
+            <ViewSettingsItem text="Release On" key="ReleaseOn" />
+        </sortItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

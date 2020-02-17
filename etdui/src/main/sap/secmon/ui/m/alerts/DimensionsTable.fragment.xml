@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Table fixedLayout="false"
+		items="{path: 'Details/',  sorter : { path: 'Name', descending: true}}"
+		growing="true" growingScrollToLoad="true" growingThreshold="100">
+		<columns>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18n>MobAlert_Dimension}" />
+			</Column>
+			<Column minScreenWidth="XLarge" demandPopin="true"
+				popinDisplay="Inline">
+				<Text text="{i18nCommon>Value_COL}" />
+			</Column>
+
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<Text text="{Name}" />
+					<Text text="{Value}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

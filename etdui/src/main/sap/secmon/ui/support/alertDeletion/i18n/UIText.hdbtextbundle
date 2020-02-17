@@ -1,0 +1,20 @@
+# TRANSLATE
+#XLBL: Alert Deletion
+AlertDeletion_XLBL=Alert Deletion
+#XLBL: Delete Alerts older than
+AlertDel_olderThan_XLBL=Delete alerts older than {0}?
+#XLBL: Delete Alerts older than
+AlertDel_olderThanUTC_XLBL=Delete alerts older than {0} (UTC)?
+
+#XLBL: Delete Alerts older than
+AlertDel_older_XLBL=Delete Alerts Older Than:
+#XLBL: Delete Alerts older than
+AlertDel_olderUTC_XLBL=Delete Alerts Older Than (in UTC):
+#XLBL: Delete Alerts Confirmation
+AlertDel_Confirm_XLBL=Confirm Deletion
+#XLBL: Delete Alerts Success
+AlertDel_Success_XLBL=Success
+#XLBL: Delete Alerts x Alerts deleted
+AlertDel_alertsdel_XLBL={0} Alerts deleted
+#XLBL: Delete Alerts: Invalid Date 
+AlertDel_invDate_XLBL=Invalid Date. Enter a valid date

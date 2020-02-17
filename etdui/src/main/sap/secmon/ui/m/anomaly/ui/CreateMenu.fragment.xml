@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<u:Menu>
+		<u:MenuItem text="{i18n>CreateScenario_TXT}" select="handleCreateScenario"
+			icon="sap-icon://upstacked-chart" />
+		<u:MenuItem text="{i18n>CreateEval_TXT}" select="handleCreateEvaluation"
+			icon="sap-icon://bar-chart" />
+		<u:MenuItem text="{i18n>CreatePattern_TXT}" select="handleCreatePattern"
+			icon="sap-icon://puzzle">
+		</u:MenuItem>
+	</u:Menu>
+
+</core:FragmentDefinition>

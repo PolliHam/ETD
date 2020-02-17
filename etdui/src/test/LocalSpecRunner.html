@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Jasmine Spec Runner v2.0.0</title>
+
+  <!--src="http://localhost/sap/ui5/1/resources/sap-ui-core.js"-->          <!--To run on local machine-->
+  <!--src="/sap/ui5/1/resources/sap-ui-core.js"-->                          <!--To run on server-->
+  <script
+    src="/sap/ui5/1/resources/sap-ui-core.js"
+    id="sap-ui-bootstrap"
+    data-sap-ui-libs="sap.ui.commons,sap.ui.ux3,sap.ui.table,sap.m,sap.ushell"
+    data-sap-ui-theme="sap_bluecrystal">
+  </script>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-3.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-3.2.0/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-3.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-3.2.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="lib/jasmine-3.2.0/boot.js"></script>
+
+
+  <!--  <script src="my-library.js" data-cover></script> -->
+
+
+
+  <script>
+  	  jQuery.sap.registerModulePath("test", "../test/");
+      jQuery.sap.registerModulePath("sap.secmon.ui", "../main/sap/secmon/ui");
+      jQuery.sap.registerModulePath("sap.secmon.ui.browse", "../main/sap/secmon/ui/browse/ui");
+     //jQuery.sap.registerModulePath("test", "../test/");
+  </script>
+
+<!-- include spec files here... -->
+  <script type="text/javascript" src="prechecks.js"></script>
+  <!--sap/secmon/ui/commons/-->
+  <script type="text/javascript" src="sap/secmon/ui/commons/AlertTriggerFormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/CommonFunctionsTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/EnumServiceTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/HtmlUtilsTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/InputValidationServiceTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/PrivilegesTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/commons/UIStateUtilsTest.js"></script>
+  <!--sap/secmon/ui/m/alerts-->
+  <script type="text/javascript" src="sap/secmon/ui/m/alerts/util/CompactTriggerHelperTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/alerts/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/alertsfs-->
+  <script type="text/javascript" src="sap/secmon/ui/m/alertsfs/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/alertsfs/view/AlertGraph.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/anomaly-->
+  <script type="text/javascript" src="sap/secmon/ui/m/anomaly/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/changelog-->
+  <script type="text/javascript" src="sap/secmon/ui/m/changelog/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/commons-->
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/alerts/AttackRadioButtonHandlerTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/controls/RadioButtonGridTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/dateTimeSelection/DateTimeSelectionHelperTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/invest/AttackRadioButtonHandlerTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/EtdComponentTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/EtdControllerTest.js"></script>
+  <!--<script type="text/javascript" src="sap/secmon/ui/m/commons/EtdMasterControllerTest.js"></script>-->
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/FilterBarHelperTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/InvestigationCreatorDialog.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/MappedViewSettingsHelperTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/NavigationServiceTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/SelectionUtilsTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/commons/VetoCollectorTest.js"></script>
+
+  <!--sap/secmon/ui/m/domainrating-->
+  <script type="text/javascript" src="sap/secmon/ui/m/domainrating/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/executionResultsfs-->
+  <script type="text/javascript" src="sap/secmon/ui/m/executionResultsfs/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/executionResultsfs/util/VizChartHelperTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/executionResultsfs/view/ExecutionResults.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/exemptions-->
+  <script type="text/javascript" src="sap/secmon/ui/m/exemptions/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/exemptions/view/AddDimensionDialog.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/invest-->
+  <script type="text/javascript" src="sap/secmon/ui/m/invest/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/invest/view/Master.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/invest/view/Detail.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/investfs-->
+  <!--sap/secmon/ui/m/knowledgebase-->
+  <script type="text/javascript" src="sap/secmon/ui/m/knowledgebase/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/namespace-->
+  <script type="text/javascript" src="sap/secmon/ui/m/namespace/util/ODataErrorHandlerTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/namespace/view/CreateNamespaceDialog.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/namespace/view/Namespace.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/semanticEventFS-->
+  <script type="text/javascript" src="sap/secmon/ui/m/semanticEventFS/utils/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/semanticEventFS/view/SemanticEvent.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/semanticEventViewer-->
+  <script type="text/javascript" src="sap/secmon/ui/m/semanticEventViewer/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/semanticEventViewer/view/DetailController.Test.js"></script>
+  <!--sap/secmon/ui/m/settings-->
+  <script type="text/javascript" src="sap/secmon/ui/m/settings/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/systems-->
+  <script type="text/javascript" src="sap/secmon/ui/m/systems/util/FormatterTest.js"></script>
+  <!--sap/secmon/ui/m/valuelist-->
+  <script type="text/javascript" src="sap/secmon/ui/m/valuelist/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/valuelist/view/Master.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/valuelist/view/AddValueDialog.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/valuelist/view/FillFromEventsDialog.controller.Test.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/valuelist/view/SaveAsDialog.controller.Test.js"></script>
+  <!--sap/secmon/ui/m/views-->
+  <script type="text/javascript" src="sap/secmon/ui/m/views/executionResult/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/views/pattern/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/m/views/pattern/PatternControllerTest.js"></script>
+  <!--sap/secmon/ui/m-->
+  <script type="text/javascript" src="sap/secmon/ui/m/UrlParameterMappingsTest.js"></script>
+  <!--sap/secmon/ui/loglearning-->
+  <script type="text/javascript" src="sap/secmon/ui/loglearning/util/FormatterTest.js"></script>
+  <script type="text/javascript" src="sap/secmon/ui/loglearning/util/AnnotationsListConverterTest.js"></script>
+  <!-- sap/secmon/ui/subnets -->
+  <script type="text/javascript" src="sap/secmon/ui/subnets/subnets.js"></script>
+
+  <!-- sap/secmon/ui/contentdelivery -->
+  <script type="text/javascript" src="sap/secmon/ui/contentdelivery/view/contentDelivery.controller.Test.js"></script>
+
+</head>
+
+<body>
+</body>
+</html>

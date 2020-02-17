@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>DA_AddWL}">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>DA_DomainName}" />
+					<Input value="{UIModel>/domain_WL}" placeholder="e.g. *.sap" />
+					<Label text="{i18n>DA_TLD}" />
+					<Input value="{UIModel>/tld_WL}" placeholder="e.g. com" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>DA_OK}" press="onCloseCreateWLDialog" id="createWLOk" />
+			<Button text="{i18n>DA_Cancel}" press="onCloseCreateWLDialog"
+				id="createWLCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<l:Grid id="EditForm" defaultSpan="L12 M12 S12" width="auto"
+		class="compactObjectHeader">
+		<l:content>
+			<f:SimpleForm id="SimpleFormDisplay" maxContainerCols="2"
+				editable="true">
+				<f:content>
+					<Label text="{i18n>ExemptionReason}" required="true" />
+					<Input id="ReasonInput" valueStateText="{i18n>MissingReason_XMSG}"
+						value="{ path: 'editModel>/ExceptionDescription', type: 'sap.ui.model.type.String', constraints : {minLength : 1}}" />
+
+					<Label text="{i18n>PatternNameOfExemption}" />
+					<Text text="{Name}" wrapping="true" />
+
+					<Label text="{i18n>Context}" />
+					<Text text="{Context}" />
+
+					<Label text="{i18n>ValidFrom}" />
+					<DateTimeInput type="DateTime" dateValue="{editModel>/ValidFrom}" />
+					<Input editable="false" value="UTC" width="4em"
+						visible="{applicationContext>/UTC}" />
+
+					<Label text="{i18n>ValidTo}" />
+					<DateTimeInput type="DateTime" dateValue="{editModel>/ValidTo}" />
+					<Input editable="false" value="UTC" width="4em"
+						visible="{applicationContext>/UTC}" />
+
+					<Label text="{i18n>PatternCreatedBy}" />
+					<Text text="{ExceptionCreatedBy}" />
+
+					<Label text="{i18n>CreationDate}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ExceptionCreatedTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+				</f:content>
+			</f:SimpleForm>
+
+			<Table id="exemptionDetails" inset="false" mode="MultiSelect"
+				items="{path: 'editModel>/Details/' }" growing="true"
+				growingScrollToLoad="true" growingThreshold="100">
+
+				<headerToolbar>
+					<Toolbar active="true" visible="true">
+						<Button id="addButton" text="{i18nCommon>Add_BUT}" press="onAddDimension" />
+						<Button id="deleteButton" text="{i18nCommon>Delete_BUT}"
+							press="onDeleteDimension" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18nCommon>Pattern_GroupByAttr_COL}" />
+					</Column>
+					<Column>
+						<Text text="{i18nCommon>Value_COL}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{parts : [{path : 'editModel>DisplayKey'}, { path : 'editModel>Name'}], formatter : 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" />
+							<Input value="{editModel>ValueLow}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

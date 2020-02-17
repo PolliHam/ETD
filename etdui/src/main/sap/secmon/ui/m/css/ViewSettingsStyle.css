@@ -1,0 +1,94 @@
+@charset "ISO-8859-1";
+/*
+This CSS-Style is used by list items with long texts included in the ETD Fiori applications, e.g. the ViewSettings Dialog.
+Each item is displayed in 2 lines with word-wrap.
+The effect is achieved differently on various browsers.
+On Chrome (or browsers based on WebKit), the setting -webkit-line-clamp is effective, on other browsers the effects there is a fallback.
+
+The ETDController has a line like this:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/css/ViewSettingsStyle.css");
+
+Caution: The embedding container has to use the class "largeListItems".
+The embedding element has to be found by trial&error (The generated HTML does not contain the class).
+In case of the ViewSettingsDialog, it is the dialog itself that needs to have attribute class="largeListItems" set.
+The direct parent "ViewSettingsItem" will not work. 
+*/
+.largeListItems * .sapMSLITitleOnly {
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-flex: 9;
+	-moz-box-flex: 9;
+	-ms-flex: 9;
+	flex: auto;
+	word-break: break-word;
+	max-height: 3.6em;
+	height: auto;
+	vertical-align: middle;
+	position: relative;
+	bottom: 0;
+}
+
+.largeListItems *  .sapMSLITitleOnly:after {
+	content: "";
+	text-align: right;
+	position: relative;
+	vertical-align: middle;
+	top: 0;
+	right: 0;
+	width: 70%;
+	max-height: 3.6em;
+	height: auto;
+	foreground: linear-gradient(to right, rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 1) 50%);
+}
+
+@supports (-webkit-line-clamp: 2) {
+	.largeListItems * .sapMSLITitleOnly{
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-flex: 9;
+	-moz-box-flex: 9;
+	-ms-flex: auto;
+	flex: auto;
+	word-break: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	max-height: 3.6em;
+	height: auto;
+	vertical-align: middle;
+	position: relative;
+	bottom: 0;
+}
+
+	.largeListItems * .sapMSLITitleOnly:after {
+		display: none;
+	}
+}
+.largeListItems li {
+	max-height: 3rem;
+	min-height: 2rem;
+	height: auto !important;
+}
+
+/*
+This seems to be a bug in SAPUI5 1.28. On a desktop, links and other UI
+controls like Object Header cannot be selected (via mouse-click).
+Actually, there is a CSS style which does not make sense for desktop:
+html.sap-phone *, html.sap-tablet * {
+	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: ;
+}
+It works even though we're on a desktop. Global re-enabling
+text-selection works on a desktop, it does not work on phone or tablet.
+*/
+html.sap-phone *, html.sap-tablet * {
+	-webkit-user-select: text;  /* Chrome 49+ */
+  	-moz-user-select: text;     /* Firefox 43+ */
+  	-ms-user-select: text;      /* No support yet */
+  	user-select: text;  		/* No support yet */	
+}

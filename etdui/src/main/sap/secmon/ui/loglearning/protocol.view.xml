@@ -1,0 +1,53 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.protocol" xmlns:model="sap.ui.model" height="100%" width="100%"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns:commons="sap.ui.commons">
+
+    <t:Table id="tableProtocol" selectionMode="Single" visibleRowCountMode="Auto" height="100%" width="100%"
+        busyIndicatorDelay="250" showColumnVisibilityMenu="true" rows="{Protocol}" rowSelectionChange="onRowSelectionChange" >
+        <t:columns>
+            <t:Column sortProperty="Timestamp" filterProperty="Timestamp"
+                visible="true" width="25em" sorted="true" sortOrder="Descending">
+                <Label text="{i18n>Interpret_Timestamp}" />
+                <t:template>
+                    <commons:TextView 
+                        text="{ parts : [ {path : 'applicationContext>/UTC'}, {path : 'Timestamp'} ], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx' }" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="Step" filterProperty="Step"
+                visible="true" width="5em">
+                <Label text="{i18n>Interpret_Step}" />
+                <t:template>
+                    <commons:TextView 
+                        text="{Step}" />
+                </t:template>
+			</t:Column>
+
+             <t:Column sortProperty="Phase" filterProperty="Phase"
+                visible="true" width="10em">
+                <Label text="{i18n>Interpret_CommandType}" />
+                <t:template>
+                    <commons:TextView 
+                        text="{Phase}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column sortProperty="Username" filterProperty="Username"
+                visible="true" width="15em">
+                <Label text="{i18n>Interpret_Username}" />
+                <t:template>
+                    <commons:TextView 
+                        text="{Username}" />
+                </t:template>
+			</t:Column>
+
+             <t:Column sortProperty="Message" filterProperty="Message" visible="true">
+                <Label text="{i18n>Interpret_Message}" />
+                <t:template>
+                    <commons:TextView 
+                        text="{Message}" />
+                </t:template>
+			</t:Column>
+
+        </t:columns>
+    </t:Table>
+</mvc:View>

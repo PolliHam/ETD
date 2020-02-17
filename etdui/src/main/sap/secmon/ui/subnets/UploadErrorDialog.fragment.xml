@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>Subnets_FileUploadError}" class="sapUiSizeCompact">
+		<content>
+			<Text text="{i18n>Subnets_ImportErrorHeading}:" class="sapUiSmallMarginTop sapUiSmallMarginBottom" textAlign="Center" width="100%" />
+			<Table items="{ path : '/lines', sorter: { path: 'duplicate', descending: true }}" class="sapUiSizeCompact">
+				<columns>
+					<Column width="3rem" hAlign="Center">
+						<core:Icon src="sap-icon://save" tooltip="{i18n>Subnets_Overwrite}" />
+					</Column>
+					<Column width="8rem">
+						<Text text="{i18n>Subnets_NetAddress}" />
+					</Column>
+					<Column width="8rem">
+						<Text text="{i18n>Subnets_Prefix}" />
+					</Column>
+					<Column width="16rem">
+						<Text text="{i18n>Subnets_Description}" />
+					</Column>
+					<Column>
+						<Text text="{i18n>Subnets_Error}"/>
+					</Column>
+					<Column width="6rem" hAlign="Center">
+						<Text text="{i18n>Subnets_Diff}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<CheckBox select="onImportSelectionChanged" 
+							selected="{overwrite}" 
+							enabled="{parts: [{path: 'duplicate'}, {path: 'diff'}], formatter: 'sap.secmon.ui.subnets.util.Formatter.checkBoxEnabling'}"
+							tooltip="{parts: [{path: 'duplicate'}, {path: 'diff'}], formatter: 'sap.secmon.ui.subnets.util.Formatter.checkBoxTooltipFormatter'}" />
+						<Text text="{ip}" />
+						<Text text="{mask}" />
+						<Text text="{desc}" />
+						<Text text="{ path: 'errors', formatter: 'sap.secmon.ui.subnets.util.Formatter.formatLineErrors' }" 
+							class="sapThemeCriticalText" />
+						<HBox justifyContent="Center">
+							<Button icon="sap-icon://search" 
+								visible="{ path: 'diff', formatter: 'sap.secmon.ui.subnets.util.Formatter.formatDiffVisible' }"
+								press="onShowDiff" />
+							<Text text="{i18n>Subnets_NoDiffs}" 
+								visible="{ path: 'diff', formatter: 'sap.secmon.ui.subnets.util.Formatter.formatDiffInvisible' }" />
+						</HBox>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<VBox class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+				<Text text="{i18n>Subnets_ValidEntries}: {/numValid} - {i18n>Subnets_Errors}: {/numErrors}" textAlign="Center" width="100%" />
+
+				<!-- <Text text="There are {/numValid} valid entries in the file and {/numErrors} errors." textAlign="Center" width="100%" /> -->
+				<Text text="{i18n>Subnets_ImportQuestion}" textAlign="Center" width="100%" />
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,37 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.TimeZone"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+
+	<Page id="TimeZonePage" showNavButton="{device>/isPhone}"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{i18n>TimeZone_XTIT}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>			
+		<content>
+			<Panel expandable="false" expanded="true">
+				<content>
+					<Text text="{i18n>SelTimeZone_XLBL}" />
+					<RadioButtonGroup columns="3" width="500px"
+						class="sapUiMediumMarginBottom" enabled="{applicationContext>/userPrivileges/settingsTimeZoneWrite}">
+						<buttons>
+							<RadioButton selected="{/Local}" text="{i18n>Local_XLBL}" />
+							<RadioButton selected="{/UTC}" text="{i18n>UTC}" />
+						</buttons>
+					</RadioButtonGroup>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button xmlns="sap.m" text="{i18nCommon>Save_BUT}" press="onSave"
+						visible="{applicationContext>/userPrivileges/settingsTimeZoneWrite}"
+						type="Emphasized">
+					</Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
+

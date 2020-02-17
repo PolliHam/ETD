@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<f:SimpleForm editable="false">
+		<f:content>
+			<Label text="{i18n>MSystems_Conf}" />
+			<Text
+				text="{parts: [{path: 'enums>/sap.secmon.services.ui.systemcontext/System/Confidentiality/'},{path : 'Confidentiality'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+			<Label text="{i18n>MSystems_IntSys}" />
+			<Text
+				text="{parts: [{path: 'enums>/sap.secmon.services.ui.systemcontext/System/IntegritySystem/'},{path : 'IntegritySystem'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+			<Label text="{i18n>MSystems_IntData}" />
+			<Text
+				text="{parts: [{path: 'enums>/sap.secmon.services.ui.systemcontext/System/IntegrityData/'},{path : 'IntegrityData'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+			<Label text="{i18n>MSystems_Availability}" />
+			<Text
+				text="{parts: [{path: 'enums>/sap.secmon.services.ui.systemcontext/System/Availability/'},{path : 'Availability'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

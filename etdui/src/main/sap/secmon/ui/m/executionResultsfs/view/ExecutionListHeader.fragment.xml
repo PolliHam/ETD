@@ -1,0 +1,49 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+
+			<customControls:ColumnClickableTable
+				id="executionResultsTableHeader" firstColumnIsForSelection="false" showNoData="false"
+				inset="false" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+				<customControls:infoToolbar>
+					<!-- Show filter settings from ViewSettingsDialog -->
+					<Toolbar id="vsdFilterBar" active="false" visible="false">
+						<Label id="vsdFilterLabel" text="?" />
+					</Toolbar>
+				</customControls:infoToolbar>
+				<customControls:columns>
+					<customControls:SortableColumn width="20em"
+						minScreenWidth="Large" demandPopin="true" popinDisplay="Inline"
+						sortProperty="PatternName">
+						<customControls:SortableItem text="{i18nCommon>Pattern_COL}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn width="20em"
+						minScreenWidth="Large" demandPopin="true" popinDisplay="Inline"
+						sortProperty="PatternNamespace">
+						<customControls:SortableItem text="{i18nCommon>Namespace_COL}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn
+						sortProperty="ExecutionTimeStamp">
+						<customControls:SortableItem
+							minScreenWidth="Large" text="{i18n>ExecutionTimestamp}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn
+						minScreenWidth="Small" demandPopin="true" popinDisplay="Inline"
+						sortProperty="TotalRuntime">
+						<customControls:SortableItem text="{i18n>TotalRuntime}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn
+						sortProperty="ResultStatus">
+						<customControls:SortableItem text="{i18nCommon>Status_COL}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn
+						minScreenWidth="Small" demandPopin="true" popinDisplay="Inline"
+						sortProperty="ExecutionMode">
+						<customControls:SortableItem text="{i18n>ExecutionMode}" />
+					</customControls:SortableColumn>
+					<Column>
+						<Text text="{i18n>AlertsCount}" />
+					</Column>
+				</customControls:columns>				
+			</customControls:ColumnClickableTable>
+
+</c:FragmentDefinition>

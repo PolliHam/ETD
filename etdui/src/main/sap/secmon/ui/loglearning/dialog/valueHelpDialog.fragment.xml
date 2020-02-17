@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		title="{i18n>Interpret_SelectAttr}"
+		items="{
+			path : 'dialogModel>/Attributes',
+			filters: {path: 'attrDisplayName', operator: 'NE', value1: ''},
+			sorter: {path: 'attr.Relevance', descending: true}
+		}">
+		<ColumnListItem selected="{parts: [{path: 'dialogModel>/preselectedKeys'}, {path: 'dialogModel>attrHash'}], formatter: 'sap.secmon.ui.loglearning.util.Formatter.containsHash'}"  >
+			<cells>
+				<Text text="{dialogModel>attr.Relevance}" />
+				<Text text="{dialogModel>attrDisplayName}" />
+				<Text text="{dialogModel>attrName.name}" />
+                <Text text="{dialogModel>attrNameSpace.nameSpace}" />
+                <Text text="{dialogModel>attrDataType}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column sortProperty="attr.Relevance" filterProperty="attr.Relevance"
+                sorted="true">
+				<header>
+					<Text text="{i18n>KB_Relevance}" />
+				</header>
+			</Column>
+
+            <Column sortProperty="attrDisplayName" filterProperty="attrDisplayName"
+                sorted="true">
+				<header>
+					<Text text="{i18n>KB_DisplayNameLbl}" />
+				</header>
+			</Column>
+
+            <Column sortProperty="attrName.name" filterProperty="attrName.name"
+                sorted="true">
+				<header>
+					<Text text="{i18n>KB_NameLbl}" />
+				</header>
+			</Column>
+
+            <Column sortProperty="attrNameSpace.nameSpace" filterProperty="attrNameSpace.nameSpace"
+                sorted="true">
+				<header>
+					<Text text="{i18n>KB_NameLbl}" />
+				</header>
+			</Column>
+            <Column sortProperty="attrDataType" filterProperty="attrDataType"
+                sorted="true">
+                <header>
+                    <Text text="{i18n>KB_Datatype}" />
+                </header>
+            </Column>			
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

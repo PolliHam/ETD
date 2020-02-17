@@ -1,0 +1,92 @@
+<mvc:View controllerName="sap.secmon.ui.m.alerts.anomaly.HistoryTrendAnalysis"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:vizData="sap.viz.ui5.data" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:l="sap.ui.layout" xmlns:lf="sap.ui.layout.form" xmlns:sscc="sap.secmon.ui.m.commons.controls">
+	<l:VerticalLayout width="100%" class="sapEtdSmallContentMargin compactObjectHeader">
+		<BusyIndicator visible="{uiModel>/loading}"
+                       class="sapEtdCenteredBusyIndicator" />
+        <lf:SimpleForm editable="false">
+        	<lf:content>
+        		<Label text="{i18n>MobAlert_Feature}" />
+        		<ObjectHeader
+                            responsive="false"
+                            title="{FeatureName}"
+                            titleActive="false" 
+                            attributes="{alertDetails>/}"
+                            class="compactObjectHeaderWithTitle">
+                	<attributes>
+                		<ObjectAttribute
+                			title="{alertDetails>Name}"
+                			text="{
+                                    parts : [ {
+                                        path : 'alertDetails>Value'
+                                    }, {
+                                        path : 'alertDetails>typeValue'
+                                    } ],
+                                    formatter : 'sap.secmon.ui.m.alerts.util.Formatter.textFormatter'
+                                }" />
+                	</attributes>
+                </ObjectHeader>
+                <Label text="{i18n>MobAlert_ResTimeRange}" />
+                <Text text="{
+                	parts : [ {path : 'applicationContext>/UTC'},
+                			{path: 'i18nCommon>ConsTimeRangeFT_LBL'},
+                			{path : 'ReferenceStartTimestamp'},
+                			{path : 'ReferenceEndTimestamp'} ],
+                	formatter : 'sap.secmon.ui.commons.Formatter.timeRangeFormatterEx'
+                	}"/>
+                <Label text="{i18n>MobAlert_Average}" />
+                <Text text="{
+                		parts: [{path : 'Mean'},
+                			{path: 'Deviation'},
+                			{path: 'i18n>MobAlert_ValueWithRange'},
+                			{path: 'i18n>MobAlert_ValueWithRange'}],
+                		formatter: 'sap.secmon.ui.m.alerts.util.Formatter.roundedValuesFormatter'
+                		}" />
+  				<Label text="{i18n>MobAlert_AggrFields}" />
+        		<ObjectHeader
+                            responsive="false"
+                            attributes="{AggregationDetails}"
+                            class="compactObjectHeaderWithoutTitle">
+                	<attributes>
+                		<ObjectAttribute
+                			title="{ColumnName}"
+                            text="{AggregationValue}" />
+                	</attributes>
+                </ObjectHeader>  				
+        	</lf:content>
+        </lf:SimpleForm>
+        <l:VerticalLayout width="100%"
+                          height="100%"
+                          visible="{uiModel>loaded}"
+                          class="sapEtdBackgroundWhite">
+        	<Toolbar>
+        		<ToolbarSpacer/>
+        		<ToggleButton icon="sap-icon://tag"
+                                tooltip="{i18nAnomaly>MAnomaly_toggleLabels}"
+                                type="Transparent"
+                                pressed="false"
+                                press="onToggleLabelButton" />
+        		<ToggleButton icon="sap-icon://menu"
+                                tooltip="{i18nAnomaly>MAnomaly_toggleLegend}"
+                                type="Transparent"
+                                pressed="true"
+                                press="onToggleLegendButton"/>
+        	</Toolbar>
+        	<viz:VizFrame id="lineChart"
+        			      uiconfig="{applicationSet:'fiori'}"
+                          vizType="time_bubble"
+                          width="100%"
+                          height="500px">
+            	
+            	<viz:feeds>
+       				<vizFeeds:FeedItem uid="bubbleWidth" type="Measure" values=" " />
+       				<vizFeeds:FeedItem uid="valueAxis" type="Measure" values="Date" />
+       				<vizFeeds:FeedItem uid="valueAxis2" type="Measure" values="Count" />
+       				<vizFeeds:FeedItem uid="color" type="Dimension" values="Hour" />            	
+            	</viz:feeds>
+            </viz:VizFrame>
+        </l:VerticalLayout>
+                       
+	</l:VerticalLayout>
+</mvc:View>

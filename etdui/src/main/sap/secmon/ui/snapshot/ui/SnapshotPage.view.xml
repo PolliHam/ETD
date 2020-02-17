@@ -1,0 +1,61 @@
+<mvc:View 
+    controllerName="sap.secmon.ui.snapshot.ui.SnapshotPage"
+	height="100%" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.core"
+	xmlns:etd = "sap.secmon.ui.snapshot.ui">
+	<Page 
+	    id="page"
+	    title="{/Name}" 
+	    showNavButton="true"
+		xmlns:controls="sap.secmon.ui.commons.controls" 
+		navButtonPress="onNavBack"
+		backgroundDesign="Solid" 
+		enableScrolling="true">
+		<headerContent>
+            <Button 
+              id="" 
+              icon="sap-icon://comment" 
+              tooltip="{i18n>Snapshot_GloComBut_Tooltip}" 
+              text="{/comments/length}"
+              press="onGlobalCommentPress" />
+            <Button 
+              icon="sap-icon://sys-help" 
+              tooltip="{i18nCommon>Help_BUT}" 
+              press="onHelpPress" />
+        </headerContent>
+		<content>
+                <TileContainer id="tileContainer"
+                    tiles = "{path:'/snapshots', templateShareable: true}"
+                    class = "container">
+                    <CustomTile class="size sapMTile">
+                        <content>
+                            <etd:SnapshotChartPanel
+                                serializedData="{chartData/SerializedData}"
+                                parentId="{chartData/ParentId}" 
+                                chartId="{ChartId}">
+                            </etd:SnapshotChartPanel>
+                        </content>
+                    </CustomTile>
+                </TileContainer>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentMiddle>   
+                     <Button icon="sap-icon://add-activity-2" tooltip="{i18n>Snapshot_AddPadBut_Tooltip}" press="onAddPress" visible="{applicationContext>/userPrivileges/snapshotWrite}" />
+                     <Button icon="sap-icon://action" tooltip="{i18n>Snapshot_SendBut_Tooltip}" press="onSendEmail" visible="{applicationContext>/userPrivileges/snapshotRead}" />
+                     <Button icon="sap-icon://create" tooltip="{i18n>SS_TOL_Start}" press="onStartInvestigation" visible="{applicationContext>/userPrivileges/investigationWrite}" />
+                     <Button icon="sap-icon://add-product" tooltip="{i18n>SS_TOL_AddInves}" press="onAdd2Investigation" visible="{applicationContext>/userPrivileges/investigationWrite}"/>
+                     <Button icon="sap-icon://save" tooltip="{i18n>Snapshot_SaveBut_Tooltip}" press="onSave" visible="{applicationContext>/userPrivileges/snapshotWrite}" />
+                </contentMiddle>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18n>EditMultipleAlerts}" class="sapUiPopupWithPadding"
+		contentWidth="800px">
+		<content>
+			<l:Grid defaultSpan="L5 M6 S12">
+				<l:content>
+					<CheckBox xmlns="sap.m" text="{i18n>ChangeSeverity}"
+						selected="{editModel>/updateSeverity}" />
+					<Select selectedKey="{editModel>/Severity}" enabled="{editModel>/updateSeverity}"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}">
+						<core:ListItem key="{enums>Key}" text="{enums>Value}"></core:ListItem>
+					</Select>
+					<CheckBox xmlns="sap.m" text="{i18n>ChangeStatus}"
+						enabled="{editModel>/enableStatus}" selected="{editModel>/updateStatus}">
+						<layoutData>
+							<l:GridData linebreakL="true" linebreakM="true"
+								linebreakS="true" />
+						</layoutData>
+					</CheckBox>
+					<Select selectedKey="{editModel>/Status}" enabled="{editModel>/updateStatus}"
+						change="onChangeStatus"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Status/enumValues}">
+						<core:ListItem key="{enums>Key}" text="{enums>Value}"
+							enabled="{ parts: [ { path: 'enums>Key'} ],
+                    formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.statusDropdownEnablementFormatter' }"></core:ListItem>
+					</Select>
+					<Label xmlns="sap.m" text="{i18n>ChangeAttack}" textAlign="Right"
+						align="Right">
+						<layoutData>
+							<l:GridData indent="L1 M1 S1" span="L4 M5 S11"
+								linebreakL="true" linebreakM="true" linebreakS="true" />
+						</layoutData>
+					</Label>
+					<sscc:RadioButtonGrid id="AttackRadioButtons"
+						width="100%" vSpacing="0" hSpacing="0" defaultSpan="L12 M12 S12"
+						enabled="{editModel>/updateStatus}" selectedKey="{editModel>/Attack}"
+						buttons="{enums>/sap.secmon.services.ui.m.alerts/Alert/Attack/enumValues}">
+						<sscc:buttons>
+							<sscc:RadioButton text="{enums>Value}" key="{enums>Key}"
+								enabled="{parts : [{path: 'enums>Key'}, {path: 'editModel>/Status'}, {path: 'editModel>/updateStatus'}],
+                                    formatter : 'sap.secmon.ui.m.commons.alerts.AttackRadioButtonHandler.attackRadioButtonsEnablerPopup'}" />
+						</sscc:buttons>
+					</sscc:RadioButtonGrid>
+				</l:content>
+			</l:Grid>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Ok}" app:dialogType="Std"
+				press="onUpdateAlertsDialogOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" app:dialogType="Std"
+				press="onUpdateAlertsDialogCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

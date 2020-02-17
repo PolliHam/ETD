@@ -1,0 +1,111 @@
+{
+  "chart": [
+    {
+    "name": "Line 1 ",
+    "color": "blue",
+    "data": [{
+      "y": 34234,
+      "timestamp": "2017-04-18",
+      "details": [{
+          "name": "Line 1 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 1 detail 2",
+          "value": 231
+        },
+        {
+          "name": "Line 1 detail 3",
+          "value": 231
+        }
+      ]
+    },
+    {
+      "y": 1334,
+      "timestamp": "2017-04-19",
+      "details": [{
+          "name": "Line 1 detail 1",
+          "value": 1334
+        },
+        {
+          "name": "Line 1 detail 2",
+          "value": 231
+        },
+        {
+          "name": "Line 1 detail 3",
+          "value": 231
+        }
+      ]
+    },{
+      "y": 2344,
+      "timestamp": "2017-04-20",
+      "details": [{
+          "name": "Line 1 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 1 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 1 detail 3",
+          "value": 231
+        }
+      ]
+    }]
+  },
+  {
+    "name": "Line 2 ",
+    "color": "red",
+    "data": [{
+      "y": 34234,
+      "timestamp": "2017-04-18",
+      "details": [{
+          "name": "Line 2 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 2 detail 2",
+          "value": 231
+        },
+        {
+          "name": "Line 2 detail 3",
+          "value": 231
+        }
+      ]
+    },
+    {
+      "y": 1334,
+      "timestamp": "2017-04-19",
+      "details": [{
+          "name": "Line 2 detail 1",
+          "value": 1334
+        },
+        {
+          "name": "Line 2 detail 2",
+          "value": 231
+        },
+        {
+          "name": "Line 2 detail 3",
+          "value": 231
+        }
+      ]
+    },{
+      "y": 2344,
+      "timestamp": "2017-04-20",
+      "details": [{
+          "name": "Line 2 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 2 detail 1",
+          "value": 231
+        },
+        {
+          "name": "Line 2 detail 3",
+          "value": 231
+        }
+      ]
+    }]
+  }]
+}

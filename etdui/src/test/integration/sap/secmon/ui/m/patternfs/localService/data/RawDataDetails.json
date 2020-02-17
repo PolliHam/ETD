@@ -1,0 +1,23 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.RawDataDetailsType",
+          "uri": "https://ld2429.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/RawDataDetails(Id=X'0000000D0688CC7016007E08206AE4FB',AggregationHash=X'B8174CECFA38A903C019784447172D6D7587D3470E73AD011D1ADE1FE3C77B6A',DimensionHash=X'199C4487F2BCB97ECA01EFC583146E22663A40170D04702A0F28E7E214A64248',FeatureConfigurationId.Id='4B2CB01ABB0B4C438827A42FFFF55E12')"
+        },
+        "Id": "AAAADQaIzHAWAH4IIGrk+w==",
+        "AggregationHash": "uBdM7Po4qQPAGXhERxctbXWH00cOc60BHRreH+PHe2o=",
+        "DimensionHash": "GZxEh/K8uX7KAe/FgxRuImY6QBcNBHAqDyjn4hSmQkg=",
+        "MeasureValue": "0",
+        "FromTimestamp": "\/Date(1543370400000)\/",
+        "ToTimestamp": "\/Date(1543374000000)\/",
+        "FeatureConfigurationId.Id": "4B2CB01ABB0B4C438827A42FFFF55E12",
+        "DayName": "WEDNESDAY",
+        "Time": "02:00",
+        "Date": "2018-11-28",
+        "DummyValue": 3
+      }
+    ]
+  }
+}

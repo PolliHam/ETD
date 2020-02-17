@@ -1,0 +1,84 @@
+@CHARSET "ISO-8859-1";
+/*
+When embedding an ObjectHeader inside a table/list or a form you might want to restrict the padding of the element.
+
+The ETDController has a line like this:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/css/TightObjectHeader.css");
+You need to add the class "compactObjectCell" at the containing UI control, e.g. the sap.m.Table.
+*/
+
+/**
+Use this to remove padding around an object header
+*/
+.compactObjectHeader * .sapMOH {
+	margin: 0px;
+	padding: 0px;
+	border-bottom-width: 0px;
+}
+
+/*
+Use this on the object header if the object header does not have a title, and only the bottom row with attributes are used.
+*/
+.compactObjectHeaderWithoutTitle .sapMOH {
+	margin: 0px;
+	padding: 0px;
+}
+
+.compactObjectHeaderWithoutTitle * .sapMOH {
+	margin: 0px;
+	padding: 0px;
+	border-bottom-width: 0px;
+}
+
+.compactObjectHeaderWithoutTitle .sapMOHBottomRow {
+	margin: 0px;
+	padding: 0px;
+}
+
+.compactObjectHeaderWithoutTitle * .sapMOHAttrRow {
+	margin: 0px;
+	padding: 0px;
+}
+
+/**
+Use this on the object header if the object header has a title.
+*/
+.compactObjectHeaderWithTitle .sapMOH {
+	margin: 0px;
+	padding: 0px;
+}
+
+.compactObjectHeaderWithTitle * .sapMOHTitle {
+	margin: 0px;
+	padding: 0px;
+	font-size: 0px;
+}
+
+.compactObjectHeaderWithTitle * .sapMOHTitle .sapMText {
+	font-size: 0.875rem;
+	color: @sapUiText;
+}
+
+.compactObjectHeaderWithTitle * .sapMOHAttrRow {
+	margin: 0px;
+	margin-left: 1rem;
+}
+
+.compactObjectHeaderWithTitle * .sapMOH .sapMOHAttr .sapMObjectAttributeTitle
+	{
+	color: @sapUiDarkText;
+}
+
+.compactObjectHeaderWithTitle * .sapMOH .sapMOHAttr .sapMObjectAttributeColon
+	{
+	color: @sapUiDarkText;
+}
+
+.compactObjectHeaderWithTitle *  .sapMOH .sapMOHAttr .sapMObjectAttributeText
+	{
+	color: @sapUiDarkText;
+}
+
+.compactObjectHeaderWithTitle .sapMOHBottomRow {
+	margin-top: 0px;
+}

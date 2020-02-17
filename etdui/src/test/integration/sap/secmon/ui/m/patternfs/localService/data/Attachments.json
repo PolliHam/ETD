@@ -1,0 +1,18 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.AttachmentsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Attachments(X'000291881C91EF40B16848DFACD38A6D')"
+        },
+        "Id": "AAKRiByR70CxaEjfrNOKbQ==",
+        "AlertId.AlertId": "xHHI5lw9skSKolHvTSDqnA==",
+        "Type": "CHANGE",
+        "CreationDate": "\/Date(1500461970259)\/",
+        "CreatedBy": "SUDORGIN",
+        "Content": "<strong>Alert set from \"Open\" to \"Investigation Triggered\".</strong>"
+      }
+    ]
+  }
+}

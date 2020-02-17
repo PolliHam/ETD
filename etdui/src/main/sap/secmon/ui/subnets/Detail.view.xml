@@ -1,0 +1,152 @@
+<mvc:View controllerName="sap.secmon.ui.subnets.Detail" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true"
+	xmlns:f="sap.ui.layout.form" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:uxap="sap.uxap">
+	<Page id="page" title="{i18n>Subnets_SubnetDet}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+		<headerContent>
+		</headerContent>
+		<content>
+			<uxap:ObjectPageLayout id="ObjectPageLayout"
+				enableLazyLoading="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader objectImageURI="sap-icon://org-chart"
+						isObjectIconAlwaysVisible="true"
+						objectTitle="{i18n>Subnets_NetAddress} {NetAddressString}"
+						objectSubtitle="{i18n>Subnets_Prefix} {PrefixString}">
+						<uxap:actions>
+						</uxap:actions>
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<f:SimpleForm layout="ResponsiveGridLayout">
+						<Label text="{i18n>Subnets_CreatedBy}" />
+						<Text text="{CreatedBy}" />
+						<Label text="{i18n>Subnets_CreatedAt}" />
+						<Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'CreatedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+						<Label text="{i18n>Subnets_ChangedBy}" />
+						<Text text="{ChangedBy}" />
+						<Label text="{i18n>Subnets_ChangedAt}" />
+						<Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ChangedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					</f:SimpleForm>
+				</uxap:headerContent>
+				<uxap:sections>
+					<uxap:ObjectPageSection title="{i18n>Subnets_General}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="{i18n>Subnets_General}">
+								<uxap:blocks>
+									<f:SimpleForm layout="ResponsiveGridLayout"
+										editable="true">
+										<core:Title text="" />
+										<Label text="{i18n>Subnets_Description}" />
+										<Input editable="{applicationContext>/userPrivileges/admin}"
+											value="{ path : 'Description', mode : 'TwoWay' }" change="onChange" />
+										<Label text="{i18n>Subnets_Category}" />
+										<Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'Category', mode : 'TwoWay' }"
+											change="onChange" />
+										<core:Title text="" />
+										<Label text="{i18n>Subnets_Location}" />
+										<Input id="inputLocation" type="Text"
+											editable="{applicationContext>/userPrivileges/admin}"
+											showSuggestion="true" showValueHelp="true"
+											valueHelpRequest="onShowLocationsValueHelp" value="{ path : 'LocationName', mode : 'TwoWay' }"
+											change="onChangeLocation" suggestionItems="{ModelLocations>/Locations}">
+											<suggestionItems>
+												<core:Item text="{ModelLocations>Location}" />
+											</suggestionItems>
+										</Input>
+									</f:SimpleForm>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection title="{i18n>Subnets_Bus_Sig}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="">
+								<uxap:blocks>
+									<f:SimpleForm layout="ResponsiveGridLayout"
+										editable="true">
+										<core:Title text="" />
+										<f:content>
+											<Label text="{i18n>Subnets_Confidentiality}" />
+											<ComboBox editable="{applicationContext>/userPrivileges/admin}" change="onChangeSubnetDetailsCombo"
+												selectedKey="{ path : 'Confidentiality', mode : 'TwoWay' }"
+												items="{enums>/sap.secmon.services.ui.systemcontext/System/Confidentiality/enumValues}">
+												<items>
+													<core:Item key="{enums>Key}" text="{enums>Value}" />
+												</items>
+											</ComboBox>
+											<Label text="{i18n>Subnets_IntSystem}" />
+											<ComboBox editable="{applicationContext>/userPrivileges/admin}" change="onChangeSubnetDetailsCombo"
+												selectedKey="{ path : 'IntegritySystem', mode : 'TwoWay' }"
+												items="{enums>/sap.secmon.services.ui.systemcontext/System/IntegritySystem/enumValues}">
+												<items>
+													<core:Item key="{enums>Key}" text="{enums>Value}" />
+												</items>
+											</ComboBox>
+											<core:Title text="" />
+											<Label text="{i18n>Subnets_IntData}" />
+											<ComboBox editable="{applicationContext>/userPrivileges/admin}" change="onChangeSubnetDetailsCombo"
+												selectedKey="{ path : 'IntegrityData', mode : 'TwoWay'}"
+												items="{enums>/sap.secmon.services.ui.systemcontext/System/IntegrityData/enumValues}">
+												<items>
+													<core:Item key="{enums>Key}" text="{enums>Value}" />
+												</items>
+											</ComboBox>
+											<Label text="{i18n>Subnets_Availability}" />
+											<ComboBox editable="{applicationContext>/userPrivileges/admin}" change="onChangeSubnetDetailsCombo"
+												selectedKey="{ path : 'Availability', mode : 'TwoWay' }"
+												items="{enums>/sap.secmon.services.ui.systemcontext/System/Availability/enumValues}">
+												<items>
+													<core:Item key="{enums>Key}" text="{enums>Value}" />
+												</items>
+											</ComboBox>
+										</f:content>
+									</f:SimpleForm>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection title="{i18n>Subnets_Contacts}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="">
+								<uxap:blocks>
+									<f:SimpleForm layout="ResponsiveGridLayout"
+										editable="true">
+										<core:Title text="" />
+										<f:content>
+											<Label text="{i18n>Subnets_TechContName}" />
+											<Input editable="{applicationContext>/userPrivileges/admin}" change="onChange"
+												value="{ path : 'TechnicalContactName', mode : 'TwoWay' }" />
+											<Label text="{i18n>Subnets_TechContTele}" />
+											<Input editable="{applicationContext>/userPrivileges/admin}" change="onChange"
+												value="{ path : 'TechnicalContactTelefon', mode : 'TwoWay' }" />
+											<core:Title text="" />
+											<Label text="{i18n>Subnets_TechContEmail}" />
+											<Input editable="{applicationContext>/userPrivileges/admin}" change="onChange"
+												value="{ path : 'TechnicalContactEMail', mode : 'TwoWay' }" />
+										</f:content>
+									</f:SimpleForm>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+					<Button visible="{applicationContext>/userPrivileges/admin}" text="{i18n>Subnets_Save}" icon="sap-icon://save"
+						press="onPressSave" />
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<script src="/sap/ui5/1/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-noConflict="true" src="resources/sap-ui-core.js">
+   </script>
+
+<link rel="stylesheet"
+	href="/sap/ui5/1/resources/sap/ui/thirdparty/qunit.css" type="text/css"
+	media="screen" />
+<script type="text/javascript"
+	src="/sap/ui5/1/resources/sap/ui/thirdparty/qunit.js"></script>
+<script type="text/javascript"
+	src="/sap/ui5/1/resources/sap/ui/qunit/qunit-junit.js"></script>
+<script type="text/javascript"
+	src="/sap/ui5/1/resources/sap/ui/qunit/QUnitUtils.js"></script>
+
+
+<script>
+    /* Testen via http://localhost:8080/sap/secmon/ui/m/commons/controls/test/LinkOrText.qunit.html
+    Create and structure your QUnit tests here
+    Documentation can be found at http://docs.jquery.com/QUnit
+    */
+ 
+    jQuery.sap.registerModulePath("sap.secmon.ui.m.commons.controls", "/sap/secmon/ui/m/commons/controls");
+    jQuery.sap.require("sap.secmon.ui.m.commons.controls.LinkOrText");
+   
+    var oText ;
+    var oLink ;
+    var oBusyLink;
+    var pressText = "Link was not pressed";
+    var onPress = function(){ pressText = "Link was pressed";  }
+
+ /* The QUnit processing starts automatically when the page is
+    loaded. If you want to delay the start because of some
+    additional preparation work you can use the following utility
+    function: */
+ //qutils.delayTestStart(3000);
+
+ /* The module call can be used to categorize your test functions.
+    In addition it is possible to define actions which are processed
+    during setup and tearDown. */
+    module("Module Text");
+    
+    /* Example for a non-asynchronous test function:
+       The first parameter is the name of the test,
+       the second (optional) parameter is the number of expected assertions in the test,
+       the third parameter is the test function to call when the tests runs. */
+    test("Text 1", null, function() {
+        oText = new   sap.secmon.ui.m.commons.controls.LinkOrText("myText", {text: "My Text", linkEnabled: false} );
+        oText.placeAt("myContent");
+        equals( oText.getText(), "My Text", "We expect Text to be 'My Text'" );
+        equals( oText.getLinkEnabled(), false, "We expect linkEnabled to be false" );
+       
+    });
+    
+    module("Module Link");
+    test("Link 1", null, function() {
+     oLink = new   sap.secmon.ui.m.commons.controls.LinkOrText("myLink", {text: "My Link", linkEnabled: true, press : onPress} );
+     oLink.placeAt("myContent2");
+     equals( oLink.getText(), "My Link", "We expect Text to be 'My Link'" );
+     equals( oLink.getLinkEnabled(), true, "We expect linkEnabled to be true" );
+     oLink.firePress();
+     equals( pressText, "Link was pressed", "We expect pressText to be 'Link was pressed'" );
+     
+     });
+    test("Link 2", null, function() {
+        oBusyLink = new   sap.secmon.ui.m.commons.controls.LinkOrText("myBusyLink", {text: "My Link", linkEnabled: true, press : onPress} );
+        oBusyLink.setBusyEnabled(true);
+        oBusyLink.placeAt("myContent2");
+        equals( oBusyLink.getBusyEnabled(), true, "We expect busyEnabled to be true" );
+        
+        });
+
+    </script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="myContent"></div>
+	<div id="myContent2"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" 
+	xmlns:rt="sap.ui.richtexteditor"
+	xmlns:custom="sap.secmon.ui.m.commons.controls"
+	xmlns="sap.suite.ui.commons" 
+	xmlns:core="sap.ui.core" 
+	xmlns:m="sap.m">
+	<!--
+		The Rich Text Editor wraps the 3rd-party product tinyMCE. Therefore, binding is problematic. 
+		Reading the editor value must be done with a delay.
+		Setting visibility is done in a container.
+	-->
+	<m:VBox visible="{editModel>/editMode}" height="100%" width="100%">
+		<rt:RichTextEditor
+			id="richTextEditor"
+			beforeEditorInit="beforeInitEditor"
+			width="100%"
+			editable="true"
+			value="{editModel>/newComment}"
+		    sanitizeValue="true"
+		    editorType="TinyMCE4"
+		/>
+	</m:VBox>
+	<Timeline id="comments"
+		enableSocial="false"
+		enableScroll="false"
+		group="true"
+		width="auto"
+		height="auto"
+		sort="false"
+		enableDoubleSided="false"
+       	content="{ path: 'Attachments',
+      			sorter: [ {path: 'CreationDate', descending: 'true'}],
+                filters: [{path: 'Type', operator: 'EQ', value1: 'COMMENT'}]
+       		}" 
+       	enableAllInFilterItem="true"
+       	growing="true"
+		>
+		<content>
+			<TimelineItem
+				dateTime  = "{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"
+			   	userNameClickable = "false"
+				userName = "{CreatedBy}"
+				title = "{i18nInvest>MInvest_AddComment}"
+				filterValue = "{CreatedBy}"
+				icon = "sap-icon://notes">
+				<embeddedControl>
+					<core:HTML width="300px" content="{path:'Content', formatter:'sap.secmon.ui.commons.Formatter.encodeHTML'}"
+						sanitizeContent="false"
+					/>
+				</embeddedControl>
+			</TimelineItem>		
+		</content>
+	</Timeline>	
+</core:FragmentDefinition>

@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet placement="Auto">
+		<buttons>
+			<Button text="{/showDetails}" icon="sap-icon://response"
+				press="handleShowDetails" />
+			<!-- <Button text="{/navigate2WS}" icon="sap-icon://multiple-line-chart" 
+				press="handleNavigateToWorkspace" /> -->
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

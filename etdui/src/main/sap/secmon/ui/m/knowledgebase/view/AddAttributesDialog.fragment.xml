@@ -1,0 +1,36 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:customControls="sap.secmon.ui.m.commons.controls">
+    <TableSelectDialog id="dialogNewEventAttrAssign" title="{i18n>KB_Add_Attr}" search="onSearchAttribute"
+        confirm="onOkAddAttributes" cancel="onCancelAddAttributes"
+        multiSelect="true"
+        items="{path: 'Knowledgebase>UnassignedAttributes/',  sorter : { path: 'lowerDisplayName'} }"
+        growing="true" growingScrollToLoad="true" growingThreshold="100"
+        inset="false">
+        <columns>
+            <Column width="20%" minScreenWidth="Small" demandPopin="true" popinDisplay="Inline"
+                sortProperty="displayName">
+                   <header>
+                     <Text text="{i18n>KB_DisplayNameLbl}"/>
+                  </header>
+             </Column>
+            <Column width="70%" minScreenWidth="large" demandPopin="true" popinDisplay="Inline"
+                sortProperty="description">
+               <header>
+                   <Text text="{i18n>KB_DescriptionLbl}"/>
+              </header>
+             </Column>
+             <Column width="10%" minScreenWidth="large" demandPopin="true" popinDisplay="Inline"
+                sortProperty="dataTyp">
+               <header>
+                   <Text text="{i18n>KB_DataTypeLbl}"/>
+              </header>
+             </Column>
+        </columns>
+        <ColumnListItem>
+            <cells>
+                <Text text="{Knowledgebase>displayName}" />
+                <Text text="{Knowledgebase>description}" maxLines="2" />
+                <Text text="{Knowledgebase>dataType}" />
+            </cells>
+        </ColumnListItem>
+    </TableSelectDialog>
+</c:FragmentDefinition>

@@ -1,0 +1,63 @@
+# TRANSLATE
+
+#XLBL: Alert Graph Info Area Node Type Label
+MAlertGraphInfo_Type=Type
+#XTXT: Alert Graph Info Area System Type
+MAlertGraphInfo_System=System, Actor
+#XLBL: Alert Graph Info Area Cumulative Node Score
+MAlertGraphInfo_Score=Cumulative Alert Score
+#XTXT: Alert Graph Info Area Pattern Type
+MAlertGraphInfo_Pattern=Pattern
+#XLBL: Alert Graph Info Area Pattern Name Label
+MAlertGraphInfo_PatternN=Pattern Name
+#XLBL: Alert Graph Info Area Pattern Namespace Label
+MAlertGraphInfo_PatternNS=Namespace
+#XLBL: Alert Graph Info Area Terminal Label
+MAlertGraphInfo_Terminal=Network Hostname, Initiator
+#XTXT: Alert Graph Info Area User Label
+MAlertGraphInfo_User=User Pseudonym, Acting
+#XTXT: Alert Graph Info Area Link to Events
+MAlertGraphEvents=Events
+#XTXT: Alert Graph Info Area Link to Details
+MAlertGraphDetails=Details
+#XTXT: Alert Graph Info Area Further Info Label
+MAlertGraphFurInfo=Further Info
+#XTXT: Alert Graph Info Area Alerts Label
+MAlertGraphAlertCnt=Alerts
+#XTXT: Alert Graph Info Area Alerts Label
+MAlertGraphMaxSeverity=Maximum Severity
+
+
+#XTIT: Attack Score Graph Legend Title for Color Elements
+ASG_Legend_Colors=Colors
+#XTIT: Attack Score Graph Legend Title for Circle Elements
+ASG_Legend_Circles=Circles
+#XLBL: Attack Score Graph Legend Element Very High Severity
+ASG_Legend_VeryHigh=Very High
+#XLBL: Attack Score Graph Legend Element High Severity
+ASG_Legend_High=High
+#XLBL: Attack Score Graph Legend Element Medium Severity
+ASG_Legend_Medium=Medium
+#XLBL: Attack Score Graph Legend Element Low Severity
+ASG_Legend_Low=Low
+#XLBL: Attack Score Graph Legend Element Pattern Entity
+ASG_Legend_Pattern=Pattern
+#XLBL: Attack Score Graph Legend Element User Entity
+ASG_Legend_User=User Pseudonym
+#XLBL: Attack Score Graph Legend System Pattern Entity
+ASG_Legend_System=System
+#XLBL: Attack Score Graph Legend Element Terminal Entity
+ASG_Legend_Terminal=Network Hostname
+#XTIT: Attack Score Graph Legend Title for Edges
+ASG_Legend_Edges=Connections
+#XLBL: Attack Score Graph Legend Element Edges Description
+ASG_Legend_Edge_Desc=A pattern is connected with all user pseudonyms, systems, and network hostnames, which contribute to the alerts created by the execution of the pattern
+#XTIT: Attack Score Graph Legend Title for Symbols
+ASG_Legend_Shapes=Symbols
+
+#XTIT: right-click menu of link
+LongTapLink_Title=Navigation Options
+#XTXT: right-click menu of link
+LongTapLink_nav=Navigate in-place
+#XTXT: right-click menu of link
+LongTapLink_new=Open in new browser tab

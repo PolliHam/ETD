@@ -1,0 +1,73 @@
+# TRANSLATE
+#XLBL:Mobile Full Screen Pattern UI
+PatternName=Pattern Name
+#XLBL:Mobile Full Screen Pattern UI
+PatternNamespace=Pattern Namespace
+#XLBL:Mobile Full Screen Pattern UI
+PatternExecutionOutput=Pattern Execution Output
+#XTIT:Mobile Full Screen Pattern UI
+ExecutionOfPattern=Execution of Pattern {0}
+#XCOL:Mobile Full Screen Pattern UI
+Severity=Severity
+#XCOL:Mobile Full Screen Pattern UI
+Id=ID
+#XCOL:Mobile Full Screen Pattern UI
+NewAlert=New Alert
+#XCOL:Mobile Full Screen Pattern UI
+AlertCreationTime=Alert Creation Time
+#XCOL:Mobile Full Screen Pattern UI
+UserPseudonym=User Pseudonym
+#XCOL:Mobile Full Screen Pattern UI
+System=System
+#XLBL:Mobile Full Screen Pattern UI
+Execution_Time=Execution Time
+#XLBL:Mobile Full Screen Pattern UI
+Total_Runtime=Runtime (in ms)
+#XLBL:Mobile Full Screen Pattern UI
+Exec_Result_Status=Status
+#XBUT:Mobile Full Screen Pattern UI
+Start_Investigation=Start Investigation
+#XBUT:Mobile Full Screen Pattern UI
+EditAlerts=Edit
+#XBUT:Mobile Full Screen Pattern UI
+AnalyzeAlerts=Analyze
+#XMSG:Mobile Full Screen Pattern UI
+Create_Invest_Success=Investigation {0} was created successfully.
+#XMSG:Mobile Full Screen Pattern UI
+Yes=Yes
+#XMSG:Mobile Full Screen Pattern UI
+No=No
+#XLBL:Mobile Full Screen Pattern UI
+Exec_Mode=Execution Mode
+#XLBL:Mobile Full Screen Pattern UI
+FoundAlerts=Number of Found Alerts
+#XLBL:Mobile Full Screen Pattern UI
+NewAlerts=Number of New Alerts
+#XLBL:Mobile Full Screen Pattern UI
+NewEvents=Number of New Events
+#XCOL:Mobile Full Screen Pattern UI
+Investigations=Investigations
+#XCOL:Mobile Full Screen Pattern UI
+AlertStatus=Status
+#XCOL:Mobile Full Screen Pattern UI
+AlertCause=Trigger
+#XMSG:Mobile Full Screen Pattern UI
+ExecutionError=Error (Details can be found in the error log under execution id {0})
+#XBUT:Mobile Full Screen Pattern UI
+AddToInvest=Add to Investigation
+#XMSG:Mobile Full Screen Pattern UI
+ConfirmDelete=Are you sure you want to set the status of all alerts to "No Reaction Required (Test Result)"?
+#XTOL:Mobile Full Screen Pattern UI
+Delete_XTOL=Set Alert Status to "No Reaction Required (Test Result)"
+#XLBL:Mobile Full Screen Pattern UI
+Trigger=Trigger
+#XLBL:Mobile Full Screen Pattern UI
+TriggeringExecution=Triggering Execution
+#XLBL:Mobile Full Screen Pattern UI
+ExecutionOutputAlerts=Alerts
+#XLBL:Mobile Full Screen Pattern UI
+ExecutionOutputEvents=Events
+#XLBL:Execution Result FS
+PatternSQLHash=Pattern SQL Hash
+#XCOL:Execution Result FS
+ER_PostProcessingEx=Post-Processing Timerange

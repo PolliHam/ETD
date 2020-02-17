@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog title="{i18n>KB_Attributes}">
+		<content>
+			<Table id="table"
+				growingScrollToLoad="true" growing="true"
+				items="{ path : 'KBAttributes>/AttributeForLogLearning', sorter : [ { path : 'displayName' } ] }"
+				mode="SingleSelectLeft" selectionChange="onSelectionChange">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://drop-down-list" press="onPressValueHelpSettings" />
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column minScreenWidth="Phone" demandPopin="true">
+                        <Text text="{i18n>KB_DisplayNameLbl}" />
+                    </Column>
+					<Column minScreenWidth="Phone" demandPopin="true">
+						<Text text="{i18n>KB_NameLbl}" />
+					</Column>									
+					<Column minScreenWidth="Phone" demandPopin="true">
+						<Text text="{i18n>Interpret_Description}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{KBAttributes>displayName}" />
+							<Text text="{KBAttributes>name}" />													
+							<Text text="{KBAttributes>description}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<buttons>
+			<Button text="{i18n>BU_BUT_OK}" press="onCloseValueHelpDialog"
+				id="ok" />
+			<Button text="{i18n>BU_BUT_Cancel}" press="onCloseValueHelpDialog"
+				id="cancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

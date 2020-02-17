@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:lf="sap.ui.layout.form" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:commonControls="sap.secmon.ui.commons.controls" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:comm="sap.suite.ui.commons">
+
+	<l:Grid defaultSpan="L12 M12 S12" width="auto">
+		<l:content>
+		<Bar class="sapETDBar">
+			<contentMiddle>
+	            <Title text="{parts: [{path:'i18n>MobAlert_Detail_Title'},{path:'Number'}],
+	                 formatter: 'sap.secmon.ui.commons.Formatter.i18nText'
+	                 }" />
+	        </contentMiddle>
+        </Bar>
+			<core:Fragment fragmentName="sap.secmon.ui.m.alerts.DisplayForm" type="XML"/>
+			<Title text="{i18nInvest>MInvest_DiscussionNoCount}" />
+			<comm:Timeline
+				enableSocial="false"
+				enableScroll="false"
+				group="true"
+				width="auto"
+				height="auto"
+				sort="false"
+				enableDoubleSided="false"
+		       	content="{ path: 'Attachments',
+		      			sorter: [ {path: 'CreationDate', descending: 'true'},
+		                          {path: 'Type'}]
+		       		}" 
+				>
+				<comm:content>
+					<comm:TimelineItem
+						dateTime  = "{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"
+					   	userNameClickable = "false"
+						userName = "{CreatedBy}"
+						title = "{
+				                parts: [{path : 'Type'},{path : 'i18n>MobAlert_AddComment'},{path: 'i18n>MobAlert_changed'}],
+				                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentTitleFormatter'
+				            }"
+						filterValue = "{
+				                parts: [{path : 'Type'},{path : 'i18n>MobAlert_AddComment'},{path: 'i18n>MobAlert_changed'}],
+				                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentTitleFormatter'
+				            }"
+						icon = "{
+				                path : 'Type',
+				                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentIconFormatter'
+				            }">
+						<comm:embeddedControl>
+							<core:HTML width="300px" content="{path:'Content', formatter:'sap.secmon.ui.commons.Formatter.encodeHTML'}"
+								sanitizeContent="false"
+							/>
+						</comm:embeddedControl>
+						<comm:replyList>
+						
+						</comm:replyList>
+					</comm:TimelineItem>		
+				</comm:content>
+			</comm:Timeline>
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

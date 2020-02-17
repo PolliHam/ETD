@@ -1,0 +1,25 @@
+# TRANSLATE
+#XTIT: Event Mobile Friendly
+SemanticEv_App_Title=Log Events
+#XTIT: Event Mobile Friendly title of list of all semantic events
+SemEvent_List_Title=Log Events
+#XTXT: No Data from OData Service
+SemEvents_No_Data=No Data
+#XTIT: Events Mobile Friendly Details Title
+DetailTitle=Log Event
+#XLBL: Events Mobile Friendly Timestamp label
+SemEvents_Time=Time:
+#XLBL: Events Mobile Friendly System Id Reporter
+SemEvents_SysReporter=Reporting System:
+#XLBL: Events Mobile Friendly Semantic Event
+SemEvents_SemEvent=Semantic Event:
+#XLBL: Events Mobile Friendly Label for System Actor
+SemEvents_SysActor=Acting System:
+#XLBL: Events Mobile Friendly - Label for Acting User
+SemEvents_UserActing=Acting User:
+#XLBL: Events Mobile Friendly - Label for Service Outcome
+SemEvents_ServOutcome=Service Outcome:
+#XLBL: Events Mobile Friendly - Label for Generic Outcome Reason
+SemEvents_GenOutReason=Outcome Reason:
+#XBUT: Add To Investigation
+AddToInvestigation=Add to Investigation

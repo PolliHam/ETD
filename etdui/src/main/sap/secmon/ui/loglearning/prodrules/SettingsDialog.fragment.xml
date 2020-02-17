@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="Id"
+				text="{i18n>Interpret_EntryTypeId}" />
+			<ViewSettingsItem key="Markup" text="{i18n>Interpret_Markup}" />
+			<ViewSettingsItem key="EventDisplayName" text="{i18n>Interpret_Event}" />
+			<ViewSettingsItem key="LogTypeDisplayName" text="{i18n>Interpret_LogTypeName}" />
+			<ViewSettingsItem key="BrancherName" text="{i18n>Interpret_Brancher}" />
+			<ViewSettingsItem key="Result" text="{i18n>Interpret_Result}" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

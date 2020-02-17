@@ -1,0 +1,20 @@
+<mvc:View controllerName="sap.secmon.ui.m.knowledgebase.view.Attributes"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page" title="{i18n>KB_Attributes}">
+		<headerContent>
+		</headerContent>
+		<content>
+			<c:Fragment fragmentName="sap.secmon.ui.m.knowledgebase.view.Table"
+				type="XML" />
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

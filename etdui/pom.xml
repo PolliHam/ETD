@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sap.etd</groupId>
+	<version>2.2.0-SNAPSHOT</version>
+	<artifactId>ui</artifactId>
+	<packaging>pom</packaging>
+
+	<name>etdui</name>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.groovy.maven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<!-- this plugin checks the UIText.hdbtextbundle which is used for translation; the check is done as follows: -->
+						<!-- 1. check existence of the textbundle 2. verify each key-value pair if keys exist multiple times or their length exceed the maximum length of 26  -->
+
+						<id>validate textbundle</id>
+						<phase>test</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>
+					<![CDATA[
+
+						def checkFile(textBundleFile) {
+    						// step 1
+                            MAX_KEY_LENGTH = 26;
+                            println "reading UI Text Bundle '" + textBundleFile.getAbsolutePath() + "'";
+
+                            if (!textBundleFile.exists()) {
+                                fail(new Exception("UI Text Bundle file does not exist"));
+                            }
+
+                            // step 2
+
+                            lineNumber = 1;
+                            definedKeys = [:];
+                            errors = [];
+
+                            textBundleFile.eachLine { line ->
+                                line = line.trim();
+
+                                if (lineNumber == 1) {
+                                	if (line != "# TRANSLATE") {
+                                		errors.add("first line of textbundle is not '# TRANSLATE' (value is '" + line + "') - it cannot be used for translation");
+                                	}
+                                }
+
+                                // inspect only non-comments
+                                if (!line.startsWith("#")) {
+                                    keyValue = line.split("=")
+
+                                    // inspect only key-value pairs
+                                    if (keyValue.length == 2) {
+                                        key = keyValue[0].trim();
+
+                                        // key exceeds maximum length
+                                        if (key.length() > MAX_KEY_LENGTH) {
+                                            errors.add("key '" + key + "' is too large (" + key.length() + ">" + MAX_KEY_LENGTH + ")");
+                                        }
+                                        // key has already been defined
+                                        else if (definedKeys.containsKey(key)) {
+                                            errors.add(msg = "duplicate key '" + key + "' on line #" + lineNumber + "; key is already defined on line #" + definedKeys.get(key));
+                                        } else {
+                                            definedKeys.put(key, lineNumber);
+                                        }
+                                    }
+                                }
+                                lineNumber++;
+                            }
+
+                            // fail the build if an error exists
+                            println "### TEXTBUNDLE: '" + textBundleFile.name + "' ###";
+                            if (!errors.isEmpty()) {
+                                println "############ VALIDATION ERRORs #############";
+                                errors.eachWithIndex { errorMsg, index ->
+                                    println "" + (index+1) + ". " + errorMsg;
+                                }
+                                println "#######################################################";
+                                fail(new Exception("UI Text Bundle validation failed with " + errors.size() + " errors"));
+                            } else {
+                                println "No ERRORs found  :-)";
+                            }
+                            println "";
+						}
+
+                        new File(".").eachDirRecurse() { dir ->
+                            dir.eachFileMatch(~/.*.hdbtextbundle/) { file ->
+                                checkFile(file)
+                            }
+                        }
+
+
+					]]>
+
+							</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+</project>

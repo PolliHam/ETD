@@ -1,0 +1,86 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:lf="sap.ui.layout.form" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+
+	<l:Grid id="EditForm" defaultSpan="L12 M12 S12" width="auto"
+		class="compactObjectHeader">
+		<l:content>
+			<lf:SimpleForm editable="true" maxContainerCols="2"
+				minWidth="1024" labelSpanL="3" labelSpanM="3" emptySpanL="0"
+				emptySpanM="0">
+				<lf:content>
+					<Label text="{i18n>MCreationDate}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'AlertCreationTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					<Label text="{i18n>MobAlert_ResTimeRange}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, {path: 'i18nCommon>ConsTimeRangeFT_LBL'},{path : 'MinTimestamp'}, {path : 'MaxTimestamp'}],
+                          formatter : 'sap.secmon.ui.commons.Formatter.timeRangeFormatterEx'}" />
+					<Label text="{i18n>MobAlert_Pattern}" />
+					<Text text="{PatternName}" />
+					<Label text="{i18n>MobAlert_PatternWorkspace}" visible="{=${PatternType}!=='ANOMALY'}" />
+					<Text text="{WorkspaceName}" visible="{=${PatternType}!=='ANOMALY'}" />
+                    <Label text="{i18n>MobAlert_Version}" />
+                    <Text text="{path: 'PatternVersion', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.patternVersionFormatter'}" visible="{=${PatternType}!=='ANOMALY'}"/>
+					<Label text="{i18n>MobAlert_MeasureContext}" />
+					<Text
+						text="{parts:[{path : 'AlertMeasureContext'},{path : 'i18n>MobAlert_Event'},{path : 'i18n>MobAlert_Alert'}, {path :'i18n>MobAlert_HealthCheck'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.eventSourceFormatter'}" />
+					<Label text="{i18n>MobAlert_ScoreFunc}" visible="{=${PatternType}==='ANOMALY'}" />
+					<Text
+						text="{path: 'ScoreFunction', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.createOutputIfFormatter'}"
+						visible="{=${PatternType}==='ANOMALY'}" />
+					<Label text="{i18n>MobAlert_Trigger}" />
+					<ObjectHeader responsive="false"
+						class="compactObjectHeaderWithTitle"
+						title="{parts:[{path: 'PatternType'}, {path: 'ScoreFunction'}], formatter: 'sap.secmon.ui.commons.AlertTriggerFormatter.alertTriggerShortFormatter'}"
+						attributes="{compactDetails>/}">
+						<attributes>
+							<ObjectAttribute title="{parts : [{path : 'compactDetails>DisplayKey'},{ path : 'compactDetails>Name'}], formatter : 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}"
+								text="{parts: [{path: 'compactDetails>Value'}, {path: 'compactDetails>typeValue'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.textFormatter'}" />
+						</attributes>
+					</ObjectHeader>
+
+					<!-- display trigg.Events/Health Checks/ Alerts, depending on Source -->
+					<Label text="{i18n>MobAlert_TriggMeasure}" visible="{=${PatternType}!=='ANOMALY'}"/>
+					<Text text="{Count}" visible="{=${PatternType}!=='ANOMALY'}"/>
+					<Label
+						text="{parts : [{path : 'AlertMeasureContext'}, {path : 'i18n>MobAlert_TriggEvent'},{path : 'i18n>MobAlert_Alert'},{path : 'i18n>MobAlert_HealthCheck'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.sourceEventsFormatter'}"
+						visible="{=${PatternType}!=='ANOMALY'}" />
+					<Text visible="{=${PatternType}!=='ANOMALY'}" text="{ parts: [{path : 'uiModel>/triggeringEventCount'}, {path : 'Count'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.triggeringEventFormatter'}" />
+					<!-- display rel.Events only for source 'Log' -->
+					<Label text="{i18n>MobAlert_RelEvent}"
+						visible="{parts:[{path : 'AlertMeasureContext'}, {path: 'PatternType'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.eventAsLinkFormatter'}" />
+					<Text text="{numbers>/relatedEvents}"
+						visible="{parts:[{path : 'AlertMeasureContext'}, {path: 'PatternType'}], formatter : 'sap.secmon.ui.m.alerts.util.Formatter.eventAsLinkFormatter'}" />
+					<Label text="{i18n>MobAlert_Score}" />
+					<Text text="{Score}" />
+					<Label text="{i18n>MobAlert_Status}" />
+					<Select id="statusSelect" selectedKey="{editModel>/AlertStatus}"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Status/enumValues}">
+						<core:ListItem key="{enums>Key}" text="{enums>Value}"
+							enabled="{ parts: [ { path: 'enums>Key'} ],
+                    			formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.statusDropdownEnablementFormatter' }">
+						</core:ListItem>
+					</Select>					
+					<Label text="{i18n>MobAlert_Severity}" />
+					<Select id="severitySelect" selectedKey="{editModel>/AlertSeverity}"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}">
+						<core:Item key="{enums>Key}" text="{enums>Value}" />
+					</Select>
+					<Label id="AttackLabel" text="{i18n>MobAlert_Attack}" />
+					<sscc:RadioButtonGrid id="AttackRadioButtons"
+						width="100%" vSpacing="0" hSpacing="0" defaultSpan="L6 M6 S12"
+						selectedKey="{editModel>/AlertAttack}"
+						buttons="{enums>/sap.secmon.services.ui.m.alerts/Alert/Attack/enumValues}">
+						<sscc:buttons>
+							<sscc:RadioButton text="{enums>Value}" key="{enums>Key}"
+								enabled="{parts : [{path: 'enums>Key'}, {path: 'editModel>/AlertStatus'}],
+                                    formatter : 'sap.secmon.ui.m.commons.alerts.AttackRadioButtonHandler.attackRadioButtonsEnabler'}" />
+						</sscc:buttons>
+					</sscc:RadioButtonGrid>
+				</lf:content>
+			</lf:SimpleForm>
+		</l:content>
+	</l:Grid>
+
+</core:FragmentDefinition>

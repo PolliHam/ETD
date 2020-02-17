@@ -1,0 +1,3694 @@
+# TRANSLATE
+#XTIT:Commons
+Commons_SelectSystemId=Select a System
+#XCOL:Commons
+Commons_SystemType=Type
+#XCOL:Commons
+Commons_SystemRole=Role
+#XCOL:Commons
+Commons_SystemStatus=Status
+#XBUT:Commons
+Commons_Ok=OK
+#XBUT:Commons
+Commons_Cancel=Cancel
+#XBLI:Commons
+Commons_Type_ValueVarChar=Text
+#XBLI:Commons
+Commons_Type_ValueInt=Int
+#XBLI:Commons
+Commons_Type_ValueBigInt=Big Int
+#XMSG
+Commons_SelectAValue=Select a value.
+
+
+
+#XTIT:Pattern UI
+Ptn_Conf_Title=Pattern Configuration
+#XTIT:Pattern UI
+Ptn_Details=Pattern Details
+#XTIT:Pattern UI
+Ptn_Configuration_Params=Configuration Parameters
+#XTIT:Pattern UI
+Ptn_ConfNewPattern=Configurations for Pattern {0}
+#XTIT:Pattern UI
+Ptn_No_Pattern_selected=No Pattern selected
+#XTIT:Pattern UI
+Ptn_No_Configuration_sel=No Configuration selected
+#XTIT:Pattern UI
+Ptn_Params_For_Config=Parameters for Configuration {0}
+#XMSG:Pattern UI
+Ptn_Select_Configuration=Select a configuration.
+#XMSG:Pattern UI
+Ptn_Select_Pattern=Select a pattern.
+#XLBL:Pattern UI
+Ptn_Name=Name
+#XLBL:Pattern UI
+Ptn_Namespace=Namespace
+#XLBL:Pattern UI
+Ptn_Version=Version
+#XLBL:Pattern UI
+Ptn_Description=Description
+#XLBL:Pattern UI
+Ptn_Implementation_Type=Implementation Type
+#XLBL:Pattern UI
+Ptn_Implementation_Name=Implementation Name
+#XLBL:Pattern UI
+Ptn_Release=Release
+#XLBL:Pattern UI
+Ptn_Type=Type
+#XLBL:Pattern UI
+Ptn_Alert_Severity=Alert Severity
+#XTIT:Pattern UI
+Ptn_ptn_execution_Result=Pattern Execution Result
+#XLBL:Pattern UI
+Ptn_Execution_Time=Execution Time
+#XLBL:Pattern UI
+Ptn_Configuration=Configuration
+#XLBL:Pattern UI
+Ptn_execution_Result=Execution Result
+#XLBL:Pattern UI
+Ptn_Exec_Result_Status=Status
+#XLBL:Pattern UI
+Ptn_Execution_Mode=Execution Mode
+#XLBL:Pattern UI
+Ptn_Execution_Message=Message
+#XLBL:Pattern UI
+Ptn_Exec_Result_Details=Result Details
+#XBUT
+Ptn_Delete=Delete
+#XMSG
+Ptn_ConfirmDelete=Are you sure to delete the selected pattern?
+#XMSG
+Ptn_BadFrequency=Enter a number greater than 0.
+#XMSG
+Ptn_WrongInput=Input is wrong.
+
+#XMSG
+BU_MSG_Nav_to_Exemption=Workspace has to be saved and pattern must be shared
+#XTXT :Forensic Lab
+Fl_Warning=Warning
+#XLBL:Pattern Test UI
+Pattern_Test_Start_Time=Start Time
+#XLBL:Pattern Test UI
+Pattern_Test_End_Time_XLBL=End Time
+#XBUT:Pattern Test UI
+Pattern_Test_Test_Pattern=Test Pattern
+#XTIT:Pattern Test UI
+Pattern_Patterns_XTIT=Patterns
+#XBUT:Pattern Test UI
+Pattern_New_XBUT=New
+#XCOL:Pattern Test UI
+Pattern_Patterns_Name_XCOL=Name
+#XCOL:Pattern Test UI
+Pattern_Patterns_Descr=Description
+#XCOL:Pattern Test UI
+Pattern_Patterns_ImplName=Implementation Name
+#XCOL:Pattern Test UI
+Pattern_Patterns_Type_XCOL=Type
+#XCOL:Pattern Test UI
+Pattern_Patterns_AlertSev=Alert Severity
+#XCOL:Pattern Test UI
+Pattern_Patterns_Creator=Created by
+#XMSG
+Pattern_Patterns_TimeFut=The specified time interval is in the future.
+#XMSG
+Pattern_Patterns_TimeErr=The start time is after the end time.
+
+
+#XCOL:Pattern Configuration UI
+Ptn_Config_Namespace=Namespace
+#XCOL:Pattern Configuration UI
+Ptn_Config_Name=Name
+#XCOL:Pattern Configuration UI
+Ptn_Config_AlertSeverity=Alert Severity
+#XCOL:Pattern Configuration UI
+Ptn_Config_Status=Status
+#XCOL:Pattern Configuration UI
+Ptn_ConfigDet_Name=Name
+#XCOL:Pattern Configuration UI
+Ptn_ConfigDet_Value=Value
+#XCOL:Pattern Configuration UI
+Ptn_Config_Run=Runs Every (min)
+#XBUT:Pattern Configuration UI
+Ptn_Config_Edit=Edit
+#XBUT:Pattern Configuration UI
+Ptn_Config_Duplicate=Duplicate
+#XBUT:Pattern Configuration UI
+Ptn_Config_Delete=Delete
+#XBUT:Pattern Configuration UI
+Ptn_Config_Activate=Activate
+#XBUT:Pattern Configuration UI
+Ptn_Config_Deactivate=Deactivate
+#XTIT:Pattern Configuration UI
+Ptn_Config_Confirm_Del=Confirm Deletion
+
+
+#XTIT:Pattern Execution Result UI
+ER_Title=Execution Result
+#XCOL:Pattern Execution Result UI
+ER_Severity=Alert Default Severity
+
+#XTIT:Monitoring UI
+Mon_patternexec_Title=Pattern Executions
+#XTIT:Monitoring UI
+Mon_PatternName=Pattern Name
+#XTIT:Monitoring UI
+Mon_Pattern=Pattern
+#XTIT:Monitoring UI
+Mon_Configuration=Configuration
+#XTIT:Monitoring UI
+Mon_ExecutionTime=Execution Time
+#XTIT:Monitoring UI
+Mon_Runtime=Total Runtime
+#XTIT:Monitoring UI
+Mon_Runtime_ms=Total Runtime (in ms)
+#XCOL:Monitoring UI
+Mon_Status=Status
+#XCOL:Monitoring UI
+Mon_ExecutionMode=Execution Mode
+#XCOL:Monitoring UI
+Mon_NumberOfAllAlerts=All Alerts
+#XCOL:Monitoring UI
+Mon_NumberOfNewAlerts=New Alerts
+
+
+#XLBL:Pattern Configuration UI
+PCE_ValueVarCharName=String
+#XLBL:Pattern Configuration UI
+PCE_ValueIntegerName=Integer
+#XLBL:Pattern Configuration UI
+PCE_ValueTimeStamp=Time stamp
+#XLBL:Pattern Configuration UI
+PCE_ValueBigInt=Big Integer
+#XBUT:Pattern Configuration UI
+PCE_AddLine=Add
+#XBUT:Pattern Configuration UI
+PCE_Add=Add
+#XBUT:Pattern Configuration UI
+PCE_Change=Change
+#XBUT:Pattern Configuration UI
+PCE_DeleteLine=Remove
+#XBUT:Pattern Configuration UI
+PCE_RemoveLine=Remove
+#XTIT:Pattern Configuration UI
+PCE_ConfigurationTitle=Configuration
+#XTIT:Pattern Configuration UI
+PCE_ConfDialogTitle=Configuration {0}
+#XTIT:Pattern Configuration UI
+PCE_ConfNewTitle=New Configuration for Pattern {0}
+#XTIT:Pattern Configuration UI
+PCE_CreateConfTitle=Create Configuration for Pattern {0}
+#XLBL:Pattern Configuration UI
+PCE_ConfigurationName=Name
+#XMSG:Pattern Configuration UI
+PCE_WrongName=Name must not be empty. Maximum 5000 characters.
+#XLBL:Pattern Configuration UI
+PCE_NameSpace=Namespace
+#XLBL:Pattern Configuration UI
+PCE_Severity=Alert Severity
+#XLBL:Pattern Configuration UI
+PCE_Frequency=Runs Every (min)
+#XLBL:Pattern Configuration UI
+PCE_RunsEvery=Runs Every (min)
+#XLBL:Pattern Configuration UI
+PCE_AlertSeverityVH=Very High
+#XLBL:Pattern Configuration UI
+PCE_AlertSeverityH=High
+#XLBL:Pattern Configuration UI
+PCE_AlertSeverityM=Medium
+#XLBL:Pattern Configuration UI
+PCE_AlertSeverityL=Low
+#XMSG:Pattern Configuration UI
+PCE_AlertSeverityUndefMsg=Severity should not be undefined.
+#XLBL:Pattern Configuration UI
+PCE_ConfigStatusActive=Active
+#XLBL:Pattern Configuration UI
+PCE_ConfigStatusInactive=Inactive
+#XTIT:Pattern Configuration UI
+PCE_ConfigDetailTitle=Parameters
+#XTIT:Pattern Configuration UI
+PCE_ConfigParamTitle=Parameters
+#XBUT:Pattern Configuration UI
+PCE_Save=Save
+#XBUT:Pattern Configuration UI
+PCE_Cancel=Cancel
+#XLBL:Pattern Configuration UI
+PCE_ConfigDetailName=Name
+#XLBL:Pattern Configuration UI
+PCE_ConfigDetailValue=Value
+#XLBL:Pattern Configuration UI
+PCE_ConfigDetailValueType=Value Type
+#XLBL:Pattern Configuration UI
+PCE_ValueList=Value List
+
+
+# Knowledge Base UI
+#XTIT:Knowledge Base UI
+KB_Title=SAP Enterprise Threat Detection: Knowledge Base
+#XTIT:Knowledge Base UI
+KB_TitleShort=SAP ETD: Knowledge Base
+#XTIT:Knowledge Base UI
+KB_Entities=Entities
+#XTIT:Knowledge Base UI
+KB_Actions=Actions
+#XTIT
+KB_LogTypes=Log Types
+#XCOL,20:Knowledge Base UI
+KB_Name=Name
+#XCOL,20:Knowledge Base UI
+KB_Value=Value
+#XCOL:Knowledge Base UI
+KB_Datatype=Data Type
+#XCOL,20:Knowledge Base UI
+KB_NameSpace=Name Space
+#XCOL,20:Knowledge Base UI
+KB_DisplayName=Display Name
+#XCOL,20:Knowledge Base UI
+KB_Description=Description
+#XBUT:Knowledge Base UI
+KB_New=New
+#XBUT: Knowledge Base UI
+KB_Butn_Add_Role=Add Role
+#XBUT: Knowledge Base UI
+KB_Butn_Remove_Role=Remove Role
+#XBUT: Knowledge Base UI
+KB_Butn_Add_Attr=Assign Attributes
+#XBUT: Knowledge Base UI
+KB_Butn_Remove_Attr=Unassign Attributes
+#XTIT: Knowledge Base UI
+KB_NewAttribute=New Attribute
+#XBUT:Knowledge Base UI
+KB_Edit=Edit
+#XBUT:Knowledge Base UI
+KB_Delete=Delete
+#XBUT:Knowledge Base UI
+KB_Copy=Copy
+#XBUT:Knowledge Base UI - Export Button (Replication Table)
+KB_Export=Export
+#XTIT
+KB_Attributes=Attributes
+#XTIT
+KB_AddEntity=Add Entity
+#XTIT
+KB_AssignRole=Assign Role
+#XCOL
+KB_IsUnivalent=Is Univalent
+#XCOL
+KB_ScaleType=Scale Type
+#XCOL
+KB_IsDimension=Is Dimension
+#XTIT
+KB_Events=Events
+#XCOL
+KB_LogType=Log Type
+#XCOL
+KB_Action=Action
+#XCOL
+KB_EventDetails=Event Details
+#XCOL
+KB_RoleName=Role Name
+#XCOL
+KB_EntityName=Entity Name
+#XCOL
+KB_ChainingNumber=Chaining Number
+#XCOL
+KB_ChainingRelation=Chaining Relation
+#XTIT
+KB_EditEntity=Edit Entity
+#XTIT
+KB_CreateEntity=Create Entity
+#XTIT
+KB_CreateEvent=Create Event
+#XTIT
+KB_CreateRole=Create Role
+#XTIT
+KB_CreateLogType=Create Log Type
+#XTIT
+KB_CopyEvent=Copy Event
+#XTIT
+KB_EditEvent=Edit Event
+#XTIT
+KB_CreateEventDetail=Create Event Detail
+#XTIT
+KB_EditEventDetail=Edit Event Detail
+#XTIT
+KB_CreateAttribute=Create Attribute
+#XTIT
+KB_EditAttribute=Edit Attribute
+#XLBL
+KB_NameLbl=Name
+#XLBL
+KB_NameSpaceLbl=Name Space
+#XCOL
+KB_PoolType=Value Pool Type
+#XLBL
+KB_RoleDisplayName=Role Display Name
+#XLBL
+KB_RoleNamespace=Role Namespace
+#XLBL
+KB_EntityDisplayName=Entity Display Name
+#XLBL
+KB_AttributeDisplayName=Attribute Display Name
+#XLBL
+KB_TableNameLbl=Table Name
+#XLBL
+KB_FieldNameLbl=Field Name
+#XLBL
+KB_IndicatorFieldName=Indicator Field Name
+#XLBL
+KB_IndicatorFieldValueLbl=Indicator Field Value
+#XLBL
+KB_JoinFieldName1Lbl=Join Field Name 1
+#XLBL
+KB_JoindFieldName2Lbl=Join Field Name 2
+#XLBL
+KB_EntityNamespace=Entity Namespace
+#XLBL
+KB_DisplayNameLbl=Display Name
+#XLBL
+KB_DescriptionLbl=Description
+#XLBL
+KB_CreatedByLbl=Created by
+#XLBL
+KB_CreatedAtLbl=Created at
+#XLBL
+KB_ChangedByLbl=Changed by
+#XLBL
+KB_ChangedAtLbl=Changed at
+#XTIT
+KB_SelectLogType=Select a Log Type
+#XLBL
+KB_ActionLbl=Action
+#XTIT
+KB_SelectAction=Select an Action
+#XMSG
+KB_SelectAnEntry=Select an entry
+#XLBL
+KB_DataTypeLbl=Data Type
+#XLBL
+KB_IsUnivalentLbl=Is Univalent
+#XLBL
+KB_ScaleTypeLbl=Scale Type
+#XLBL
+KB_IsDimensionLbl=Is Dimension
+#XLBL
+KB_IsGeolocationLbl=Is Geolocation
+#XCOL
+KB_IsGeolocation=Is Geolocation
+#XMSG
+KB_ConfirmDelete=Are you sure to delete the selected entry?
+#XMSG
+KB_ConfirmLogout=Are you sure you want to log out?
+#XTIT
+KB_Confirmation=Confirmation
+#XLBL
+KB_RoleLbl=Roles
+#XLBL
+KB_EntityLbl=Entity
+#XTIT
+KB_SelectRole=Select an Role
+#XTIT
+KB_SelectEntity=Select an Entity
+#XTIT
+KB_SelectAttribute=Select an Attribute
+#XLBL
+KB_ChainingNumberLbl=Chaining Number
+#XLBL
+KB_ChainingRelationLbl=Chaining Relation
+#XCOL
+KB_AttributeName=Attribute Name
+#XCOL
+KB_AttributeDescr=Attribute Description
+#XCOL
+KB_AttributeNameSpace=Attribute Name Space
+#XCOL
+KB_IsEventCondition=Is Event Condition
+#XCOL
+KB_CondOperator=Condition Operator
+#XCOL
+KB_CondValues=Condition Values
+#XCOL
+KB_IsOptional=Is Optional
+#XCOL
+KB_TableName=Table Name
+#XCOL
+KB_FieldName=Field Name
+#XCOL
+KB_IndFieldName=Indicator Field Name
+#XCOL
+KB_IndFieldValue=Indicator Field Name
+#XCOL
+KB_JoinFieldName1=Join Field Name 1
+#XCOL
+KB_JoinFieldName2=Join Field Name 2
+#XTIT
+KB_AttributeAssign=Attribute Assignments
+#XTIT
+KB_CreateAttrAssignment=Create Attribute Assignment
+#XTIT
+KB_EditAttrAssignment=Edit Attribute Assignment
+#XLBL
+KB_AttributeLbl=Attribute
+#XLBL
+KB_IsEventConditionLbl=Is Event Condition
+#XLBL
+KB_ConditionOperatorLbl=Condition Operator
+#XLBL
+KB_ConditionValues=Condition Values
+#XLBL
+KB_IsOptionalLbl=Is Optional
+#XLBL
+KB_IndFieldNameLbl=Indicator Field Name
+#XLBL
+KB_IndFieldValueLbl=Indicator Field Value
+#XLBL
+KB_JoinField1Lbl=Join Field 1
+#XLBL
+KB_JoinField2Lbl=Join Field 2
+#XCOL
+KB_DataType=Data Type
+#XCOL
+KB_ValuePoolType=Value Pool Type
+#XLBL
+KB_ValuePoolTypeLbl=Value Pool Type
+#XLBL
+KB_EnumValuesLbl=Enum Values
+#XMSG
+KB_DuplicatedValue=Duplicated Value {0}
+#XLBL
+KB_ValueLbl=Value
+#XTIT
+KB_CreateEnumValue=Create Enum Value
+#XTIT
+KB_EditEnumValue=Edit Enum Value
+#XMSG
+KB_EmptyValueNotAllowed=Empty Values are not allowed.
+#XMSG
+KB_SelectAnEventDetail=Select an Event Detail.
+#XMSG
+KB_SelectAnEntity=Select an Entity.
+#XMSG
+KB_SelectAnEvent=Select an Event.
+#XTIT
+KB_ConfEVDeletionTitle=Confirm Deletion
+#XMSG
+KB_ConfEVDeletion=Setting valuePoolType to {0} will delete the enumeration values.
+#XCOL
+KB_Status=Active
+#XCOL
+KB_Assigned=Assigned
+#XLBL
+KB_StatusLbl=Status
+#XTXT
+KB_EventSaved=Event {1}{0} saved
+#XTXT
+KB_EventExported=Event {1}{0} exported
+#XTXT
+KB_RoleSaved=Role {1}{0} saved
+#XTXT
+KB_LogTypeSaved=Log Type {1}{0} saved
+#XTXT
+KB_AttrSaved=Attribute {1}{0} saved
+#XTXT
+KB_EventDeleted=Event {1}{0} deleted
+#XTXT
+KB_RoleDeleted=Role {1}{0} deleted
+#XTXT
+KB_LogTypeDeleted=Log Type {1}{0} deleted
+#XTXT
+KB_AttrDeleted=Attribute {1}{0} deleted
+#XTXT
+KB_RoleAddedEvent=Role {1}{0} added to event {3}{2}
+#XTXT
+KB_RoleRemovedEvent=Role {1}{0} removed from event {3}{2}
+#XTXT
+KB_RoleAddedAttr=Role {1}{0} added to attribute {3}{2}
+#XTXT
+KB_RoleRemovedAttr=Role {1}{0} removed from attribute {3}{2}
+#XTXT
+KB_RoleAssignedAttrEvent=Attribute {1}{0} assigned to role {3}{2} in event {5}{4}
+#XTXT
+KB_RoleUnassignedAttrEvent=Attribute {1}{0} unassigned from role {3}{2} in event {5}{4}
+#XTXT
+KB_AssignedAttrEvent=Attributes have been assigned to event {0}{1}
+#XTXT
+KB_UnassignedAttrEvent=Attributes have been unassigned from event {0}{1}
+#XTXT
+KB_RoleAttrStateCh=Status of assignment from attribute {1}{0} to role {3}{2} changed
+#XFLD
+KB_RoleDependant=Is Role Dependent
+#XTXT
+KB_DelReallyEvent=Do you really want to delete event {1}{0}?
+#XTXT
+KB_DelReallyAttr=Do you really want to delete attribute {1}{0}?
+#XTXT
+KB_DelReallyRole=Do you really want to delete role {1}{0}?
+#XTXT
+KB_DelReallyLogType=Do you really want to delete log type {1}{0}?
+#XTXT
+KB_UnassignReallyRole=Do you really want to unassign role {0}{1}?
+#XTXT
+KB_Unassign=Unassign
+#XTXT
+KB_ChangeRoleIndepReally=Do you really want to set attribute {0}{1} to be role indepedent?\n\nWarning: All the assignments to roles will be lost
+#XTXT
+KB_ChangeRoleDepReally=Do you really want to set attribute {0}{1} to be role dependent?
+#XTXT
+KB_ChangeRoleDep=Change Role Dependency
+#XTIT
+KB_RoleDepAttr=Role Dependant
+#XTIT
+KB_RoleIndepAttr=Role Independant
+#XFLD
+KB_Active=Active
+#XFLD
+KB_Inactive=Inactive
+#XCOL
+KB_ActiveForensicLbl=Available in Forensic Lab
+#XCOL
+KB_ActiveLearningLbl=Available in Log Learning
+#XFLD
+KB_Yes=Yes
+#XFLD
+KB_No=No
+#XCOL
+KB_Relevance=Relevance
+#XFLD
+KB_CoreMeaning=Core Meaning
+#XFLD
+KB_AbstractMeaning=Abstract Meaning
+
+
+# Browse UI
+#XTXT : Browse UI Subset
+BrowseCountLoading=Loading...
+#XTXT : Browse UI Subset
+BrowseCountUnknown=Unknown
+#XTIT:Browsing UI Window Title
+BU_Window_Title=Forensic Lab
+#XTOL,20:Tooltip Browse UI Fieldsearch
+BU_Field_ToolTip=Enter a field
+#XTOL,30:Tooltip Browse UI Operator
+BU_Operator_ToolTip=Enter an operator
+#XTOL: Placeholder Browse UI Operator
+BU_Operator_Placeholder=Operator
+#XTOL: Placeholder Browse UI Field
+BU_Field_Placeholder=Select a field
+#XLBL: Browse UI Path Label
+BU_Path_Label=Path
+#XLBL: Browse UI Source Label
+BU_Source_Label=Source
+#XLBL: Browse UI Field Label
+BU_Field_Label=Field
+#XLBL: Browse UI Operator Label
+BU_Operator_Label=Operator
+#XTIT: Browse UI Popup Title
+BU_Dimension_Tit=Dimensions and Measures
+#XTIT:Browse UI Popup Form Title
+BU_Dim_Tit=Dimension (x-Axis)
+#XLBL: Browse UI Form Label
+BU_Distinct_Lab=Distinct
+#XLBL: Browse UI Field Label
+BU_Field_Lab=Field
+#XLBL: Browse UI Field for Measure Label
+BU_Count_Lab=Count(Field)
+#XBUT: Browse UI Delete Button
+BU_Button_Txt=Delete
+#XBUT: Browse UI New Dimension Button
+BU_New_Dimension=New Dimension
+#XTIT: Browse UI Form Title
+BU_Measure_Title=Measure (y-Axis)
+#XLBL: Browse UI Table Column header
+BU_Value_Label=Value
+#XTOL
+BU_TOL_DelDimension=Delete group by field
+#XLBL
+BU_LBL_NewDimension=Append group by field
+#XTOL
+BU_TOL_NewDimension=Append group by field
+#XLBL
+BU_LBL_NewRef2Measure=Add reference measurement
+#XTOL
+BU_TOL_NewRef2Measure=Add reference measurement
+#XLBL
+BU_LBL_Measures=Base Measurement On:
+#XTIT
+BU_TIT_Measure=Measurement
+#XTIT
+BU_TIT_MeasureRef=Reference Measurement
+#XLBL
+BU_LBL_MeasureDefinition=Measurement Definition
+#XLBL
+BU_LBL_MeasureDisplayName=Display Name of Measurement
+#XTOL
+BU_TOL_EditMeasure=Edit measurement definition
+#XLBL
+BU_LBL_MeasRefCompWith=Compare with measurement
+#XLBL
+BU_LBL_CompWithWS=Compare with Workspace period
+#XLBL
+BU_LBL_MeasRefCompFrom=Starting time of comparison
+#XTOL
+BU_TOL_MeasRefCompFrom=Starting time of comparison
+#XTOL
+BU_TOL_MeasRefCompFromT=Start of comparison period, format HH:mm
+#XTOL
+BU_TOL_DelMeasure=Delete measurement definition
+#XMSG
+BU_MSG_Ref2MeasNoName = Enter display name of reference measurement
+#XMSG
+BU_MSG_Ref2MeasTimeErr = Enter time of reference measurement in correct format (h)h:mm
+#XLBL
+BU_LBL_Dimensions=Group By:
+#XLBL
+selectDimensions=Select Dimensions
+#XLBL
+BU_LBL_Namespace=Namespace
+#XLBL: Label Browsing UI
+BU_LBL_Name=Name
+#XLBL
+BU_LBL_Description=Description
+#XLBL:
+BU_LBL_Comment=Comment
+#XLBL:
+BU_LBL_Category=Category
+#XLBL:
+BU_LBL_UseCase=Use Case
+#XLBL:
+BU_LBL_Status=Process Status
+#XLBL:
+BU_LBL_Risk=Risk Classification
+#XLBL:
+BU_WSL_Comment=Comment:
+#XLBL:
+BU_WSL_Category=Category:
+#XLBL:
+BU_WSL_UseCase=Use Case:
+#XTIT:
+BU_TIT_WSAttributes=Workspace Attributes
+#XBUT
+BU_BUT_OK=OK
+#XBUT
+BU_BUT_Cancel=Cancel
+#XLBL
+BU_LBL_Operator=Operator
+#XLBL
+BU_LBL_Ref_Path=Referenced Path
+#XLBL
+BU_LBL_Ref_Subset=Referenced Subset
+#XLBL
+BU_LBL_Ref_Field=Referenced Field
+#XTIT
+BU_TIT_SelFilter=Filter Selection
+#NOTR
+BU_RB_LBL_Value=Value
+#NOTR
+BU_RB_LBL_Reference=Reference
+#XTOL
+BU_RB_TOL_Value=Select a distinct value from the database
+#XTOL
+BU_RB_TOL_Reference=Select a field from a different path
+#XTOL
+BU_TOL_WorkspaceRename=Rename
+#XTOL
+BU_TOL_WSAttributes=Workspace Attributes
+#XTOL
+BU_TOL_ChangeTimePeriod=Change time range
+#XTOL
+BU_TOL_ChangeFacetName=Change facet name
+#XLBL
+BU_LBL_Value=Value
+#XLBL
+BU_LBL_From=From
+#XLBL
+BU_LBL_To=To
+#XLBL
+BU_LBL_Excluded=Excluded
+#XTOL
+BU_TOL_Excluded=Exclude current filter
+#XTOL
+BU_TOL_NewSubset=Add new subset
+#XTOL
+BU_TOL_DelPath=Delete current path
+#XTIT
+BU_TIT_CrFilter=Subset Selection
+#XTIT
+BU_TIT_SaveCurrWS=Save Forensic Workspace
+#XLBL
+BU_LBL_WSName=Forensic Workspace Name
+#XLBL
+BU_LBL_FL_Name=Name
+#XLBL
+BU_LBL_FL_Title=Title
+#XMSG
+BU_MSG_WSCreatedOK=Forensic workspace "{0}" created
+#XMSG
+BU_MSG_WSCreateFailed=Failed to create forensic workspace "{0}"
+#XMSG
+BU_MSG_WSSavedOK=Forensic workspace "{0}" saved
+#XMSG
+BU_MSG_WSSaveFailed=Failed to save forensic workspace "{0}"
+#XMSG
+BU_MSG_DltPtrFromWSFailedMsg=Deletion of pattern "{0}" from forensic workspace "{1}" is not allowed
+#XMSG
+BU_MSG_DltPtrFromWSFailed=Deletion of pattern "{0}" from forensic workspace "{1}" is not allowed: The pattern caused non-test Alerts
+#XTIT
+BU_TIT_SaveCurrWSAs=Save Forensic Workspace As
+#XTIT
+BU_TIT_RenameCurrWS=Rename Forensic Workspace
+#XTIT
+BU_TIT_RenameCurrWSArtifact=Artifact title
+#XMSG
+BU_MSG_WSDoSaveAs=No modification of forensic workspace "{0}" is allowed.\nThe original system does not match the current system.\nYou can make a copy by clicking "Save As" button
+#XMSG
+BU_MSG_WSCustomize=Modification of pattern definitions "{0}" in forensic workspace "{1}" will be saved.\nDo you want to continue?
+#XMSG
+BU_MSG_WSCustomizeOk=Modification of forensic workspace "{0}" saved
+#XMSG
+BU_MSG_WSCustomizeFailed=Failed to save modification of forensic workspace "{0}"
+#XMSG
+BU_MSG_WSOverwrite=Do you want to overwrite forensic workspace "{0}"?
+#XMSG
+BU_MSG_WSDelete=Do you want to delete the selected forensic workspace(s)?
+#XTIT
+BU_TIT_WSDelete=Delete Forensic Workspace
+#XMSG
+BU_MSG_WSDeleteOK=Forensic workspace(s) "{0}" deleted
+#XMSG
+BU_MSG_WSDeleteFailed=Deletion of forensic workspace "{0}" is not allowed
+#XMSG
+BU_MSG_WSTranspDelFailed=Failed to transport deletion entry of forensic workspace "{0}"
+#XMSG
+BU_MSG_WSOpenFailed=Failed to open forensic workspace "{0}", since it is not shared
+#XTIT
+BU_TIT_CrPattern=Create Pattern
+#XMSG
+BU_MSG_CrPatternOK=Creation of pattern successful
+#XMSG
+BU_MSG_CrPatternFailed=Creation of pattern failed
+#XTIT
+BU_TIT_ETD=SAP Enterprise Threat Detection: Forensic Lab
+#XTIT
+BU_TIT_Workspace=Forensic Workspace
+#XTIT
+BU_TIT_Chart=Chart
+#XLBL
+BU_LBL_Enable=Enable
+#XTOL
+BU_TOL_Enable=Enable
+#XLBL
+BU_LBL_Disable=Disable
+#XTOL
+BU_TOL_Disable=Disable
+#XTOL
+BU_TOL_SubsetActions=Subset related actions
+#XLBL
+BU_LBL_Edit=Edit
+#XTOL
+BU_TOL_Edit=Edit current subset
+#XLBL
+BU_LBL_Remove=Remove
+#XTOL
+BU_TOL_Remove=Remove current subset
+#XLBL
+BU_LBL_MoveUp=Move Up
+#XTOL
+BU_TOL_MoveUp=Move up
+#XLBL
+BU_LBL_MoveDown=Move Down
+#XTOL
+BU_TOL_MoveDown=Move down
+#XLBL
+BU_LBL_CrPattern=Create Pattern
+#XTOL
+BU_TOL_CrPattern=Create pattern based on current subset
+#XLBL
+BU_LBL_NormalizedData=Normalized Data
+#XTOL
+BU_TOL_NormalizedData=Normalized data based on current subset
+#XLBL
+BU_LBL_OriginalData=Original Data
+#XTOL
+BU_TOL_OriginalData=Original data based on current subset
+#XLBL
+BU_LBL_ShowAlertGraph=Alert Graph
+#XTOL
+BU_TOL_ShowAlertGraph=Alert graph based on current subset
+#XLBL
+BU_LBL_Visualize=Visualize
+#XTOL
+BU_TOL_Visualize=Visualization related actions
+#XLBL
+BU_LBL_CreateChart=Create Chart
+#XTOL
+BU_TOL_CreateChart=Create chart
+#XLBL
+BU_LBL_RebuildChart=Rebuild Chart
+#XTOL
+BU_TOL_RebuildChart=Rebuild chart using the already selected dimensions, measures and chart type
+#XLBL
+BU_LBL_Add2Chart=Add to Chart
+#XTOL
+BU_TOL_Add2Chart=Add to chart
+#XLBL
+BU_LBL_OpenCasefile=Open Case File
+#XTOL
+BU_TOL_OpenCasefile=Open Case File with selected events
+#XMSG
+BU_MSG_OpenCasefileTooManyEvents={0} events selected, 100 are allowed to be shown in a Case File
+#XLBL
+BU_LBL_TimeRange=Selected Time Range
+#XLBL
+BU_LBL_LastMinute=Last minute
+#XLBL
+BU_LBL_LastHour=Last hour
+#XLBL
+BU_LBL_LastDay=Last day
+#XLBL
+BU_LBL_LastWeek=Last week
+#XLBL
+BU_LBL_LastMonth=Last month
+#XLBL
+BU_LBL_LastYear=Last year
+#XTOL
+BU_TOL_SelStartDate=Select start date
+#XTOL
+BU_TOL_SelStartTime=Select start time
+#XTOL
+BU_TOL_SelEndDate=Select end date
+#XTOL
+BU_TOL_SelEndTime=Select end time
+#XTOL
+BU_TOL_SelRelative=Select a relative time period
+#XTOL
+BU_TOL_RelativeTR=Relative time range
+#XTOL
+BU_TOL_AbsoluteTR=Absolute time range
+#XTOL
+BU_TOL_CrNewPath=Create path
+#XTOL
+BU_TOL_MyWSs=Forensic workspaces created by my user
+#XLBL
+BU_LBL_MyWSs=My workspaces
+#XTOL
+BU_TOL_SharedWSs=Shared workspaces
+#XLBL
+BU_LBL_SharedWSs=Shared forensic workspaces
+#XTOL
+BU_TOL_CrNewWS=Create new forensic workspace
+#XTOL
+BU_TOL_SaveCurrWS=Save current forensic workspace
+#XTOL
+BU_TOL_SaveCurrWSAs=Save current forensic workspace as
+#XTOL
+BU_TOL_RemoveCurrWS=Remove current forensic workspace
+#XSEL: BrowsingUI Selection Text for BarChart
+BU_Chart_BarChart=Bar Chart
+#XSEL: BrowsingUI Selection Text for Treemap
+BU_Chart_Treemap=Treemap
+#XSEL: BrowsingUI Selection Text for Line chart
+BU_Chart_Line=Line Chart
+#XSEL: BrowsingUI Selection Text for Table
+BU_Chart_Table=Table
+#XSEL:
+BU_Chart_Pie=Pie
+#XTOL: Browsing UI Tooltip
+BU_Select_Chart=Select a chart type
+
+#XBUT
+BU_BUT_Exclude=Exclude
+#XBUT
+BU_BUT_Add2Path=Add to Path
+#XBUT
+BU_BUT_Add2PathAsExcl=Exclude from Path
+#XBUT
+BU_BUT_Copy=Copy to Clipboard
+#XTOL
+BU_TOL_Copy=Copy to clipboard, use CTRL/CMD + V to paste
+
+#XBUT
+BU_BUT_Reset=Reset
+#XMSG
+BU_MSG_ExcludedItems={0} item(s) excluded
+#XMSG
+BU_MSG_CrPatternNoNS=Enter namespace for {0}
+#XMSG
+BU_MSG_CrPatternNoName=Enter name for {0}
+#XMSG
+BU_MSG_CrPatternNoDescr=Enter description for {0}
+#XMSG
+BU_MSG_SubsetDelete=Do you want to delete subset "{0}"?
+#XTIT
+BU_TIT_SubsetDelete=Delete Subset
+#XMSG
+BU_MSG_ArtifactDelete=Do you want to delete forensic facet "{0}"?
+#XTIT
+BU_TIT_ArtifactDelete=Delete Forensic Facet
+#XTIT
+BU_TIT_ArtifactUnpublish=Unpublish Forensic Facet
+#XMSG: Browsing UI Confirm question
+BU_Confirm_Discard=Do you want to discard current changes?
+#XTIT: Browsing UI Confirm popup title
+BU_Confirm_Msg_Title=Unsaved Forensic Workspace
+#XMSG
+BU_MSG_SSOnDeleteCascade=Deletion of subset "{0}" will lead to deletion of subsets "{1}" and facets "{2}".\nDo you want to continue?
+#XMSG
+BU_MSG_CrFilterNoValRef=Enter value for the reference field
+#XMSG
+BU_MSG_CrFilterFromGRTo=Enter a valid time period
+#XMSG
+BU_MSG_CrFilterNoRelTS=Enter a valid relative time range
+#XMSG
+BU_MSG_CrFilterNoVal=Enter value for the selection
+#XLBL: Browsing UI Threshold Label for Pattern Creation
+BU_LBL_Threshold=Threshold
+#XLBL: Browsing UI Execution Output for Pattern Creation
+BU_LBL_ExecutionOutput=Execution Output
+#XMSG: Browsing UI Message no threshold
+BU_CrPatternNoThreshold=Enter a threshold
+#XMSG: Browsing UI Message low threshold
+BU_CrPatternLowThreshold=Enter a value >= 0
+#XMSG: Browsing UI Message low frequency
+BU_CrPatternLowFrequency=Enter a value > 0
+#XTOL: Browsing UI Tooltip
+BU_SelPrivateChart=Select private charts
+#XTIT
+BU_TIT_NotificationBar=ETD Notifications
+#XTIT
+BU_TIT_PathDelete=Delete Path
+#XMSG
+BU_MSG_PathDelete=Do you want to delete path "{0}"?
+#XTIT
+BU_TIT_MeasureDelete=Delete Measurement
+#XTIT
+BU_TIT_MeasureRefDelete=Delete Reference Measurement
+#XMSG
+BU_MSG_MeasureDelete=Do you want to delete measurement "{0}"?
+#XMSG
+BU_MSG_MeasureRefDel=Deletion of measurement "{0}" will lead to deletion of measurement "{1}".\nDo you want to continue?
+#XMSG
+BU_MSG_PathOnDelCascade=Deletion of path "{0}" will lead to deletion of subsets "{1}" and facets "{2}".\nDo you want to continue?
+#XMSG
+BU_MSG_PatternDelTrigger=Pattern {0} is used as trigger by {1}.\nDeletion of this pattern may lead to inconsistencies.\nDo you still want to continue?
+#XMSG
+BU_MSG_WSDelTrigger=Patterns in forensic workspce {0} are used as triggers by {1}.\nDeletion of this workspace may lead to inconsistencies.\nDo you still want to continue?
+#XMSG
+BU_MSG_PatternList1={0} in workspace {1}
+#XMSG
+BU_MSG_PatternList2=unpublished patterns in workspace {0}
+#XMSG
+BU_MSG_PatternUnpTrigger=Pattern {0} is used as trigger by {1}.\nUnpublishing this pattern may lead to inconsistencies.\nDo you still want to continue?
+#XTOL: Browsing UI Tooltip
+BU_SelPublicCharts=Select public charts
+#XTOL: Browsing UI Tooltip
+BU_SaveCurrChart=Save current chart
+#XTOL: Browsing UI
+BU_RemoveCurrChart=Remove current chart
+#XBUT: Browsing UI ToolTip add Snapshot
+BU_AddSnapshot=Add chart to snapshot page
+#XMSG: Error message on add chart to snapshot page
+PrivilegesErrorMessage=Not enough privileges
+#XBUT: Browsing UI ToolTip title of artifact
+BU_Chart_EditTitle=Edit title
+#XBUT: Browsing UI ToolTip description of chart
+BU_Chart_Description=Description
+#XMSG:Browsing UI add chart successfully to snapshot  message
+BU_MSG_ChartToSnapshot=Chart successfully added to Snapshot
+#XSEL: Browsing UI - Chart type
+BU_Chart_Column=Column Chart
+#XTOL: Browsing UI Tooltip publish chart
+BU_PublishChart=Publish current chart
+#XTIT: Browsing UI Title of chart save popup
+BU_SaveCurrChartAs=Save current chart as
+#XMSG: Browsing UI chart save OK message
+BU_ChartSavedOK=Chart "{0}" saved
+#XMSG: Browsing UI chart save failed message
+BU_ChartSaveFailed=Failed to save chart "{0}"
+
+#XMSG: Warning prior to switch to BubbleGram
+BubbleGramWarningPrior = This Feature requires significant portion of HANA resources and may block other functions. Please reduce time range and/or add additional filters to reduce amount of analyzed logs.\u000A Are your sure, to use this feature?
+#XMSG
+BU_MSG_WSExport=Do you want to export the selected forensic workspace(s)?
+#XTIT
+BU_TIT_WSExport=Export Forensic Workspace
+#XMSG: Browsing UI exported the given workspaces
+BU_MSG_WSExportOk=Forensic workspace(s) "{0}" exported
+#XMSG: Browsing UI failed to export given workspaces
+BU_MSG_WSExportFailed=Failed to export Workspace(s) "{0}"
+
+#XTIT
+BU_TIT_CreateWS=Create Forensic Workspace
+#XLBL
+BU_LBL_LogCtx=Log Entries
+#XLBL
+BU_LBL_AlertCtx=Alerts
+#XBUT
+BU_BUT_Download=Download as JSON
+#XTOL
+BU_TOL_Download=Download log data in JSON format
+#XBUT
+BU_BUT_Download_CSV=Download as CSV
+#XTOL
+BU_TOL_Download_CSV=Download log data in CSV format
+#XBUT
+BU_BUT_Download_ZIP=Download as ZIP
+#XTOL
+BU_TOL_Download_ZIP=Download log data compressed in ZIP format
+#XBUT
+BU_BUT_Download_Shown=Download shown columns only
+#XTOL
+BU_TOL_Download_Shown=Download log data with shown columns only if it is checked, otherwise with all columns
+#XTOL
+BU_BUT_Hide_Empty_Col=Hide empty columns
+
+#XMSG
+BU_MSG_Download_ZIP_Failed=Failed to download as ZIP
+#XTXT
+BU_NormalData_NoData=No data
+#XTXT
+BU_NormalData_Loading=Loading...
+#XTOL
+BU_TOL_Personalize=Personalize
+#XMSG
+BU_MSG_CrFilterValIvalid=Enter a valid value for the selection
+#XMSG
+BU_MSG_CrFilterRefIvalid=The data type of "Reference Field" does not match the data type of "Field"
+#XTXT
+BU_Active=Active
+#XTXT
+BU_Inactive=Inactive
+#XMSG
+BU_MSG_QubeIdNotFound=Entity with Id "{0}" not found
+#XLBL
+BU_LBL_Scheduled=Scheduled
+#XLBL
+BU_LBL_Triggered=Triggered
+#XTIT
+BU_TIT_Execution=Execution
+#XLBL
+BU_LBL_By=By
+#XLBL
+BU_LBL_Event=Event(Semantic)
+#XLBL
+BU_LBL_Pattern=Pattern
+#XTOL
+BU_TOL_DelTrigger=Delete trigger
+#XLBL
+BU_LBL_AddTrigger=Append trigger
+#XTOL
+BU_TOL_AddTrigger=Append trigger
+#XBUT
+BU_BUT_ArtifactPublished=Shared
+#XTOL
+BU_TOL_ArtifactPublished=Shared
+#XBUT
+BU_BUT_DeleteArtifact=Delete
+#XTOL
+BU_TOL_DeleteArtifact=Delete
+#XTOL
+BU_TOL_ShowBrChart=Display the distribution
+
+#XLBL
+BU_LBL_NavExempltion=Navigate to exemptions
+#XTOL
+BU_TOL_NavExempltion=Navigate to exemptions
+
+#XTOL
+BU_TOL_Bubblegram=Bubble Diagram
+#XMSG
+BU_MSG_NoBubblegram=Only browsing charts can be used for "{0}"
+
+#XTXT
+BU_TXT_Log=Events
+#XTXT
+BU_TXT_Alert=Alerts
+#XTXT
+BU_TXT_HealthCheck=Health Checks
+#XTXT
+BU_TXT_ConfigurationCheck=Configuration Checks
+#XTXT
+BU_TXT_SecurityNote=Security Notes
+
+#XTXT
+BU_TXT_Distribution=Distribution of {0} by
+
+#XTXT
+T_SubUtilDeatil=Sub Section
+
+#XTOL
+BU_TOL_RefTimestamp= {0} is based on reference timestamp: {1}
+
+#XMSG
+BU_MSG_OpenCasefiles=Casefile(s) will be shown shortly
+
+#XMSG
+BU_MSG_TooLongWorkspaceTR=The time range of the workspace is too large for the frequency of pattern "{0}".
+#XMSG
+BU_MSG_TooLongSubsetTR=Time range of the subset is too large for the frequency of pattern "{0}".
+#XMSG
+BU_MSG_TRRecommendation=We recommend that you set a time range that is not more than twice the frequency of the pattern.
+#XMSG
+BU_MSG_FrequencyBelow5Min=The frequency of pattern "{0}" is under five minutes. Please specify a pattern execution frequency higher than five minutes.
+#XMSG
+BU_MSG_FrequencyGEWorkspaceTR=Pattern "{0}" frequency is greater than or equal to workspace time range. Please decrease pattern frequency or increase time range.
+#XMSG
+BU_MSG_FrequencyGESubsetTR=Pattern "{0}" frequency is greater than or equal to time range in subset. Please decrease pattern frequency or increase time range.
+#XMSG
+BU_MSG_TRInconsistency=The time range of the global workspace is shorter than the time range of the subset. Please specify a time range for the subset that is shorter than the time range of the global workspace.
+
+
+#XCOL
+RD_Details_Name=Name
+#XCOL
+RD_Details_Value=Value
+#XCOL
+RD_Alert_Number=Number
+#XCOL
+RD_CreTS=Creation Timestamp
+#XCOL
+RD_User=User Pseudonym
+#XCOL
+RD_SystemId=System Id
+#XCOL
+RD_SystemType=System Type
+#XCOL
+RD_EventId=Event Id
+#XCOL
+RD_Alert_Severity=Severity
+#XCOL
+RD_Alert_Status=Status
+#XCOL
+RD_TS=Timestamp
+#XCOL
+RD_LogType=Log
+#XCOL
+RD_MessageText=Message Text
+#XBUT
+BU_BUT_New=New
+#XBUT
+BU_BUT_Open=Open
+#XTOL
+BU_TOL_OpenWS=Open forensic workspace
+#XTIT
+BU_TIT_Workspaces=Forensic Workspaces
+#XLBL
+BU_LBL_NewWS=New Forensic Workspace
+#XBUT
+BU_BUT_Save=Save
+#XBUT
+BU_BUT_Add=Save
+#XTOL
+BU_TOL_Add=Save to selected Snapshot Pages
+#XBUT: Close
+BU_BUT_Close=Close
+#XBUT: Select
+BU_BUT_Select=Select
+#XLBL
+BU_LBL_SelSnapshot=Select or Create Snapshot Page(s)
+#XTOL
+BU_TOL_DelSnapshot=Remove this Snapshot Page
+#XTOL
+BU_TIP_SelCrtSnapshot=Select an existing Snapshot Page or type a new page name
+#XBUT
+BU_BUT_SaveAs=Save As
+#XBUT
+BU_BUT_AddPath=Add Path
+#XBUT
+BU_BUT_Refresh=Refresh
+#XTOL
+BU_TOL_Refresh=Refresh
+#XBUT
+BU_BUT_Expand=Expand
+#XTOL
+BU_TOL_Expand=Expand
+#XBUT
+BU_BUT_Restore=Restore
+#XTOL
+BU_TOL_Restore=Restore
+#XMSG
+BU_MSG_WSRefreshed=Displayed filters and chart of forensic workspace "{0}" updated
+#XMSG
+BU_MSG_SaveModPubAsPrivWS=The currently open shared forensic workspace will be saved in your forensic workspace list
+#XBUT
+BU_BUT_WSDelete=Delete
+#XTOL
+BU_TOL_WSDelete=Delete forensic workspace
+#XBUT
+BU_BUT_WSPreview=Preview
+#XTOL
+BU_TOL_WSPreview=Preview of forensic workspace
+#XTIT
+BU_TIT_WSPreview=Forensic Workspace Preview
+#XTOL
+BU_TOL_WSVersion=Version
+#XTIT
+BU_TIT_WSVersion=Workspace Version
+#XCOL
+BU_COL_VersionNr=Version Nr.
+#XCOL
+BU_COL_VChangedBy=Changed By
+#XCOL
+BU_COL_VChangedAt=Changed At
+#XMSG
+BU_MSG_VersionFailed=Failed to fetch the version of forensic workspace "{0}"
+#XBUT
+BU_BUT_WSRename=Rename
+#XTOL
+BU_TOL_WSRename=Rename forensic workspace
+#XBUT
+BU_BUT_WSShare=Share
+#XTOL
+BU_TOL_WSShare=Share forensic workspace
+#XTIT
+BU_TIT_WSShare=Share Forensic Workspace
+#XMSG
+BU_MSG_WSShareOK=Selected private forensic workspace(s) shared
+#XMSG
+BU_MSG_WSShareFailed=Failed to share forensic workspace "{0}"
+#XLBL
+BU_LBL_WSCreatedTS=Created
+#XLBL
+BU_LBL_WSChangedTS=Changed
+#XLBL
+BU_LBL_WSCreatedBy=Created by:
+#XLBL
+BU_LBL_Context=Current Subset
+#XMSG
+BU_MSG_WorkspaceNoName=Enter name for forensic workspace
+#XMSG
+BU_MSG_WSNameTooLong=The name of forensic workspace should be max 60 characters long
+#XTIT
+BU_TIT_TimePeriod=Time Period Selection
+#XTIT
+BU_TIT_TimePeriod2=Time Period Selection
+#XMSG
+BU_MSG_RawDataErrFetch=Failed to fetch the raw data, with error text from the server: "{0}"
+#XBUT
+BU_BUT_Import=Upload
+#XTOL
+BU_TOL_ImportWS=Upload forensic workspace from file
+#XTIT
+BU_TIT_ImportWS=Upload Forensic Workspace
+#XMSG
+BU_MSG_NoJSON=Failed to parse selected file as JSON format
+#XMSG
+BU_MSG_FileImportNotSup=The File APIs are not fully supported by your browser
+#XMSG
+BU_MSG_Failed2LoadFiles=Failed to load files
+#XBUT
+BU_BUT_WSDownload=Download
+#XTOL
+BU_TOL_WSDownload=Download forensic workspace as file
+#XBUT
+BU_BUT_WSExpt=Export
+#XTOL
+BU_TOL_WSExpt=Export forensic workspace for transport
+#XALT
+BU_ALT_Pattern=Pattern
+#XALT
+BU_ALT_Chart=Chart
+#XTIT
+BU_TIT_NS=Namespace:
+#XMSG
+BU_MSG_NSSaveConfirm=Do you want to create the namespace "{0}"?
+#XMSG
+BU_MSG_NSSaveOk=Namespace "{0}" saved
+#XMSG
+BU_MSG_NSSaveFailed=Failed to save namespace "{0}"
+#XMSG
+BU_MSG_NSWrongFormat=Namespace "{0}" has wrong format\nIt must start with "http://"
+#XMSG
+BU_MSG_W_SharePattern=You activated pattern "{0}" which is not "Shared". In order to be evaluated you need to set it as "Shared"
+
+#XLBL
+BU_LBL_ThreatLikelihood=Credibility of Attack
+#XLBL
+BU_LBL_ThreatSuccess=Success of Attack
+#XLBL
+BU_LBL_PtnLC=Confidentiality
+#XLBL
+BU_LBL_PtnLIS=System Integrity
+#XLBL
+BU_LBL_PtnLID=Data Integrity
+#XLBL
+BU_LBL_PtnLA=Availability
+#XLBL
+BU_LBL_PtnSC=Confidentiality
+#XLBL
+BU_LBL_PtnSIS=System Integrity
+#XLBL
+BU_LBL_PtnSID=Data Integrity
+#XLBL
+BU_LBL_PtnSA=Availability
+#XTOL
+BU_TOL_PtnLC=Confidentiality
+#XTOL
+BU_TOL_PtnLIS=System Integrity
+#XTOL
+BU_TOL_PtnLID=Data Integrity
+#XTOL
+BU_TOL_PtnLA=Availability
+#XTOL
+BU_TOL_PtnSC=Confidentiality
+#XTOL
+BU_TOL_PtnSIS=System Integrity
+#XTOL
+BU_TOL_PtnSID=Data Integrity
+#XTOL
+BU_TOL_PtnSA=Availability
+
+#XBUT
+BU_Chart_Invert=Invert
+#XBUT
+BU_Chart_Revert=Revert
+#XLBL
+BU_LBL_DonutNoValue=No value
+#XMSG
+BU_MSG_DonutNoData=No data
+
+#XLBL
+BU_LBL_EnumSource=Read values from
+#XLBL
+BU_RB_LBL_EnumSourceLogs=Logs
+#XTOL
+BU_RB_TOL_EnumSourceLogs=Logs
+#XLBL
+BU_RB_LBL_EnumSourceKB=Knowledge Base
+#XTOL
+BU_RB_TOL_EnumSourceKB=Knowledge base
+
+#XTOL: ForensicLab Tooltip showing dropdown menu
+BU_TOL_ShowDropDown=Click to show dropdown menu
+
+#XTOL: ForensicLab Tooltip switch between browsing charts and bubblegram
+BU_TOL_SwitchBrwBbl=Click to switch between browsing charts and bubble diagram
+
+#Performance UI
+#XTIT: Performance Analysis UI Window Title
+PE_Title=Performance Analysis
+#XTIT: Performance Analysis UI Calibration Panel
+PE_Calibration=Calibration
+#XBUT: Performance Analysis UI OK Button
+PE_OK_Button=SET
+#XTIT: Performance Analysis UI Form
+PE_FormTitle=Test Events
+#XLBL: Performance Analysis UI Label
+PE_ThroughputLabel=Throughput in Events/sec.
+#XMSG:Performance Analysis UI
+PE_MSG_EnterThroughput=Please enter new throughput
+#XMSG:Performance Analysis UI
+PE_MSG_InvalidThroughput=Invalid throughput value
+#XBUT: Performance Analysis UI Delete Events Button
+PE_DELETE_LOGS_Button=Delete Test Events
+#XBUT: Performance Analysis UI Delete Events Button
+PE_DELETE_RESULTS_Button=Delete Test Results
+#XMSG:Performance Analysis UI
+PE_MSG_InvalidOverview=Invalid system overview value
+
+#XTIT: Performance Analysis UI Form
+PE_FormTitleStorage=Storage
+#XLBL: Performance Analysis UI Label
+PE_StorageLabel=Event Storage in days
+#XMSG:Performance Analysis UI
+PE_MSG_EnterStorage=Please enter new days count
+#XMSG:Performance Analysis UI
+PE_MSG_InvalidStorage=Invalid value
+#XTIT: Performance Analysis UI Form
+PE_ChartTitel_HANA=HANA Response and Resource Usage by Time
+#XTIT: Performance Analysis UI Form ESP
+PE_ChartTitel_ESP=ESP Throughput and Resource Usage by Time
+#XLBL: Performance Analysis UI Label for Resouce Overview
+PE_ResourceOverviewLabel=Resource Overview
+
+
+#Depseudonymization UI
+#XTIT: Pseudonymization UI Window Title
+PseudoUser_Title=Resolve User
+#XTIT: Pseudonymization UI Form Title 1
+PseudoUser_FormTit=Resolve User Name
+#XTIT: Pseudonymization UI Form Title 2
+PU_FormTitle=Pseudonym
+#XLBL: Pseudonymization UI Label
+PU_PseudoLabel=User Alias
+#XBUT: Pseudonymization UI Help Button
+PU_Help_Button=Help
+#XBUT: Pseudonymization UI OK Button
+PU_OK_Button=OK
+#XLBL: Pseudonymization UI
+PU_SAP_Name=SAP Name
+#XLBL: Pseudonymization UI
+PU_PsersonalNumber=Personal Number
+#XLBL: Pseudonymization UI
+PU_FirstName=First Name
+#XLBL: Pseudonymization UI
+PU_MiddleName=Middle Name
+#XLBL: Pseudonymization UI
+PU_SurName=Sur Name
+#XCOL: Pseudonymization UI
+PU_Email=Email Address
+#XTIT: Pseudonymization UI
+PU_UserContext=User Context
+#XCOL: Pseudonymization UI
+PU_SystemTypeCOL=System Type
+#XCOL: Pseudonymization UI
+PU_SystemUserCOL=System User
+#XCOL: Pseudonymization UI
+PU_UserGroupCOL=User Group
+#XCOL: Pseudonymization UI
+PU_UserTypeCOL=User Type
+#XCOL: Pseudonymization UI
+PU_SystemCOL=System
+#XMSG:Pseudonymization UI
+PU_MSG_EnterAlias=Please enter a user alias
+#XMSG:Pseudonymization UI
+PU_MSG_InvalidAlias=Invalid user alias
+#XTIT: Pseudonymization UI
+PU_ResolveTab=Resolve User Identity
+#XTIT: Pseudonymization UI
+PU_ProtocolTab=Log
+#XCOL : Pseudonymization UI
+PU_Text=Text
+#XCOL : Pseudonymization UI
+PU_User=User
+#XCOL : Pseudonymization UI
+PU_EntityName=Pseudonym
+#XCOL : Pseudonymization UI
+PU_EntityOperation=Operation
+#XCOL : Pseudonymization UI
+PU_Timestamp=Timestamp
+#XMSG:Pseudonymization UI
+PU_MSG_InvalidUserId=User context with id {0} does not exist
+
+
+#XTIT:Mobile Investigation UI
+MInvest_List_Title=Investigations
+#XTIT:Mobile Investigation UI
+MInvest_Detail_Title=Investigation {0}
+#XMSG:Mobile Investigation UI
+MInvest_No_Data=No data
+#XMSG:Mobile Investigation UI
+MInvest_Bad_Comment_Content=The comment contains <script> element which is not allowed and therefore it will not be saved. Please adjust your comment.
+#XLBL:Mobile Investigation UI
+MInvest_CreationDate=Start date
+#XLBL:Mobile Investigation UI
+MInvest_RemoveAlert=Remove Alert
+#XLBL:Mobile Investigation UI
+MInvest_ConfirmRemoveAlert=Remove Alert {0} from the investigation?
+#XLBL:Mobile Investigation UI
+MInvest_ConfirmRemoveEvent=Remove Event {0} from the investigation?
+#XLBL:Mobile Investigation UI
+MInvest_ConfirmRemoveHchck=Remove Health Check {0} from the investigation?
+#XLBL:Mobile Investigation UI
+MInvest_ConfirmRemoveSnap=Remove Snapshot {0} from the investigation?
+#XLBL:Mobile Investigation UI
+MInvest_ConfirmRemoveFSpc=Remove Case File {0} from the investigation?
+#XTIT:Mobile Investigation UI
+MInvest_InvestDet=Investigation Details
+#XLBL: mobile Investigation UI
+MInvest_Attack=Attack
+#XLBL: mobile Investigation UI
+MInvest_Attack_COL=Attack
+MInvest_propagateAndSave=Save and Propagate to Alerts...
+#XBUT: Mobile Investigation UI: Propagate Investigation Data to Alerts in Investigation
+MInvest_propagate=Propagate to Alerts...
+#XLBL: mobile Investigation UI
+MInvest_AttackAndProc=Attack and Processor
+#XMSG:Mobile Alert UI
+MInvest_CommentPlaceHold=Enter a new Comment
+#XLBL: mobile Investigation UI
+MInvest_ObjAlert=Alert
+#XLBL: mobile Investigation UI
+MInvest_ObjEvent=Event
+#XLBL: mobile Investigation UI
+MInvest_ObjSnap=Snapshot
+#XLBL: mobile Investigation UI
+MInvest_ObjHealth=Health Check
+#XLBL: mobile Investigation UI
+MInvest_ObjFSpace=Case File
+#XLBL: HealthCheck: Event Name
+MInvest_HealthEventName=Event Name
+#XLBL: HealthCheck: Log Type
+MInvest_HealthLogType=Log Type
+#XLBL: HealthCheck: Report
+MInvest_HealthReport=Report
+#XBUT: mobile Investigation UI
+MInvest_StartEvents=Start Triggering Events Job
+#XMSG: Message after successfully starting triggering event job
+MInvest_JobStarted=Job successfully triggered
+#XMSG: print investigation: timeout on building document
+MInvest_printTimeout=Timeout occurred on building document
+
+#XTIT: Investigation UI
+MQuick_Link_Button=Go
+
+#XLBL:Mobile Investigation UI
+MManagementVisibility=Management Visibility
+#XLBL:Mobile Investigation UI
+MCreationDate=Creation Time
+#BUT:Mobile Investigation UI
+MSave=Save
+#BUT:Mobile Investigation UI
+MEdit=Edit
+#BUT:Mobile Investigation UI
+MCancel=Cancel
+
+#XBUT:Mobile Investigation UI
+MInvest_Alert=Alerts ({0})
+#XBUT:Mobile Investigation UI
+MInvest_Object=Objects ({0})
+#XBUT:Mobile Investigation UI
+MInvest_Comment=Comments ({0})
+#XBUT:Mobile Investigation UI
+MInvest_CommChanges=Discussion & Timeline ({0} / {1})
+
+#XBUT:Mobile Investigation UI
+MInvest_Discussion=Discussion ({0})
+#XBUT:Mobile Investigation UI
+MInvest_Actions=Actions ({0})
+
+#XTIT:Mobile Investigation UI
+MInvest_PattRAtt=Pattern Related Attachments ({0})
+#XTIT:Mobile Investigation UI
+MInvest_Att=Attachments ({0})
+#XTIT:Mobile Investigation UI
+MInvest_CombAtt=Attachments ({0} / {1})
+#XLBL:Mobile Investigation UI
+MInvest_DiscussionNoCount=Timeline & Comments
+#XCOL:Mobile Investigation UI
+MInvest_ID=ID
+
+#XMSG: Investigation Detail UI: Error - Uploaded file has too a long name
+MInvest_FilenameTooLarge=File name too long (100 characters allowed)
+#XMSG: Investigation Detail UI: Success Message
+MInvest_FileUploaded=File successfully uploaded
+#XBUT: Investigation Detail UI: Button Text for file upload
+MInvest_Upload=Upload
+#XBUT: Investigation Detail UI: Button Text for Delete selected files
+MInvest_DeleteSelected=Delete
+#XMSG: Investigation Detail UI: Message, File successfully deleted
+MInvest_FileDeleted=File Deleted
+#XMSG: Investigation Detail UI: Message, Wrong file type
+MInvest_FileTypeMismatch=Unsupported file type (pdf, doc, xml, txt, csv, tsv, rtf)
+#XMSG: Investigation Detail UI: Message, file too large
+MInvest_FileSizeExceed=File Too Large (Up to 2 GB allowed)
+
+#XTIT:Fullscreen Investigation UI
+MInvest_AddComment=Added Comment
+#XTIT:Fullscreen Investigation UI
+MInvest_changed=Changed investigation
+#XTIT:Fullscreen Investigation UI
+InvestFS_SelectToEdit=Select at least one Investigation
+#XTIT:Fullscreen Investigation UI
+InvestFS_EditMultiple=Edit multiple Investigations
+#XLBL:Fullscreen Investigation UI
+InvestFS_ChangeStatus=Change Status
+#XLBL:Fullscreen Investigation UI
+InvestFS_ChangeAttack=Change Attack
+#XLBL:Fullscreen Investigation UI
+InvestFS_ChangeProcessor=Change Processor
+#XLBL:Fullscreen Investigation UI
+InvestFS_ChangeSeverity=Change Severity
+#XLBL:Fullscreen Investigation UI
+InvestFS_ChangeMgmtVsbl=Change Management Visibility
+#XMSG:Fullscreen Investigation UI
+InvestFS_NoChangesDone=Nothing changed
+#XMSG:Fullscreen Investigation UI
+InvestFS_UpdateSuccess=Successfully updated {0} Investigations
+#XTIT:Fullscreen Investigation UI
+InvestFS_InvestTblTitle=Investigations ({0})
+#XTIT:Investigation Fullscreen Processor unassignedUser
+InvestFS_Unassigned_User=(Unassigned User)
+
+#XBUT:Investigation UI: Download button for Events
+MInvest_Download_BUT=Download Events
+
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_startInvest=Start Investigation
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_addToInvest=Add to Investigation
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_editAlerts=Edit
+#XBUT:Mobile Full Screen Alerts UI
+MAlertsFS_analyze=Analyze
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_Alerts=Alerts
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_AlertsWithCount=Alerts ({0})
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Severity=Severity
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Status=Status
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_Processor=Processor
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_editAlert=Edit Alert
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_AlertText=Alert Details
+#XTIT:Mobile Full Screen Alerts UI
+MAlertsFS_InernalErrorMsg=An internal error occurred.
+
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_SeverityXcol=Severity
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ScoreXcol=Score
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_AttackXcol=Attack
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_IDXcol=ID
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_PatternXcol=Pattern
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_Cause=Trigger
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ConfigXcol=Configuration
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_StatusXcol=Status
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_CreaTimeXcol=Creation Time
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_ProcessorXcol=Processor
+#XCOL:Mobile Full Screen Alerts UI
+MAlertsFS_InvestXcol=Investigations
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_PickActionXLBL=Choose Actions
+#XTOL:Mobile Full Screen Alets UI
+MAlertsFS_ExportXTOL=Export
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_ConsidTimeRange=Creation Time Range
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_SelectTimeRange=Select Time Range
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_ConsTimeRangeFT={0} - {1}
+MAlertsFS_ConsTimeRangeFR=since {0}
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_TimeRange_Active=Active
+#XBUT:Mobile Full Screen Alerts UI Button for opening Alert Graph
+MAlertsFS_showGraph=View Threat Situation
+#XBUT:Mobile Full Screen Alerts UI Button for opening Alert Table
+MAlertsFS_showTable=Alerts List
+#XBUT:Mobile Full Screen Alerts UI Button for opening System Location
+MAlertsFS_showLocation=View System Locations
+#XTIT:Mobile Full Screen Alert Graph Page Title
+MAlertsFS_alertGraphTitle=Alert Graph
+#XBUT:Mobile Full Screen Alerts UI Button Tooltip for opening Threat Correlation Chart
+MAlertsFS_showCorrelation=View Threat Correlation
+#XBUT:Mobile Full Screen Alerts UI Button Tooltip for opening Alert Correlation Chart
+MAlertsFS_showAlertCor=View Alert Correlation
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_FilterBar=Filter Bar
+#XLBL:Mobile Full Screen Alerts UI
+MAlertsFS_FilterBarPrefix=Filtered by:
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_NoSysLocation={0} Alerts not Displayed due to Missing System Location Assignments
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_NoSysLocLong=No location maintained. Open the "Systems" administration UI and maintain the location.
+#XMSG: Mobile Full Screen Alerts UI
+MAlertsFS_SysAlerts=System {0} ({1} Alerts)
+#XCOL: Mobile Full Screen Alerts UI
+MAlertsFS_PatternName=Pattern Name
+
+
+
+
+#XTXT: Monitoring Page UI
+MonHeader=SAP Enterprise Threat Detection: Monitoring
+#XTXT: Monitoring Page UI
+MonHeaderBrowserTab=SAP ETD: Monitoring
+#XTXT: Monitoring Page UI
+MonSelectChart=Select Forensic Facet
+#XBUT: Monitoring Page UI
+MonSelect=Select
+#XBUT: Monitoring Page UI
+MonClose=Close
+#XFLD: Monitoring Page UI
+MonMyQubesLabel=My Workspaces
+#XTOL: Monitoring Page UI
+MonMyQubesTooltip=My Workspaces
+#XFLD: Monitoring Page UI
+MonSharedQubesLabel=Shared Forensic Workspaces
+#XTOL: Monitoring Page UI
+MonSharedQubesTooltip=Shared Forensic Workspaces
+#XCOL: Monitoring Page UI
+MonName=Name
+#XTOL: Monitoring Page UI
+MonShowAlerts=Show Alerts
+#XTOL: Monitoring Page UI
+MonShowInvestigations=Show Investigations
+#XTOL: Monitoring Page UI
+MonShowHealthChecks=Show Health Checks
+#XGRP : Monitoring Page UI
+MonAlerts=Alerts
+#XGRP : Monitoring Page UI
+MonAlertsOpenTotalLabel=Open Alerts
+#XGRP : Monitoring Page UI
+MonAlertsOpenVeryHighLabel=Open Very High Alerts
+#XGRP : Monitoring Page UI
+MonHealthChecks=Health Checks
+#XGRP : Monitoring Page UI
+MonInvestigations=Investigations
+#XFLD : Monitoring Page UI
+MonTotalNoAlertsOpen=Open:
+#XFLD : Monitoring Page UI
+MonNoAlertsVeryHighOpen=Open Very High:
+#XFLD : Monitoring Page UI
+MonMyInvestigationsOpen=Open:
+#XFLD : Monitoring Page UI
+MonSystemsUnavailable=Systems Not OK:
+#XFLD : Monitoring Page UI
+MonSystemsAvailable=Systems OK:
+#XBUT : Monitoring Page UI
+MonResetPersonalization=Reset to Default
+#XBUT : Monitoring Page UI
+MonSavePersonalization=Save
+#XFLD : Monitoring Page UI
+MonRefreshInterval=Refresh Rate (in sec)
+#XFLD : Monitoring Page UI
+MonChartColumnCount=Number of Columns
+#XMSG : Monitoring Page UI
+MonPersCreated=Configuration {0} {1} created
+#XMSG : Monitoring Page UI
+MonPersUpdated=Configuration {0} {1} updated
+#XMSG : Monitoring Page UI
+MonPersAlreadyResetted=Personalization for user {0} already resetted
+#XFLD : Monitoring Page UI
+MonRangeIndicators=Time Range for Indicators
+#XFLD : Monitoring Page UI
+MonPeriod=Time Range
+#XFLD : Monitoring Page UI
+MonUnknown=Unknown
+#XTOL : Monitoring Page UI
+MonConfigureChartTt=Choose a forensic facet to be displayed here
+#XTOL : Monitoring Page UI
+MonOpenChartTt=Open forensic facet
+#XTOL : Monitoring Page UI
+MonPersonalizeTt=Configure the layout and behaviour of the UI
+#XTOL : Monitoring Page UI
+MonOpenQubeTt=Open forensic workspace
+#XTOL : Monitoring Page UI
+MonOpenAlertTt=Show alerts
+#XFLD : Monitoring Page UI
+MonMyInvestVeryHighOpen=Open Very High:
+#XMSG : Monitoring Page UI
+MonInvalidValueBetween=Enter a value between {0} and {1}
+#XMSG : Monitoring Page UI
+MonErrorTitle=Error
+#XMSG : Monitoring Page UI
+MonErrorName=Name "{0}" has wrong format\nIt can not be empty
+#XTIT : Monitoring Page UI
+MonInvalidValue=Invalid Value
+#XFLD : Monitoring Page UI
+MonType=Type
+#XMSG : Monitoring Page UI
+MonSelectFirst=Select an entry first
+#XCOL : Monitoring Page UI
+MonNamespace=Namespace
+#XFLD : Monitoring Page UI
+MonChartRowCount=Number of Rows
+#XFLD : Monitoring Page UI
+MonConfiguration=Configuration
+#XBUT : Monitoring Page UI
+MonDeleteConfiguration=Delete
+#XTXT: Monitoring Page UI
+MonCfgDeleted=Configuration {0} {1} deleted
+#XTXT : Monitoring Page UI
+MonCantBeDeleted=Objects in Namespace {0} must not be changed
+#XBUT : Monitoring Page UI
+MonSaveAs=Save As...
+#XTXT : Monitoring Page UI
+MonLoading=Loading...
+#XCOL : Monitoring Page UI
+MonChangedBy=Changed By
+#XTOL : Monitoring Page UI
+MonOpenInvTt=Show investigations
+#XTXT: Monitoring Page UI
+MonDelReally=Do you really want to delete the configuration {0} {1}?
+#XFLD : Monitoring Page UI
+MonDefaultCfg=Is Default Configuration
+#XTXT : Monitoring Page UI
+MonDuplicateName=A configuration with name {0} and namespace {1} already exists
+#XTXT : Monitoring Page UI
+MonError=Error
+#XTXT : Monitoring Page UI
+MonWarning=Warning
+#XTXT : Monitoring Page UI
+MonSuccess=Success
+#XTXT : Monitoring Page UI
+MonInfo=Information
+#XTOL : Monitoring Page UI
+MonConfigurationTt=Name of currently selected configuration
+#XTXT : Monitoring Page UI
+MonAlertNotExist=Alert with Id {0} does not exist
+#XFLD: Monitoring Page UI
+MonExportConfig=Export
+#XTXT : Monitoring Page UI
+MonCfgFavorited=Monitoring Page with name {0} and namespace {1} has been saved as personal favorite
+#XTXT : Monitoring Page UI
+MonCfgUnfavorited=Monitoring Page with name {0} and namespace {1} is no longer your personal favorite
+#XTOL : Monitoring Page UI
+MonFavoriteTt=Click to store as personal favorite page
+#XTOL : Monitoring Page UI
+MonMinute=Minute
+#XTOL : Monitoring Page UI
+MonHour=Hour
+#XTOL : Monitoring Page UI
+MonDay=Day
+#XTOL : Monitoring Page UI
+MonWeek=Week
+#XTOL : Monitoring Page UI
+MonMonth=Month
+#XTOL : Monitoring Page UI
+MonLast=Last
+
+#XTIT:Mobile Full Screen Pattern UI
+MPatternFS_title=Patterns
+#XCOL:Mobile Full Screen Pattern UI
+MPatternFS_name=Name
+#XCOL:Mobile Full Screen Pattern UI
+MPatternFS_nameSpace=Name Space
+#XCOL:Mobile Full Screen Pattern UI
+MPatternFS_description=Description
+#XCOL:Mobile Full Screen Pattern UI
+MPatternFS_openAlerts=Open Alerts
+
+
+#XLBL: Bookmark
+MBookmark_InvestXLBL=Investigations
+
+#XTIT: AlertEmail
+AlertEmail_XTIT=Send Email
+#XTIT: Print
+Print_XTIT=Print
+#XMSG: AlertEmail
+AlertEmail_SubjectXMSG=Alert List
+#XMSG: AlertEmail
+AlertEmail_BodyXMSG=View the Alert List with the URL below.
+
+#XTIT: InvestigationEmail
+InvestigationEmail_XTIT=Send Email
+#XMSG: Investigation Email
+InvestEmail_Subject=Investigation List
+#XMSG: Investigation Email
+InvestEmail_Body=View the Investigation List with the URL below.
+#XMSG: Investigation Email
+Invest1Email_Subject=Investigation {0}
+#XMSG: Investigation Email
+Invest1Email_Body=View the Investigation {0} with the URL below.
+
+#XTIT
+Interpret_SelectRel=Select Relevance
+#XTIT
+Interpret_Details=Details
+#XBUT
+Interpret_Help=Help
+#XTXT: Log Interpretation UI
+Interpret_Header=Log Learning
+#XTXT: Log Interpretation UI
+Interpret_HeaderBrowserTab=Log Learning
+#XCOL: Log Interpretation UI
+Interpret_CreatedTS=Created At
+#XCOL: Log Interpretation UI
+Interpret_CreatedBy=Created By
+#XCOL: Log Interpretation UI
+Interpret_RunName=Run Name
+#XCRD: Log Interpretation UI
+Interpret_Runs=Runs ({0})
+#XBUT: Log Interpretation UI
+Interpret_CreateRun=Create
+#XBUT: Log Interpretation UI
+Interpret_DeleteRun=Delete
+#XCOL: Log Interpretation UI
+Interpret_Description=Description
+#XCOL: Log Interpretation UI
+Interpret_ChangedBy=Changed By
+#XCOL: Log Interpretation UI
+Interpret_ChangedTS=Changed At
+#XCRD: Log Interpretation UI
+Interpret_StgEntryType=Entry Types
+#XLBL: Log Interpretation UI
+Interpret_AllEntryTypes=All Entry Types
+#XLBL: Log Interpretation UI
+Interpret_EntryType=Entry Type {0}
+#XCOL: Log Interpretation UI
+Interpret_LogTypeName=Log Type
+#XCOL: Log Interpretation UI
+Interpret_LogTypeNspace=Log Type Namespace
+#XCOL: Log Interpretation UI
+Interpret_Markup=Markup
+#XCOL: Log Interpretation UI
+Interpret_Regex=Regex
+#XCOL: Log Interpretation UI
+Interpret_CustRegex=Custom Regex
+#XCOL: Log Interpretation UI
+Interpret_Status=Status
+#XCOL: Log Interpretation UI
+Interpret_Event=Target Event
+#XCOL: Log Interpretation UI
+Interpret_actStatus=Activatable/Activated/Productive
+#XCOL: Log Interpretation UI
+Interpret_EventNS=Event Namespace
+#XCOL: Log Interpretation UI
+Interpret_Hits=Hits
+#XCOL: Log Interpretation UI
+Interpret_AnnotationType=Source Annotation
+#XCOL: Log Interpretation UI
+Interpret_AttrName=Target Attribute
+#XCOL: Log Interpretation UI
+Interpret_AttrNames=Target Attributes
+#XCOL: Log Interpretation UI
+Interpret_Pattern=Pattern
+#XFLD: Log Interpretation UI
+Interpret_MarkupEffect=Markup Hits
+#XCOL: Log Interpretation UI
+Interpret_Role=Role
+#XCOL: Log Interpretation UI
+Interpret_Entity=Entity
+#XCOL: Log Interpretation UI
+Interpret_OriginalData=Original Data
+#XCOL: Log Interpretation UI
+Interpret_LineNumber=Line Number
+#XCOL: Log Interpretation UI
+Interpret_Value=Value
+#XCOL: Log Interpretation UI
+Interpret_Match=Match
+#XBUT: Log Interpretation UI
+Interpret_Create=Create
+#XBUT: Log Interpretation UI
+Interpret_Close=Close
+#XMSG: Log Interpretation UI
+Interpret_UplSuc=Upload Success
+#XMSG: Log Interpretation UI
+Interpret_UplErr=Upload Error
+#XMSG: Log Interpretation UI
+Interpret_FileTooBig=File size exceeded
+#XTOL: Log Interpretation UI
+Interpret_RegexJava=Enter a Regular Expression (Java flavour). When in doubt, validate the RegEx in a RegEx tool for Java.
+#XMSG: Log Interpretation UI
+Interpret_RegexNoM=Regular Expression does not match.
+#XMSG: Log Interpretation UI
+Interpret_RegexNoGr=The regular expression matches but does not contain a RegEx group.\n\rValue extraction is not possible without it.
+#XMSG: Log Interpretation UI
+Interpret_noAttrTrgt=Value "{0}" must be assigned to a target attribute.
+#XMSG: Log Interpretation UI
+Interpret_noOrigData=Original data are not available if the entry type has been created manually.
+#XMSG: Log Interpretation UI
+Interpret_FileTypeWrong=Wrong File Type
+#XMSG: Log Interpretation UI
+Interpret_FileTooBigText=File {0} is of size {1} MB which exceeds the file size limit of {2} MB
+#XMSG: Log Interpretation UI
+Interpret_FileTypeWrongTxt=Select a file with file name extension .txt or .log
+#XMSG: Log Interpretation UI
+Interpret_EnterAllFields=Enter all required fields
+#XMSG: Log Interpretation UI
+Interpret_MissingInfo=Missing Information
+#XFLD: Log Interpretation UI
+Interpret_File=File
+#XMSG: Log Interpretation UI
+Interpret_UploadSuc=Run {0} created. File has been uploaded. Now processing discovery phase
+#XBUT: Log Interpretation UI
+Interpret_Save=Save
+#XLBL: Log Interpretation UI
+Interpret_CloneEntryType=Clone Entry Type
+#XBUT: Log Interpretation UI
+Interpret_Clone=Clone
+#XLBL: Log Interpretation UI
+Interpret_prependAnno=Prepended Header
+#XLBL: Log Interpretation UI
+Interpret_origMarkup=Original Markup
+#XMSG: Log Interpretation UI
+Interpret_cloneMsg=Create the new markup by inserting an additional header before the original markup
+#XTOL: Log Interpretation UI
+Interpret_SaveTt=Saves the run with its current settings in the staging area
+#XMSG: Log Interpretation UI
+Interpret_SaveSuc=Run {0} saved. Please, activate the run to get the changes in runtime rules.
+#XMSG: Log Interpretation UI
+Interpret_SaveErr=Using multiple regexes in one condition is not supported
+#XMSG: Log Interpretation UI
+Interpret_DelSuc=Run {0} deleted
+#XMSG: Log Interpretation UI
+Interpret_DelErr=Error when trying to delete run {0}: {1}
+#XMSG: Log Interpretation UI
+Interpret_SelectARun=Select at least one run
+#XMSG: Log Interpretation UI
+Interpret_DelReally=Do you really want to delete the selected runs?\n\nPlease note: This will also delete the corresponding productive rules
+#XBUT : Log Interpretation UI
+Interpret_Activate=Activate
+#XTOL : Log Interpretation UI
+Interpret_ActivateTt=Generates the staging runtime rules used for data extraction
+#XCOL : Log Interpretation UI
+Interpret_Id=Id
+#XCOL : Log Interpretation UI
+Interpret_CustIdent=Custom Identifying RegEx
+#XBUT : Log Interpretation UI
+Interpret_TestRun=Test Run
+#XTOL : Log Interpretation UI
+Interpret_TestRunTt=Tests the run
+#XCRD : Log Interpretation UI
+Interpret_StgLog=Test Results
+#XCOL : Log Interpretation UI
+Interpret_SystemType=System Type
+#XCOL : Log Interpretation UI
+Interpret_SystemId=System ID
+#XCOL : Log Interpretation UI
+Interpret_User=User
+#XCOL : Log Interpretation UI
+Interpret_TCode=Transaction Code
+#XCOL : Log Interpretation UI
+Interpret_Report=Report
+#XCOL : Log Interpretation UI
+Interpret_LogType=Source Log Type
+#XTIT : Log Interpretation UI
+Interpret_LogTIT=Source Logs
+#XCOL : Log Interpretation UI
+Interpret_TerminalId=Terminal ID
+#XCOL : Log Interpretation UI
+Interpret_ERPRootContextId=ERP Root Context Id
+#XCOL : Log Interpretation UI
+Interpret_InstanceName=Instance Name
+#XCOL : Log Interpretation UI
+Interpret_EventId=Event Id
+#XCOL : Log Interpretation UI
+Interpret_TargetSystemType=Target System Type
+#XCOL : Log Interpretation UI
+Interpret_TargetSystemId=Target System Id
+#XCOL : Log Interpretation UI
+Interpret_TargetUser=Target User
+#XCOL : Log Interpretation UI
+Interpret_EntryTypeId=Technical Entry Type Id
+#XCOL : Log Interpretation UI
+Interpret_ExtractedETId=Log Entry Type
+#XCOL : Log Interpretation UI
+Interpret_DetailName=Name
+#XCRD : Log Interpretation UI
+Interpret_Docu=Documentation
+#XMSG : Log Interpretation UI
+Interpret_ActivateSuc=Activation of run {0} started
+#XMSG : Log Interpretation UI
+Interpret_Conflicts=Activation found possible conflicts
+#XMSG : Log Interpretation UI
+Interpret_OpenKBTt=Open Knowledge Base UI
+#XTOL : Log Interpretation UI
+Interpret_OpenFLTt=Open Forensic Lab UI in separate window
+#XBUT : Log Interpretation UI
+Interpret_AssignLogType=Assign Log Type
+#XTOL : Log Interpretation UI
+Interpret_AssignLogTypeTt=Assign a log type to all selected staging entry types
+#XMSG : Log Interpretation UI
+Interpret_SelStgType=Select at least one staging entry type
+#XBUT : Log Interpretation UI
+Interpret_ResetRun=Reset
+#XTOL : Log Interpretation UI
+Interpret_ResetRunTt=Reset your changes in the run (discard assignments of events to log entry types etc, discard assignments of annotations to event attributes, ...)
+#XTOL : Log Interpretation UI
+Interpret_nonAct1=Assign an event if you want to activate the entry type.
+#XTOL : Log Interpretation UI
+Interpret_nonAct2=Assign an event attribute if you want to activate the entry type. Alternatively, set the event to "<IgnoreData>" or "<OriginalDataOnly>".
+#XTOL : Log Interpretation UI
+Interpret_nonAct3=Activation of the entry type is not possible due to conflicts with existing runtime rules.
+#XTXT : Log Interpretation UI
+Interpret_ResetReally=Do you really want to discard the changes of run {0}?
+#XTXT : Log Interpretation UI
+Interpret_ResetRunSuc=Changes in run {0} discarded
+#XBUT : Log Interpretation UI
+Interpret_Refresh=Refresh
+#XTXT : Log Interpretation UI
+Interpret_RefreshSuc=List of runs refreshed
+#XTXT : Log Interpretation UI
+Interpret_RefreshTt=Refreshes the list of runs
+#XTXT : Log Interpretation UI
+Interpret_DuplAttrAssi= In entry type "{0}", multiple values have been assigned to the same attribute(s)
+#XTXT : Log Interpretation UI
+Interpret_mismatchAssi= In entry type "{0}", values have been assigned to non-compatible attribute(s)
+#XTXT : Log Interpretation UI
+Interpret_mismatchValue= Value of "{0}" is not compatible with attribute "{1}" of type "{2}"
+#XBUT : Log Interpretation UI
+Interpret_UpdateRTRules=Publish
+#XTOL : Log Interpretation UI
+Interpret_UpdateRTRulesTt=Publishes the staging runtime rules to Smart Data Streaming Adapter
+#XTXT : Log Interpretation UI
+Interpret_UpdateRTRulesSuc=Staging runtime rules of run {0} published to Smart Data Streaming
+#XTXT : Log Interpretation UI
+Interpret_RegexSuc=Regex generation for run {0} started
+#XCOL : Log Interpretation UI
+Interpret_CommandType=Phase
+#XBUT : Log Interpretation UI
+Interpret_MoveToProd=Copy to Productive
+#XTOL : Log Interpretation UI
+Interpret_MoveToProdTt=Copy runtime rules from staging to productive
+#XTXT : Log Interpretation UI
+Interpret_MoveToProdSuc=Runtime rules of run {0} copied to productive
+#XTXT : Log Interpretation UI
+Interpret_ErrorDb=Database error occurred: {0}
+#XTXT : Log Interpretation UI
+Interpret_Refreshed=Run refreshed
+#XTXT : Log Interpretation UI
+Interpret_TestSuc=Test for run {0} started
+#XBUT : Log Interpretation UI
+Interpret_RemFromProd=Remove from Productive
+#XTOL : Log Interpretation UI
+Interpret_RemFromProdTt=Removes the runtime rules from productive
+#XTXT : Log Interpretation UI
+Interpret_RemFromProdSuc=Runtime rules of run {0} removed from productive
+#XBUT : Log Interpretation UI
+Interpret_SyncESP=Synchronize SDS
+#XTOL : Log Interpretation UI
+Interpret_SyncESPTt=Synchronize staging and productive runtime rules with Smart Data Streaming
+#XTIT : Log Interpretation UI
+Interpret_KB=Knowledge Base
+#XTIT : Log Interpretation UI
+Interpret_FL=Forensic Lab
+#XTXT : Log Interpretation UI
+Interpret_SyncESPSuc=Synchronization of runtime rules with Smart Data Streaming started
+#XCOL : Log Interpretation UI
+Interpret_HeaderId=Id
+#XCOL : Log Interpretation UI
+Interpret_MessageText=Message Text
+#XCOL : Log Interpretation UI
+Interpret_ShortMessage=Message Text
+#XCOL : Log Interpretation UI
+Interpret_Timestamp=Timestamp
+#XCOL : Log Interpretation UI
+Interpret_MessageId=Message ID
+#XCOL : Log Interpretation UI
+Interpret_MessageNumber=Message Number
+#XCOL : Log Interpretation UI
+Interpret_MessageType=Message Type
+#XCOL : Log Interpretation UI
+Interpret_MessageV1=Message V1
+#XCOL : Log Interpretation UI
+Interpret_MessageV2=Message V2
+#XCOL : Log Interpretation UI
+Interpret_MessageV3=Message V3
+#XCOL : Log Interpretation UI
+Interpret_MessageV4=Message V4
+#XCOL : Log Interpretation UI
+Interpret_DetailId=Detail ID
+#XCOL : Log Interpretation UI
+Interpret_InsertTimestamp=Insert Timestamp
+#XTIT : Log Interpretation UI
+Interpret_SelectEvent=Select Event
+#XTIT : Log Interpretation UI
+Interpret_SelectAttr=Select Attribute
+#XTXT : Log Interpretation UI
+Interpret_MoreThan1Event=More than one event with name {0} found. Selected event with namespace {1}"
+#XBUT : Log Interpretation UI
+Interpret_Ok=Ok
+#XBUT : Log Interpretation UI
+Interpret_Cancel=Cancel
+#XCOL : Log Interpretation UI
+Interpret_StgRunRules=Runtime Rules
+#XCOL : Log Interpretation UI
+Interpret_Brancher=Algorithm
+#XCOL : Log Interpretation UI
+Interpret_BrancherNS=Algorithm Namespace
+#XCOL : Log Interpretation UI
+Interpret_Result=Parameters
+#XCOL : Log Interpretation UI
+Interpret_ResultIndex=Parameters Index
+#XCOL : Log Interpretation UI
+Interpret_Number=Number
+#XCOL : Log Interpretation UI
+Interpret_GroupName=Group Name
+#XCOL : Log Interpretation UI
+Interpret_TableName=Table
+#XCOL : Log Interpretation UI
+Interpret_FieldName=Field
+#XCOL : Log Interpretation UI
+Interpret_IndFieldName=Indicator Field Name
+#XCOL : Log Interpretation UI
+Interpret_IndFieldValue=Indicator Field Value
+#XTXT : Log Interpretation UI
+Interpret_Activation=Activation
+#XTXT : Log Interpretation UI
+Interpret_Discovery=Discovery
+#XTXT : Log Interpretation UI
+Interpret_Synchronization=Synchronization
+#XTXT : Log Interpretation UI
+Interpret_Testing=Testing
+#XCOL : Log Interpretation UI
+Interpret_Identifier=Identifiying Key
+#XTXT : Log Interpretation UI
+Interpret_IdNotAllowed=Annotations of type "{0}" are not allowed to be chosen as identifying key.\nChoose one or multiple annotations of type "Key"
+#XCOL : Log Interpretation UI
+Interpret_ProdRules=Productive Rules
+#XTXT : Log Interpretation UI
+Interpret_Running=Running ({0} minutes)
+#XTXT : Log Interpretation UI
+Interpret_WaitSDS=Waiting for SDS ({0} minutes)
+#XTXT : Log Interpretation UI
+Interpret_WaitStart=Waiting to start ({0} minutes)
+#XTOL : Log Interpretation UI
+Interpret_WaitSDSTOL=Waiting for SDS to pick up task ({0} minutes)
+#XTOL : Log Interpretation UI
+Interpret_WaitStartTOL=Waiting for SDS to start task ({0} minutes)
+#XTIT : Token Dialog UI
+Interpret_TokenDetail=Token Details
+#XFLD : Token Dialog UI
+Selected_Anootation_Type=Selected type
+#XFLD : Token Dialog UI
+Item_Word=Word
+#XFLD : Token Dialog UI
+Item_Annotation=Annotation
+#XFLD : Token Dialog UI
+Insert_Annotation=Insert annotation
+#XFLD : Token Dialog UI
+Annotation_Before_token=Insert New Token Before Selected
+#XFLD : Token Dialog UI
+Annotation_After_token=Insert New Token After Selected
+#XFLD : Token Dialog UI
+Annotation_ChangePattern=Change Pattern
+#XFLD : Token Dialog UI
+Annotation_ChangeType=Change Type
+#XFLD : Token Dialog UI
+Annotation_ChangeValue=Change Value
+#XFLD : Token Dialog UI
+Annotation_text=Annotation text
+#XBUT : Token Dialog UI
+Button_Accept=Accept
+#XFLD : Token Dialog UI
+Change_annotation=Change Annotation
+#XFLD : Token Dialog UI
+Reset_annotation=Reset Annotation
+#XTIT : Token Dialog UI
+Title_change_annotation=Change Annotation
+#XTOL: Token Dialog UI
+TOL_Default_Annotation=Return default value
+#XFLD : Token Dialog UI
+Submit_annotation=Submit
+#XFLD : Token Dialog UI
+Default_annotation=Default
+#XFLD : Token Dialog UI
+Cancel_annotation=Cancel
+#XFLD : Token Dialog UI
+Text_annotation=Text
+#XFLD : Token Dialog UI
+Pattern_annotation=Pattern
+#XTXT : Log Interpretation UI
+Interpret_Successful=Successful
+#XTXT : Log Interpretation UI
+Interpret_Open=Open
+#XTXT : Log Interpretation UI
+Interpret_InProcess=In Process
+#XTXT : Log Interpretation UI
+Interpret_Error=Error
+#XCOL : Log Interpretation UI
+Interpret_Annotations=Annotations
+#XCOL : Log Interpretation UI
+Interpret_Annotation=Annotation
+#XCOL : Log Interpretation UI
+Interpret_ValMap=Value Mapping
+#XTXT : Log Interpretation UI
+Interpret_Unknown=Unknown
+#XCOL : Log Interpretation UI
+Interpret_Priority=Priority
+#XCOL : Log Interpretation UI
+Interpret_Operator=Operator
+#XCOL : Log Interpretation UI
+Interpret_Operand1=Operand 1
+#XCOL : Log Interpretation UI
+Interpret_Operand2=Operand 2
+#XCOL : Log Interpretation UI
+Interpret_TargetValue=Value Expression
+#XTOL : Log Interpretation UI
+Interpret_TargetValueTOL=The Value Expression contains the value(s) to be assigned to the Target Attribute.\nThe expression can contain variables (e.g. variable "Var1"). Its value is referenced via "?Var1". 
+#XCOL : Log Interpration UI
+Interpret_MappingRule=Mapping Rule
+#XCOL : Log Interpretation UI
+Interpret_Condition=Rule
+#XFLD : Log Interpretation UI
+Interpret_MappingRules=Rule Groups
+#XFLD : Log Interpretation UI
+Interpret_Source=Conditions
+#XTIT : Log Interpretation UI
+Interpret_ExtrParam=Extraction Parameters
+#XFLD : Log Interpretation UI
+Interpret_Target=Triggered Assignments
+#XTXT : Log Interpretation UI
+Interpret_NonIdentKey=The selected identifying keys are not identifying as all keys are contained in a different log entry type (ID ={0})
+#XFLD : Log Interpretation UI
+Interpret_MapRule=Rule Group
+#XBUT : Log Interpretation UI
+Interpret_CreateRule=Create Rule Group
+#XTOL : Log Interpretation UI
+Interpret_CreateRuleTOL=You need to create Rule Group in order to create a rule. A rule group is used to group rules together.
+#XBUT : Log Interpretation UI
+Interpret_CreateCond=Create Rule
+#XTOL : Log Interpretation UI
+Interpret_CreateCondTOL=Create Rule: A rule describes an action (value mapping) that is executed if a condition is satisfied.
+#XBUT : Log Interpretation UI
+Interpret_DelRule=Delete Rule Group
+#XBUT : Log Interpretation UI
+Interpret_DelCond=Delete Rule
+#XTXT : Log Interpretation UI
+Interpret_SelectEntryType=Select the log entry type you need to save
+#XTX : Log Interpretation UI
+Interpret_SaveChanges=Save Changes
+#XTX : Log Interpretation UI
+Interpret_SaveChangesQ=Do you want to save your changes?
+#XFLD : Log Interpretation UI
+Interpret_Progress=Progress
+#XCOL : Log Interpretation UI
+Interpret_UseType=Use Type
+#XCOL : Log Interpretation UI
+Interpret_ExtractType=Extraction Type
+#XTXT : Log Interpretation UI
+Interpret_Extraction=Extraction
+#XLBL : Log Interpretation UI
+Interpret_IdentExtr=Identification & Extraction
+#XCOL : Log Interpretation UI
+Interpret_IPAddr=IP Address
+#XCOL : Log Interpretation UI
+Interpret_SubnetId=Subnet ID
+#XCOL : Log Interpretation UI
+Interpret_MacAddr=MAC Address
+#XCOL : Log Interpretation UI
+Interpret_Hostname=Hostname
+#XCOL : Log Interpretation UI
+Interpret_TargetIPAddr=Target IP Address
+#XCOL : Log Interpretation UI
+Interpret_TargetSubnetId=Target Subnet ID
+#XCOL : Log Interpretation UI
+Interpret_TargetMacAddr=Target MAC Address
+#XCOL : Log Interpretation UI
+Interpret_TargetHostname=Target Hostname
+#XCOL : Log Interpretation UI
+Interpret_ReportSysType=Reporting System Type
+#XCOL : Log Interpretation UI
+Interpret_ReportSyst=Reporting System
+#XCOL : Log Interpretation
+Interpret_SourceName=Source Name
+#XFLD : Log Interpretation UI
+Interpret_NP=Not covered by pattern
+#XFLD : Log Interpretation UI
+Interpret_CP=Covers pattern
+#XFLD : Log Interpretation UI
+Interpret_BT=Between
+#XFLD : Log Interpretation UI
+Interpret_IN=In
+#XFLD : Log Interpretation UI
+Interpret_RX=Regex
+#XFLD : Log Interpretation UI
+Interpret_MG=Merge
+#XTOL : Log Interpretation UI
+Interpret_ETInCurrRun=Entry type is defined in current run
+#XTOL : Log Interpretation UI
+Interpret_ETInDiffRun=Entry type is defined in different run {0}
+#XTOL : Log Interpretation UI
+Interpret_ETInProdRule=Entry type is defined in productive rule
+#XTXT : Log Interpretation UI
+Interpret_NoMatch=not matched
+#XTXT : Log Interpretation UI
+Interpret_MatchProdRule=matched in productive rule
+#XTXT : Log Interpretation UI
+Interpret_MatchCurrRun=matched with entry type {0} in current run
+#XTXT : Log Interpretation UI
+Interpret_MatchDiffRun=matched with entry type {0} in run "{1}"
+#XTXT : Log Interpretation UI
+Interpret_PMatchDiffRun=would potentially match with entry type {0} in run "{1}" (provided the entry type were activated)
+#XTXT : Log Interpretation UI
+Interpret_CurrRun=current run
+#XTOL : Log Interpretation UI
+Interpret_ExtractedET=Log Entry Type in Log Event
+#XTXT : Log Interpretation UI
+Interpret_TestResFrom=Test Result From: {0}
+#XLBL : Log Interpretation UI
+Interpret_ZombieLBL=SDS Run has not returned after {0} min.
+#XLBL : Log Interpretation UI
+Interpret_ZombieTIT=Potential Zombie
+#XTOL : Log Interpretation UI
+Interpret_ZombieTOL=Potential zombie process: A process on SDS has not returned after {0} minutes.
+#XMSG : Log Interpretation UI
+Interpret_ZombieMSG=A process on SDS has not returned for {0} minutes. Decide if you want to reset the run status (on your own risk).
+#XBUT : Log Interpretation UI
+Interpret_ResetBUT=Reset
+#XMSG : Log Interpretation UI
+Interpret_ResetSuccess=Reset was successful
+#XTOL : Log Interpretation UI
+Interpret_ShowValues=Show distinct values for the selected annotation
+#XMSG : log Interpretation UI
+Interpret_chMarkup=Markup has been edited, it does not match original data.\nOriginal Markup:\n{0}\nEdited Markup:\n{1}
+#XMSG : log Interpretation UI
+Interpret_unchMarkup=Markup has not been edited, it does match original data.
+#XTOL : log Interpretation UI
+Interpret_probKey=The key is problematic, it is not contained in all log samples. If this key is checked as "Identifying Key", some log samples might not match in a test run.
+#XCOL : Log Interpretation UI
+Interpret_UnrecLogs=Unrecognized Logs
+#XCOL : Log Interpretation UI
+Interpret_ConstVal=Constant Values
+#XBUT : Log Interpretation UI
+Interpret_ExportRun=Export
+#XBUT : Log Interpretation UI
+Interpret_ImportRun=Import
+#XTOL : Log Interpretation UI
+Interpret_ExportRunTt=Export selected run to file
+#XTOL : Log Interpretation UI
+Interpret_ImportRunTt=Import run from file
+#XBUT: Log Interpretation UI
+Interpret_Import=Import
+#XMSG: Log Interpretation UI
+Interpret_ImportSuc=Run from file {0} imported
+#XBUT : Log Interpretation UI
+Interpret_DownloadLog=Download Log File
+#XTOL : Log Learning UI
+Interpret_DownloadLogTt=Download the log file of the selected run
+#XBUT : Log Interpretation UI
+Interpret_DownloadRun=Download Run
+#XTOL : Log Learning UI
+Interpret_DownloadRunTt=Download the selected run (incl. sample data)
+#XBUT : Log Interpretation UI
+Interpret_UploadRun=Upload Run
+#XTOL : Log Learning UI
+Interpret_UploadRunTt=Upload a run from file
+#XTOL : Log Learning UI
+Interpret_Protocol=Protocol
+#XTOL : Log Learning UI
+Interpret_RunParam=Run Parameters
+#XCOL : Log Learning UI
+Interpret_Step=Step
+#XCOL : Log Learning UI
+Interpret_Message=Message
+#XCOL : Log Learning UI
+Interpret_Username=Username
+#XTIT : Log Learning UI
+Interpret_RegexResult=Regex Result
+#XTIT : Log Learning UI
+Interpret_DistVal=Distinct Values for Annotation "{0}"
+#XBUT: Log Learning UI
+Interpret_SimRegex=Simulate Regex
+#XTOL: Log Learning UI
+Interpret_TestRegex=Test Extraction of Regex Groups
+#XBUT: Log Learning UI
+Interpret_Delete=Delete
+#XBUT: Log Learning UI
+Interpret_CreateCondition=Create new condition
+#XBUT: Log Learning UI
+Interpret_DeleteCondition=Deletes selected conditions
+#XBUT: Log Learning UI
+Interpret_ShowVal=Show Values
+#XBUT: Log Learning UI
+Interpret_CreateTarget=Create new value mapping action
+#XBUT: Log Learning UI
+Interpret_DeteleTarget=Deletes selected value mapping actions
+#XTXT: Log Learning UI
+Interpret_RxGroupVal=Group {0}: {1}
+#XTOL : Log Learning UI
+Interpret_ExportPrdRulTt=Exports all productive rules belonging to the selected log type
+#XBUT : Log Learning UI
+Interpret_ExportPrdRul=Export Rules
+#XTXT : Log Learning UI
+Interpret_ExpPrdReally=Do you want to export all productive rules of log type {0} {1}
+#XTOL : Log Learning UI
+Interpret_DownPrdRulTt=Download all productive rules belonging to the selected log type in JSON format
+#XBUT : Log Learning UI
+Interpret_DownPrdRul=Download Rules
+#XTOL : Log Learning UI
+Interpret_UpPrdRulTt=Upload productive rules belonging to a certain log type from a JSON file
+#XBUT : Log Learning UI
+Interpret_UpPrdRul=Upload Rules
+#XTXT : Log Learning UI
+Interpret_UplPrdReally=Do you really want to upload productive rules from a file?\n\nPlease note: This will delete and import all productive rules belonging to the imported log type
+#XTXT : Log Learning UI
+Interpret_UplPrdSuc=Upload of productive rules of log type {0} {1} successful
+#XTXT : Log Learning UI
+Interpret_SaveFirst=You have unsaved changes. Please save first
+#XCOL : Log Learning UI
+Interpret_IsProd=Productive Rule
+#XCOL: Log Learning UI
+Interpret_TecExtype=Technical Extraction Type
+#XTXT : Log Learning UI
+Interpret_SAttrInvalid=Semantic attribute does not exist
+#XTXT : Log Learning UI
+Interpret_SAttrUsed=Semantic attribute already used
+#XFLD : Log Learning UI
+Interpret_STSep=Separator
+#XFLD : Log Learning UI
+Interpret_IsST=Log Layout
+#XFLD : Log Learning UI
+Interpret_KVSep=Key Value Separator
+#XFLD : Log Learning UI
+Interpret_KVPSep=Key Value Pair Separator
+#XMSG: Log Interpretation UI
+Interpret_RunsDelSuc=Runs deleted
+#XCOL : Log Learning UI
+#XRBL : Log Learning UI
+Interpret_FreeText=Free Text/JSON
+#XRBL : Log Learning UI
+Interpret_KeyValue=Key-Value
+#XRBL : Log Learning UI
+Interpret_Structured=Structured List
+Interpret_Group=Name
+#XFLD : Log Learning UI
+Interpret_CreateGroup=Create Building Block
+#XFLD : Log Learning UI
+Interpret_AddGroup=Add Building Block
+#XFLD : Log Learning UI
+Interpret_Name=Name
+#XFLD : Log Learning UI
+Interpret_Namespace=Namespace
+#XTXT : Log Learning UI
+Interpret_GrpCreated=Building Block {0} {1} created
+#XTOL : Log Learning UI
+Interpret_CreateGrpTt=Creates a new constant value building block from the selected constant values below
+#XTOL : Log Learning UI
+Interpret_DateFormat=Mandatory fields of a timestamp format are: Year(yyyy), Month(MM), Day(d), hours(H or h), minutes(mm), and seconds(ss). Alternatively, "ISO" can be entered for ISO-8601 standard, "U" and "UM" can be entered for Unix Time (in seconds or milliseconds, respectively).
+#XTXT : Log Learning UI
+Interpret_GrpAdded=Building Block {0} {1} added
+#XTOL : Log Learning UI
+Interpret_AddGrpTt=Adds an existing constant value building block to the below list
+#XTXT: Log Interpretation UI
+Interpret_UnrecHeader=Unrecognized Logs
+#XTOL: Log Interpretation UI
+Interpret_CreateRunTt=Create new run from the selected unrecognized logs
+#XCOL: Log Interpretation UI
+Interpret_Level=Level
+#XCOL: Log Interpretation UI
+Interpret_LoggerName=Logger Name
+#XCOL: Log Interpretation UI
+Interpret_ThreadName=Thread Name
+#XCOL: Log Interpretation UI
+Interpret_Location=Location
+#XTIT: Log Interpretation UI
+Interpret_Trace=Trace
+#XTIT : Log Interpretation UI
+Interpret_TimeRange=Time Range Selection
+#XFLD : Log Interpretation UI
+Interpret_RelTime=Relative Time
+#XFLD : Log Interpretation UI
+Interpret_TimeFrom=Time From
+#XFLD : Log Interpretation UI
+Interpret_TimeTo=Time To
+#XFLD : Log Interpretation UI
+Interpret_All=(All)
+#XFLD : Log Interpretation UI
+Interpret_Warn=Warn
+#XFLD : Log Interpretation UI
+Interpret_Info=Info
+#XFLD : Log Interpretation UI
+Interpret_Debug=Debug
+#XTIT : Log Interpretation UI
+Interpret_Blocks=Building Blocks
+#XTIT : Log Interpretation UI
+Interpret_General=General
+#XFLD : Log Interpretation UI
+Interpret_Fatal=Fatal
+#XFLD : Log Interpretation UI
+Interpret_Add=Add
+#XFLD : Log Interpretation UI
+Interpret_Remove=Remove
+#XTXT : Log Interpretation UI
+Interpret_BBDeleted=Building blocks deleted
+#XCOL : Log Interpretation UI
+Interpret_UsedInRun=Used In Runs
+#XMSG: Log Interpretation UI
+Interpret_DelBBReally=Do you really want to delete the selected building blocks?
+#XMSG : Log Interpretation UI
+Interpret_BBSaved=Building block saved
+#XMSG : Log Interpretation UI
+Interpret_EmptyBBError=Empty building blocks are not possible.\n\nDelete the whole building block if you no longer need it.
+#XMSG : Log Interpretation UI
+Interpret_SelectAnAttr=Select an attribute
+#XFLD : Log Interpretation UI
+Interpret_StageStatus=Staging Status
+#XFLD : Log Interpretation UI
+Interpret_ProdStatus=Productive Status
+#XFLD : Log Interpretation UI
+Interpret_InSync=In Sync
+#XFLD : Log Interpretation UI
+Interpret_OutOfSync=Out of Sync
+#XFLD : Log Interpretation UI
+Interpret_NotExist=Not Existing
+#XCOL : Log Interpretation UI
+Interpret_ESPInstanceId=Log Collector Name
+#XCOL : Log Interpretation UI
+Interpret_LCName=Log Collector Name
+#XCOL : Log Interpretation UI
+Interpret_SourceIP=Source IP
+#XCOL : Log Interpretation UI
+Interpret_OData=Original Data
+#XTXT : Log Interpretation UI
+Interpret_lastMinute=Last 1 minute
+#XTXT : Log Interpretation UI
+Interpret_last2Minutes=Last 2 minutes
+#XTXT : Log Interpretation UI
+Interpret_last5Minutes=Last 5 minutes
+#XTXT : Log Interpretation UI
+Interpret_last10Minutes=Last 10 minutes
+#XTXT : Log Interpretation UI
+Interpret_last15Minutes=Last 15 minutes
+#XTXT : Log Interpretation UI
+Interpret_last20Minutes=Last 20 minutes
+#XTXT : Log Interpretation UI
+Interpret_last25Minutes=Last 25 minutes
+#XTXT : Log Interpretation UI
+Interpret_last30Minutes=Last 30 minutes
+#XTXT : Log Interpretation UI
+Interpret_last35Minutes=Last 35 minutes
+#XTXT : Log Interpretation UI
+Interpret_last40Minutes=Last 40 minutes
+#XTXT : Log Interpretation UI
+Interpret_last45Minutes=Last 45 minutes
+#XTXT : Log Interpretation UI
+Interpret_last50Minutes=Last 50 minutes
+#XTXT : Log Interpretation UI
+Interpret_last55Minutes=Last 55 minutes
+#XTXT : Log Interpretation UI
+Interpret_lastHour=Last 1 hour
+#XTXT : Log Interpretation UI
+Interpret_last2Hours=Last 2 hours
+#XTXT : Log Interpretation UI
+Interpret_last8Hours=Last 8 hours
+#XTXT : Log Interpretation UI
+Interpret_lastDay=Last 1 day
+#XTXT : Log Interpretation UI
+Interpret_last2Days=Last 2 days
+#XTXT : Log Interpretation UI
+Interpret_lastWeek=Last 1 week
+#XTXT : Log Interpretation UI
+Interpret_lastMonth=Last 1 month
+#XTXT : Log Interpretation UI
+Interpret_lastYear=Last 1 year
+#XCOL : Log Interpretation UI
+Interpret_LogCollIP=Log Collector IP
+#XCOL : Log Interpretation UI
+Interpret_LogCollPort=Log Collector Port
+#XCOL : Log Interpretation UI
+Interpret_CharCount={0} characters
+#XLBL:  Log learning help menu
+Interpret_Overview=Overview of Log Learning
+#XLBL:  Log learning help menu
+Interpret_SemEvents=Semantic Events
+#XLBL:  Log learning help menu
+Interpret_SemAttrs=Semantic Attributes
+#XLBL:  Log learning help menu
+Interpret_ValueMap=Value Mapping
+#XLBL:  Log learning help menu
+Interpret_CheckSDS=Check SDS
+#XLBL:  Log learning help menu
+Interpret_CheckSDSTOL=Check Connection to SDS System
+#XCOL : Log Interpretation UI
+Interpret_ReasonCode=Reason
+#XCOL : Log Interpretation UI
+Interpret_ReasonDescription=Reason Description
+#XLBL : Log Interpretation UI
+Interpret_AllRuns=All Runs
+#XBUT: Productive Rules UI
+Interpret_DeleteRule=Delete Rules
+#XTOL: Productive Rules UI
+Interpret_DeleteRuleTt=Delete the selected productive runtime rules
+#XTXT : Productive Rules UI
+Interpret_DelRuleReally=Do you really want to delete the selected runtime rules?
+#XTXT : Productive Rules UI
+Interpret_RulesDelSuc=Productive runtime rules have been deleted successfully
+
+#XTIT : System Context UI
+SysCtx_Tab=System Context
+#XTXT : System Context UI
+SysCtx_Systems=Systems
+#XTIT : System Context UI
+SysCtx_SystemAddInfo=Further Details
+#XTIT : System Context UI
+SysCtx_SystemApplServers=Application Servers
+#XTIT : System Context UI
+SysCtx_LandSDB=Landscape and Database
+#XLBL : System Context UI
+SysCtx_SystemType=System Type
+#XLBL : System Context UI
+SysCtx_Role=Role
+#XLBL : System Context UI
+SysCtx_Status=Status
+#XLBL : System Context UI
+SysCtx_ChangedBy=Changed By
+#XLBL : System Context UI
+SysCtx_ChangedAt=Changed At
+#XCOL : System Context UI
+SysCtx_Value=Value
+#XLBL : System Context UI
+SysCtx_UsageType=Usage Type
+#XLBL : System Context UI
+SysCtx_Landscape=Landscape
+#XLBL : System Context UI
+SysCtx_LandscapeDescr=Landscape Description
+#XLBL : System Context UI
+SysCtx_DatabaseHost=Database Host
+#XLBL : System Context UI
+SysCtx_DatabaseType=Database Type
+#XLBL : System Context UI
+SysCtx_DatabaseVersion=Database Version
+#XLBL : System Context UI
+SysCtx_LineOfBusiness=Line of Business
+#XLBL : System Context UI
+SysCtx_BusContact=Business Contact
+#XLBL : System Context UI
+SysCtx_TechContact=Technical Contact
+#XLBL : System Context UI
+SysCtx_Name=Name
+#XLBL : System Context UI
+SysCtx_Telefon=Telephone Number
+#XLBL : System Context UI
+SysCtx_Email=EMail-Address
+#XLBL : System Context UI
+SysCtx_Confidentiality=Confidentiality
+#XLBL : System Context UI
+SysCtx_IntSystem=Integrity System
+#XLBL : System Context UI
+SysCtx_IntData=Integrity Data
+#XLBL : System Context UI
+SysCtx_Availability=Availability
+#XLBL : System Context UI
+SysCtx_Host=Host
+#XLBL : System Context UI
+SysCtx_OperSys=Operation System
+#XLBL : System Context UI
+SysCtx_OperSysVers=Operation System Version
+#XLBL : System Context UI
+SysCtx_KernelVers=Kernel Version
+#XLBL : System Context UI
+SysCtx_KernelPatchLevel=Kernel Patch Level
+#XLBL : System Context UI
+SysCtx_IPV4=IP Address V4
+#XBUT : System Context UI
+SysCtx_Save=Save changes
+#XLBL : System Context UI
+SysCtx_System=System
+#XCOL : System Context UI
+SysCtx_Attr=Attribute
+#XTIT : System Context UI
+SysCtx_SystGen=General
+#XTIT : System Context UI
+SysCtx_Contacts=Contacts
+#XTIT : System Context UI
+SysCtx_Bus_Sig=Business Significance
+#XBUT : System Context UI
+SysCtx_Reset=Reset changes
+#XTIT : System Context UI
+SysCtx_TechDetails=Technical Details
+#XLBL : System Context UI
+SysCtx_Loc=Location
+#XLBL : System Context UI
+SysCtx_ParentLoc=Parent Location
+#XLBL : System Context UI
+SysCtx_Locs=Locations
+#XLBL : System Context UI
+SysCtx_LocationDescr=Description
+#XTXT : System Context UI
+SysCtx_SelLoc=Select a location
+#XBUT : System Context UI
+SysCtx_Ok=OK
+#XBUT : System Context UI
+SysCtx_Cancel=Cancel
+#XBUT : System Context UI
+SysCtx_Edit=Edit
+#XBUT : System Context UI
+SysCtx_Create= Create
+#XBUT : System Context UI
+SysCtx_Delete= Delete
+#XMSG: System Context UI
+SysCtx_SelectASys=Select a system that is to be deleted
+#XMSG: System Context UI
+SysCtx_DelReally=Do you really want to delete the selected systems?
+#XMSG: System Context UI
+SysCtx_DelSuc=Selected system(s) deleted
+#XBUT : System Context UI
+SysCtx_CreateSys=Create System
+#XMSG : System Context UI
+SysCtx_CreateSuc=System {0} has been created
+#XLBL : System Context UI
+SysCtx_IdMainSys=System Group
+#XLBL : System Context UI
+SysCtx_TypeMainSys=System Group Type
+#XLBL : System Context UI
+SysCtx_IsMainSys=Is System Group
+#XMSG : System Context UI
+SysCtx_InputValidation=Input Validation
+#XMSG : System Context UI
+SysCtx_LocErr=There are multiple locations with name "{0} defined. Choose location using value help to ensure that the selected location is correct
+#XLBL:System Context UI
+SysCtx_FilterBarPrefix=Filtered by:
+#XTIT : System Context UI
+SysCtx_SystemDetails=System Details
+#XLBL : System Context UI
+SysCtx_CreatedBy=Created By
+#XLBL : System Context UI
+SysCtx_CreatedAt=Created At
+#XMSG: System Context UI
+SysCtx_InvDetails=Correct invalid system details in order to save changes
+#XMSG: System Context UI
+SysCtx_SaveSuc=Changes to system {0} has been saved
+
+
+
+#XLBL: Alert Graph Info Area Node Type Label
+MAlertGraphInfo_Type=Type
+#XTXT: Alert Graph Info Area System Type
+MAlertGraphInfo_System=System
+#XLBL: Alert Graph Info Area Cumulative Node Score
+MAlertGraphInfo_Score=Cumulative Alert Score
+#XTXT: Alert Graph Info Area Pattern Type
+MAlertGraphInfo_Pattern=Pattern
+#XLBL: Alert Graph Info Area Pattern Name Label
+MAlertGraphInfo_PatternN=Pattern Name
+#XLBL: Alert Graph Info Area Pattern Namespace Label
+MAlertGraphInfo_PatternNS=Namespace
+#XLBL: Alert Graph Info Area Terminal Label
+MAlertGraphInfo_Terminal=Terminal
+#XTXT: Alert Graph Info Area User Label
+MAlertGraphInfo_User=User
+#XTXT: Alert Graph Info Area Link to Events
+MAlertGraphEvents=Events
+#XTXT: Alert Graph Info Area Link to Details
+MAlertGraphDetails=Details
+#XTXT: Alert Graph Info Area Further Info Label
+MAlertGraphFurInfo=Further Info
+#XTXT: Alert Graph Info Area Alerts Label
+MAlertGraphAlertCnt=Alerts
+#XTXT: Alert Graph Info Area Alerts Label
+MAlertGraphMaxSeverity=Maximum Severity
+
+
+#XTIT : Locations UI
+Locations_Header=Locations
+#XCOL : Locations UI
+Locations_Location=Location
+#XCOL : Locations UI
+Locations_ParentLocation=Parent Location
+#XCOL : Locations UI
+Locations_Longitude=Longitude
+#XCOL : Locations UI
+Locations_Latitude=Latitude
+#XCOL : Locations UI
+Locations_Description=Description
+#XCOL : Locations UI
+Locations_Type=Type
+#XTIT : Locations UI
+Locations_LocationDet=Location Details
+#XTXT : Locations UI
+Locations_CreateLocation=Create Location
+#XMSG : Locations UI
+Locations_CreateErr=Error when trying to create location {0}: {1}
+#XMSG : Locations UI
+Locations_SaveErr=Error when trying to save location {0}: {1}
+#XMSG : Locations UI
+Locations_CreateSuc=Location {0} created successfully
+#XMSG : Locations UI
+Locations_DelSuc=Location {0} deleted
+#XMSG : Locations UI
+Locations_DelSelSuc=Selected location(s) deleted
+#XMSG : Location UI
+Locations_DelErr=Error when trying to delete location {0}: {1}
+#XTXT : Locations UI
+Locations_DelReally=Do you really want to delete the selected locations?
+#XMSG : Locations UI
+Locations_SaveSuc=Location {0} saved
+#XMSG : Locations UI
+Locations_EnterAllFields=Enter all required fields
+#XMSG : Locations UI
+Locations_LocErr=Parent location "{0}" does not exist. Choose parent location using value help to ensure that the selected location is correct
+#XBUT : Locations UI
+Location_Export=Export
+#XMSG : Locations UI
+Locations_LongErr=Longitude is invalid
+#XMSG : Locations UI
+Locations_LatiErr=Latitude is invalid
+#XTXT : Locations UI
+Locations_NotSel =Select at least one location
+
+
+#XTIT:  AnomalyDetection
+AnomalyDet_List_Title=Anomaly Detections
+#XTIT: Anomaly Detection
+AnomalyDet_DetailTitle=Anomaly Detection {0}
+#XTIT: Anomaly Detection
+AnomalyDet_App_Title=Anomaly Detections
+#XTIT: Anomaly Detection
+AnomalyDet_New_AD=New Anomaly Detection
+#XTXT: No Data from OData Service
+AnomalyDet_No_Data=No Data
+#XTXT: Anomaly Threshold for AnomalyDetection
+AnomalyDet_A_Threshold=Z-Score Threshold
+#XTXT: Chart Name for AnomalyDetection
+AnomalyDet_Chart_Name=Chart
+#XTXT: Chart Namespace for AnomalyDetection
+AnomalyDet_Chart_Namespace=Chart Namespace
+#XTXT: AnomalyDetection Detection Method
+AnomalyDet_DetMethod=Detection Method
+#XTXT: AnomalyDetection Detection Method Text
+AnomalyDet_DetMethodTxt=Detect hourly deviations to previous same workdays of base measure for each system for last twelve weeks
+#XBUT: Save and Activate new AnomalyDetection
+AnomalyDet_Save_Activate=Save & Activate
+#XTXT: Status changed to Active/Inactive
+AnomalyDet_StatusChange=Status changed to {0}
+#XTXT: Event Charts
+AnomalyDet_Charts=Select Chart
+#XMSG: Anomaly Detection Confirm deletion
+AnomalyDet_Delete_Confirm=Are you sure you want to delete anomaly detection "{0}"? All related data will be also deleted.
+#XMSG: Anomaly Detection Fill all fields
+AnomalyDet_All_Fields=Missing entries. Enter required data.
+#XMSG: Anomaly Detection Deletion not allowed
+AnomalyDet_DeleNotAllowed=Deletion not allowed
+#XMSG: Anomaly Detection: Save As new
+AnomalyDet_SaveAs_New=New Anomaly Detection
+#XMSG: Anomaly Detection: new created
+AnomalyDet_Create_Suc=Anomaly Detection created
+#XMSG: Anomaly Detection updated
+AnomalyDet_Edit_Suc=Anomaly Detection updated
+#XMSG: Anomaly Detection: Object already exists
+AnomalyDet_exits=An Anomaly Detection with this name and namespace already exists
+#XMSG: Anomaly Detection deleted
+AnomalyDet_deleted=Anomaly Detection deleted
+#XMSG: Anomaly Detection:Anomaly Threshold is not a number
+AnomalyDet_AT_NaN=Enter a positive number for Z-Score Threshold
+
+
+#XMSG: Backend loading Error
+ErrServerRequest=Error fetching data from the Server. Please try again.
+
+
+
+#XTIT: Outlier Detection
+BU_FLOD_TIT_Entity=Entity
+#XTXT: Outlier Detection
+BU_FLOD_TXT_No_Entity = <No entities available>"
+#XCOL:  Outlier Detection
+BU_FLOD_LBL_Entity_Value = Entity Value
+#XCOL:  Outlier Detection
+BU_FLOD_LBL_Norm_TScore = Normalized Total Score
+#XTIT:  Outlier Detection
+BU_FLOD_LBL_OSelector = Outlier Selector
+#XTIT:  Outlier Detection
+BU_FLOD_LBL_SOutlier = Selected Outliers
+#XLBL: Outlier Detection
+BU_FLOD_LBL_OutlierType= Outlier Type:
+#XLBL: Outlier Detection
+BU_FLOD_LBL_TimeFrom= Time Range From:
+#XLBL: Outlier Detection
+BU_FLOD_LBL_TimeTo= Time Range To:
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Retrieve= Retrieve
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Retrieve= Retrieve Entity
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Close= Close
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Select_Entity= Select Entity
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Open_WS= Open Workspace
+#XTOL: Outlier Detection
+BU_FLOD_TOL_Open_Mon= Open Monitoring
+#XTIT: Outlier Detection
+BU_FLOD_TIT_FSDETAILS=Feature Score Details
+
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Feature= Feature
+#XLBL: Outlier Detection
+BU_FLOD_LBL_RawValue=Actual Value
+#XLBL: Outlier Detection
+BU_FLOD_LBL_RawValueRef=Reference Value
+
+#XLBL: Outlier Detection
+BU_FLOD_LBL_FScore=Feature Score
+#XTXT: Outlier Detection
+BU_FLOD_TXT_FScore_Diagram = Feature Score Diagram
+#XTXT: Outlier Detection
+BU_FLOD_TXT_FDiagram = Outlier Diagram:
+#XTXT: Outlier Detection
+BU_FLOD_TXT_FBarCharts = Feature Bar Charts:
+#XTXT: Outlier Detection
+BU_FLOD_TXT_TotalOutliers = Total Outliers:
+#XTXT: Outlier Detection
+BU_FLOD_TXT_SD = Standard Deviation
+#XLBL: Outlier Detection
+BU_FLOD_LBL_FScores=Feature Scores
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Diversity=Feature Diversity
+#XLBL: Outlier Detection
+BU_FLOD_LBL_MaxCount=Maximum Count:
+#XLBL: Outlier Detection
+BU_FLOD_LBL_Count=Count
+#XTIT: Outlier Detection
+BU_FLOD_TIT_NODET=No details available
+#XMSG: Outlier Detection
+BU_FLOD_MSG_NODET=No activities available for selected entity {0}
+#XLBL: Outlier Detection
+AXIS_LBL_AREA=Area
+#XLBL: Outlier Detection
+AXIS_LBL_CENTROIDX=Centroid [X]
+#XLBL: Outlier Detection
+AXIS_LBL_CENTROIDY=Centroid [Y]
+#XTIT: Outlier Detection
+BU_FLOD_BACK_DIAGRAM=Back to diagram
+#XTIT: Outlier Detection
+BU_FLOD_NAV2WSFILTER=Open workspace with filter "{0}"
+#XTIT: Outlier Detection
+BU_FLOD_Overview=Overview
+#XMSG : Outlier Detection
+Txt_InputValidation=Input Validation
+#XMSG : Outlier Detection
+Txt_OneHourAllowed=Only time range of 1 hour allowed
+
+
+#XTIT: FL Workspace Explorer
+BU_FL_TIT_FWorkspaces = Forensic Workspaces
+#XLBL: FL Workspace Explorer
+BU_LBL_WSCreatedAt=Created at:
+#XLBL: FL Workspace Explorer
+BU_LBL_WSChangedAt=Changed at:
+#XLBL: FL Workspace Explorer
+BU_LBL_WSChangedBy=Changed by:
+#XLBL: FL Workspace Explorer
+BU_LBL_Charts=Charts:
+#XLBL: FL Workspace Explorer
+BU_LBL_Patterns=Patterns:
+#TOL: FL Workspace Explorer
+BU_FL_BUT_AllFWS=All workspaces
+#TOL: FL Workspace Explorer
+BU_FL_BUT_All=All
+#TOL: FL Workspace Explorer
+BU_FL_BUT_My=My
+#TOL: FL Workspace Explorer
+BU_FL_BUT_Shared=Shared
+#XTXT: Outlier Detection
+BU_FLOD_TXT_No_EntityA = <No entities available>
+#XTXT: Outlier Detection
+BU_FLOD_TXT_EntityTime= Select Outlier Type and Time Range
+#XTIT: Outlier Detection
+BU_FLOD_TIT_EntityTime= Select Outlier Type and Time Range
+#XTOL: Outlier Detection
+BU_FLOD_TOL_OpenWS= Open workspace
+#XTOL: Outlier Detection
+BU_FLOD_TOL_OpenMon= Open monitoring
+#XTIT: FL Workspace Explorer
+BU_FL_NoWSAvail = No workspace available
+#XLBL: FL Workspace Explorer
+BU_FL_LBL_Search = Search
+#TOL: FL Workspace Explorer
+BU_FL_TOL_Shared=Shared workspace
+#TOL: FL Workspace Explorer
+BU_FL_TOL_MyWS=My workspace
+
+#XTIT: QubeSerializer
+QubeSerial_Title=SAP Enterprise Threat Detection: QubeSerializer
+#XTIT: QubeSerializer
+QubeSerial_HeadBrowsTab=SAP ETD: QubeSerializer
+#XTXT: QubeSerializer
+QubeSerial_Namespace=Namespace
+#XTXT: QubeSerializer
+QubeSerial_Time=Time
+#XTXT: QubeSerializer
+QubeSerial_User=User
+#XTXT: QubeSerializer
+QubeSerial_Serializer=QubeSerializer
+
+
+#XTXT: Snapshot Page UI
+Snasht_Header=SAP Enterprise Threat Detection: Snapshot Page
+#XTIT:Snapshot UI Window Title
+SU_Window_Title=Snapshot Page
+#XTXT: Snapshot UI Window Title
+SU_FioWin_Tab=Snapshot Page
+#XTIT:Snapshot UI Window Title
+SU_Window_Title_Multi=Snapshot Pages
+#XTOL:Snapshot Page List Button Tooltip
+SPL_TOL_Create=Create a new snapshot page
+#XTIT:Snapshot Page List
+SPL_Create_Title=Create a new snapshot page
+#XLBL:Snapshot Page List
+SPL_Create_Label=Create a new snapshot page
+#XLBL: Snaoshot page list
+SPL_Create_Placeholder=Give a name for new snapshot page
+#XBUT:Snapshot Page List Button
+SPL_BUT_AddShow=Add and Show
+#XTOL:Snapshot Page List Button Tooltip
+SPL_TOL_AddShow=Add chart to selected snapshot page and show it
+#XBUT:Snapshot Page List Button
+SPL_BUT_AddReturn=Add and Return
+#XTOL:Snapshot Page List Button Tooltip
+SPL_TOL_AddReturn=Add chart to selected snapshot page and go back to Forensic Lab
+#XBUT:Snapshot Page List Button
+SPL_BUT_Close=Close
+#XBUT:Snapshot Page Footer Button
+SPF_BUT_Edit=Edit
+#XBUT:Snapshot Page Footer Button
+SPF_BUT_Done=Done
+#XBUT:Snapshot Page Footer Button
+SPF_BUT_AddPad=Add Chart
+#XBUT:Snapshot Page Footer Button
+SPF_BUT_SendEmail=Send Snapshot
+#XBUT:Snapshot Page Footer Button
+SPF_BUT_Save=Save
+#XMSG:Snapshot Page Footer MessageToast
+SPF_MSGToast=Save Successful !
+#XBUT:Snapshot Add Pad Dialog Button
+Snapshot_BUT_OK=OK
+#XBUT:Snapshot Add Pad Dialog Button
+Snapshot_BUT_Cancel=Cancel
+#XTIT:Snapshot Add Pad Dialog Title
+Snapshot_Title=Add Chart
+#XLBL:Snapshot Add Pad Dialog Label
+Snapshot_Dropdown_Label=Chart Name
+#XLBL:Snapshot Add Pad Dialog Label
+Snapshot_Comment_Label=Comment
+#XTOL:Snapshot Add Pad Dialog Dropdown Tooltip
+Snapshot_Dropdown_Tooltip=Select a chart name
+#XTOL:Snapshot Comment Button Tooltip
+Snapshot_ComBut_Tooltip=Comment for current snapshot
+#XTOL:Snapshot Page Global Comment Button Tooltip
+Snapshot_GloComBut_Tooltip=Global comment for snapshot page
+#XTIT
+SS_TIT_Comments=Comments
+#XTOL:Snapshot Edit Button Tooltip
+Snapshot_EditBut_Tooltip=Edit current snapshot page
+#XTOL:Snapshot Add Pad Button Tooltip
+Snapshot_AddPadBut_Tooltip=Add chart to current snapshot page
+#XTOL:Snapshot Add Pad CommentArea Tooltip
+Snapshot_ComArea_Tooltip=Write initial comment for the chart
+#XTOL:Snapshot Send E-mail Button Tooltip
+Snapshot_SendBut_Tooltip=Send current snapshot page per email
+#XTOL:Snapshot Save Button Tooltip
+Snapshot_SaveBut_Tooltip=Save current snapshot page
+#XMSG:Snapshot MessageBox
+SS_MSG_PageIdNotFound=Entity with Id "{0}" not found
+#XTIT:Snapshot MessageBox title
+SS_TIT_Snapshot=Snapshot
+#XBUT: Snapshot
+SS_BUT_Start=Start Investigation
+#XTOL: Snapshot
+SS_TOL_Start=Start an investigation
+#XBUT: Snapshot
+SS_BUT_AddInves=Add to Investigation
+#XTOL:Snapshot
+SS_TOL_AddInves=Add snapshot page to investigation
+#XMSG:Snapshot
+SS_MSG_EMAIL=Hello, \n\nThe URL of snapshot page is:\n\n {0}
+#XMSG:Snapshot
+SS_MSG_NOTFOUND=The Snapshot page id is not available
+
+#XMSG : Snapshot Page list
+SS_MSG_Error=Snapshot Page(s) not found
+#XTOL: Snaoshot page list
+SS_TOL_SPDelete=Delete snapshot page
+#XMSG : Snapshot page list
+SS_MSG_SPDelete=Do you want to delete this(these) snapshot page(s) ?
+#XTIT : Snaoshot page list
+SS_TIT_SPDelete=Delete snapshot page
+#XMSG : Snaoshot page list
+SS_MSG_SPDeletedOK=The selected snapshot page(s) is(are) successfully deleted
+#XTOL: Snaoshot page list
+SS_TOL_Search=Search
+#XLBL: Snaoshot page list
+SS_Search_Placeholder=Enter the name of a snapshot page
+#XCOL: Snaoshot page list
+SS_COL_PageName=Name
+#XCOL: Snaoshot page list
+SS_COL_CreatedBy=Created By
+#XCOL: Snaoshot page list
+SS_COL_CreatedAt=Creation Time
+#XCOL: Snaoshot page list
+SS_COL_ChangedBy=Changed By
+#XCOL: Snaoshot page list
+SS_COL_ChangedAt=Change Time
+#XMSG : Snaoshot page list
+SS_MSG_SPSaveOK=New snapshot successfully saved
+
+
+
+#XTIT: Replication
+Repl_Header=Content Replication
+#XTIT: Replication
+Repl_HeaderBrowserTab=Content Replication
+#XTIT: Replication
+Repl_Replication=Replication
+#XTIT: Replication
+Repl_Export=Export
+#XTIT: Replication
+Repl_Import=Import
+#XCOL: Replication
+Repl_Id=Id
+#XCOL: Replication
+Repl_ObjType=Object Type
+#XCOL: Replication
+Repl_ObjName=Object Name
+#XCOL: Replication
+Repl_ObjNameSpace=Object Namespace
+#XCOL: Replication
+Repl_Status=Status
+#XCOL: Replication
+Repl_Description=Description
+#XCOL: Replication
+Repl_Operation=Operation
+#XCOL: Replication
+Repl_CreatedBy=Created By
+#XCOL: Replication
+Repl_CreatedTS=Created At
+#XCOL: Replication
+Repl_CreatedSrc=Created Source
+#XCOL: Replication
+Repl_CreatedPrg=Created Program
+#XCOL: Replication
+Repl_ChangedBy=Changed By
+#XCOL: Replication
+Repl_ChangedTS=Changed At
+#XCOL: Replication
+Repl_ChangedSrc=Changed Source
+#XCOL: Replication
+Repl_ChangedPrg=Changed Program
+#XBUT: Replication
+Repl_StartImport=Start Import
+#XBUT: Replication
+Repl_StartExport=Start Export
+#XTXT: Replication
+Repl_Success=Success
+#XTXT: Replication
+Repl_Error=Error
+#XBUT: Replication
+Repl_Refresh=Refresh
+#XCOL: Replication
+Repl_GroupId=Group Id
+#XCOL: Replication
+Repl_ObjTypeArea=Object Type Area
+#XCOL : Replication
+Repl_PkgName=Package Name
+#XCOL : Replication
+Repl_PkgNameSpace=Package Namespace
+#XTXT : Replication
+Repl_Refreshed=Refreshed
+#XLBL: Replication
+Repl_expObjects=Export Objects ({0})
+#XLBL: Replication
+Repl_impObjects=Import Objects ({0})
+
+
+
+#XTIT:System Monitoring Window Title
+SSM_Systems_Window_Title=System Monitoring
+#XTIT
+SSM_Systems_Shell_Title=SAP Enterprise Threat Detection: System Monitoring
+#XTIT:Security Notes Window Title
+SSM_Notes_Window_Title=Security Notes
+#XTIT
+SSM_Notes_Shell_Title=SAP Enterprise Threat Detection: Security Notes
+
+#XTIT:SSM
+SSM_AttriPop_Title=Detail
+#XTIT:SSM
+SSM_TitlePop_Title=Detail
+#XLBL: SSM
+SSM_Colum_Name_LBL=Name
+#XLBL: SSM
+SSM_Colum_Des_LBL=Description
+
+#XLBL: SSM
+SSM_All_LBL=All
+#XTOL: SSM
+SSM_All_TOL=Show all systems
+
+#XLBL: SSM
+SSM_HighImpact_LBL=High Impact
+#XTOL: SSM
+SSM_HighImpact_TOL=Filter systems with Impact of Compromise greater than 50%
+
+#XLBL: SSM
+SSM_LowImpact_LBL=Low Impact
+#XTOL: SSM
+SSM_LowImpact_TOL=Filter systems with Impact of Compromise less than 50%
+
+#XLBL: SSM
+SSM_Healthy_LBL=Healthy
+#XTOL: SSM
+SSM_Healthy_TOL=Filter systems with State of Compromise less than 50%
+
+#XLBL: SSM
+SSM_Unhealthy_LBL=Unhealthy
+#XTOL: SSM
+SSM_Unhealthy_TOL=Filter systems with State of Compromise greater than 50%
+
+#XLBL: SSM
+SSM_IOC_LBL=Impact of Compromise
+#XTOL: SSM
+SSM_IOC_TOL=Sort according to Impact of Compromise
+
+#XLBL: SSM
+SSM_NA_LBL=Not Available
+
+#XLBL: SSM
+SSM_SOC_LBL=State of Compromise
+#XTOL: SSM
+SSM_SOC_TOL=Sort according to State of Compromise
+
+#XLBL: SSM
+SSM_Name_LBL=Name
+#XTOL: SSM
+SSM_Name_TOL=Sort according to name
+
+#XLBL: SSM
+SSM_Role_LBL=Role
+#XTOL: SSM
+SSM_Role_TOL=Sort according to role
+
+#XTXT: SSM
+SSM_NoData_TXT=No Data Available
+#XTXT: SSM
+SSM_LoadData_TXT=Loading...
+
+#XTXT
+MM_NewCFName=New Case File
+#XTXT
+MM_SaveCF=Save Case File
+#XTIT
+MM_TIT_SaveCFAs=Save Case File As
+#XLBL
+MM_LBL_CFName=Name
+#XLBL
+MM_LBL_CFNamespace=Namespace
+#XBUT
+MM_BUT_OK=OK
+#XBUT
+MM_BUT_Cancel=Cancel
+#XMSG
+MM_MSG_CFSavedOK=Case file "{0}" saved
+#XMSG
+MM_MSG_CFSaveFailed=Failed to save case file "{0}"
+#XMSG
+MM_MSG_CFOverwrite=Do you want to overwrite save case file "{0}"?
+#XMSG
+MM_MSG_SaveCF=Save the Case File first
+#XTIT
+MM_TIT_StartInv=Start Investigation
+#XTOL
+MM_TOL_StartInv=Start an investigation with selected alerts
+#XTIT
+MM_TIT_Add2Inv=Add to Investigation
+#XTOL
+MM_TOL_Add2Inv=Add to an investigation with selected alerts
+#XMSG
+MM_MSG_EntityNotFound = Entity with Id "{0}" not found
+#XMSG : Malimon Case File list
+MM_MSG_Error=Case File(s) not found
+#XTOL: Malimon Case File list
+MM_TOL_ListButton=Case File list
+#XTOL: Malimon Case File list
+MM_TOL_Search=Search
+#XLBL: Malimon Case File list
+MM_Search_Placeholder=Enter the name of a Case File
+#XTOL: Malimon Case File list
+MM_TOL_CFDelete=Delete case file
+#XMSG : Malimon Case File list
+MM_MSG_CFDelete=Do you want to delete this(these) case file(s) ?
+#XTIT : Malimon Case File list
+MM_TIT_CFDelete=Delete Case File
+#XMSG : Malimon Case File list
+MM_MSG_CFDeletedOK=The selected case file(s) is(are) successfully deleted !
+#XCOL: Malimon Case File list
+MM_COL_CFName=Name
+#XCOL: Malimon Case File list
+MM_COL_CFNamespace=Namespace
+#XCOL: Malimon Case File list
+MM_COL_CreatedBy=Created By
+#XCOL: Malimon Case File list
+MM_COL_CreatedAt=Creation Time
+#XCOL: Malimon Case File list
+MM_COL_ChangedBy=Changed By
+#XCOL: Malimon Case File list
+MM_COL_ChangedAt=Change Time
+#XTIT: Malimon Case File
+Create_Attack_path=Create Attack Path
+#XLBL: Malimon Case File
+Name_attack_path=Attack Path Name
+#XLBL: Malimon Case File
+Description_attack_path=Attack Path Description
+#XBUT: Malimon Case File
+Save_attack_path=Save Attack Path
+#XBUT: Malimon Case File
+Generate_ws=Generate pattern
+#XTOL: Malimon Case File
+Delete_attack_path=Delete Attack Path
+#XTIT: Malimon Case File
+Saved_attackPath=Attack Path has been saved
+#XTIT: Malimon Case File
+attackPath_title=Saved Attack Paths
+
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddShow=Add and Show
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddReturn=Add and Return
+#XBUT : Malimon Case File Dialog
+SPL_BUT_Close=Close
+#XTXT : Malimon Case File Dialog
+CF_TOL_Create=Create new Case File
+#XTXT : Malimon Case File Dialog
+CF_TIT_Create = Name
+#XMSG
+MM_MSG_CaseFileNoName=Enter name for case file
+#XLBL
+MM_LBL_FOA=Latest {0} Alerts From {1} Focused by {2}
+#XTIT
+MM_TIT_FOA=Fields of Attention
+#XTOL
+MM_TOL_GSETTINGS=Settings
+#XTOL
+MM_TOL_GFILTER=Filter
+#XTOL
+MM_TOL_GLEGEND=Legend
+#XTIT
+MM_XTIT_GSETTINGS=Graph Settings
+#XTIT
+MM_XTIT_GFILTER=Filter of Entities
+#XLBL
+MM_LBL_AlertsCount=Count of alerts
+#XLBL
+MM_FOE_Placeholder=Enter the name of entity
+#XBUT
+MM_BUT_Close=Close
+#XBUT
+PV_BUT_SelectAll=Select All
+#XTIT
+MM_TIT_GLEGEND = Legend of Entities
+#XMSG
+MM_MSG_AlertNumNotFound=Alert with number "{0}" not found
+#XTIT
+MM_TIT_TimeOfAttent=Time of Attention
+#XTIT
+MM_TIT_ShowTopN=Show Latest
+#XTIT
+MM_TIT_FocusOfAttent=Focus of Attention
+#XTIT
+MM_TIT_EntityOfAttent=Entity of Attention
+#XTXT
+MM_DelCFDetails=Delete Entries from Case File
+#XMSG:
+MM_DelCFDetailsConfirm=Do you really want to delete the selected entries from case file?
+#XTOL
+MM_TOL_Help=Help
+#XTIT
+MM_TIT_Comments = Comments
+#XTOL
+MM_TOL_Comments=Comments
+#XTIT
+MM_TIT_CaseFile = Case Files
+#XLBL
+MM_LBL_Timestamp = Timestamp
+#XLBL
+MM_LBL_Comments = Comments
+#XLBL
+MM_LBL_Description = Description
+#XTIT
+MM_TIT_EventAttribs = Event Attributes
+#XLBL
+MM_Search_PHolder= Enter the attribute name or value
+#XTOL
+MM_TOL_Add2CF=Add to Case File
+#XTOL
+MM_TOL_AttackPath=Display Attack Path
+#XTOL
+MM_TOL_SortFilter=Sort & Filter
+#XLBL
+MM_Event_ColAttri=Attribute
+#XLBL
+MM_Event_ColValue=Value
+#XTIT
+MM_TIT_EVENTSERIES = {0} - {1}
+#XLBL
+MM_Focus_User = User
+#XLBL
+MM_Focus_Hostname = Hostname
+#XLBL
+MM_Focus_System = System
+#XLBL
+MM_Focus_Pattern = Pattern
+#XLBL
+MM_LBL_InsertAlias=Insert alias for event
+#XTIT
+MM_TIT_AttackPath=Attack Path
+#XLBL
+MM_LBL_fromProp=from Property
+#XLBL
+MM_LBL_toProp=to Property
+#XLBL
+MM_LBL_withValue=with Value
+#XLBL
+MM_LBL_elementId=Element ID
+#XLBL
+MM_LBL_timestamp=Timestamp
+#XLBL
+MM_TIT_events=Events
+#XLBL
+MM_TIT_attr=Attributes
+#XLBL
+MM_LBL_showAttr=Show Event Attributes
+#XLBL
+MM_LBL_nextEvent=Next correlating Event
+#XMSG
+MM_MSG_EventRetention = Event is older than defined retention period or manually removed
+
+
+#XTIT
+SSM_TIT_ImplStatOV=Implementation Status of Security Notes
+#XLBL
+SSM_LBL_ImplStat=Implementation Status ({0})
+#XCOL: Implementation Status of Security Note
+SSM_COL_NoteNumber=Note Number
+#XCOL:
+SSM_COL_SystemId=System Id
+#XCOL:
+SSM_COL_SystemType=System Type
+#XCOL:
+SSM_COL_NoteTitle=Note Title
+#XCOL:
+SSM_COL_NoteVersion=Note Version
+#XCOL:
+SSM_COL_CVSS=CVSS Base Score
+#XCOL:
+SSM_COL_ReleaseOn=Release On
+#XCOL:
+SSM_COL_PStatus=Processing Status
+#XCOL:
+SSM_COL_ImplAutom=Implementation Automatic
+#XCOL:
+SSM_COL_ImpleStatus=Implementation Status
+#XCOL:
+SSM_COL_SPImpleStatus=SP Implementation Status
+#XTIT
+SSM_TIT_Search=Search:
+#XLBL
+SSM_Search_Placeholder=Enter System Id or Part of Note Title
+#XTOL
+SSM_TOL_Search=Search
+#XTOL
+SSM_TOL_SortBy=Sort By
+#XTIT
+SSM_TIT_SortBy=Sort By
+
+#XLBL
+BU_LBL_Last=Last {0}
+#XTOL
+BU_TOL_ORRel2NextHint=OR-relation to next subset. Click to change to AND
+#XTOL
+BU_TOL_ANDRel2NextHint=AND-relation to next subset. Click to change to OR
+#XTOL
+BU_TOL_ANDRel2Next=AND-relation to next subset
+
+#XTIT : Configuration Checks UI
+CfgCheck_Header=Configuration Checks
+#XTIT : Configuration Checks UI
+CfgCheck_Det=Configuration Check Details
+#XLBL : Configuration Checks UI
+CfgCheck_Cat=Technical Category
+#XLBL : Configuration Checks UI
+CfgCheck_Level=Criticality Level
+#XLBL : Configuration Checks UI
+CfgLevel0=Very Secure
+#XLBL : Configuration Checks UI
+CfgLevel1=Secure
+#XLBL : Configuration Checks UI
+CfgLevel2=Medium
+#XLBL : Configuration Checks UI
+CfgLevel3=Critical
+#XLBL : Configuration Checks UI
+CfgLevel4=Very Critical
+#XLBL : Configuration Checks UI
+CfgLevel255=No result available
+#XCOL : Configuration Checks UI
+CfgCheck=Check Name
+#XCOL : Configuration Checks UI
+CfgExpProp=Parameter Name
+#XCOL : Configuration Checks UI
+CfgExpPropValue=Expected Parameter Value
+#XCOL : Configuration Checks UI
+CfgResult=Result Value
+#XCOL : Configuration Checks UI
+CfgResultDesc=Result Description
+#XLBL : Configuration Checks UI
+CfgCheck_LevelDelta=Criticality Level (Delta)
+#XLBL : Configuration Checks UI
+CfgLastRunAt=Last Check At
+#XLBL : Configuration Checks UI
+CfgACheck_Level=Aggregated Criticality Level
+#XLBL : Configuration Checks UI
+CfgCheck_Role=System Role
+#XTXT : Configuration Checks UI
+CfgCheck_NoRole=<No Role>
+#XLBL : Configuration Checks UI
+CfgHostname=Host
+
+#XTIT : Line of Business UI
+ReportingUnits_Header=Lines of Business
+#XTIT : Line of Business UI
+ReportingUnit_Create=Create Line of Business
+#XLBL : Line of Business UI
+ReportingUnit_LBL=Line of Business:
+#XTIT : Line of Business UI
+ReportingUnit_CreateSU=Create Sub Unit
+#XTIT : Line of Business UI
+ReportingUnit_Delete=Delete Line(s) of Business
+#XTIT : Line of Business UI
+ReportingUnit_Export=Export Line(s) of Business
+#XTIT : Line of Business UI
+ReportingUnit_Details=Line of Business Details
+#XTIT : Line of Business UI
+ReportingUnit_SUDetails=Reporting Sub Unit Details
+#XTIT : Line of Business UI
+ReportingUnit_SubUnits=Sub Units
+#XTIT : Line of Business UI
+ReportingUnit_SubUnit=Sub Unit
+#XTIT : Line of Business UI
+ReportingUnit_SubUnit_LBL=Sub Unit:
+#XTIT : Line of Business UI
+ReportingUnit_SubUnitVal=Sub Unit Values
+#XLBL : Line of Business UI
+ReportingUnit_Comp=Component
+#XBUT : Line of Business UI
+ReportingUnit_CreateSUnit=Create Sub Unit
+#XBUT : Line of Business UI
+ReportingUnit_DelSUnit=Delete Sub Unit
+#XMSG : Line of Business UI
+ReportingUnit_EnterName=Enter name and namespace of Line of Business
+#XMSG : Line of Business UI
+ReportingUnit_SUEnterName=Enter subunit name
+#XMSG : Line of Business UI
+ReportingUnit_DelSuc=Selected Line(s) of Business deleted
+#XMSG : Line of Business UI
+ReportingUnit_DelErr=Selected Lines of Business "{0}" : "{1}" cannot be deleted. Reason: {3}
+#XMSG : Line of Business UI
+ReportingUnit_DelReally=Do you really want to delete the selected Line(s) of Business?
+#XTIT : Line of Business UI
+ReportingUnit_Contacts=Contacts
+#XTIT : Line of Business UI
+ReportingUnit_BContacts=Business Contact
+#XTIT : Line of Business UI
+ReportingUnit_TContacts=Technical Contact
+#XLBL : Line of Business UI
+ReportingUnit_Phone=Phone
+#XLBL : Line of Business UI
+ReportingUnit_EMail=EMail
+#XLBL : Line of Business UI
+ReportingUnit_Notes=Notes
+#XTIT : Line of Business UI
+ReportingUnit_PatternsAss=Pattern Assigned
+#XMSG:Line of Business UI
+ReportingUnit_UpdateSuc=Line of Business {0} {1} updated
+#XTOT : Line of Business UI
+ReportingUnit_AddSUnitID=Create Sub Unit Identification
+#XTOT : Line of Business UI
+ReportingUnit_CreateLBL=Create
+#XTIT : Line of Business UI
+ReportingUnit_SUnitID=Sub Unit Identification
+#XTIT : Line of Business UI
+ReportingUnit_SelectAttr=Select Attributes

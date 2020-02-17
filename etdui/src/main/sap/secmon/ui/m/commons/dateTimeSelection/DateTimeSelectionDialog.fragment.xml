@@ -1,0 +1,17 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:c="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18nCommon>SelectTimeRange_TIT}" stretch="{device>/isPhone}">
+		<Panel>
+			<c:Fragment
+				fragmentName="sap.secmon.ui.m.commons.dateTimeSelection.DateTimeSelectionContent"
+				type="XML" />
+		</Panel>
+		<beginButton>
+			<Button type="Accept" text="{i18nCommon>OK_BUT}" press="onApplyTimeFilter" />
+		</beginButton>
+		<endButton>
+			<Button type="Default" text="{i18nCommon>Cancel_BUT}" press="onCloseTimeFilterDialog" />
+		</endButton>
+	</Dialog>
+</c:FragmentDefinition>

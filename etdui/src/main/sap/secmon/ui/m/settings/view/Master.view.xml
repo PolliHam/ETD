@@ -1,0 +1,75 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.Master"
+	displayBlock="true" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="page" title="{i18n>SettingsTitle}" navButtonPress="onBackButtonPressed"
+		showNavButton="true">
+		<content>
+			<List id="list" mode="{device>/listMode}" selectionChange="onSelect"
+				growing="true" growingScrollToLoad="true" growingThreshold="100">
+				<items>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>Events_LBL}">
+						<customData>
+							<core:CustomData key="route" value="manageEvents" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>Alerts_LBL}">
+						<customData>
+							<core:CustomData key="route" value="manageAlerts" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>PatternFilter_LBL}">
+						<customData>
+							<core:CustomData key="route" value="patternFilter" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>ContRep_LBL}"
+						visible="{applicationContext>/userPrivileges/settingsContentReplicationWrite}" >
+						<customData>
+							<core:CustomData key="route" value="contentReplications" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}" id="contentSyncItem"
+						press="onSelect" label="{i18n>ContSync_LBL}" visible="false">
+						<customData>
+							<core:CustomData key="route" value="contentSync" />
+						</customData>
+					</DisplayListItem>
+					<DisplayListItem type="{device>/listItemType}"
+						press="onSelect" label="{i18n>TimeZone_LBL}">
+						<customData>
+							<core:CustomData key="route" value="timeZone" />
+						</customData>
+					</DisplayListItem>
+				    <DisplayListItem type="{device>/listItemType}"
+                        press="onSelect" label="{i18n>Anomaly_LBL}">
+                        <customData>
+                            <core:CustomData key="route" value="anomaly" />
+                        </customData>
+                    </DisplayListItem>
+                    <DisplayListItem type="{device>/listItemType}"
+                        press="onSelect" label="{i18n>CustProcessFields_LBL}">
+                        <customData>
+                            <core:CustomData key="route" value="customProcess" />
+                        </customData>
+                    </DisplayListItem>
+                    <DisplayListItem type="{device>/listItemType}"
+                        press="onSelect" label="{i18n>WorkloadManagement_LBL}">
+                        <customData>
+                            <core:CustomData key="route" value="workloadManagement" />
+                        </customData>
+                    </DisplayListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

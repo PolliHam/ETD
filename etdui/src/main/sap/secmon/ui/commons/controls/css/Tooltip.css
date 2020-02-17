@@ -1,0 +1,57 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style contains styles related to the Tooltip Control.
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/commons/controls/css/Tooltip.css");
+*/
+.sapEtdTooltip {
+	position: absolute;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 3px;
+	box-shadow: rgb(175, 175, 175) 1px 1px;
+	background: rgb(255, 255, 255);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.sapEtdTooltip .sapMLabel {
+	font-size: 0.75rem;
+	font-family: Arial;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #666666;
+	margin-right: 4px;
+}
+
+.sapEtdTooltip .sapMText {
+	font-size: 0.75rem;
+	font-family: Arial;
+	font-weight: bold;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #666666;
+}
+
+.sapEtdTooltip .sapMLnk, .sapEtdTooltip .sapMLnk:hover, .sapEtdTooltip .sapMLnk:focus
+	{
+	font-size: 0.75rem;
+	color: #0000FF;
+}
+
+.sapEtdTooltip .sapMLnk:visited {
+	font-size: 0.75rem;
+	color: #0B0080;
+}
+
+.sapEtdTooltipCloseButton {
+	margin-top: -16px;
+	margin-left: 5px;
+	float: right;
+}
+
+.sapEtdTooltipCloseButton>div>span {
+	font-size: 0.75rem !important;
+}

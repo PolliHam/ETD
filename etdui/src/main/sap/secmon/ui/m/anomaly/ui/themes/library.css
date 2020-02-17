@@ -1,0 +1,392 @@
+/*
+** SAP UI5 styles overwritten
+** Note: this is only an exception until other solution found
+*/
+.sapUiPanelHdr>.sapUiPanelTb {
+	text-align: right;
+	margin-right: 0px;
+}
+
+.sapMPanelContent {
+	height: 100% !important;
+}
+
+.sapEtdTitle {
+	font-size: 16px;
+	font-weight: bold
+}
+
+.sapEtdSubTitle {
+	font-size: 16px;
+	font-weight: bold;
+	color: #00679e;
+}
+
+.sapEtdSubSubTitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: #00679e;
+}
+
+.sapEtdSubSubSubTitle {
+	font-size: 12px;
+	color: #00679e;
+}
+
+.sapEtdCustomTileSizeBig {
+	width: 900px;
+	height: 535px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.sapMCustomTileContent {
+	background-color: white;
+}
+
+.sapEtdCustomTileSizeSmall {
+	width: 900px;
+	height: 450px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.sapEtdSplitter {
+	font-size: 16px;
+	font-weight: bold;
+	color: grey;
+}
+
+.sapEtdADPadding {
+	padding-top: 7px;
+	padding-left: 20px;
+}
+
+.sapETDFeatureAxis path, .sapETDFeatureAxis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.sapEtdFeatureTitleNoPadding {
+	font-size: 16px;
+	font-weight: bold;
+	color: #515151;
+}
+
+.sapEtdTitleNotBold {
+	font-size: 14px;
+}
+
+.sapEtdNoBorder {
+	box-sizing: border-box;
+	border-style: none;
+}
+
+.sapEtdLine {
+	fill: none;
+	stroke: steelblue;
+	stroke-width: 2px;
+}
+
+.sapEtdSlider .handle {
+	fill: none;
+	stroke: #000;
+	stroke-opacity: .5;
+	width: 5px;
+	cursor: crosshair;
+}
+
+.sapEtdHover:hover {
+	cursor: pointer;
+	stroke-width: 4px;
+}
+
+/* 
+** Remove the paddings by marking the element
+** and overwrite the padding value
+*/
+.sapEtdPadding {
+	padding: 10px;
+}
+
+.sapEtdNoPadding {
+	padding: 0px;
+}
+
+.sapEtdNoPadding div {
+	padding: 0px;
+}
+
+section.sapEtdNoPadding>div.sapUiPanelCont {
+	padding: 0px;
+}
+
+.sapEtdNoPadding>div.sapUiTableCell {
+	padding: 0px;
+}
+
+.sapEtdChartHeight {
+	height: 100%;
+}
+
+.sapEtdDistributionPanelResponsive {
+	display: inline-block;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.sapEtdSpiderNet {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	overflow: hidden;
+	float: left;
+}
+
+.sapEtdSpiderNetResponsive {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.sapEtdADTooltip {
+	position: absolute;
+	text-align: left;
+	padding: 10px;
+	box-shadow: 3px 3px 5px #888888;
+	background: white;
+	font-size: 14px;
+	z-index: 10;
+}
+
+.sapEtdSNDistrib {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	float: left;
+}
+
+.sapEtdSNDistrib svg {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.sapEtdSNDistribLine {
+	fill: none;
+	stroke: #666666;
+	stroke-width: 0.5px;
+}
+
+.sapEtdSNDistribTitel {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.sapEtdSNDistribArea {
+	fill: steelblue;
+}
+
+.sapEtdSubsetArrow {
+	padding: 3px;
+}
+
+.sapEtdSubsetArrow span.sapUiIcon {
+	display: block;
+	margin: 0 auto;
+}
+/*
+** Settings for subset count icons
+*/
+.sapEtdSubset button.sapUiBtnLite {
+	vertical-align: bottom;
+	padding: 0 8px 24px 2px;
+}
+/*
+* Settings for Outlier Detection
+*/
+.sapEtdBrushSlider {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	overflow: hidden;
+	float: left;
+}
+
+.sapEtdFeatureCellBorder {
+	border-bottom: 1px solid lightgray;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+
+.sapEtdFeatureToolBarBorder {
+	border-bottom: 1px solid lightgray;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.sapEtdFeatureRowContent {
+	padding-left: 10px;
+}
+
+.sapEtdFeatureCell {
+	height: 30px;
+	padding-left: 25px;
+	padding-top: 5px;
+	padding-right: 25px;
+}
+
+.sapETDFeatureBrushSelecting circle {
+	fill-opacity: 0.5;
+}
+
+.sapETDFeatureBrushSelecting circle.selected {
+	fill-opacity: 1;
+}
+
+.resize path {
+	fill: white;
+	stroke: black;
+}
+
+.sapETDFeatureBrush .extent {
+	fill-opacity: .125;
+	shape-rendering: crispEdges;
+}
+
+.sapETDFeatureTimeFrame {
+	border-left: 1.5px solid gray;
+	border-left-style: dotted;
+	padding-left: 5px;
+	padding-bottom: 0px;
+}
+
+.sapETDMBorderStyle {
+	border: 1.5px;
+	border-style: ridge;
+}
+
+.sapEtdOutlierPatternDetection {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%; /* aspect ratio */
+	vertical-align: top;
+	overflow: hidden;
+	float: left;
+}
+
+.sapEtdOutlierPatternDetectionResponsive {
+	display: inline-block;
+	position: absolute;
+	width: 80%;
+	height: 60%;
+	top: 0px;
+	left: 0px;
+}
+/*
+* End Settings for Outlier Detection
+*/
+.sapUiUx3ShellCanvas {
+	overflow-x: visible;
+	overflow-y: visible;
+	bottom: 0;
+	background-color: white;
+	padding: 10px;
+	border-top: 1px solid lightgrey;
+}
+
+.sapEtdCustomItemLayout {
+	position: relative;
+	padding: 3px;
+	min-width: 200px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.sapEtdCustomItemLayoutInner {
+	position: relative;
+	border: 1px solid #DDDDDD;
+	padding: 5px;
+}
+
+.sapEtdCustomItemLayoutTitle {
+	position: relative;
+}
+
+.sapUiUx3DSSVFloating>.sapUiUx3DSSVItem>.sapEtdCustomItemLayout {
+	width: 200px;
+}
+
+.sapEtdCustomItemLayout.CustomItemLayoutLarge>.sapEtdCustomItemLayoutInner
+	{
+	height: 137px;
+}
+
+html[dir="rtl"] .sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutCntnt
+	{
+	right: 255px;
+	left: 3px;
+}
+
+.sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutTitle
+	{
+	position: absolute;
+	left: 1%;
+	top: 10px;
+	width: 30%;
+	border-bottom: 1px solid steelblue,
+}
+
+.sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutCntntLeft
+	{
+	position: absolute;
+	left: 1%;
+	top: 32px;
+	width: 30%;
+	bottom: 2px;
+	border-top: 1px solid steelblue;
+}
+
+.sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutCntntRight
+	{
+	position: absolute;
+	left: 31%;
+	width: 68%;
+	top: 33px;;
+	bottom: 2px;
+}
+
+.sapEtdCustomItemLayout.CustomItemLayoutLarge .sapEtdCustomItemLayoutTitle a
+	{
+	font-size: 14px;
+}
+
+.sapEtdMatrixLayout {
+	background-color: #ffffff;
+	margin-top: 0rem;
+	margin-left: 0rem;
+	margin-right: 0rem;
+}
+
+.sapEtdWarningValueState {
+	border-width: 1px !important;
+	border-style: Solid !important;
+	border-color: #CC5200 !important;
+	background-color: #FFFFCC !important;
+}

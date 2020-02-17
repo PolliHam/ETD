@@ -1,0 +1,1025 @@
+{
+    "config": {
+        "displaySettings": {
+            "Pattern": {
+                "color": "#AB218E",
+                "size": 20,
+                "icon": "\ue0c6",
+                "iconSrc": "sap-icon://puzzle"
+            },
+            "Alert": {
+                "color": "#DC0D0E",
+                "size": 20,
+                "icon": "\ue053",
+                "iconSrc": "sap-icon://alert"
+            },
+            "System": {
+                "color": "#00A414",
+                "size": 20,
+                "icon": "\ue027",
+                "iconSrc": "sap-icon://laptop"
+            },
+            "SystemActor": {
+                "color": "#F2D249",
+                "size": 20,
+                "icon": "\ue027",
+                "iconSrc": "sap-icon://laptop"
+            },
+            "SystemTarget": {
+                "color": "#1B7EAC",
+                "size": 20,
+                "icon": "\ue027",
+                "iconSrc": "sap-icon://laptop"
+            },
+            "SystemType": {
+                "color": "#00A414",
+                "size": 20,
+                "icon": "\ue0af",
+                "iconSrc": "sap-icon://target-group"
+            },
+            "SystemTypeActor": {
+                "color": "#F2D249",
+                "size": 20,
+                "icon": "\ue0af",
+                "iconSrc": "sap-icon://target-group"
+            },
+            "SystemTypeTarget": {
+                "color": "#1B7EAC",
+                "size": 20,
+                "icon": "\ue0af",
+                "iconSrc": "sap-icon://target-group"
+            },
+            "Hostname": {
+                "color": "#DE890D",
+                "size": 20,
+                "icon": "\ue15a",
+                "iconSrc": "sap-icon://it-host"
+            },
+            "User": {
+                "color": "#3FA45B",
+                "size": 20,
+                "icon": "\ue0ca",
+                "iconSrc": "sap-icon://person-placeholder"
+            },
+            "UserActing": {
+                "color": "#F2D249",
+                "size": 20,
+                "icon": "\ue0ca",
+                "iconSrc": "sap-icon://person-placeholder"
+            },
+            "UserTargeted": {
+                "color": "#1B7EAC",
+                "size": 20,
+                "icon": "\ue0ca",
+                "iconSrc": "sap-icon://person-placeholder"
+            },
+            "IP": {
+                "color": "#7CC000",
+                "size": 20,
+                "icon": "\ue159",
+                "iconSrc": "sap-icon://it-instance"
+            },
+            "MACAddress": {
+                "color": "#007CC0",
+                "size": 20,
+                "icon": "\ue054",
+                "iconSrc": "sap-icon://addresses"
+            },
+            "Events": {
+                "Alert": {
+                    "color": "#DC0D0E",
+                    "size": 10,
+                    "icon": "\ue06e"
+                },
+               "SemanticEvent": {
+                    "color": "#9dc62d",
+                    "size": 10,
+                    "icon": "\ue06e"
+                },
+                "HealthCheckEvent": {
+                    "color": "#AB218E",
+                    "size": 10,
+                    "icon": "\ue06e"
+                },
+                "ConfigCheckEvent": {
+                    "color": "#0A4C92",
+                    "size": 10,
+                    "icon": "\ue06e"
+                }
+            },
+            "Investigation": {
+                "color": "#596468",
+                "size": 40,
+                "icon": "\ue06e",
+                "iconSrc": "sap-icon://inspection"
+            },
+            "Roles": {
+                "UserPseudonym": {
+                    "Acting" : "#FFDD39",
+                    "Initiating" : "#D998CB",
+                    "Targeted" : "#007CC0",
+                    "Targeting" : "#D998CB"
+                },
+               "SystemId": {
+                    "Actor" : "#FFDD39",
+                    "Initiator" : "#D998CB",
+                    "Intermediary" : "#D998CB",
+                    "Reporter" : "#D998CB",
+                    "Target" : "#007CC0"
+                },
+                "NetworkHostname": {
+                    "Actor" : "#FFDD39",
+                    "Initiator" : "#D998CB",
+                    "Intermediary" : "#D998CB",
+                    "Reporter" : "#D998CB",
+                    "Target" : "#007CC0"
+                },
+                "SystemType": {
+                    "Actor" : "#FFDD39",
+                    "Initiator" : "#D998CB",
+                    "Intermediary" : "#D998CB",
+                    "Reporter" : "#D998CB",
+                    "Target" : "#007CC0"
+                }
+            }
+        },
+        "entities": {
+            "54F913D5CCC44E8AE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Event (Semantic)",
+                "type": "Event",
+                "fieldName": "EventName"
+            },
+            "53D8FCF497FB1B2EE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "User Pseudonym, Acting",
+                "type": "UserActing",
+                "fieldName": "UserPseudonymActing"
+
+            },
+            "56424E7F1B2FA51BE22A044B51CC7B4D": {
+                "context": "Log",
+                "displayName": "User Pseudonym, Initiating",
+                "type": "User",
+                "fieldName": "UserPseudonymInitiating"
+            },
+            "56424E801B2FA51BE22A044B51CC7B4D": {
+                "context": "Log",
+                "displayName": "User Pseudonym, Targeted",
+                "type": "UserTargeted",
+                "fieldName": "UserPseudonymTargeted"
+            },
+            "53EE56531AA9066CE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "User Pseudonym, Targeting",
+                "type": "UserTargeted",
+                "fieldName": "UserPseudonymTargeting"
+            },
+            "54E69FDDFA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, Hostname, Actor",
+                "type": "Hostname",
+                "fieldName": "NetworkHostnameActor"
+            },
+            "53CDE6170DC572EEE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, Hostname, Initiator",
+                "type": "Hostname",
+                "fieldName": "NetworkHostnameInitiator"
+            },
+            "54E69FDEFA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, Hostname, Target",
+                "type": "Hostname",
+                "fieldName": "NetworkHostnameTarget"
+            },
+            "53CDE60D0DC572EEE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "System ID, Actor",
+                "type": "SystemActor",
+                "fieldName": "SystemIdActor"
+            },
+            "56424E6B1B2FA51BE22A044B51CC7B4D": {
+                "context": "Log",
+                "displayName": "System ID, Initiator",
+                "type": "SystemInitiator",
+                "fieldName": "SystemIdInitiator"
+            },
+            "5417E3D7F2E52F66E10000000A4CF109": {
+                "context": "Log",
+                "displayName": "System ID, Target",
+                "type": "SystemTarget",
+                "fieldName": "SystemIdTarget"
+            },
+            "54E6C489FA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, IP Address, Actor",
+                "type": "IP",
+                "fieldName": "NetworkIPAddressActor"
+            },
+            "56424E1F1B2FA51BE22A044B51CC7B4D": {
+                "context": "Log",
+                "displayName": "Network, IP Address, Initiator",
+                "type": "IP",
+                "fieldName": "NetworkIPAddressInitiator"
+            },
+            "54E6C48AFA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, IP Address, Target",
+                "type": "IP",
+                "fieldName": "NetworkIPAddressTarget"
+            },
+            "54E69FE1FA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, MAC Address, Actor",
+                "type": "MACAddress",
+                "fieldName": "NetworkMACAddressActor"
+            },
+            "56424E231B2FA51BE22A044B51CC7B4D": {
+                "context": "Log",
+                "displayName": "Network, MAC Address, Initiator",
+                "type": "MACAddress",
+                "fieldName": "NetworkMACAddressInitiator"
+            },
+            "54E69FE2FA728D3DE10000000A4CF109": {
+                "context": "Log",
+                "displayName": "Network, MAC Address, Target",
+                "type": "MACAddress",
+                "fieldName": "NetworkMACAddressTarget"
+            },
+            "53EE564D1AA9066CE10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "Alert",
+                "type": "Alert"
+            },
+            "53EE564E1AA9066CE10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "Pattern",
+                "type": "Pattern"
+            },
+            "53EE56541AA9066CE10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "System ID, Actor",
+                "type": "SystemActor",
+                "fieldName": "SystemIdActor"
+            },
+            "55EEEDD896440756E2E225E98E57FE30": {
+                "context": "Alert",
+                "displayName": "System ID, Target",
+                "type": "SystemTarget",
+                "fieldName": "SystemIdTarget"
+            },
+            "554A74171D31E31AE10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "System Type, Actor",
+                "type": "SystemTypeActor",
+                "fieldName": "SystemTypeActor"
+            },
+            "55EEEDD996440756E2E225E98E57FE30": {
+                "context": "Alert",
+                "displayName": "System Type, Target",
+                "type": "SystemTypeTarget",
+                "fieldName": "SystemTypeTarget"
+            },
+            "5418799227B72F66E10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "User Pseudonym, Acting",
+                "type": "UserActing",
+                "fieldName": "UserPseudonymActing"
+            },
+            "55EEEDD796440756E2E225E98E57FE30": {
+                "context": "Alert",
+                "displayName": "User Pseudonym, Targeted",
+                "type": "UserTargeted",
+                "fieldName": "UserPseudonymTargeted"
+            },
+            "53EE56551AA9066CE10000000A4CF109": {
+                "context": "Alert",
+                "displayName": "Network, Hostname, Initiator",
+                "type": "Hostname",
+                "fieldName": "NetworkHostnameInitiator"
+            },
+            "547DF3D6DD747331E10000000A4CF109": {
+                "context": "HealthCheck",
+                "displayName": "System ID",
+                "type": "System",
+                "fieldName": "SystemIdInitiator"
+            },
+            "0001": {
+                "context": "Alert",
+                "type": "Investigation",
+                "displayName": "Investigation"
+            }
+        },
+        "top10": true,
+        "viewMode": "entityGraph",
+        "focus": [{
+            "name": "User",
+            "tid": "MM_Focus_User",
+            "center": [
+                "User", "UserActing", "UserTargeted"
+            ],
+            "links": {
+                "User": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "5418799227B72F66E10000000A4CF109": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "55EEEDD796440756E2E225E98E57FE30": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "53EE564E1AA9066CE10000000A4CF109": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "displayName": "Alert"
+                }],
+                "53EE564D1AA9066CE10000000A4CF109": [{
+                        "key": "0001",
+                        "displayName": "Investigation"
+                    },{
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "53EE56541AA9066CE10000000A4CF109",
+                        "displayName": "System ID, Actor"
+                    }, {
+                        "key": "55EEEDD896440756E2E225E98E57FE30",
+                        "displayName": "System ID, Target"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }
+                ]
+            },
+            "dimensions": [{
+                "key": "5418799227B72F66E10000000A4CF109",
+                "displayName": "User Pseudonym, Acting",
+                "name": "UserPseudonymActing",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD796440756E2E225E98E57FE30",
+                "displayName": "User Pseudonym, Targeted",
+                "name": "UserPseudonymTargeted",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "displayName": "Pattern",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564D1AA9066CE10000000A4CF109",
+                "name": "Alert",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE56551AA9066CE10000000A4CF109",
+                "displayName": "Network, Hostname, Initiator",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "53EE56541AA9066CE10000000A4CF109",
+                "displayName": "System ID, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD896440756E2E225E98E57FE30",
+                "displayName": "System ID, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "554A74171D31E31AE10000000A4CF109",
+                "displayName": "System Type, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD996440756E2E225E98E57FE30",
+                "displayName": "System Type, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "0001",
+                "displayName": "Investigation",
+                "required": true,
+                "context": "Alert"
+            }]
+        }, {
+            "name": "Hostname",
+            "tid": "MM_Focus_Hostname",
+            "center": [
+                "Hostname"
+            ],
+            "links": {
+                "Hostname": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "53EE56551AA9066CE10000000A4CF109": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "53EE564E1AA9066CE10000000A4CF109": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "displayName": "Alert"
+                }],
+                "53EE564D1AA9066CE10000000A4CF109": [{
+                        "key": "0001",
+                        "displayName": "Investigation"
+                    }, {
+                        "key": "5418799227B72F66E10000000A4CF109",
+                        "displayName": "User Pseudonym, Acting"
+                    }, {
+                        "key": "55EEEDD796440756E2E225E98E57FE30",
+                        "displayName": "User Pseudonym, Targeted"
+                    }, {
+                        "key": "53EE56541AA9066CE10000000A4CF109",
+                        "displayName": "System ID, Actor",
+                        "required": true,
+                        "context": "Alert"
+                    }, {
+                        "key": "55EEEDD896440756E2E225E98E57FE30",
+                        "displayName": "System ID, Target",
+                        "required": true,
+                        "context": "Alert"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }
+                ]
+            },
+            "dimensions": [{
+                "key": "53EE56551AA9066CE10000000A4CF109",
+                "displayName": "Network, Hostname, Initiator",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "displayName": "Pattern",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564D1AA9066CE10000000A4CF109",
+                "name": "Number",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "5418799227B72F66E10000000A4CF109",
+                "displayName": "User Pseudonym, Acting",
+                "name": "UserPseudonymActing",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD796440756E2E225E98E57FE30",
+                "displayName": "User Pseudonym, Targeted",
+                "name": "UserPseudonymTargeted",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "53EE56541AA9066CE10000000A4CF109",
+                "displayName": "System ID, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD896440756E2E225E98E57FE30",
+                "displayName": "System ID, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "554A74171D31E31AE10000000A4CF109",
+                "displayName": "System Type, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD996440756E2E225E98E57FE30",
+                "displayName": "System Type, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "0001",
+                "displayName": "Investigation",
+                "required": true,
+                "context": "Alert"
+            }]
+        }, {
+            "name": "System",
+            "tid": "MM_Focus_System",
+            "center": [
+                "System", "SystemActor", "SystemTarget"
+            ],
+            "links": {
+                "System": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "53EE56541AA9066CE10000000A4CF109": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "55EEEDD896440756E2E225E98E57FE30": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern"
+                }],
+                "53EE564E1AA9066CE10000000A4CF109": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "displayName": "Alert"
+                }],
+                "53EE564D1AA9066CE10000000A4CF109": [{
+                        "key": "0001",
+                        "displayName": "Investigation"
+                    },{
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "5418799227B72F66E10000000A4CF109",
+                        "displayName": "User Pseudonym, Acting"
+                    }, {
+                        "key": "55EEEDD796440756E2E225E98E57FE30",
+                        "displayName": "User Pseudonym, Targeted"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }
+                ]
+            },
+            "dimensions": [{
+                "key": "53EE56541AA9066CE10000000A4CF109",
+                "displayName": "System ID, Actor",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD896440756E2E225E98E57FE30",
+                "displayName": "System ID, Target",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "displayName": "Pattern",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564D1AA9066CE10000000A4CF109",
+                "name": "Alert",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "5418799227B72F66E10000000A4CF109",
+                "displayName": "User Pseudonym, Acting",
+                "name": "UserPseudonymActing",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD796440756E2E225E98E57FE30",
+                "displayName": "User Pseudonym, Targeted",
+                "name": "UserPseudonymTargeted",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "53EE56551AA9066CE10000000A4CF109",
+                "displayName": "Network, Hostname, Initiator",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "554A74171D31E31AE10000000A4CF109",
+                "displayName": "System Type, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD996440756E2E225E98E57FE30",
+                "displayName": "System Type, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "0001",
+                "displayName": "Investigation",
+                "required": true,
+                "context": "Alert"
+            }]
+        }, {
+            "name": "Pattern",
+            "tid": "MM_Focus_Pattern",            
+            "center": [
+                "Pattern"
+            ],
+            "links": {
+                "Pattern": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "displayName": "Alert"
+                }],
+                "53EE564E1AA9066CE10000000A4CF109": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "displayName": "Alert"
+                }],
+                "53EE564D1AA9066CE10000000A4CF109": [{
+                        "key": "0001",
+                        "displayName": "Investigation"
+                    },{
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "53EE56541AA9066CE10000000A4CF109",
+                        "displayName": "System ID, Actor"
+                    }, {
+                        "key": "55EEEDD896440756E2E225E98E57FE30",
+                        "displayName": "System ID, Target"
+                    }, {
+                        "key": "5418799227B72F66E10000000A4CF109",
+                        "displayName": "User Pseudonym, Acting",
+                        "name": "UserPseudonymActing"
+                    }, {
+                        "key": "55EEEDD796440756E2E225E98E57FE30",
+                        "displayName": "User Pseudonym, Targeted",
+                        "name": "UserPseudonymTargeted"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }
+                ]
+            },
+            "dimensions": [{
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "displayName": "Pattern",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE564D1AA9066CE10000000A4CF109",
+                "name": "Alert",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "53EE56551AA9066CE10000000A4CF109",
+                "displayName": "Network, Hostname, Initiator",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "53EE56541AA9066CE10000000A4CF109",
+                "displayName": "System ID, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD896440756E2E225E98E57FE30",
+                "displayName": "System ID, Target",
+                "required": false,
+                "context": "Alert"
+            },{
+                "key": "5418799227B72F66E10000000A4CF109",
+                "displayName": "User Pseudonym, Acting",
+                "name": "UserPseudonymActing",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD796440756E2E225E98E57FE30",
+                "displayName": "User Pseudonym, Targeted",
+                "name": "UserPseudonymTargeted",
+                "required": true,
+                "context": "Alert"
+            }, {
+                "key": "554A74171D31E31AE10000000A4CF109",
+                "displayName": "System Type, Actor",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD996440756E2E225E98E57FE30",
+                "displayName": "System Type, Target",
+                "required": false,
+                "context": "Alert"
+            }, {
+                "key": "0001",
+                "displayName": "Investigation",
+                "required": true,
+                "context": "Alert"
+            }]
+        }],
+        "representation": {
+            "default": {
+                "links": {
+                    "Event": [{
+                        "type": "User"
+                    }, {
+                        "type": "Hostname"
+                    }, {
+                        "type": "System"
+                    }, {
+                        "type": "IP"
+                    }, {
+                        "type": "MACAddress"
+                    }],
+                    "User": [{
+                        "type": "Hostname"
+                    }, {
+                        "type": "System"
+                    }, {
+                        "type": "IP"
+                    }],
+                    "UserActing": [{
+                        "type": "Hostname"
+                    }, {
+                        "type": "System"
+                    }, {
+                        "type": "IP"
+                    }],
+                    "UserTargeted": [{
+                        "type": "Hostname"
+                    }, {
+                        "type": "System"
+                    }, {
+                        "type": "IP"
+                    }],
+                    "Hostname": [{
+                        "type": "User"
+                    }, {
+                        "type": "System"
+                    }],
+                    "System": [{
+                        "type": "User"
+                    }, {
+                        "type": "Hostname"
+                    }, {
+                        "type": "IP"
+                    }, {
+                        "type": "SystemType"
+                    }],
+                    "IP": [{
+                        "type": "User"
+                    }, {
+                        "type": "System"
+                    }, {
+                        "type": "MACAddress"
+                    }],
+                    "MACAddress": [{
+                        "type": "IP"
+                    }],
+                    "Pattern": [{
+                        "type": "Alert"
+                    }],
+                    "Alert": [{
+                        "type": "Pattern"
+                    }, {
+                        "type": "User"
+                    }, {
+                        "type": "UserActing"
+                    }, {
+                        "type": "UserTargeted"
+                    }, {
+                        "type": "System"
+                    }],
+                    "SystemType": [{
+                        "type": "System"
+                    }]
+                },
+                "dimensions": [{
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE56541AA9066CE10000000A4CF109",
+                    "name": "SystemIdActor",
+                    "context": "Alert"
+                }]
+            },
+            "userFucused": {
+                "links": {
+                    "User": [{
+                        "key": "53EE564E1AA9066CE10000000A4CF109",
+                        "displayName": "Pattern Display Name"
+                    }],
+                    "53EE564E1AA9066CE10000000A4CF109": [{
+                        "key": "53EE564D1AA9066CE10000000A4CF109",
+                        "displayName": "Number"
+                    }],
+                    "53EE564D1AA9066CE10000000A4CF109": [{
+                            "key": "53EE56551AA9066CE10000000A4CF109",
+                            "displayName": "Network, Hostname, Initiator"
+                        }, {
+                            "key": "53EE56541AA9066CE10000000A4CF109",
+                            "displayName": "System ID, Actor"
+                        }, {
+                            "key": "55EEEDD896440756E2E225E98E57FE30",
+                            "displayName": "System ID, Target"
+                        }
+
+                    ]
+                },
+                "dimensions": [{
+                    "key": "5418799227B72F66E10000000A4CF109",
+                    "displayName": "User Pseudonym, Acting",
+                    "name": "UserPseudonymActing",
+                    "context": "Alert"
+                }, {
+                    "key": "55EEEDD796440756E2E225E98E57FE30",
+                    "displayName": "User Pseudonym, Targeted",
+                    "name": "UserPseudonymTargeted",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern Display Name",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE564D1AA9066CE10000000A4CF109",
+                    "name": "Number",
+                    "context": "Alert"
+                }]
+            },
+            "userCentric": {
+                "links": {
+                    "5418799227B72F66E10000000A4CF109": [{
+                        "key": "53EE564E1AA9066CE10000000A4CF109",
+                        "displayName": "Pattern Display Name"
+                    }, {
+                        "key": "55EEEDD796440756E2E225E98E57FE30",
+                        "displayName": "User Pseudonym, Targeted"
+                    }, {
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "53EE56541AA9066CE10000000A4CF109",
+                        "displayName": "System ID, Actor"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }],
+                    "55EEEDD796440756E2E225E98E57FE30": [{
+                        "key": "53EE564E1AA9066CE10000000A4CF109",
+                        "displayName": "Pattern Display Name"
+                    }, {
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "55EEEDD896440756E2E225E98E57FE30",
+                        "displayName": "System ID, Target"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }],
+                    "53EE56541AA9066CE10000000A4CF109": [{
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }],
+                    "55EEEDD896440756E2E225E98E57FE30": [{
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }]
+                },
+                "dimensions": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern Display Name",
+                    "context": "Alert"
+                }, {
+                    "key": "5418799227B72F66E10000000A4CF109",
+                    "displayName": "User Pseudonym, Acting",
+                    "name": "UserPseudonymActing",
+                    "context": "Alert"
+                }, {
+                    "key": "55EEEDD796440756E2E225E98E57FE30",
+                    "displayName": "User Pseudonym, Targeted",
+                    "name": "UserPseudonymTargeted",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE56551AA9066CE10000000A4CF109",
+                    "displayName": "Network, Hostname, Initiator",
+                    "name": "NetworkHostnameInitiator",
+                    "context": "Alert"
+                }]
+            },
+            "systemCentric": {
+                "links": {
+                    "53EE56541AA9066CE10000000A4CF109": [{
+                        "key": "53EE564E1AA9066CE10000000A4CF109",
+                        "displayName": "Pattern Display Name"
+                    }, {
+                        "key": "5418799227B72F66E10000000A4CF109",
+                        "displayName": "User Pseudonym, Acting"
+                    }, {
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "554A74171D31E31AE10000000A4CF109",
+                        "displayName": "System Type, Actor"
+                    }],
+                    "55EEEDD896440756E2E225E98E57FE30": [{
+                        "key": "53EE564E1AA9066CE10000000A4CF109",
+                        "displayName": "Pattern Display Name"
+                    }, {
+                        "key": "53EE56551AA9066CE10000000A4CF109",
+                        "displayName": "Network, Hostname, Initiator"
+                    }, {
+                        "key": "55EEEDD796440756E2E225E98E57FE30",
+                        "displayName": "User Pseudonym, Targeted"
+                    }, {
+                        "key": "55EEEDD996440756E2E225E98E57FE30",
+                        "displayName": "System Type, Target"
+                    }]
+                },
+                "dimensions": [{
+                    "key": "53EE564E1AA9066CE10000000A4CF109",
+                    "displayName": "Pattern Display Name",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE56541AA9066CE10000000A4CF109",
+                    "displayName": "System ID, Actor",
+                    "context": "Alert"
+                }, {
+                    "key": "55EEEDD896440756E2E225E98E57FE30",
+                    "displayName": "System ID, Target",
+                    "context": "Alert"
+                }, {
+                    "key": "53EE56551AA9066CE10000000A4CF109",
+                    "displayName": "Network, Hostname, Initiator",
+                    "name": "NetworkHostnameInitiator",
+                    "context": "Alert"
+                }, {
+                    "key": "554A74171D31E31AE10000000A4CF109",
+                    "displayName": "System Type, Actor",
+                    "context": "Alert"
+                }, {
+                    "key": "55EEEDD996440756E2E225E98E57FE30",
+                    "displayName": "System Type, Target",
+                    "context": "Alert"
+                }]
+            }
+        }
+    },
+    "query": {
+        "Alert": {
+            "queryOptions": {
+                  "orderby"     :[  {  "field"   :"53EE56521AA9066CE10000000A4CF109", 
+                                        "desc"   :true 
+                                    }],
+                  "top"         : 20    
+            },
+            "luid": 3,
+            "period": {
+                "operator": "=",
+                "searchTerms": ["last15Minutes"]
+            },
+            "type": "Chart",
+            "operation": "createChart",
+            "name": "AlertsWithoutHealthChecks2",
+            "description": "",
+            "dimensions": [{
+                "key": "53EE564D1AA9066CE10000000A4CF109",
+                "name": "Number",
+                "context": "Alert"
+            }, {
+                "key": "53EE564E1AA9066CE10000000A4CF109",
+                "displayName": "Pattern Display Name",
+                "context": "Alert"
+            }, {
+                "key": "5418799227B72F66E10000000A4CF109",
+                "name": "UserPseudonymActing",
+                "context": "Alert"
+            }, {
+                "key": "55EEEDD796440756E2E225E98E57FE30",
+                "name": "UserPseudonymTargeted",
+                "context": "Alert"
+            }],
+            "measures": [{
+                "luid": 1,
+                "context": "Alert",
+                "fn": "COUNT",
+                "distinct": false,
+                "key": "*",
+                "name": "*",
+                "displayName": "Count of Alerts from Path1.Subset1",
+                "startDatasets": [{
+                    "name": "Path1.Subset1"
+                }],
+                "alias": "COUNT(*)[0]",
+                "dataSets": [{
+                    "name": "Path1.Subset1",
+                    "context": "Alert",
+                    "filters": [{
+                        "key": "53EE56561AA9066CE10000000A4CF109",
+                        "valueRange": {
+                            "operator": "IN",
+                            "searchTerms": ["NO_REACTION_NEEDED_T", "EXCLUDED_EXCEPTION"],
+                            "searchTermRefKeys": [],
+                            "exclude": true
+                        }
+                    }],
+                    "dependsOn": []
+                }]
+            }],
+            "chartType": "column",
+            "shared": true,
+            "namespace": "http://sap"
+        }
+    }
+}

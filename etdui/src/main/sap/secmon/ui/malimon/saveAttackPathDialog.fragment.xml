@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form">
+	<Dialog title="{i18n>Create_Attack_path}">
+		<layout:SimpleForm>
+			<Label text="{i18n>Name_attack_path}" required="true"/>
+			<Input value="{AttackPathStepModel>/pathName}"/>
+			<Label text="{i18n>Description_attack_path}" required="true"/>
+			<Input value="{AttackPathStepModel>/description}"/>
+		</layout:SimpleForm>
+		<buttons>
+			<Button id="Ok" text="{i18n>Commons_Ok}" press="onSubmitSaveAttackPathDialog"/>
+			<Button id="Cancel" text="{i18n>Commons_Cancel}" press="onCloseSaveAttackPathDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

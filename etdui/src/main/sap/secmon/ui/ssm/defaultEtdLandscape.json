@@ -1,0 +1,43 @@
+{
+	"configs": [
+		{
+			"Id": "Landscapes",
+			"Name": "Landscapes",
+			"Criticality": 86,
+			"Health": 45
+		},
+		{
+			"Id": "CurrentSecurityNotes",
+			"Name": "Security Notes & Affected Systems",
+			"Type": "SecurityNote",
+			"Role": "Production",
+			"Status": "Active",
+			"Criticality": 86,
+			"Health": 45
+		},
+		{
+			"Id": "TopLevelSecurityNotes",
+			"Name": "Browse Security Notes",
+			"Type": "SecurityNote",
+			"Role": "Production",
+			"Status": "Active",
+			"Criticality": 86,
+			"Health": 45
+		}
+	],
+	"notes": [
+		{
+			"Id": "UnpatchedSystem",
+			"Name": "Unpatched Systems"
+		},
+		{
+			"Id": "PatchedSystem",
+			"Name": "Patched Systems"
+		},
+		{
+			"Id": "System",
+			"Name": "All Systems"
+		}	
+	],
+	"viewMode": "systems"
+}

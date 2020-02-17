@@ -1,0 +1,178 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.ShellRun" width="100%" height="100%"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<Page id="page" enableScrolling="false" backgroundDesign="Solid">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button icon="sap-icon://nav-back" tooltip="{i18nCommon>backTOL}" press="onNavBack" />
+                    <controls:LongTapLink text="{i18n>Interpret_AllRuns}"
+                                            href="{path: 'dummyPath', formatter: 'sap.secmon.ui.m.commons.NavigationService.logLearningRunURL'}" />
+                </contentLeft>
+                <contentMiddle>
+                    <Title text="{RunModel>/selectedRunName}" />
+                </contentMiddle>
+                <contentRight>
+		            <Button id="linkHelp"
+		                text = "{i18n>Interpret_Help}"
+		                icon="sap-icon://sys-help"
+		                press="onPressHelp" />
+		            <Button id="lnkKnowledgeBase"
+		                text = "{i18n>Interpret_KB}"
+		                icon="sap-icon://course-book"
+		                visible="{applicationContext>/userPrivileges/knowledgebaseRead}"
+		                tooltip="{i18n>Interpret_OpenKBTt}"
+		                press="onPressKnowledgeBaseLink" />
+		            <Button id="lnkForensicLab"
+		                text="{i18n>Interpret_FL}"
+		                icon="sap-icon://area-chart"
+		                visible="{applicationContext>/userPrivileges/workspaceRead}"
+		                tooltip="{i18n>Interpret_OpenFLTt}"
+		                press="onPressFLLink" />
+		       </contentRight>
+            </Bar>
+        </customHeader>
+	    <subHeader>
+            <Bar>
+            	<contentMiddle>
+                    <Label text="{i18n>Interpret_CommandType}:" />
+                    <Label text="{path:'RunModel>/phase', formatter:'sap.secmon.ui.loglearning.util.Formatter.formatCommandTypeESP2UI'}" design="Bold" />
+                    <Label text="{i18n>Interpret_Status}:" />
+                    <Label design="Bold"  text="{parts:[{path:'RunModel>/status'}, {path: 'RunModel>/commandDurationInMinutes'}], formatter:'sap.secmon.ui.loglearning.util.Formatter.statusFormatter'}" 
+                        tooltip="{parts:[{path:'RunModel>/status'}, {path: 'RunModel>/commandDurationInMinutes'}], formatter:'sap.secmon.ui.loglearning.util.Formatter.statusTooltipFormatter'}"/>
+                    <Label text="{i18n>Interpret_StageStatus}:" />
+                    <Label text="{path:'RunModel>/StagingRulesStatus', formatter:'sap.secmon.ui.loglearning.util.Formatter.formatRuleStatusESP2UI'}" design="Bold" />
+                    <Label text="{i18n>Interpret_ProdStatus}:" />
+                    <Label text="{path:'RunModel>/ProductiveRulesStatus', formatter:'sap.secmon.ui.loglearning.util.Formatter.formatRuleStatusESP2UI'}" design="Bold" />
+                </contentMiddle>
+                <contentRight>
+                    <Button
+                        press="onCheckSDS" icon="sap-icon://connected"
+                        text="{i18n>Interpret_CheckSDS}" tooltip="{i18n>Interpret_CheckSDSTOL}"
+                     />
+                     <!-- See constant MAX_COMMAND_RUNTIME in sap/secmon/loginterpretation/runService.xsjslib. it determines when a command run is considered a zombie -->
+                     <Button visible="{RunModel>/potentialZombie}"
+                        press="onKillPotentialZombie" icon="sap-icon://wounds-doc"
+                        text="{i18n>Interpret_ResetBUT}"
+                        tooltip="{parts: [{path:'i18n>Interpret_ZombieTOL'}, {path:'RunModel>/commandDurationInMinutes'}], formatter: 'sap.secmon.ui.commons.Formatter.i18nText'}"
+                     />
+                </contentRight>
+            </Bar>
+		</subHeader>
+
+        <content>
+			<IconTabBar id="shlMain" select="onWorksetItemSelected" expandable="false"
+                selectedKey="itemStagingEntryTypes" stretchContentHeight="true" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="{i18n>Interpret_RunParam}"
+                        key="itemRunOverview"
+                        icon="sap-icon://document"
+                        design="Horizontal" >
+                        <mvc:XMLView id="viewRunOverview"
+                            viewName="sap.secmon.ui.loglearning.runOverview"
+                            height="100%"/>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>Interpret_StgEntryType}"
+                        visible="{uiModel>/entryTypesViewVisible}"
+                        key="itemStagingEntryTypes"
+                        icon="sap-icon://order-status"
+                        design="Horizontal" 
+                        count="{CountRunModel>/entryTypeCount}" >
+                        <mvc:XMLView id="viewStagingEntryTypes" 
+                            viewName="sap.secmon.ui.loglearning.stagingEntryTypes"/>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>Interpret_StgEntryType}"
+                        visible="{uiModel>/entryTypeDetailsViewVisible}"
+                        key="itemStagingEntryTypeDetails"
+                        icon="sap-icon://order-status"
+                        design="Horizontal" 
+                        count="{CountRunModel>/entryTypeCount}" >
+                        <mvc:XMLView id="viewStagingEntryTypeDetails" 
+                            viewName="sap.secmon.ui.loglearning.StagingEntryTypeDetails"/>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>Interpret_StgRunRules}"
+                        key="itemStagingRuntimeRules"
+                        icon="sap-icon://folder"
+                        design="Horizontal" 
+                        count="{CountRunModel>/ruleCount}" >
+                        <mvc:XMLView id="viewStagingRuntimeRules" 
+                            viewName="sap.secmon.ui.loglearning.stagingRuntimeRules"
+                            height="100%"/>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>Interpret_StgLog}"
+                        key="itemStagingLog"
+                        icon="sap-icon://complete"
+                        design="Horizontal" 
+                        count="{CountRunModel>/testResultCount}" >
+                        <mvc:XMLView id="viewStagingLog" 
+                            viewName="sap.secmon.ui.loglearning.stagingLog"
+                            height="100%"/>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>Interpret_Protocol}"
+                        key="itemProtocol"
+                        icon="sap-icon://appointment"
+                        design="Horizontal" 
+                        count="{CountRunModel>/protocolCount}">
+                        <mvc:XMLView id="viewProtocol" 
+                            viewName="sap.secmon.ui.loglearning.protocol"
+                            height="100%"/>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+		</content>
+
+        <footer>
+			<Bar id = "footerBar" design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton visible = "true"/>
+				</contentLeft>
+				<contentRight>
+                    <Button
+                        text="{i18n>Interpret_Save}"
+                        tooltip="{i18n>Interpret_SaveTt}"
+                        icon="sap-icon://save"
+                        enabled="{RunModel>/isSaveNeeded}"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressSave" />
+                    <Button
+                        text="{i18n>Interpret_Activate}"
+                        tooltip="{i18n>Interpret_ActivateTt}"
+                        icon="sap-icon://activate"   
+                        enabled="{RunModel>/hasEntryTypes}"                    
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressActivate" />
+                    <Button
+                        text="{i18n>Interpret_TestRun}"
+                        tooltip="{i18n>Interpret_TestRunTt}"
+                        icon="sap-icon://restart"
+                        enabled="{RunModel>/isRunActivated}"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressTestRun" />
+                    <Button
+                        text="{i18n>Interpret_MoveToProd}"
+                        tooltip="{i18n>Interpret_MoveToProdTt}"
+                        icon="sap-icon://duplicate"
+                        enabled="{RunModel>/isRunTested}"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressMoveToProd" />
+                    <Button
+                        text="{i18n>Interpret_RemFromProd}"
+                        tooltip="{i18n>Interpret_RemFromProdTt}"
+                        icon="sap-icon://delete"
+                        enabled="{RunModel>/isCopiedToProd}"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressRemoveFromProd" />
+                    <Button
+                        text="{i18n>Interpret_ResetRun}"
+                        tooltip="{i18n>Interpret_ResetRunTt}"
+                        icon="sap-icon://undo"             
+                        enabled="{RunModel>/hasEntryTypes}"           
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        press="onPressResetRun" />
+				</contentRight>
+			</Bar>
+		</footer>
+
+    </Page>
+</mvc:View>

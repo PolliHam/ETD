@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form"
+	xmlns:browse="sap.secmon.ui.browse">
+	<Dialog title="{i18n>Interpret_CreateGroup}">
+		<layout:SimpleForm>
+			<Label text="{i18n>Interpret_Name}" />
+			<Input value="{/name}" />
+			<Label text="{i18n>Interpret_Namespace}" />
+			<Select
+				selectedKey="{/namespace}"
+				items="{
+					path: 'NamespacesModel>/',
+					sorter: { path: 'NamespacesModel>NameSpace' }
+				}">
+				<core:Item key="{NamespacesModel>NameSpace}" text="{NamespacesModel>NameSpace}" />
+			</Select>
+		</layout:SimpleForm>
+		<buttons>
+			<Button id="Ok" text="{i18n>Interpret_Ok}" press="onCloseDialog" />
+			<Button id="Cancel" text="{i18n>Interpret_Cancel}" press="onCloseDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

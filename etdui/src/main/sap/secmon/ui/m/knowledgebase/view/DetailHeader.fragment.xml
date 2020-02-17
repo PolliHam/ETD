@@ -1,0 +1,28 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:customControls="sap.secmon.ui.m.commons.controls">
+
+	<f:SimpleForm editable="false" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanL="0"
+	    emptySpanM="0" columnsL="1" columnsM="1" layout="ResponsiveGridLayout">
+	    <f:content>
+	    	<Label text="{i18n>Name}" />
+	        <Text text="{Knowledgebase>name}" />
+	        <Label text="{i18n>KB_NameSpaceLbl}" />
+	        <Text text="{Knowledgebase>nameSpace}" />
+	        <Label text="{i18n>KB_DisplayNameLbl}" />
+	        <Text text="{parts: [ {path: 'Knowledgebase>displayNameKey'}, {path: 'Knowledgebase>displayName'} ], formatter: 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" />                    
+	        <Label text="{i18n>KB_DescriptionLbl}" />
+	        <Text text="{parts: [ {path: 'Knowledgebase>descriptionKey'}, {path: 'Knowledgebase>description'} ], formatter: 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" />
+      		<Label text="{i18n>KB_DataTypeLbl}" visible="{= ${Knowledgebase>dataType} !== undefined}"/>      		
+			<Text text="{Knowledgebase>dataType}" visible="{= ${Knowledgebase>dataType} !== undefined}"/>
+	       	<Label text="{i18n>KB_CreatedByLbl}"/>
+	        <Text text="{Knowledgebase>createdBy}"/>
+	        <Label text="{i18n>KB_CreatedAtLbl}"/>
+	        <Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path: 'Knowledgebase>createdTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+	        <Label text="{i18n>KB_ChangedByLbl}"/>
+	        <Text text="{Knowledgebase>changedBy}"/>
+	        <Label text="{i18n>KB_ChangedAtLbl}"/>
+	        <Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path: 'Knowledgebase>changedTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+		</f:content>
+	</f:SimpleForm>
+</c:FragmentDefinition>

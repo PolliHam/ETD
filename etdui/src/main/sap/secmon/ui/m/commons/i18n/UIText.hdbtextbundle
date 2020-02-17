@@ -1,0 +1,50 @@
+# TRANSLATE
+#XTIT:Mobile Investigation UI
+MInvestCreateInvestTitle=Start Investigation
+#XLBL:Mobile Investigation UI
+MManagementVisibility=Management Visibility
+#XBUT:Commons
+Commons_Ok=OK
+#XBUT:Commons
+Commons_Cancel=Cancel
+#XBUT: Mobile Investigation UI
+AddAndReturn=Add and Return
+#XBUT: Mobile Investigation UI
+AddAndShow=Add and Show Investigation
+#XTIT:Mobile Investigation UI
+MInvestAddToInvestTitle=Available Investigations
+#XTIT:Mobile Investigation UI
+MInvestSearchPlaceholder=Enter the Number or Description of Investigation
+#XLBL:Mobile Investigation UI
+MInvest_Number=Number
+#XLBL:Mobile Investigation UI
+MInvest_CreationDate=CreationDate
+#XLBL:Mobile Investigation UI
+MInvest_CreatedBy=Created By
+#XLBL:Mobile Investigation UI
+MInvest_CommentPopUp=Comment
+#XTXT:Mobile Investigation UI
+MInvest_Select=An investigation has to be selected
+#XTXT:Mobile Investigation UI
+MInvest_ObjectsAdded=Objects added successfully
+#XLBL:Mobile Investigation UI
+MInvest_Freestyle=Start Free-Style
+#XLBL:Mobile Investigation UI
+MInvest_FromTemplate=Start from Template
+#XTIT:Mobile Investigation UI
+MInvest_notStarted=Investigation Not Started
+#XTIT:Mobile Investigation UI
+MInvest_chgDetect=Alert Changes Detected
+#XMSG: Mobile Investigation UI
+MInvest_alertChgDetect=The alert was modified by your colleague while you were working on it. Review their changes, and adapt your next steps accordingly.
+#XMSG: Mobile Investigation UI
+MInvest_allAlrtsChgDetect=All {0} alerts were modified by your colleagues while you were working on them. Review their changes, and adapt your next steps accordingly.
+#XMSG: Mobile Investigation UI
+MInvest_someAlrtsChgDetect={0} alert(s) of {1} were assigned to investigation {2}.\n{3} alert(s) were modified by your colleagues while you were working on them. Review their changes, and adapt your next steps accordingly.\nThese alert(s) are:
+#XMSG: Mobile Investigation UI
+MInvest_alertLocked=The alert(s) are currently locked for update. This is a temporary problem. Check if the alert(s) have been changed, then try again.
+
+
+#XMSG:Mobile Investigation UI
+MInvest_CreateInvFailed=Creating Investigation failed
+DescriptionMustNotBeEmpty=Description must not be empty

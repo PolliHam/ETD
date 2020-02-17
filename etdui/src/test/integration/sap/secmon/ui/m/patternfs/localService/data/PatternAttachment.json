@@ -1,0 +1,17 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.PatternAttachmentType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/PatternAttachment(PatternId='0237226AF4C3624B9B867E3315F31251',ContentType='application%2Fpdf',ContentName='Multiple%20Algorithms%20for%20Fraud%20Detection.pdf')"
+        },
+        "PatternId": "0237226AF4C3624B9B867E3315F31251",
+        "ContentType": "application/pdf",
+        "ContentName": "Multiple Algorithms for Fraud Detection.pdf",
+        "CreatedBy": "AL_HUJAJ",
+        "CreatedAt": "\/Date(1485425031073)\/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,205 @@
+<mvc:View height="100%" controllerName="sap.secmon.ui.sherlock.controller.List" 
+        xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	    xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" displayBlock="false">
+	<Page title="{i18n>SH_Page_Title}" showNavButton="true" navButtonPress="onNavBack"
+        id="idSearchList" busyIndicatorDelay="50">
+        <headerContent>
+            <Button tooltip="{i18n>SH_TOL_Help}" id="idHelpButton" icon="sap-icon://sys-help" press="onHelpPress"/>
+        </headerContent>
+	    <content>
+            <l:FixFlex>
+				<l:fixContent>
+                    <fb:FilterBar search="onSearch" showRestoreButton="false" filterBarExpanded="true" id="filterBar" class="filterBarWithSameSizedItemsSmall">
+                        <fb:filterItems>
+                            <fb:FilterItem name="filterLogType" label="{i18n>SH_Log_Type}">
+                                <fb:control>
+                                    <Select
+                                        id="idFilterLogType"
+                                        selectedKey="{parts: [{path: 'applicationContext>/userPrivileges'}, {path: '/'}], formatter: '.formatFilterLogType'}"
+                                        change="onFilterLogTypeChange">
+                                            <core:Item key="keyAllLogTypes" text="{i18n>SH_All_Logs}" enabled="{= ${applicationContext>/userPrivileges/originalLogRead} &amp;&amp; ${applicationContext>/userPrivileges/unrecognizedLogRead}}" />
+                                            <core:Item key="keyRecLogTypes" text="{i18n>SH_Recognized_Log}" enabled="{applicationContext>/userPrivileges/originalLogRead}" />
+                                            <core:Item key="keyUnrecLogTypes" text="{i18n>SH_Unrecognized_Log}" enabled="{applicationContext>/userPrivileges/unrecognizedLogRead}" />
+                                    </Select>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterStorageType" label="{i18n>SH_Storage_Type}">
+                                <fb:control>
+                                    <Select
+                                        id="idFilterStorageType"
+                                        forceSelection="false"
+                                        selectedKey="keyAllStorageTypes"
+                                        change="onFilterStorageTypeChange">
+                                            <core:Item key="keyAllStorageTypes" text="{i18n>SH_Hot_and_Warm_Storage}" />
+                                            <core:Item key="keyWarmStorageTypes" text="{i18n>SH_Warm_Storage}" />
+                                    </Select>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterInsertTimestamp" label="{i18n>SH_Timestamp}">
+                                <fb:control>
+                                    <Input showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" tooltip="{i18n>SH_TOL_Timerange}"
+                                        value="{parts : [{path : 'applicationContext>/UTC'},{path : 'i18nCommon>ConsTimeRangeFT_LBL'}, {path: 'TimeRangeModel>/TimerangeFrom'}, {path: 'TimeRangeModel>/TimerangeTo'}], formatter : 'sap.secmon.ui.commons.Formatter.timeRangeFormatterEx'}" />
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterShortMessage" label="{i18n>SH_Message}">
+                                <fb:control>
+                                    <Input value="{/search}" placeholder="{i18n>SH_Search_PlaceHolder}" tooltip="{i18n>SH_TOL_Search}" maxLength="450"/>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterLogCollectorIPAddress" label="{i18n>SH_TechnicalLogCollectorIPAddress}">
+                                <fb:control>
+                                    <Input value="{/technicalLogCollectorIpAddress}"/>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterLogCollectorName" label="{i18n>SH_TechnicalLogCollectorName}">
+                                <fb:control>
+                                    <Input value="{/technicalLogCollectorName}" />
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterLogCollectorPort" label="{i18n>SH_TechnicalLogCollectorPort}">
+                                <fb:control>
+                                    <Input value="{/technicalLogCollectorPort}" />
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterSourceId" label="{i18n>SH_EventSourceId}">
+                                <fb:control>
+                                    <Input value="{/eventSourceId}"/>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterEventSourceType" label="{i18n>SH_EventSourceType}" visible="{SettingsModel>/bRec}">
+                                <fb:control>
+                                    <Input enabled="{UIModel>/enableFilterEventSourceType}" value="{/srcType}"/>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterEventLogType" label="{i18n>SH_EventLogType}" visible="{SettingsModel>/bRec}">
+                                <fb:control>
+                                    <Input enabled="{UIModel>/enableFilterEventLogType}" value="{/evLogType}"/>
+                                </fb:control>
+                            </fb:FilterItem>
+                            <fb:FilterItem name="filterReasonCode" label="{i18n>Interpret_ReasonCode}" visible="{SettingsModel>/bUnrec}">
+                                <fb:control>
+                                    <Select
+                                        id="idFilterReasonCode"
+                                        forceSelection="false"
+                                        change="onReasonCodeChange"
+                                        selectedKey="{UIModel>/selectedKey}"
+                                        enabled="{UIModel>/enableFilterReasonCode}">
+                                            <core:Item key="keyAllReasonCodes" text="{i18n>SH_All_Reason_Codes}" />
+                                            <core:Item key="keyNoRuntimeRule" text="{i18n>Interpret_NoRTRuleMatch}" />
+                                            <core:Item key="keyExtractionFailed" text="{i18n>Interpret_NoFinalRXMatch}" />
+                                            <core:Item key="keyIncompleteTimestamp" text="{i18n>Interpret_IncomplTS}" />
+                                    </Select>
+                                </fb:control>
+                            </fb:FilterItem>
+                        </fb:filterItems>
+                    </fb:FilterBar>
+                    <OverflowToolbar design="Info">
+                        <Label text="{parts:['i18n>headerToolbarItemPrefix', 'UIModel>/itemCount'], formatter: 'jQuery.sap.formatMessage'}" />
+                        <Label visible="{= ${UIModel>/selectedItems}>0 }" text="{parts:['i18n>headerToolbarSelectionPrefix', 'UIModel>/selectedItems'], formatter: 'jQuery.sap.formatMessage'}" />
+                        <ToolbarSpacer/>
+                        <Button id="idSettingsButton" type="Default" tooltip="{i18n>SH_TOL_Settings}" icon="sap-icon://action-settings" press="onSettingsPress" design="transparent"/>
+                        <Button id="idPersonalizationButton" type="Default" tooltip="{i18n>SH_TOL_Personalize}" icon="sap-icon://wrench" press="onPersonalizationPress" design="transparent"/>
+                    </OverflowToolbar>
+                </l:fixContent>
+	    
+				<l:flexContent>
+                    <ScrollContainer
+                        height="100%"
+                        vertical="true"
+                        focusable="true">           
+                        <Table id="idSherlockTable"
+                            items="{SearchResultModel>/}" mode="MultiSelect" selectionChange="onSelectionChange"
+                            growing="true"
+                            class="sapEtdScrollTable"
+                            growingScrollToLoad="true"
+                            growingThreshold="80"
+                            updateStarted="onUpdateStarted" >                  
+                            <columns>
+                                <Column width="7%" id="logTypeColumn">
+                                    <Text text="{i18n>SH_Log_Type}"/>
+                                </Column>
+                                <Column width="6%" hAlign="Center" id="storageTypeColumn">
+                                    <Text text="{i18n>SH_Storage_Type}" />
+                                </Column>
+                                <Column width="10%" id="timestampColumn">
+                                    <Text text="{i18n>SH_Timestamp}" />
+                                </Column>
+                                <Column minScreenWidth="XXLarge" popinDisplay="Inline" demandPopin="true" width="45%" id="messageColumn">
+                                    <Text text="{i18n>SH_Message}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="6%" id="ipAddressColumn">
+                                    <Text text="{i18n>SH_TechnicalLogCollectorIPAddress}" tooltip="{i18n>SH_TOL_Help}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="6%" id="logCollectorNameColumn">
+                                    <Text text="{i18n>SH_TechnicalLogCollectorName}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="6%" id="logCollectorPortColumn">
+                                    <Text text="{i18n>SH_TechnicalLogCollectorPort}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="6%" id="eventSourceIdColumn">
+                                    <Text text="{i18n>SH_EventSourceId}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="6%" id="eventSourceTypeColumn">
+                                    <Text text="{i18n>SH_EventSourceType}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="7%" id="eventLogTypeColumn">
+                                    <Text text="{i18n>SH_EventLogType}"/>
+                                </Column>
+                                <Column minScreenWidth="XLarge" popinDisplay="Inline" demandPopin="true" width="10%" id="reasonColumn">
+                                    <Text text="{i18n>Interpret_ReasonCode}"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem  id="idSherlockTableItems">
+                                    <cells>
+                                        <Text text="{= ${SearchResultModel>Recognized} === true ? ${i18n>SH_Recognized_Log} : ${i18n>SH_Unrecognized_Log} }" />
+                                    </cells>
+                                    <cells>
+                                        <Text text="{= ${SearchResultModel>Hot} === true ? ${i18n>SH_Hot} : ${i18n>SH_Warm}}"  />
+                                    </cells>
+                                    <cells>
+                                        <Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'SearchResultModel>Timestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>Message}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>TechnicalLogCollectorIPAddress}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>TechnicalLogCollectorName}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>TechnicalLogCollectorPort}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>EventSourceId}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>EventSourceType}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{SearchResultModel>EventLogType}"/>
+                                    </cells>
+                                    <cells>
+                                        <Text text="{parts : [ {path : 'i18n>Interpret_NoRTRuleMatch'}, {path : 'i18n>Interpret_NoFinalRXMatch'}, {path : 'i18n>Interpret_IncomplTS'}, { path : 'SearchResultModel>ReasonCode'} ], formatter : 'sap.secmon.ui.sherlock.util.Formatter.reasonFormatter'}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </ScrollContainer>
+                </l:flexContent>
+    		</l:FixFlex>
+        </content>
+        <footer>
+            <Bar design="Footer">
+                <contentRight>
+                <Button id="idDownloadButton" enabled="true" icon="sap-icon://download" tooltip="{i18n>SH_Download_tip}" press="onDownload"/>
+                <Button id="idProcessButton" enabled="{= ${ListViewModel>/processRecVisible} === true || ${ListViewModel>/processUnrecVisible} === true}"
+                        text="{i18n>SH_Process}"
+                        press="onPressProcess" type="Emphasized"/>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

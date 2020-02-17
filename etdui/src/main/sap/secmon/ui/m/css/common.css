@@ -1,0 +1,63 @@
+@CHARSET "ISO-8859-1";
+
+/*
+This CSS-Style contains frequently used CSS classes among ETD mobile applications.
+*/
+.sapEtdCenteredBusyIndicator {
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin-top: 1.5rem;
+}
+
+.sapEtdBackgroundWhite {
+	background-color: #ffffff
+}
+
+.sapEtdSmallContentMargin {
+	margin: 1rem 0;
+	padding: 0 1rem;
+	box-sizing: border-box;
+}
+
+.sapEtdCheckboxDisplayMode>div {
+	left: 0.0rem !important;
+	top: 0.0rem !important;
+}
+.sapEtdCheckboxDisplayMode {
+	height: 100% !important;
+}
+.sapEtdCheckboxEditMode>div {
+	left: 0.0rem !important;
+}
+
+.sapEtdtinyIcon .sapMSegBBtn .sapUiIcon {
+	padding: 0;
+	margin: 0 0;
+	width: 1rem;
+	font-size: 0.8 rem;
+	vertical-align: bottom;
+}
+
+/* Arrows in table breadcrumb navigation */
+.sapMTB-Transparent-CTX .sapMLabel.crumbArrow {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.sapMTokenizer .sapMToken {
+  float: left;
+}
+
+/* >>> Make thead of table fixed in sap.m.Table control. Doesn't work in IE */
+.sapEtdScrollTable thead th {
+	position: sticky;
+	top: 0;
+	/* background: white; */
+	z-index: 10;
+}
+
+.sapEtdScrollTable table {
+	overflow: visible;
+}
+/* <<< Make thead of table fixed in sap.m.Table control. Doesn't work in IE */

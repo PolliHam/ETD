@@ -1,0 +1,15 @@
+# TRANSLATE
+#XTIT:Alert Exemption Creation Dialog
+MAEx_createTitle=Create Alert Exemption for Pattern
+#XLBL:Alert Exemption Creation Dialog
+MAEx_ValidFrom=Valid From
+#XLBL:Alert Exemption Creation Dialog
+MAEx_ValidTo=Valid To
+#XMSG:Alert Exemption Creation Dialog
+MAEx_createdExemption=Exemption created
+#XMSG:Alert Exemption Creation Dialog
+MAEx_Reason=Reason for Exemption
+#XMSG:Alert Exemption Creation Dialog
+MAEx_MissingReason_XMSG=Enter a reason for exemption
+#XMSG:Alert Exemption Creation Dialog
+MAEx_InvalidDates_XMSG="Valid To" must be greater than "Valid From"

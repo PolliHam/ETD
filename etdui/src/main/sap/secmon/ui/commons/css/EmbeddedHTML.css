@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style is used in conjunction with the control. sap.ui.core.HTML.
+The HTML control allows to import an HTML string.
+Unfortunately, at least 2 restrictions apply:
+- text needs to be formatted for word-wrap and made selectable
+- ordered and unordered lists have a crazy height set. Need to be tamed with a height statement.
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/commons/css/EmbeddedHTML.css");
+*/
+
+.wrappedText
+	{
+	word-wrap: break-word;
+	white-space: pre-line;
+	overflow: hidden;
+    height: auto !important;
+}
+
+.wrappedText li {
+	clear:both;
+	height: auto !important;
+	margin: 0px;
+	-webkit-user-select: text;  /* Chrome 49+ */
+  	-moz-user-select: text;     /* Firefox 43+ */
+  	-ms-user-select: text;      /* No support yet */
+  	user-select: text;  		   /* No support yet */		
+}
+
+.wrappedText p {
+	margin: 0px;
+	-webkit-user-select: text;  /* Chrome 49+ */
+  	-moz-user-select: text;     /* Firefox 43+ */
+  	-ms-user-select: text;      /* No support yet */
+  	user-select: text;  		   /* No support yet */	
+}
+
+.wrappedText a {
+	-webkit-user-select: text;  /* Chrome 49+ */
+  	-moz-user-select: text;     /* Firefox 43+ */
+  	-ms-user-select: text;      /* No support yet */
+  	user-select: text;  		   /* No support yet */	
+}

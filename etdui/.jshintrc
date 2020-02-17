@@ -1,0 +1,47 @@
+/* This is the configuration file for JSHint.
+   For details about all available options see
+   http://www.jshint.com/docs/options/
+*/
+{
+  //Enforce bracketed blocks after if while etc.
+  "curly": true,
+  //Prefer === instead of ==
+  "eqeqeq": true,
+  //Enforce camel case for variable names
+  "camelcase": true,
+  //Warn if variables are used before they are declared.
+  "latedef": "nofunc",
+  //4 blanks indentation
+  "indent" : 4,
+  // Warn if variables are used but not declared 
+  "undef": true,
+  // Warn if declared variables and functions are unused
+  // Do not issue warnings for unused parameters
+  "unused": "vars",
+  // Warn about trailing blanks
+  "trailing": true,
+  //Set maximum length of lines 
+  "maxlen": 200,
+  // Allow typical debugging/development globals like alert and console
+  // TODO: check, whether this should be allowed in productive coding !!!
+  "devel": true,
+  // Allow usage of typical browser globals like "document" etc.
+  "browser": true,
+  //Expected globals:
+  "globals": { "sap": false,
+               "CryptoJS" : false, 
+               "jQuery": false,
+               "describe" : false,
+               "xdescribe" : false,
+               "it" : false,
+               "xit" : false,
+               "expect" : false,
+               "beforeEach" : false,
+               "afterEach" : false,
+               "before" : false,
+               "after" : false,
+               "sinon" : false,
+               "$" : false,
+               "jasmine" : false
+             }
+}

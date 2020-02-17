@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>BU_TIT_WSVersion}" resizable="true">
+		<Table fixedLayout="false" items="{path :'/versions'}" growing="true">
+			<columns>
+				<Column>
+					<Text text="{i18n>BU_COL_VersionNr}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>BU_COL_VChangedBy}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>BU_COL_VChangedAt}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle">
+					<cells>
+						<Text text="{Version}"/>
+						<Text text="{ChangedBy}"/>
+						<Text text="{parts:[{path : 'applicationContext>/UTC'},{path :'ChangedAt'}],
+		                      formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button text="{i18n>BU_BUT_Close}" press="pressedClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,63 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.ScoresType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)"
+        },
+        "AggregationCalculationId.Id": "02D9D5D02609BA4DA35827A12564D23E",
+        "AlertId": null,
+        "EventId": "fynLgx6iIkW8qKihjHoSPw==",
+        "NormalizedScore": null,
+        "ZScore": null,
+        "MeasureValue": null,
+        "DimensionHash": null,
+        "AggregationHash": null,
+        "ReferenceStartTimestamp": null,
+        "ReferenceEndTimestamp": null,
+        "StatisticalDataId.Id": null,
+        "StatisticalRawDataId.Id": null,
+        "FeatureConfigurationId.Id": null,
+        "StatisticalScoreDataId.Id": null,
+        "AggregationName": "Data Sent by Dialog User",
+        "AggregationDescription": null,
+        "AggregationMethod": "calculateMeansAndStdDeviation_sameWeekDayTime",
+        "IncludeZeroValues": "false",
+        "FeatureName": "Request sent in Bytes  (Dialog User)",
+        "FeatureDescription": null,
+        "ZScoreThreshold": "2",
+        "Mean": null,
+        "Deviation": null,
+        "ChartId": "o4O6I4rm7EyyLzVsqKvfjg==",
+        "AbsoluteMaxThreshold": null,
+        "AbsoluteMinThreshold": null,
+        "ScoreDetails": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)/ScoreDetails"
+          }
+        },
+        "AggregationDetails": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)/AggregationDetails"
+          }
+        },
+        "DayHourData": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)/DayHourData"
+          }
+        },
+        "ScoreBinaryDetails": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)/ScoreBinaryDetails"
+          }
+        },
+        "EdgeDimensions": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Scores(AggregationCalculationId.Id='02D9D5D02609BA4DA35827A12564D23E',AlertId=null)/EdgeDimensions"
+          }
+        }
+      }
+    ]
+  }
+}

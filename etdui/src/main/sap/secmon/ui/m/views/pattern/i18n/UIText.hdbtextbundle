@@ -1,0 +1,113 @@
+# TRANSLATE
+#XTIT:Mobile Full Screen Pattern UI
+PatternTitle=Pattern {0}
+#XLBL:Mobile Full Screen Pattern UI
+PatternNameXLBL=Name
+#XLBL:Mobile Full Screen Pattern UI
+PatternNameSpaceXLBL=Namespace
+#XLBL:Mobile Full Screen Pattern UI
+PatternDescriptionXLBL=Description
+#XLBL:Mobile Full Screen Pattern UI
+CreatedByXLBL=Created By
+#XLBL:Mobile Full Screen Pattern UI
+PatternRunsEveryXLBL=Runs Every (min)
+#XLBL:Mobile Full Screen Pattern UI
+ExecutionXLBL=Execution
+#XLBL:Mobile Full Screen Pattern UI
+ExecutionOutputXLBL=Execution Output
+#XLBL:Mobile Full Screen Pattern UI
+DefaultAlertSeverityXLBL=Default Alert Severity
+#XLBL:Mobile Full Screen Pattern UI
+PatternStatusXLBL=Status
+#XLBL:Mobile Full Screen Pattern UI
+ThresholdXLBL=Threshold
+#XLBL:Mobile Full Screen Pattern UI
+PatternOpenAlertsXLBL=Open Alerts
+#XLBL:Mobile Full Screen Pattern UI
+PatternOpenAlerts24XLBL=Alerts created last 24 hours
+#XBUT:Mobile Full Screen Pattern UI
+PatternOpen=Open
+#XBUT:Mobile Full Screen Pattern UI
+PatternExecute=Execute
+#XBUT:Mobile Full Screen Pattern UI
+MEdit=Edit
+#XBUT:Mobile Full Screen Pattern UI
+MSave=Save
+#XBUT:Mobile Full Screen Pattern UI
+MCancel=Cancel
+#XMSG:Mobile Full Screen Pattern UI
+WarnOnLeaveEdit=Save or cancel your changes before leaving the editor
+#XTIT:Mobile Full Screen Pattern UI
+PatternCredibility=Credibility of Attack Detection
+#XTIT:Mobile Full Screen Pattern UI
+PatternAttack=Success of Attack
+#XLBL:Mobile Full Screen Pattern UI
+PatternConfidentiality=Confidentiality attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternSystemDataIntegrity=System Data Integrity attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternBusDataIntegrity=Business Data Integrity attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternAvailability=Availability attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternSucConfidentiality=Confidentiality attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternSucSystemDataInteg=System Data Integrity attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternSucBusDataInteg=Business Data Integrity attacked
+#XLBL:Mobile Full Screen Pattern UI
+PatternSucAvailability=Availability attacked
+#XTXT: Pattern Detail UI: Used Valuelists
+PatternUsedVLists=Used Valuelists ({0})
+#XCOL: Pattern Detail UI: Valuelist Name
+ValueListName=Valuelist
+#XCOL: Pattern Detail UI: Valuelist Namespace
+ValueListNs=Namespace
+#XCOL: Pattern Detail UI: Valuelist Description
+ValueListDescr=Description
+#XTXT: Pattern Detail UI: Used Valuelists
+PatternExemptions=Exemptions ({0})
+#XCOL: Pattern Detail UI: Exemption Validity
+Exemption_Validity=Validity
+#XCOL: Pattern Detail UI: Exemption Description
+Exemption_Description=Description
+#XTIT:Mobile Full Screen Pattern UI
+AlertValidity=Alert Validity
+#XLBL: Pattern Detail UI
+TestModeXLBL=Test Mode
+#XLBL: Pattern Detail UI
+CreateException=Create Exemption
+#XLBL: Pattern Detail UI File upload label
+FileUploadLBL=File Upload
+#XTXT: Pattern Detail UI: Number of Attached Files
+Files=Attachments ({0})
+#XMSG: Pattern Detail UI: Error - Uploaded file has too a long name
+FilenameTooLarge=File name too long (100 characters allowed)
+#XMSG: Pattern Detail UI: Success Message
+FileUploaded=File successfully uploaded
+#XBUT: Pattern Detail UI: Button Text for file upload
+Upload=Upload
+#XBUT: Patter Detail UI: Button Text for Delete selected files
+DeleteSelected=Delete
+#XMSG: Pattern Detail UI: Message, File successfully deleted
+FileDeleted=File Deleted
+#XMSG: Pattern Detail UI: Message, Wrong file type
+FileTypeMismatch=Unsupported file type (Supported: xml, txt, pdf, doc)
+#XMSG: Pattern Detail UI: Message, file too large
+FileSizeExceed=File Too Large (Up to 2 GB allowed)
+#XLBL: PatternDetail UI: Label for Tags
+Scenarios=Assigned To Scenarios 
+#XTIT: Pattern Detail UI Title for Dialog Box
+NewScenario=Create a New Scenario
+#XTIT: Pattern Detail UI Title for Dialog Box
+AvailableScenarios=Scenarios
+XLBL: Investigation Templates
+InvTempl_LBL=Investigation Templates ({0})
+XLBL: Investigation Templates 
+InvTemplName_LBL=Template Name
+XLBL: Pattern UI
+AveragePatternRuntime=Average Pattern Runtime (ms)
+XLBL: Indicator Time Frame
+IndicatorTimeframeH=Indicator Time Frame (h)
+#XMSG:Pattern UI
+VL_Entry_Delete_Selected=Are you sure to remove the selected entry? 

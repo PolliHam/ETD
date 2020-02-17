@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" 
+		xmlns:core="sap.ui.core" xmlns:cc="sap.secmon.ui.commons.controls">
+	<ResponsivePopover placement="Bottom"
+                contentWidth="220px"
+                title="{i18nAnomaly>MAnomaly_ChartSettings}"
+                icon="sap-icon://settings"
+                showHeader="{sap.ui.Device.system.phone}" >
+		<content>
+			<HBox alignItems="Center" justifyContent="Start">
+				<CheckBox select="onLineChange" selected="{uiModel>/meanVisible}"/>
+				<l:VerticalLayout width="5px" />
+				<cc:LegendIcon width="12px" height="12px" color="{colorModel>/MEAN}"/>
+				<l:VerticalLayout width="10px" />
+				<cc:LegendItem text="{i18nAnomaly>MAnomaly_Mean}"/>
+			</HBox>
+			<HBox alignItems="Center" justifyContent="Start">
+				<CheckBox select="onLineChange" selected="{uiModel>/standardDeviationVisible}"/>
+				<l:VerticalLayout width="5px" />
+				<cc:LegendIcon width="12px" height="12px" type="circle" color="{colorModel>/STANDARD_DEVIATION_MIN}"/>
+				<l:VerticalLayout width="10px" />
+				<cc:LegendItem text="{i18nAnomaly>MAnomaly_StdDev}" />
+			</HBox>
+			<HBox alignItems="Center" justifyContent="Start">
+				<CheckBox select="onLineChange" selected="{uiModel>/thresholdVisible}"/>
+				<l:VerticalLayout width="5px" />
+				<cc:LegendIcon width="12px" height="12px" type="circle" color="{colorModel>/THRESHOLD_MIN}"/>
+				<l:VerticalLayout width="10px" />
+				<cc:LegendItem text="{i18nAnomaly>MAnomaly_threshold}" />
+			</HBox>
+			<HBox alignItems="Center" justifyContent="Start">
+				<CheckBox select="onLineChange" selected="{uiModel>/currentVisible}"/>
+				<l:VerticalLayout width="5px" />
+				<cc:LegendIcon width="12px" height="12px" type="circle" color="{colorModel>/CURRENT}"/>
+				<l:VerticalLayout width="10px" />
+				<cc:LegendItem text="{i18nAnomaly>MAnomaly_Curr}" />
+			</HBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

@@ -1,0 +1,115 @@
+<mvc:View controllerName="sap.secmon.ui.m.systems.view.ConnectedSystems"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:commons="sap.secmon.ui.commons.controls"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%">
+		<!-- filter container -->
+		<l:Grid
+			defaultSpan="L3 M6 S12"
+            hSpacing="0"
+            vSpacing="0"
+            position="Center" 
+            class="filterBarForm">
+            	
+           	<!-- day container -->
+           	<l:VerticalLayout width="100%"
+           		enabled="{=${uiModel>/loading}!==true}" >
+           		<Label text="{i18n>MConnectedSys_Date}:"/>
+           		<DatePicker width="155px"
+           			value="{
+		                path : 'uiModel>/day',
+		                type : 'sap.ui.model.type.Date',
+		                formatOptions : {
+		                    style : 'medium',
+		                    strictParsing : true
+		                },
+		                UTC: '{applicationContext>/UTC}'
+		            }"
+           			change="updateData"
+           			enabled="{=${uiModel>/loading}!==true}" />
+           	</l:VerticalLayout>
+            	
+           	<!-- time container -->
+           	<l:VerticalLayout width="100%">
+           		<Label text="{path: 'applicationContext>/UTC', formatter: 'sap.secmon.ui.m.systems.util.Formatter.timeLabelFormatter'}" />
+           		<l:HorizontalLayout enabled="{=${=uiModel>/loading}!==true}" >
+           			<DateTimeInput id="fromInput" width="75px"       				
+           				type="Time"
+           				maxLength="5"
+           				valueFormat="HH:mm"
+           				displayFormat="HH:mm"
+           				value="{
+			                path : 'uiModel>/from',
+							formatOptions : {
+			                    strictParsing : true,
+			                    source: {pattern: 'HH:mm'},
+			                    pattern: 'HH:mm'
+			                }
+			            }"
+           				enabled="{=${uiModel>/loading}!==true}" />
+           			<l:VerticalLayout width="10px" />
+           			<Text text="-" class="hyphen" />
+           			<l:VerticalLayout width="10px" />
+           			<!-- placeholder="HH:MM", formatOptions : {
+			                    style : 'medium',
+			                    strictParsing : true
+			                }, -->
+           			<DateTimeInput type="Time"
+           			 	id="toInput"
+           				width="75px"
+           				maxLength="5"
+           				valueFormat="HH:mm"
+           				displayFormat="HH:mm"
+           				value="{
+			                path : 'uiModel>/to',
+			                formatOptions : {
+			                    strictParsing : true,
+			                    source: {pattern: 'HH:mm'},
+			                    pattern: 'HH:mm'
+			                }
+			            }"
+           				enabled="{=${uiModel>/loading}!==true}" />
+           		</l:HorizontalLayout>
+           	</l:VerticalLayout>
+            
+           	<!-- directions container -->
+               <l:VerticalLayout width="100%">
+            	<Label text="{i18n>MConnectedSys_Directs}:" />
+            	<Select id="timeInterval" width="155px" 
+            		selectedKey="{uiModel>/directions}"
+           			enabled="{=${uiModel>/loading}!==true}">
+            		<core:Item text="{i18n>MConnectedSys_AllDirs}" key="all"/>
+            		<core:Item text="{i18n>MConnectedSys_Incoming}" key="incoming"/>
+            		<core:Item text="{i18n>MConnectedSys_Outgoing}" key="outgoing"/>
+            	</Select>
+           	</l:VerticalLayout>
+           	
+           	<!--  button container -->
+           	<l:VerticalLayout width="100%">
+           		<Label />
+           		<l:HorizontalLayout>
+           			<Button text="{i18n>MEventTrend_Reset}"
+            			width="80px"
+            			press="onResetPress"
+            			enabled="{=${uiModel>/loading}!==true}"/>
+           			<l:VerticalLayout width="10px" />
+           			<Button text="{i18n>MEventTrend_Update}"
+	           			width="80px"
+	           			press="onUpdatePress"
+	           			enabled="{=${uiModel>/loading}!==true}"/>
+           		</l:HorizontalLayout>
+           	</l:VerticalLayout> 	
+		</l:Grid>
+		
+		<!-- content container -->
+		<l:VerticalLayout width="100%">
+			<BusyIndicator class="sapEtdCenteredBusyIndicator"
+				visible="{=${uiModel>/loading}===true}"/>
+			<commons:ForceDirectedGraph id="forceDirectedGraph"
+				height="550px"
+            	nodes="{uiModel>/nodes}"
+            	links="{uiModel>/links}"
+            	enableDragging="true" />
+		</l:VerticalLayout>
+	</l:VerticalLayout>
+</mvc:View>

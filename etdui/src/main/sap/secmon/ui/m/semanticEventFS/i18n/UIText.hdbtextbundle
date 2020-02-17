@@ -1,0 +1,570 @@
+# TRANSLATE
+#XTIT:Mobile Full Screen Semantic Events UI
+SemanticEventsTitle=Log Events
+#XTIT:Mobile Full Screen Semantic Events UI
+SemanticEventsLbl=Log Events
+
+
+#XTIT:Mobile Full Screen Semantic Events UI
+SemanticEventsCountLbl=Semantic Events ({0})
+#XLBL:Mobile Full Screen Semantic Events UI
+FilterBarPrefix=Filtered by:
+#XLBL:Mobile Full Screen Semantic Events UI
+UsernameGroupLbl=User
+#XLBL:Mobile Full Screen Semantic Events UI
+SystemGroupLbl=System
+#XLBL:Mobile Full Screen Semantic Events UI
+NetworkGroupLbl=Network
+#XLBL:Mobile Full Screen Semantic Events UI
+OthersGroupLbl=Others
+#XLBL:Mobile Full Screen Semantic Events UI
+TechnicalGroupLbl=Technical
+#XLBL:Mobile Full Screen Semantic Events UI
+EventGroupLbl=Event
+#XLBL:Mobile Full Screen Semantic Events UI
+GenericGroupLbl=Generic
+#XLBL:Mobile Full Screen Semantic Events UI
+ParameterGroupLbl=Parameter
+#XLBL:Mobile Full Screen Semantic Events UI
+PrivilegeGroupLbl=Privilege
+#XLBL:Mobile Full Screen Semantic Events UI
+ResourceGroupLbl=Resource
+#XLBL:Mobile Full Screen Semantic Events UI
+ServiceGroupLbl=Service
+#XLBL:Mobile Full Screen Semantic Events UI
+TriggerGroupLbl=Trigger
+
+#XTOL:Mobile Full Screen Semantic Events UI
+UsernameExpandTOL=Expand User Fields
+#XTOL:Mobile Full Screen Semantic Events UI
+UsernameCollapseTOL=Collapse User Fields
+#XTOL:Mobile Full Screen Semantic Events UI
+SystemExpandTOL=Expand System Fields
+#XTOL:Mobile Full Screen Semantic Events UI
+SystemCollapseTOL=Collapse System Fields
+#XTOL:Mobile Full Screen Semantic Events UI
+ServiceExpandTOL=Expand Service Fields
+#XTOL:Mobile Full Screen Semantic Events UI
+ServiceCollapseTOL=Collapse Service Fields
+
+#XCOL:Mobile Full Screen Semantic Events UI
+InitiatingCOL=Initiating
+#XCOL:Mobile Full Screen Semantic Events UI
+InitiatorCOL=Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+ActingCOL=Acting
+#XCOL:Mobile Full Screen Semantic Events UI
+ActorCOL=Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+TargetedCOL=Targeted
+#XCOL:Mobile Full Screen Semantic Events UI
+TargetingCOL=Targeting
+#XCOL:Mobile Full Screen Semantic Events UI
+TargetCOL=Target
+#XCOL:Mobile Full Screen Semantic Events UI
+IntermediaryCOL=Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+ReportingCOL=Reporter
+
+#XCOL:Mobile Full Screen Semantic Events UI
+ProgramCOL=Program
+#XCOL:Mobile Full Screen Semantic Events UI
+TransactionCOL=Transaction
+
+#XCOL:Mobile Full Screen Semantic Events UI
+TimestampCol=Timestamp
+#XCOL:Mobile Full Screen Semantic Events UI
+EventCodeCol=Technical Event
+#XCOL:Mobile Full Screen Semantic Events UI
+EventSemanticCol=Semantic Event 
+#XCOL:Mobile Full Screen Semantic Events UI
+EventLogTypeCol=Event Log Type
+#XCOL:Mobile Full Screen Semantic Events UI
+EventMessageCol=Event Message
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdNoRoleCol=System Id
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdReporterCol=System Id, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemTypeReporterCol=System Type, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdActorCol=System Id, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdInitiatorCol=System Id, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemTypeInitiatorCol=System Type, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdIntermediaryCol=System Id, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemTypeIntermediaryCol=System Type, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupIdReporterCol=System Group Id, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupTypeReporterCol=System Group Type, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupIdActorCol=System Group Id, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupTypeActorCol=System Group Type, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupIdInitiatorCol=System Group Id, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupTypeInitCol=System Group Type, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupIdInterCol=System Group Id, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupTypeInterCol=System Group Type, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupIdTargetCol=System Group Id, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemGroupTypeTargetCol=System Group Type, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+UsernameNoRoleCol=User
+#XCOL:Mobile Full Screen Semantic Events UI
+UsernameInitiatingCol=User, Initiating
+#XCOL:Mobile Full Screen Semantic Events UI
+UsernameActingCol=User, Acting
+#XCOL:Mobile Full Screen Semantic Events UI
+UsernameTargetedCol=User, Targeted
+#XCOL:Mobile Full Screen Semantic Events UI
+UsernameTargetingCol=User, Targeting
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemTypeActorCol=System Type, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemIdTargetCol=System Id, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+SystemTypeTargetCol=System Type, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceTransactionNameCol=Service Transaction Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceProgramNameCol=Service Program Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceInstanceNameCol=Service Instance Name
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostnameActorCol=Network Hostname, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostnameInitiatorCol=Network Hostname, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostnameIntermediaryCol=Network Hostname, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostnameReporterCol=Network Hostname, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostnameTargetCol=Network Hostname, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostDomainActorCol=Network Host Domain, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostDomainInitiatorCol=Network Host Domain, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostDomainIntermedCol=Network Host Domain, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostDomainReporterCol=Network Host Domain, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwHostDomainTargetCol=Network Host Domain, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPAddressActorCol=Network IP Address, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPAddressInitiatorCol=Network IP Address, Initiator 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPAddressIntermediaryCol=Network IP Address, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPAddressReporterCol=Network IP Address, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPAddressTargetCol=Network IP Address, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+UserLogonMethodCol=User Logon Method
+#XCOL:Mobile Full Screen Semantic Events UI
+TechGroupIdCol=Technical Group Id
+#XCOL:Mobile Full Screen Semantic Events UI
+TechLogEntryTypeCol=Technical Log Entry Type
+#XCOL:Mobile Full Screen Semantic Events UI
+TechNumberCol=Technical Number
+#XCOL:Mobile Full Screen Semantic Events UI
+TechNumberRangeCol=Technical Number Range
+#XCOL:Mobile Full Screen Semantic Events UI
+TechTsOfInsertCol=Technical Timestamp of Insertion
+#XCOL:Mobile Full Screen Semantic Events UI
+AttackNameCol=Attack Name
+#XCOL:Mobile Full Screen Semantic Events UI
+AttackTypeCol=Attack Type
+#XCOL:Mobile Full Screen Semantic Events UI
+CorrelationIdCol=Correlation Id
+#XCOL:Mobile Full Screen Semantic Events UI
+CorrelationSubIdCol=Correlation Sub Id
+#XCOL:Mobile Full Screen Semantic Events UI
+EventScenRoleActCol=Event Scenario Role of Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+EventScenRoleInitCol=Event Scenario Role of Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+EventSeverityCodeCol=Event Severity Code
+#XCOL:Mobile Full Screen Semantic Events UI
+EventSourceIdCol=Event Source Id
+#XCOL:Mobile Full Screen Semantic Events UI
+EventSourceTypeCol=Event Source Type
+#XCOL:Mobile Full Screen Semantic Events UI
+GenActionCol=Generic Action
+#XCOL:Mobile Full Screen Semantic Events UI
+GenCategoryCol=Generic Category
+#XCOL:Mobile Full Screen Semantic Events UI
+GenDeviceTypeCol=Generic Device Type
+#XCOL:Mobile Full Screen Semantic Events UI
+GenExplanationCol=Generic Explanation
+#XCOL:Mobile Full Screen Semantic Events UI
+GenGeolocActorCol=Generic Geolocation Code, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+GenGeolocTargetCol=Generic Geolocation Code, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+GenOrderCol=Generic Order
+#XCOL:Mobile Full Screen Semantic Events UI
+GenOutcomeCol=Generic Outcome
+#XCOL:Mobile Full Screen Semantic Events UI
+GenOutcomeReasonCol=Generic Outcome Reason
+#XCOL:Mobile Full Screen Semantic Events UI
+GenPathCol=Generic Path
+#XCOL:Mobile Full Screen Semantic Events UI
+GenPathPriorCol=Generic Path Prior
+#XCOL:Mobile Full Screen Semantic Events UI
+GenPurposeCol=Generic Purpose
+#XCOL:Mobile Full Screen Semantic Events UI
+GenRiskLevelCol=Generic Risk Level
+#XCOL:Mobile Full Screen Semantic Events UI
+GenScoreCol=Generic Score
+#XCOL:Mobile Full Screen Semantic Events UI
+GenSessionIdCol=Generic Session Id
+#XCOL:Mobile Full Screen Semantic Events UI
+GenURICol=Generic URI
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIntfInitiatorCol=Network Interface, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIntfTargetCol=Network Interface, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPBeforeNATInitiatorCol=Network IP Before NAT, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwIPBeforeNATTargetCol=Network IP Before NAT, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwMACActorCol=Network MAC Address, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwMACInitCol=Network MAC Address, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwMACInterCol=Network MAC Address, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwMACReporterCol=Network MAC Address, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwMACTargetCol=Network MAC Address, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwNwPrefixInitiatorCol=Network Network Prefix, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwNwPrefixTargetCol=Network Network Prefix, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortActorCol=Network Port, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortInitCol=Network Port, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortInterCol=Network Port, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortReporterCol=Network Port, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortTargetCol=Network Port, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortBeforeNATInitCol=Network Port Before NAT, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwPortBeforeNATTargetCol=Network Port Before NAT, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwProtocolCol=Network Protocol
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSessionIdCol=Network Session Id
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnIdActorCol=Network Subnet Id, Actor 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnActorCol=Network Subnet, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnCatActorCol=Network Subnet Category, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnNameActorCol=Network Subnet Name, Actor 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnLocActorCol=Network Subnet Location, Actor
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnIdInitCol=Network Subnet Id, Initiator 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnInitCol=Network Subnet, Initiator 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnCatInitCol=Network Subnet Category, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnNameInitCol=Network Subnet Name, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnLocInitCol=Network Subnet Location, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnIdInterCol=Network Subnet Id, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnInterCol=Network Subnet, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnCatInterCol=Network Subnet Category, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnNameInterCol=Network Subnet Name, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnLocInterCol=Network Subnet Location, Intermediary
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnIdReporterCol=Network Subnet Id, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnReporterCol=Network Subnet, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnCatReporterCol=Network Subnet Category, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnNameReporterCol=Network Subnet Name, Reporter 
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnLocReporterCol=Network Subnet Location, Reporter
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnIdTargetCol=Network Subnet Id, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnTargetCol=Network Subnet, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnCatTargetCol=Network Subnet Category, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnNameTargetCol=Network Subnet Name, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwSnLocTargetCol=Network Subnet Location, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+NwZoneInitiatorCol=Network Zone, Initiator
+#XCOL:Mobile Full Screen Semantic Events UI
+NwZoneTargetCol=Network Zone, Target
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamDirCol=Parameter Direction
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamDirContextCol=Parameter Direction Context
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamNameCol=Parameter Name 
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamNameContextCol=Parameter Name Context
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamDataCol=Parameter Datatype 
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamDataContextCol=Parameter Datatype Context
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValueNumCol=Parameter Value Number
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValueNumCntxtCol=Parameter Value Number Context
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValueNumPriorValueCol=Parameter Value Number Prior Value
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValueStringCol=Parameter Value String
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValueStringCntxtCol=Parameter Value String Context
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValStringPriorValCol=Parameter Value String Prior Value
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValDoubleCol=Parameter Value Double
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValDoublePriorValCol=Parameter Value Double Prior Value
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValTSCol=Parameter Value Timestamp
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamValTSPriorValCol=Parameter Value Timestamp Prior Value
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamTypeCol=Parameter Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ParamTypeContextCol=Parameter Type Context
+#XCOL:Mobile Full Screen Semantic Events UI
+PriviIsGrantCol=Privilege Is Grantable 
+#XCOL:Mobile Full Screen Semantic Events UI
+PriviNameCol=Privilege Name
+#XCOL:Mobile Full Screen Semantic Events UI
+PriviTypeCol=Privilege Type
+#XCOL:Mobile Full Screen Semantic Events UI
+PriviGranteeNameCol=Privilege Grantee Name
+#XCOL:Mobile Full Screen Semantic Events UI
+PriviGranteeTypeCol=Privilege Grantee Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ResContNameCol=Resource Container Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ResContTypeCol=Resource Container Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ResContentCol=Resource Content
+#XCOL:Mobile Full Screen Semantic Events UI
+ResContentTypeCol=Resource Content Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ResCountCol=Resource Count
+#XCOL:Mobile Full Screen Semantic Events UI
+ResNameCol=Resource Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ResNamePriorCol=Resource Name Prior
+#XCOL:Mobile Full Screen Semantic Events UI
+ResReqSizeCol=Resource Request Size
+#XCOL:Mobile Full Screen Semantic Events UI
+ResRespSizeCol=Resource Response Size
+#XCOL:Mobile Full Screen Semantic Events UI
+ResSizeCol=Resource Size
+#XCOL:Mobile Full Screen Semantic Events UI
+ResTypeCol=Resource Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ResSumCriteriaCol=Resource Sum Criteria
+#XCOL:Mobile Full Screen Semantic Events UI
+ResSumOverTimeCol=Resource Sum Over Time
+#XCOL:Mobile Full Screen Semantic Events UI
+ResUnitOfMeasureCol=Resource Units Of Measure
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceAccessNameCol=Service Access Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceFunctionNameCol=Service Function Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceReferrerCol=Service Referrer
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceReqLineCol=Service Request Line
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceTypeCol=Service Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceVersionCol=Service Version
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceApplicationNameCol=Service Application Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceExecuteableCol=Service Executeable Name
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceExecuteableTypeCol=Service Executable Type
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceOutcomeCol=Service Outcome
+#XCOL:Mobile Full Screen Semantic Events UI
+ServicePartIdCol=Service Part Id
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceProcessIdCol=Service Process Id
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceUserAgentCol=Service User Agent
+#XCOL:Mobile Full Screen Semantic Events UI
+ServiceWorkflowNameCol=Service Workflow Name
+#XCOL:Mobile Full Screen Semantic Events UI
+TimeDurationCol=Time Duration
+#XCOL:Mobile Full Screen Semantic Events UI
+TimestampOfEndCol=Timestamp Of End
+#XCOL:Mobile Full Screen Semantic Events UI
+TimestampOfStartCol=Timestamp Of Start
+#XCOL:Mobile Full Screen Semantic Events UI
+TriggerNameActingCol=Trigger Name, Acting 
+#XCOL:Mobile Full Screen Semantic Events UI
+TriggerNameTargetCol=Trigger Name, Targeted 
+#XCOL:Mobile Full Screen Semantic Events UI
+TriggerTypeActingCol=Trigger Type, Acting 
+#XCOL:Mobile Full Screen Semantic Events UI
+TriggerTypeTargetCol=Trigger Type, Targeted 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomNameActingCol=User Domain Name, Acting 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomNameInitCol=User Domain Name, Initiating 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomNameTargetedCol=User Domain Name, Targeted 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomNameTargetingCol=User Domain Name, Targeting 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomTypeActingCol=User Domain Type, Acting 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomTypeInitCol=Usern Domain Type, Initiating 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomTypeTargetedCol=User Domain Type, Targeted 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomTypeTargetingCol=User Domain Type, Targeting 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomPseudActingCol=User Domain Pseudonym, Acting 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomPseudInitCol=User Domain Pseudonym, Initiating 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomPseudTargetedCol=User Domain Pseudonym, Targeted 
+#XCOL:Mobile Full Screen Semantic Events UI
+UserDomPseudTargetingCol=User Domain Pseudonym, Targeting 
+#XCOL:Mobile Full Screen Semantic Events UI
+TechEventNameCol=Technical Event Name
+#XCOL:Mobile Full Screen Semantic Events UI
+EventNamespaceCol=Event Namespace
+#XCOL:Mobile Full Screen Semantic Events UI
+OriginalDataCol=Original Data
+
+#XLBL:Mobile Full Screen Semantic Events UI
+FilterBarLbl=Filter Bar
+#XLBL:Mobile Full Screen Semantic Events UI
+ConsidTimeRangeLbl=Creation Time Range
+#XMSG:Mobile Full Screen Semantic Events UI
+SuggestionText=For suggestions, enter at least 2 characters...
+#XLBL:Mobile Full Screen Semantic Events UI
+DetailsLabel=Details
+
+#XLBL:Mobile Full Screen Semantic Events UI
+NetworkLabel=Network
+#XLBL:Mobile Full Screen Semantic Events UI
+NwHostnActorLabel=Hostname, Acting 
+#XLBL:Mobile Full Screen Semantic Events UI
+NwHostnInitiatorLabel=Hostname, Initiating 
+#XLBL:Mobile Full Screen Semantic Events UI
+NwHostnIntermediaryLabel=Hostname, Intermediary 
+#XLBL:Mobile Full Screen Semantic Events UI
+NwHostnameReporterLabel=Hostname, Reporting 
+
+#XLBL:Mobile Full Screen Semantic Events UI
+ParameterLabel=Parameter
+#XLBL:Mobile Full Screen Semantic Events UI
+ParamTypeLabel=Type
+#XLBL:Mobile Full Screen Semantic Events UI
+ParamNameLabel=Name
+#XLBL:Mobile Full Screen Semantic Events UI
+ParamNameContextLabel=Name Context
+
+#XTOL:Mobile Full Screen Semantic Events UI
+ExportTooltip=Export
+
+#XLBL:Mobile Full Screen Semantic Events UI
+PickActionLabel=Choose Actions
+#XTIT:Mobile Full Screen Semantic Events UI
+ActionTile_Title=Save as Tile
+
+#XLBL: Bookmark
+MBookmark_SemanticEvXLBL=Log Events
+
+
+#XTIT:Mobile Full Screen Semantic Events UI
+ActionEmail_Title=Send Email
+#XMSG:Mobile Full Screen Semantic Events UI
+Email_SubjectMsg=Log Event List
+#XMSG:Mobile Full Screen Semantic Events UI
+Email_BodyXMsg=View the Log Event List with the URL below.
+
+#XBUT: Add To Investigation
+AddToInvestigation=Add to Investigation
+
+#XBUT:Commons
+Commons_Ok=OK
+#XBUT:Commons
+Commons_Cancel=Cancel
+
+#XCOL: Malimon Case File list
+MM_COL_CFName=Name
+#XCOL: Malimon Case File list
+MM_COL_CFNamespace=Namespace
+#XCOL: Malimon Case File list
+MM_COL_CreatedBy=Created By
+#XCOL: Malimon Case File list
+MM_COL_CreatedAt=Creation Time
+#XCOL: Malimon Case File list
+MM_COL_ChangedBy=Changed By
+#XCOL: Malimon Case File list
+MM_COL_ChangedAt=Change Time
+#XTIT: Malimon Case File
+Create_Attack_path=Create Attack Path
+#XLBL: Malimon Case File
+Name_attack_path=Attack Path Name
+#XLBL: Malimon Case File
+Description_attack_path=Attack Path Description
+#XBUT: Malimon Case File
+Save_attack_path=Save Attack Path
+#XTIT: Malimon Case File
+MM_TIT_CaseFile = Case Files
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddShow=Add and Show
+#XBUT : Malimon Case File Dialog
+SPL_BUT_AddReturn=Add and Return
+#XBUT : Malimon Case File Dialog
+SPL_BUT_Close=Close
+#XTXT : Malimon Case File Dialog
+CF_TOL_Create=Create new Case File
+#XTXT : Malimon Case File Dialog
+CF_TIT_Create = Name
+#XMSG
+MM_MSG_CaseFileNoName=Enter name for case file
+#XLBL: Malimon Case File list
+MM_Search_Placeholder=Enter the name of a Case File
+#XLBL
+MM_LBL_CFNamespace=Namespace
+#XBUT
+AddToCaseFile=Process in Case File

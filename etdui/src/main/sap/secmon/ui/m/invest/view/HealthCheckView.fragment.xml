@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+    
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+        <l:content>
+		    <Bar class="sapETDBar">
+		        <contentMiddle>
+		            <Title text="{MessageText}" />
+		        </contentMiddle>
+		    </Bar>
+			<f:SimpleForm editable="false">
+				<f:content>
+		            
+		            <Label text="{i18nInvest>MCreationDate}"/>
+		            <Text text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'Timestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+		            <Label text="{i18nInvest>MInvest_HealthReport}"/>
+		            <Text text="{Report}"/>
+                    <Label text="{i18nInvest>MInvest_HealthEventName}"/>
+                    <Text text="{EventName}"/>
+		 			<Label text="{i18nCommon>Description_LBL}"/>
+		            <Text text="{MessageText}"/>	
+					<Label text="{i18nCommon>System_LBL}"/>
+					<Text text="{SystemId}"/>
+					<Label text="{i18nCommon>SystemType_LBL}"/>
+					<Text text="{SystemType}"/>
+					
+				</f:content>
+			</f:SimpleForm>
+        </l:content>
+    </l:Grid>
+</core:FragmentDefinition>

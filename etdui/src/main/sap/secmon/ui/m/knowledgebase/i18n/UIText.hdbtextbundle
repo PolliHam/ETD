@@ -1,0 +1,156 @@
+# TRANSLATE
+
+
+# Knowledge Base UI
+#XTIT:Knowledge Base UI
+Title=Knowledge Base
+#XTIT
+KB_LogTypes=Log Types
+#XCOL,20:Knowledge Base UI
+KB_Name=Name
+#XCOL:Knowledge Base UI
+KB_Datatype=Data Type
+#XCOL,20:Knowledge Base UI
+KB_NameSpace=Name Space
+#XCOL,20:Knowledge Base UI
+KB_DisplayName=Display Name
+#XCOL,20:Knowledge Base UI
+KB_Description=Description
+#XBUT:Knowledge Base UI
+KB_New=New
+#XBUT: Knowledge Base UI
+Add_BUT=Add
+#XTIT: Knowledge Base UI
+KB_Add_Attr=Add Attributes
+#XBUT: Knowledge Base UI
+Remove_BUT=Remove
+#XBUT: Knowledge Base UI
+ChangeRelevance_BUT=Change Relevance
+#XBUT: Knowledge Base UI
+BU_BUT_OK=OK
+#XBUT: Knowledge Base UI
+BU_BUT_Cancel=Cancel
+#XBUT:Knowledge Base UI
+KB_Edit=Edit
+#XBUT:Knowledge Base UI
+KB_Delete=Delete
+#XBUT:Knowledge Base UI
+KB_Copy=Copy
+#XBUT:Knowledge Base UI - Export Button (Replication Table)
+KB_Export=Export
+#XTXT
+KB_Event=event
+#XTXT
+KB_Log_Type=log type
+#XMSG
+KB_Del_Error=Unable to delete {0} {2} ({1}).
+#XTIT
+KB_Attributes=Attributes
+#XTIT
+KB_Events=Semantic Events
+#XCOL
+KB_EventDetails=Event Details
+#XTIT
+KB_CreateEvent=Create Event
+#XTIT
+KB_CreateLogType=Create Log Type
+#XTIT
+KB_CopyEvent=Copy Event
+#XTIT
+KB_EditEvent=Edit Event
+#XLBL
+KB_NameLbl=Name
+#XLBL
+KB_NameSpaceLbl=Name Space
+#XLBL
+KB_DisplayNameLbl=Display Name
+#XLBL
+KB_DescriptionLbl=Description
+#XLBL
+KB_CreatedByLbl=Created by
+#XLBL
+KB_CreatedAtLbl=Created at
+#XLBL
+KB_ChangedByLbl=Changed by
+#XLBL
+KB_ChangedAtLbl=Changed at
+#XCOL
+KB_WorkspacesLbl=Workspace name
+#XTIT
+KB_WorkspacesHeader=Workspaces using the filter "{0}"
+#XLBL
+KB_DataTypeLbl=Data Type
+#XMSG
+KB_ConfirmLogout=Are you sure you want to log out?
+#XCOL
+KB_DataType=Data Type
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR1=Namespace must start with http://
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR2=Namespaces starting with http://sap.com are reserved for SAP.
+#XMSG:Mobile Namespace UI
+NAMESPACE_OD_ERR_Undefined=Namespace not defined.
+#XMSG:Mobile Namespace UI
+NAMESPACE_ERROR=Error
+#XMSG:Knowledgebase OData Error code   
+IT_OD_ERRxxx=Internal error: {0}
+#XMSG:Knowledgebase creation of events and log types validation
+KB_NameNotEmpty=Name must not be empty!
+#XTXT
+KB_EventSaved=Event {1} ({0}) saved
+#XTXT
+KB_EventExported=Event {1} ({0}) exported
+#XTXT
+KB_AssignedAttrSingle=Attribute {0} has been assigned to event {2} ({1})
+#XTXT
+KB_AssignedAttrMultiple={0} attributes have been assigned to event {2} ({1})
+#XTXT
+KB_UnassignAttrSingle=Attribute {0} has been unassigned from event {2} ({1})
+#XTXT
+KB_UnassignAttrMultiple={0} attributes have been unassigned from event {2} ({1})
+#XTXT
+KB_Change_Attribute_Relevance=Successfully changed the relevance of the selected attributes.
+#XTIT
+KB_ChangeRelevance=Change attribute relevance
+#XTXT
+KB_Likely=Likely
+#XTXT
+KB_Mandatory=Mandatory
+#XTXT
+KB_Less_Likely=Less Likely
+#XTIT
+KB_EditLogType=Edit Log Type
+#XTXT
+KB_LogTypeSaved=Log Type {1} ({0}) saved
+#XTXT
+KB_LogTypeExported=Log Type {1} ({0}) exported
+#XTXT
+KB_AttrSaved=Attribute {1} ({0}) saved
+#XTXT
+KB_EventDeleted=Event {1} ({0}) deleted
+#XTXT
+KB_LogTypeDeleted=Log Type {1} ({0}) deleted
+#XTXT
+KB_AttrDeleted=Attribute {1} ({0}) deleted
+#XTXT
+KB_AssignedAttrEvent=Attributes have been assigned to event {0} ({1})
+#XTXT
+KB_UnassignedAttrEvent=Attributes have been unassigned from event {0} ({1})
+#XTXT
+KB_DelReallyEvent=Do you really want to delete event {0} ({1})?
+#XTXT
+KB_DelReallyLogType=Do you really want to delete log type {0} ({1})?
+#XCOL
+KB_Relevance=Relevance
+#XLBL: Knowledgebase Semantic Event label
+Events_LBL=Semantic Events
+#XLBL: Knowledgebase Log Types Label
+LogTypes_LBL=Log Types
+#XLBL: Knowledgebase Attributes Label
+Attributes_LBL=Attributes
+#XTIT: Knowledgebase Title Event Detail
+Event_Tit=Event Details for "{0}"
+#XTIT: Knowledgebase Title Attributes
+Attributes_Tit=Attribute Details for "{0}"
+#XTIT: Knowledgebase Title LogTypes
+LogTypes_Tit=Log Type Detail for "{0}"

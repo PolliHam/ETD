@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+
+.scrollContainerWith100PerCentage>div {
+	width: 100% !important;
+}

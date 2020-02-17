@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout.form">
+	<Dialog title="{i18n>Interpret_AddGroup}">
+		<Table id="table" items="{ path : '/ConstantValueGroupAttributes', sorter : { path : 'GroupName', group : true } }"
+			growing="true" growingThreshold="50" growingScrollToLoad="true"
+			mode="MultiSelect" selectionChange="onRowSelectionChange">
+			<columns>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<Text text="{i18n>Interpret_Name}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Interpret_Namespace}" />
+				</Column>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<Text text="{i18n>Interpret_AttrName}" />
+				</Column>
+				<Column minScreenWidth="Phone" demandPopin="true">
+					<Text text="{i18n>Interpret_TargetValue}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle">
+					<cells>
+						<Text text="{GroupName}" />
+						<Text text="{GroupNameSpace}" />
+						<Text text="{AttrDisplayName}" />
+						<Text text="{Value}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			<Button id="Ok" text="{i18n>Interpret_Ok}" press="onCloseDialog" />
+			<Button id="Cancel" text="{i18n>Interpret_Cancel}" press="onCloseDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

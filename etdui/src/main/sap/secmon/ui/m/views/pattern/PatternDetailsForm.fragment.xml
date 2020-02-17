@@ -1,0 +1,235 @@
+<core:FragmentDefinition
+		xmlns:commonControls="sap.secmon.ui.commons.controls"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+
+	<f:SimpleForm
+			id="idTopPanel"
+			busyIndicatorDelay="0"
+			maxContainerCols="2"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="4"
+			editable="{config>/editMode}">
+		<f:content>
+			<Label text="{i18n>PatternNameXLBL}"/>
+			<Text text="{Name}"/>
+
+			<Label text="{i18n>PatternNameSpaceXLBL}"/>
+			<Text text="{NameSpace}"/>
+
+			<Label text="{i18n>PatternDescriptionXLBL}"/>
+			<Text text="{Description}"/>
+
+			<Label text="{i18n>CreatedByXLBL}"/>
+			<Text text="{CreatedBy}"/>
+
+			<Label text="{i18n>PatternOpenAlertsXLBL}"
+				   visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}"/>
+			<VBox visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}">
+				<commonControls:LongTapLink
+						visible="{config>/displayMode}"
+						text="{path :'uiModel>/openAlertsCount', formatter : 'sap.secmon.ui.m.views.pattern.Formatter.numberFormatter'}"
+						href="{path: 'Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.openAlertsOfPatternURL'}"/>
+				<Text text="{uiModel>/openAlertsCount}" visible="{config>/editMode}"/>
+			</VBox>
+
+			<Label text="{i18n>PatternOpenAlerts24XLBL}"
+				   visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}"/>
+			<VBox visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}">
+				<commonControls:LongTapLink
+						visible="{config>/displayMode}"
+						href="{path: 'Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.lastDaysAlertsOfPatternURL'}"
+						text="{path : 'OpenAlertCount', formatter : 'sap.secmon.ui.m.views.pattern.Formatter.numberFormatter'}"/>
+				<Text text="{path : 'OpenAlertCount', formatter : 'sap.secmon.ui.m.views.pattern.Formatter.numberFormatter'}"
+					  visible="{config>/editMode}"/>
+			</VBox>
+
+			<Label text="{i18n>ExecutionXLBL}"/>
+			<Text text="{parts: [
+							{path: 'enums>/sap.secmon.ui.browse/Pattern/ExecutionType/'},
+							{path : 'ExecutionType'}
+						], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+
+			<Label text="{i18n>ExecutionOutputXLBL}"/>
+			<Text text="{parts: [
+									{path: 'enums>/sap.secmon.ui.browse/Pattern/ExecutionOutput/'},
+									{path : 'ExecutionOutput'}
+								], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+
+			<Label text="{i18n>PatternRunsEveryXLBL}"/>
+			<VBox visible="{parts : [
+								{path : 'ExecutionType'},
+								{path : 'PatternType'}
+							], formatter: 'sap.secmon.ui.m.views.pattern.Formatter.frequencyVisibility'}">
+				<Text text="{Frequency}" visible="{config>/displayMode}"/>
+				<Input id="frequencyInput"
+					   valueStateText="{i18nCommon>Err_EnterIntValGreater0}"
+					   value="{path:'editModel>/Frequency', type: 'sap.ui.model.type.Integer', constraints : {minimum : 1, maximum : 2147483647}}"
+					   visible="{config>/editMode}"/>
+			</VBox>
+
+			<Label text="{i18n>DefaultAlertSeverityXLBL}"
+				   visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}"/>
+			<VBox visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}">
+				<Text text="{path : 'Severity', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.severityFormatter'}"
+					  visible="{config>/displayMode}"/>
+				<Select selectedKey="{editModel>/Severity}"
+						width="100%"
+						items="{enums>/sap.secmon.services.ui.m.alerts/Alert/Severity/enumValues}"
+						visible="{config>/editMode}">
+					<core:ListItem key="{enums>Key}" text="{enums>Value}"/>
+				</Select>
+			</VBox>
+
+			<Label text="{i18n>PatternStatusXLBL}"/>
+			<VBox>
+				<Text visible="{config>/displayMode}"
+					  text="{parts: [
+								{path: 'enums>/sap.secmon.ui.browse/Pattern/Status/'},
+								{path : 'Status'}
+							], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}"/>
+				<Select selectedKey="{editModel>/Status}"
+						width="100%"
+						visible="{config>/editMode}"
+						items="{enums>/sap.secmon.ui.browse/Pattern/Status/enumValues}">
+					<core:ListItem key="{enums>Key}" text="{enums>Value}"/>
+				</Select>
+			</VBox>
+
+			<Label text="{i18n>ThresholdXLBL}"
+				   visible="{path : 'PatternType', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isFLABPattern'}"/>
+			<VBox visible="{path : 'PatternType', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isFLABPattern'}">
+				<Text text="{ThresholdOperator} {Threshold}" visible="{config>/displayMode}"/>
+				<HBox visible="{config>/editMode}">
+					<ComboBox maxLength="2"
+							  width="4em"
+							  items="{enums>/sap.secmon.ui.browse/Pattern/ThresholdOperators}"
+							  selectedKey="{editModel>/ThresholdOperator}">
+						<core:Item key="{enums>Key}" text="{enums>Text}"/>
+					</ComboBox>
+
+					<Input id="thresholdInput"
+						   valueStateText="{i18nCommon>Err_EnterIntValGreater0}"
+						   width="100%"
+						   value="{path: 'editModel>/Threshold', type : 'sap.ui.model.type.Integer', constraints : {minimum : 1,  maximum : 2147483647}}">
+						<layoutData>
+							<FlexItemData growFactor="3"/>
+						</layoutData>
+					</Input>
+				</HBox>
+			</VBox>
+
+			<Label text="{i18n>IndicatorTimeframeH}"
+				   visible="{= ${config>/editMode}===true || ${IndicatorTimeframe} > 0}"/>
+			<VBox visible="{= ${config>/editMode}===true || ${IndicatorTimeframe} > 0}">
+				<Text text="{= ${IndicatorTimeframe} / (60 * 60 * 1000) }"
+					  visible="{config>/displayMode}"/>
+				<HBox visible="{config>/editMode}">
+					<Input id="IndicatorTimeframeInput"
+						   value="{
+										path : 'editModel>/IndicatorTimeframe',
+										type : 'sap.ui.model.type.Integer',
+										constraints : {minimum : 0,  maximum : 24}
+								   }"
+						   editable="true"
+						   width="5em">
+					</Input>
+
+					<Slider id="IndicatorSlider"
+							enableTickmarks="true"
+							min="0"
+							max="24"
+							value="{
+										path: 'editModel>/IndicatorTimeframe',
+										type : 'sap.ui.model.type.Integer'
+									}"
+							step="1">
+						<layoutData>
+							<FlexItemData growFactor="3"/>
+						</layoutData>
+					</Slider>
+				</HBox>
+			</VBox>
+
+			<Label text="{i18n>TestModeXLBL}"
+				   visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}"/>
+			<VBox visible="{path : 'ExecutionOutput', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.isAlertPattern'}">
+				<CheckBox class="sapEtdCheckboxDisplayMode"
+						  selected="{path : 'TestMode', formatter: 'sap.secmon.ui.m.views.pattern.Formatter.testMode'}"
+						  enabled="false"
+						  visible="{config>/displayMode}"/>
+
+				<CheckBox class="sapEtdCheckboxEditMode"
+						  selected="{editModel>/TestMode}"
+						  enabled="true"
+						  visible="{config>/editMode}"/>
+			</VBox>
+
+
+			<Label text="{i18n>Scenarios}"/>
+			<VBox>
+				<Text text="{PatternScenarios}" visible="{config>/displayMode}"/>
+				<MultiInput id="Tags"
+							visible="{config>/editMode}"
+							tokens="{path : 'PatternTags', templateShareable : true }"
+							suggestionItems="{
+										path : '/Tags',
+										sorter : [
+											{path : 'Name'},
+											{path : 'Namespace'}
+										],
+										filters : [{path : 'Original', operator : 'EQ', value1 : '1'}] }"
+							editable="true"
+							tokenChange="onTagTokenChange"
+							suggestionItemSelected="onTagSuggestionSelected"
+							change="onCreateNewTag"
+							enableMultiLineMode="false"
+							valueHelpRequest="onTagValueHelpRequest">
+					<suggestionItems>
+						<core:ListItem key="{Id}"
+									   text="{parts : [
+												{path : 'Name'},
+												{path : 'Namespace'}
+											], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}">
+							<core:customData>
+								<core:CustomData key="Name" value="{Name}"/>
+								<core:CustomData key="Namespace" value="{Namespace}"/>
+							</core:customData>
+						</core:ListItem>
+					</suggestionItems>
+					<tokens>
+						<Token key="{GenID}"
+							   editable="{path : 'Original', formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagEditableFormatter'}"
+							   text="{parts : [
+									   			{path : 'Name'},
+									   			{path : 'Namespace'}
+									   		], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}">
+							<customData>
+								<core:CustomData key="Name" value="{Name}"/>
+								<core:CustomData key="Namespace" value="{Namespace}"/>
+							</customData>
+						</Token>
+					</tokens>
+				</MultiInput>
+			</VBox>
+
+			<Label text="{i18n>AveragePatternRuntime}" visible="{config>/displayMode}"/>
+			<Text id="idPatternRuntime"
+				visible="{config>/displayMode}"
+				text="{
+					path : 'uiModel>/totalRuntime',
+					type : 'sap.ui.model.type.Float',
+					formatOptions : {
+						style : 'short',
+						maxFractionDigits: '4'
+					}
+				}"/>		
+			<Label text="{i18n>Post-Processing Timerange}" visible="{=${CountScheduledJobs} > '0' &amp;&amp; ${config>/displayMode}}"/>
+			<Text id="idPatternPostProcessing"
+				visible="{config>/displayMode}"
+				text="{parts: [{path : 'applicationContext>/UTC'},{path: 'i18nCommon>ConsTimeRangeFT_LBL'},{path : 'FromTimestamp'},{path: 'ToTimestamp'}],  formatter: 'sap.secmon.ui.commons.Formatter.timeRangeFormatterEx'}" />
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>   

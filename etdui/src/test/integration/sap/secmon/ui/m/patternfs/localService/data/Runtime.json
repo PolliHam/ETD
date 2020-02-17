@@ -1,0 +1,18 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.RuntimeType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Runtime('29099102894958971')"
+        },
+        "GenId": "29099102894958971",
+        "PatternDefinitionId": "01A32F947BB5804EB143EE4964833E8E",
+        "TotalRuntime": "2291.771844",
+        "NumberOfNewAlerts": 0,
+        "NumberOfAllAlerts": 0,
+        "RunCount": 2266
+      }
+    ]
+  }
+}

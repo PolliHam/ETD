@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="{i18nCommon>MBookmark_TitleXTIT}" class="sapUiPopupWithPadding"
+		afterOpen="afterOpen" stretch="{device>/isPhone}">
+		<content>
+			<f:SimpleForm editable="true">
+				<f:content>
+					<Label text="{i18nCommon>MBookmark_TitleXLBL}">
+					</Label>
+					<Input value="{editModel>/title}" maxLength="44">
+					</Input>
+					<Label text="{i18nCommon>MBookmark_SubTitleXLBL}">
+					</Label>
+					<Input value="{editModel>/subtitle}" maxLength="22">
+					</Input>
+					<Label text="{i18nCommon>MBookmark_AddInfoXLBL}">
+					</Label>
+					<Input value="{editModel>/info}" maxLength="18">
+					</Input>
+				</f:content> <!-- sap.ui.core.Element -->
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18nCommon>OK_BUT}" app:dialogType="Std" press="onOk" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18nCommon>Cancel_BUT}" app:dialogType="Std"
+				press="onCancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

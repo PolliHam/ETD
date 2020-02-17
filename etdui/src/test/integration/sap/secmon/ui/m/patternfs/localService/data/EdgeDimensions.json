@@ -1,0 +1,20 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.EdgeDimensionsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/EdgeDimensions(ScoreId=X'0004E95B3F88FE57E11200000A600446',RawDataDimensionNumber=2)"
+        },
+        "AlertId": "EWxpzqYwYUueWJBhZ23EMA==",
+        "AggregationCalculationId": "2D9E476CCF24354FB562EE137C5967E8",
+        "ScoreId": "AATpWz+I/lfhEgAACmAERg==",
+        "RawDataDimensionHash": "YdPoa/jx5WHAR7umQ0ZgtB0Bzmrq7OA8RcrcAdlIgqw=",
+        "RawDataDimensionNumber": 2,
+        "RawDataDimensionId": "VBfj1/LlL2bhAAAACkzxCQ==",
+        "RawDataDimensionValue": "Y7D/000",
+        "RawDataDimensionName": "System ID, Target"
+      }
+    ]
+  }
+}

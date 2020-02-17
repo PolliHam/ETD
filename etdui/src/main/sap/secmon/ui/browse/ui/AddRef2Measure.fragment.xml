@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" >
+
+	<Dialog title="{i18n>BU_TIT_MeasureRef}">
+	
+	    <form:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="12" emptySpanL="0" emptySpanM="0">  
+	        
+            <Label text="{i18n>BU_LBL_MeasRefCompWith}" >
+            </Label>                
+		    <ComboBox selectedKey="{/reference/luid}" items="{AvailableMeasuresModel>/items}">
+                <core:ListItem key="{AvailableMeasuresModel>luid}" text="{AvailableMeasuresModel>displayName}">
+                </core:ListItem>
+		    </ComboBox>
+
+	        <Label text="{i18n>BU_LBL_MeasRefCompFrom}" >            
+	        </Label> 
+            <layout:HorizontalLayout> 
+	            <SegmentedButton select="handleSelectTimeType" selectedButton = "{/reference/selectedButtonId}">
+		            <items>
+		            	<SegmentedButtonItem icon="sap-icon://instance" tooltip="{i18n>BU_TOL_RelativeTR}"></SegmentedButtonItem>     
+		            	<SegmentedButtonItem icon="sap-icon://time-entry-request" tooltip="{i18n>BU_TOL_AbsoluteTR}"></SegmentedButtonItem>            
+		            </items>
+	            </SegmentedButton>
+	      
+	            <form:SimpleForm>    
+	                <ComboBox selectedKey="{/reference/offset}" tooltip = "{i18n>BU_LBL_MeasRefCompFrom}" enabled = "{/reference/relativeTR}"
+	                items="{TimeRangeModel>/}">
+	    	            <core:ListItem key="{TimeRangeModel>key}" text="{TimeRangeModel>name}">
+                        </core:ListItem>
+    		        </ComboBox>    		    
+		      
+                    <layout:HorizontalLayout>   
+                        <DatePicker yyyymmdd="{/reference/startDate}" tooltip = "{i18n>BU_LBL_MeasRefCompFrom}" enabled = "{/reference/absoluteTR}">
+		                </DatePicker>
+		    
+    		            <ComboBox value="{/reference/startTime}" tooltip = "{i18n>BU_TOL_MeasRefCompFromT}" enabled = "{/reference/absoluteTR}"
+    		            items="{TimesModel>/items}">
+	    	                <core:ListItem text="{TimesModel>time}">
+                            </core:ListItem>
+    		            </ComboBox>
+    		            
+    		            <Label text="UTC" >            
+	                    </Label> 
+		            </layout:HorizontalLayout>  
+		        </form:SimpleForm> 
+            </layout:HorizontalLayout>  
+         
+     		<Label text="{i18n>BU_LBL_MeasureDisplayName}" >
+            </Label> 
+            <Input value="{/displayName}">
+		    </Input>
+		
+        </form:SimpleForm>
+		
+		<buttons>
+	       <Button text="{i18n>BU_BUT_OK}" press="pressedOK"/>
+	       <Button text="{i18n>BU_BUT_Cancel}" press="pressedCancel"/>
+        </buttons>
+	</Dialog>
+</core:FragmentDefinition>

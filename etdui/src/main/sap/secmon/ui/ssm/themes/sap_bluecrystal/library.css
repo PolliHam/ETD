@@ -1,0 +1,104 @@
+/*
+** System Views
+*/
+.sapEtdSystemMiniView {
+    display: inline-block;
+    position: relative;   
+    width: 100%;
+    height: auto;
+}
+
+.sapEtdSystemMiniViewResponsive {
+    display: inline-block;
+    position: absolute;   
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+}
+
+.sapEtdSystemMiniViewText {
+	display : table;
+	height : 100%;
+	width : 100%;
+	color : white;
+/*	font-family : "Helvetica Neue, Helvetica, Arial, san-serif"; */
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word;      /* IE */
+}
+
+.sapEtdSystemMiniViewBlink {
+	animation: blinker 3s linear infinite;
+}
+
+/*
+** Tooltip for Donuts
+*/
+.sapEtdSsmTooltip {
+	position: absolute;	
+	text-align: left;	
+	padding: 10px;
+	box-shadow: 3px 3px 5px #888888;
+	background: white;
+    font-weight: bold;
+	z-index: 10;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0.0; }
+}
+
+.sapEtdSsmTable {
+	table-layout: fixed;
+	width: 100%;
+	height:30px;
+}
+
+
+.sapEtdSsmTable tr, .sapEtdSsmTable td{
+    padding: 0px;
+    vertical-align: top;
+	height: 5px;
+}
+
+/*
+** SAP UI5 styles overwritten
+** Note: this is only an exception until other solution found
+*/
+.sapUiUx3ShellCanvas {
+  overflow-x: visible;
+  overflow-y: visible;
+  bottom: 0;
+  background-color: white;
+  padding: 10px;
+  border-top: 1px solid lightgrey;
+}
+
+.sapMOHR .sapMITB {
+    display: inline-block;
+    position: relative;
+   	width: 70%;
+}
+
+.sapMOHRIcon {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/*
+** Change the SAP Progress Indicator color to green
+*/
+.sapEtdBackgroundGreen {
+	background: #008A11;
+}
+
+.sapEtdBackgroundLightBlue {
+	background: #AED1DA;
+}
+
+.sapEtdBackgroundGreen .sapMPIText{
+	color: #f7f7f7;
+}

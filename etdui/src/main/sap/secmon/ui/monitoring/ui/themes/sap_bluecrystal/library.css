@@ -1,0 +1,66 @@
+.sapEtdPath {
+	width: 240px;
+	padding: 10px;
+}
+
+.sapEtdPath_old {
+	width: 240px;
+	padding: 10px;
+	-webkit-box-shadow: 5px 5px #888;
+	box-shadow: 5px 5px #888;
+}
+
+.sapEtdPathTitle {
+	align-content: center;
+}
+
+.sapEtdFilterCard {
+	width: 440px;
+}
+
+.sapUiPanelHdr > .sapUiPanelTb {
+	text-align: right;
+	margin-right: 0px;	
+}
+
+.sapEtdInvisible {
+	display: none;
+}
+
+.sapEtdSubsetBloedsinn {
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 10s ease-in-out;
+}
+
+.sapEtdSubsetBloedsinn:hover {
+    
+}
+
+.sapEtdPath_1 {
+	padding: 10px;
+	-webkit-box-shadow: 5px 5px 5px 2px #388EFF;
+	box-shadow: 5px 5px 5px 2px #388EFF;
+}
+
+.sapEtdBmkHdr{
+	font-size: 14px;
+    position: relative;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.sapEtdTitle{
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.sapEtdPadding {
+	padding: 10px;
+}
+
+.sapEtdPatternThreshold {
+	font-size: 3em;
+}
+

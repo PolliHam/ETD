@@ -1,0 +1,123 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.log.Logs"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<Page id="page" title="{i18n>Interpret_Trace}" showNavButton="true"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+
+		<headerContent>
+		</headerContent>
+
+		<content>
+			<VBox>
+				<fb:FilterBar clear="onClear" search="onSearch"
+					showRestoreButton="false" showClearButton="true" filterBarExpanded="true"
+					id="filterBar">
+
+					<fb:filterItems>
+						<fb:FilterItem name="Timestamp" label="{i18n>Interpret_Timestamp}">
+							<fb:control>
+								<Input id="dateTimeFilterInput" showValueHelp="true"
+									valueHelpOnly="true" valueHelpRequest="onShowDateTimeDialog" 									
+								        value="{parts : [{path : 'ModelFiltersAndSorters>/TimerangeType'},{path: 'ModelFiltersAndSorters>/TimerangeRelative'}, {path: 'ModelFiltersAndSorters>/TimerangeFrom'}, {path: 'ModelFiltersAndSorters>/TimerangeTo'}], formatter : 'sap.secmon.ui.loglearning.Helper.formatTimerange'}" />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="LogLevel" label="{i18n>Interpret_Level}">
+							<fb:control>
+								<ComboBox>
+									<core:Item key="" text="{i18n>Interpret_All}" />
+									<core:Item key="FATAL" text="{i18n>Interpret_Fatal}" />
+									<core:Item key="ERROR" text="{i18n>Interpret_Error}" />
+									<core:Item key="WARN" text="{i18n>Interpret_Warn}" />
+									<core:Item key="INFO" text="{i18n>Interpret_Info}" />
+									<core:Item key="DEBUG" text="{i18n>Interpret_Debug}" />
+								</ComboBox>
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="LoggerName" label="{i18n>Interpret_LoggerName}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="ThreadName" label="{i18n>Interpret_ThreadName}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="Location" label="{i18n>Interpret_Location}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+						<fb:FilterItem name="Message" label="{i18n>Interpret_MessageText}">
+							<fb:control>
+								<Input />
+							</fb:control>
+						</fb:FilterItem>
+
+					</fb:filterItems>
+				</fb:FilterBar>
+				<Table id="table" items="{/Logs}" growing="true"
+					growingThreshold="100">
+					<headerToolbar>
+						<OverflowToolbar design="Info">
+							<Label text="{i18n>MAlertsFS_FilterBarPrefix} {UI>/filterText}" />
+							<ToolbarSpacer />
+							<Button icon="sap-icon://drop-down-list" press="onPressSettings" />
+						</OverflowToolbar>
+					</headerToolbar>
+					<columns>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>Interpret_Timestamp}" />
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="5rem">
+							<Text text="{i18n>Interpret_Level}" />
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true">
+							<Text text="{i18n>Interpret_LoggerName}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="{i18n>Interpret_ThreadName}" />
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+							<Text text="{i18n>Interpret_Location}" />
+						</Column>
+						<!-- force the popin to be always visible with a large minimum screenwidth -->
+						<Column minScreenWidth="500rem" demandPopin="true" popinDisplay="WithoutHeader">
+							<Text text="{i18n>Interpret_MessageText}" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text
+									text="{parts : [{path : 'applicationContext>/UTC'},{path: 'Timestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+								<Text text="{LogLevel}" />
+								<Text text="{LoggerName}" />
+								<Text text="{ThreadName}" />
+								<Text text="{Location}" />
+								<Text text="{Message}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</mvc:View>

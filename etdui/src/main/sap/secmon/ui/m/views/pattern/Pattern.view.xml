@@ -1,0 +1,42 @@
+<mvc:View
+		controllerName="sap.secmon.ui.m.views.pattern.Pattern"
+		displayBlock="true"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+
+	<Page id="patternDetailsContainer"
+		title="{parts : [ { path : 'i18n>PatternTitle'}, { path : 'Name' } ], formatter : 'sap.secmon.ui.commons.Formatter.i18nText'}"
+		showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+            <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp" />
+        </headerContent>
+		<content>
+			<core:Fragment fragmentName="sap.secmon.ui.m.views.pattern.PatternDetailsForm" type="XML" />
+			<core:Fragment fragmentName="sap.secmon.ui.m.views.pattern.PatternDetailsScoreForm" type="XML" />
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>PatternExecute}"
+						visible="{=${applicationContext>/userPrivileges/patternExecute} &amp;&amp; ${config>/displayMode}}"
+						press="onExecutePattern"
+						enabled="{path : 'PatternType', formatter : 'sap.secmon.ui.m.views.pattern.Formatter.showExecuteButton'}"/>
+					<Button text="{i18n>PatternOpen}" visible="{config>/displayMode}"
+						press="onOpenPattern" />
+					<Button text="{i18n>MEdit}"
+						visible="{=${applicationContext>/userPrivileges/patternWrite} &amp;&amp; ${config>/displayMode}}" press="onEdit">
+					</Button>
+					<Button text="{i18n>MSave}" visible="{config>/editMode}" press="onSave" type="Emphasized">
+					</Button>
+					<Button text="{i18n>MCancel}" visible="{config>/editMode}" press="onCancel">
+					</Button>
+					<Button text="{i18n>CreateException}" visible="{= ${applicationContext>/userPrivileges/exemptionWrite} &amp;&amp; ${config>/displayMode}}"
+						press="handleCreateException">
+					</Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

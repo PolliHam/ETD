@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:comm="sap.suite.ui.commons" >
+	<TextArea xmlns="sap.m" enabled="true" id="commentInput"
+		visible="{editModel>/editMode}" width="100%" rows="5"
+		placeholder="{i18n>MobAlert_CommentPlaceHold}" value="{editModel>/newComment}" />
+
+	<comm:Timeline id="timeLine"
+		enableSocial="false"
+		enableScroll="false"
+		group="true"
+		width="auto"
+		height="auto"
+		sort="false"
+		enableDoubleSided="false"
+       	content="{ path: 'Attachments',
+      			sorter: [ {path: 'CreationDate', descending: 'true'},
+                          {path: 'Type'}]
+       		}" 
+		>
+		<comm:content>
+			<comm:TimelineItem
+				dateTime  = "{parts : [ {path : 'applicationContext>/UTC'}, { path : 'CreationDate'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"
+			   	userNameClickable = "false"
+				userName = "{CreatedBy}"
+				title = "{
+		               parts: [{path : 'Type'},{path : 'i18n>MobAlert_AddComment'},{path: 'i18n>MobAlert_changed'}],
+		                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentTitleFormatter'
+		            }"
+				filterValue = "{
+		                parts: [{path : 'Type'},{path : 'i18n>MobAlert_AddComment'},{path: 'i18n>MobAlert_changed'}],
+		                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentTitleFormatter'
+		            }"
+				icon = "{
+		                path : 'Type',
+		                formatter : 'sap.secmon.ui.m.alerts.util.Formatter.commentIconFormatter'
+		            }">
+				<comm:embeddedControl>
+					<core:HTML width="300px" content="{path:'Content', formatter:'sap.secmon.ui.commons.Formatter.encodeHTML'}"
+						sanitizeContent="false"
+					/>
+				</comm:embeddedControl>
+				<comm:replyList>
+				
+				</comm:replyList>
+			</comm:TimelineItem>		
+		</comm:content>
+	</comm:Timeline>	
+
+</core:FragmentDefinition>

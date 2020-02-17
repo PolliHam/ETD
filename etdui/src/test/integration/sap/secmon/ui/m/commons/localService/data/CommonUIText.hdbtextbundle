@@ -1,0 +1,304 @@
+#XBUT,0
+Activate_BUT=Activate
+#XCOL,0
+Active_COL=Active
+#XFLD,0
+Active_FLD=Active
+#XLBL,0
+Active_LBL=Active
+#XBUT,0
+Add_BUT=Add
+#XLBL,0
+AnomalyPattern=Anomaly Pattern
+#XLBL,0
+AssignToMe=Assign to me
+#XCOL,0
+Attack_COL=Attack
+#XBUT,0
+Cancel_BUT=Cancel
+#XTIT,0
+Cancel_TIT=Cancel
+#XCOL,0
+Changed_At_COL=Changed At
+#XLBL,0
+Changed_At_LBL=Changed At
+#XCOL,0
+Changed_By_COL=Changed By
+#XLBL,0
+Changed_By_LBL=Changed By
+#XTXT,0
+Close_TXT=Close
+#XMSG,0
+Confirm_Cancel_MSG=Changes will be lost. Do you really want to cancel?
+#XTIT,0
+Confirmation_TIT=Confirmation
+#XLBL,0
+ConsTimeRangeFR_LBL=Since {0}
+#XLBL,0
+ConsTimeRangeFT_LBL={0} - {1}
+#XLBL,0
+ConsidTimeRange_LBL=Creation Time Range
+#XCOL,0
+Created_At_COL=Created At
+#XLBL,0
+Created_At_LBL=Created At
+#XCOL,0
+Created_By_COL=Created By
+#XLBL,0
+Created_By_LBL=Created By
+#XBUT,0
+Deactivate_BUT=Deactivate
+#XBUT,0
+Delete_BUT=Delete
+#XTIT,0
+Delete_TIT=Delete
+#XCOL,0
+Description_COL=Description
+#XLBL,0
+Description_LBL=Description
+#XBUT,0
+Edit_BUT=Edit
+#XMSG,0
+Err_EnterIntValGreater0=Enter a number between 1 and 2147483647
+#XTIT,0
+Error_TIT=Error
+#XLBL,0
+Exemption_Validity_Active=Active until {0}
+#XLBL,0
+Exemption_Validity_Expired=Expired on {0}
+#XLBL,0
+Exemption_Validity_Planned=Start planned on {0}
+#XBUT,0
+ExportAll_BUT=Mark All for Export
+#XBUT,0
+Export_BUT=Mark for Export
+#XTIT,0
+Export_TIT=Mark for Export
+#XLBL,0
+FileName=File Name
+#XLBL,0
+FileType=File Type
+#XLBL,0
+FilterBarPrefix=Filtered by:
+#XBUT,0
+Help_BUT=Help
+#XCOL,0
+Inactive_COL=Inactive
+#XFLD,0
+Inactive_FLD=Inactive
+#XLBL,0
+Inactive_LBL=Inactive
+#XMSG,0
+InvalidRange_MSG=You have specified an invalid time range
+#XLBL,0
+MBookmark_AddInfoXLBL=Additional Info
+#XMSG,0
+MBookmark_FailureXMSG=Unable to save tile
+#XLBL,0
+MBookmark_SubTitleXLBL=Subtitle
+#XMSG,0
+MBookmark_SuccessXMSG=Tile saved
+#XLBL,0
+MBookmark_TitleXLBL=Title
+#XTIT,0
+MBookmark_TitleXTIT=Save as Tile
+#XCOL,0
+Name_COL=Name
+#XLBL,0
+Name_LBL=Name
+#XCOL,0
+Namespace_COL=Namespace
+#XLBL,0
+Namespace_LBL=Namespace
+#XBUT,0
+New_BUT=New
+#XFLD,0
+No_FLD=No
+#XLBL,0
+Notifications_LBL={0} Notifications
+#XBUT,0
+OK_BUT=OK
+#XBUT,0
+Open_BUT=Open
+#XMSG,0
+PEF_alertText1=Measurement {0} exceeded threshold {1}
+#XMSG,0
+PEF_alertText2=Measurement {0} exceeded threshold {1} for {2}
+#XMSG,0
+PEF_alertText3=Measurement {0} reached threshold {1}
+#XMSG,0
+PEF_alertText4=Measurement {0} reached threshold {1} for {2}
+#XMSG,0
+PEF_alertText5=Measurement {0} is below threshold {1}
+#XMSG,0
+PEF_alertText6=For {2}, measurement {0} is below threshold {1}
+#XMSG,0
+PEF_anomalyAlShortText=Anomaly score is {0}
+#XMSG,0
+PEF_anomalyAlertText=Anomaly score is {0} for {2}
+#XMSG,0
+PEF_avgAlShortText=Average anomaly score is {0}
+#XMSG,0
+PEF_maxAlShortText=Highest anomaly score is {0}
+#XMSG,0
+PEF_minAlShortText=Lowest anomaly score is {0}
+#XCOL,0
+PatternName_COL=Pattern Name
+#XCOL,0
+PatternType_COL=Pattern Type
+#XCOL,0
+Pattern_COL=Pattern
+#XCOL,0
+Pattern_GroupByAttr_COL=Group by Attribute
+#XLBL,0
+Pattern_LBL=Pattern
+#XMSG,0
+Pattern_Suggestion=Enter the name of a pattern (at least 2 characters) ...
+#XTIT,0
+Pattern_TIT=Pattern
+#XCOL,0
+Processor_COL=Processor
+#XLBL,0
+Processor_LBL=Processor
+#XTOL,0
+Refresh_TOL=Refresh
+#XBUT,0
+Remove_BUT=Remove
+#XTIT,0
+Remove_TIT=Remove
+#XBUT,0
+Reopen_BUT=Reopen
+#XBUT,0
+Save_As_BUT=Save As
+#XBUT,0
+Save_BUT=Save
+#XCOL,0
+Score_COL=Score
+#XLBL,0
+Score_LBL=Score
+#XLBL,0
+Search_LBL=Search
+#XTIT,0
+SelectTRUTC_TIT=Select time range (UTC)
+#XTIT,0
+SelectTimeRange_TIT=Select time range
+#XCOL,0
+Severity_COL=Severity
+#XLBL,0
+Severity_High_LBL=High
+#XLBL,0
+Severity_LBL=Severity
+#XLBL,0
+Severity_Low_LBL=Low
+#XLBL,0
+Severity_Medium_LBL=Medium
+#XLBL,0
+Severity_VeryHigh_LBL=Very High
+#XTIT,0
+SortAndFilter_TIT=Sort and Filter
+#XCOL,0
+Status_COL=Status
+#XLBL,0
+Status_LBL=Status
+#XCOL,0
+SystemType_COL=System Type
+#XLBL,0
+SystemType_LBL=System Type
+#XCOL,0
+System_COL=System
+#XLBL,0
+System_LBL=System
+#XTXT,0
+TR_last10Minutes=Last 10 minutes
+#XTXT,0
+TR_last15Minutes=Last 15 minutes
+#XTXT,0
+TR_last20Minutes=Last 20 minutes
+#XTXT,0
+TR_last25Minutes=Last 25 minutes
+#XTXT,0
+TR_last2Days=Last 2 days
+#XTXT,0
+TR_last2Hours=Last 2 hours
+#XTXT,0
+TR_last2Minutes=Last 2 minutes
+#XTXT,0
+TR_last30Minutes=Last 30 minutes
+#XTXT,0
+TR_last35Minutes=Last 35 minutes
+#XTXT,0
+TR_last40Minutes=Last 40 minutes
+#XTXT,0
+TR_last45Minutes=Last 45 minutes
+#XMSG,0
+TR_last50Minutes=Last 50 minutes
+#XTXT,0
+TR_last55Minutes=Last 55 minutes
+#XTXT,0
+TR_last5Minutes=Last 5 minutes
+#XTXT,0
+TR_last8Hours=Last 8 hours
+#XTXT,0
+TR_lastDay=Last 1 day
+#XTXT,0
+TR_lastHour=Last 1 hour
+#XTXT,0
+TR_lastMinute=Last 1 minute
+#XTXT,0
+TR_lastMonth=Last 1 month
+#XTXT,0
+TR_lastWeek=Last 1 week
+#XTXT,0
+TR_lastYear=Last 1 year
+#XLBL,0
+TimeFormat_LBL=hh:mm:ss
+#XBUT,0
+TimeRange_Apply_BUT=Apply
+#XLBL,0
+TimeRange_Days_LBL=Days
+#XLBL,0
+TimeRange_From_LBL=From
+#XLBL,0
+TimeRange_Hours_LBL=Hours
+#XLBL,0
+TimeRange_LBL=Time range
+#XLBL,0
+TimeRange_LastD_LBL=Last {0} day(s)
+#XLBL,0
+TimeRange_LastH_LBL=Last {0} hour(s)
+#XLBL,0
+TimeRange_LastM_LBL=Last {0} minute(s)
+#XLBL,0
+TimeRange_Last_LBL=Last
+#XLBL,0
+TimeRange_Min_LBL=Minutes
+#XLBL,0
+TimeRange_Range_LBL=Range
+#XLBL,0
+TimeRange_To_LBL=To
+#XCOL,0
+Timestamp_COL=Timestamp
+#XLBL,0
+Timestamp_LBL=Timestamp
+#XCOL,0
+Type_COL=Type
+#XLBL,0
+Type_LBL=Type
+#XLBL,0
+URL_LBL=URL
+#XCOL,0
+User_COL=User
+#XLBL,0
+User_LBL=User
+#XCOL,0
+Value_COL=Value
+#XLBL,0
+Value_LBL=Value
+#XTIT,0
+Warning_TIT=Warning
+#XLBL,0
+Workspace_LBL=Workspace
+#XFLD,0
+Yes_FLD=Yes
+#XTOL,0
+moreActionsTOL=More Actions...

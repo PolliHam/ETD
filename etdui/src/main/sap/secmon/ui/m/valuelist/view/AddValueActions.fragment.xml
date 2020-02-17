@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<u:Menu>
+
+			<u:MenuItem xmlns="sap.m" text="{i18n>VL_Entry_Fill}" visible="{editModel>/displayMode}"
+					select="onFillFromEvents" icon="sap-icon://sys-add" 
+					tooltip="{i18n>VL_FillFromEv_Page_Title}"/>
+			<u:MenuItem icon="sap-icon://upload" select="onUpload" text="{i18n>VL_Entry_Upload}"
+					visible="{editModel>/uploadPossible}"  tooltip="{i18n>VL_Upload_ttip}" />
+
+	</u:Menu>
+</core:FragmentDefinition>
+

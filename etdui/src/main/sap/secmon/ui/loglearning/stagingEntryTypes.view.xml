@@ -1,0 +1,126 @@
+<mvc:View controllerName="sap.secmon.ui.loglearning.stagingEntryTypes" busyIndicatorDelay="250"
+    displayBlock="false"
+    xmlns:loglearning="sap.secmon.ui.loglearning" xmlns:ssucc="sap.secmon.ui.commons.controls"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<!-- do not use table attribute "visibleRowCountMode="auto", it only works if all rows have the same height.  -->
+	<Table id="tableStagingEntryTypes" items="{path: '/entryTypes/header', sorter: {path : 'Count', descending : 'true'}, templateShareable : true}"
+	        height="100%" width="100%" growing="true" mode="MultiSelect" busyIndicatorDelay="250"
+            itemPress="onPressOpenEntryType" selectionChange="onRowSelectionChange">
+            <layoutData>
+	            <l:SplitterLayoutData size="{=!!${/eventHashOfSelectedMarkup} ? '35%' : '80%'}" />
+	        </layoutData>
+            <headerToolbar>
+                <OverflowToolbar>
+                    <Label text="{i18n>Interpret_AllEntryTypes}" />
+	                <ToolbarSpacer />
+	               
+                    <Button
+                        text="{i18n>Interpret_Clone}"
+                        icon="sap-icon://add"
+                        lite="true" type="Transparent"
+                        visible="{applicationContext>/userPrivileges/logLearningWrite}"
+                        enabled="{RunModel>/oneEntrySelected}"
+                        press="onPressCloneEntryType" />
+                   
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column width="5em">
+                    <Label text="" />
+                </Column>  
+                <Column visible="false">
+                    <Label text="{i18n>Interpret_Id}" />
+                </Column>
+                <Column width="30%">
+                    <Label text="{i18n>Interpret_Markup}" />
+                </Column>
+                <Column>
+                    <Label text="{i18n>Interpret_CustIdent}" />
+                </Column>
+                <Column width="5em">
+                    <Label text="{i18n>Interpret_Hits}" />
+                </Column>
+                <Column width="15%">
+                    <Label text="{i18n>Interpret_LogType}" /> 
+                </Column>
+                <Column width="15%">
+                    <Label text="{i18n>Interpret_Event}" />
+                </Column>   
+                <Column width="15%">
+                    <Label text="{i18n>Interpret_actStatus}"/>
+                </Column>           
+            </columns>
+        <items>
+            <ColumnListItem type="Navigation" vAlign="Middle">
+                <cells>
+                    <ssucc:LongTapLink text="{Row}" 
+                    href="{
+                        parts: [{path: 'RunModel>/selectedRunName'}, {path: 'Id'}], 
+                        formatter: 'sap.secmon.ui.m.commons.NavigationService.logLearningRunURL'}"/>
+                    <Text text="{Id}" />
+                    <Text text="{Markup}" wrapping="true" class="proportionalFont" />
+                    <Text text="{CustomIdentifier}" wrapping="true" class="proportionalFont"/>
+                    <Text text="{Count}" />
+                    <ComboBox width="100%" editable="false"
+                        selectionChange="onSelectLogType"
+                        selectedKey="{LogTypeHash}"
+                        valueState="{
+                            parts : [ {path: 'EventHash'}, {path: 'LogTypeHash'} ],
+                            formatter : 'sap.secmon.ui.loglearning.util.Formatter.hashValueStateFormatter'
+                        }"
+                        items="{LogTypeModel>/}">
+                        <core:ListItem 
+                            text="{
+                                parts : [ {path: 'LogTypeModel>displayName'}, {path: 'LogTypeModel>nameSpace'} ],
+                                formatter : 'sap.secmon.ui.loglearning.util.Formatter.displayNameFormatter'
+                            }"
+                            key="{
+                                path : 'LogTypeModel>hash',
+                                formatter : 'sap.secmon.ui.m.commons.Formatter.guidFormatter'
+                            }"
+                            tooltip="{
+                                parts : [ {path: 'LogTypeModel>name'}, {path: 'LogTypeModel>description'} ],
+                                formatter : 'sap.secmon.ui.loglearning.util.Formatter.nameDescriptionFormatter'
+                            }"
+                        />
+                    </ComboBox>
+                    <ComboBox width="100%" editable="false"
+                        selectionChange="onEventSelected"
+                        selectedKey="{EventHash}"
+                        valueState="{
+                            parts : [ {path: 'EventHash'}, {path: 'LogTypeHash'} ],
+                            formatter : 'sap.secmon.ui.loglearning.util.Formatter.hashValueStateFormatter'
+                        }"
+                        items="{KBEventModel>/}">
+                        <core:ListItem 
+                            text="{
+                                parts : [ {path: 'KBEventModel>displayName'}, {path: 'KBEventModel>nameSpace'} ],
+                                formatter : 'sap.secmon.ui.loglearning.util.Formatter.displayNameFormatter'
+                            }"
+                            key="{
+                                path : 'KBEventModel>hash',
+                                formatter : 'sap.secmon.ui.m.commons.Formatter.guidFormatter'
+                            }"
+                            tooltip="{
+                                parts : [ {path: 'KBEventModel>name'}, {path: 'KBEventModel>description'} ],
+                                formatter : 'sap.secmon.ui.loglearning.util.Formatter.nameDescriptionFormatter'
+                            }"
+                        />
+                    </ComboBox>
+                    <HBox width="100%">
+                        <core:Icon src="{= ${activatable}==='true'?'sap-icon://accept':'sap-icon://less'}"
+                            tooltip="{
+                                path: 'activationCode',
+                                formatter : 'sap.secmon.ui.loglearning.util.Formatter.activatableTooltip'
+                            }"/>
+                        <Text text=" / " />
+                        <core:Icon src="{= ${activated}==='true'?'sap-icon://accept':'sap-icon://less'}"/>
+                        <Text text=" / " />
+                        <core:Icon src="{= ${productive}==='true'?'sap-icon://accept':'sap-icon://less'}"/>
+                    </HBox>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+	
+</mvc:View>

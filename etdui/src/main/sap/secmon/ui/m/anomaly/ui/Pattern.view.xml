@@ -1,0 +1,136 @@
+<mvc:View controllerName="sap.secmon.ui.m.anomaly.ui.Pattern"
+	id="Pattern" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:cc="sap.secmon.ui.commons.controls"
+	xmlns:t="sap.ui.table" xmlns:core="sap.ui.core" xmlns:anomaly="sap.secmon.ui.m.anomaly.ui"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls" xmlns:commons="sap.ui.commons">
+	<Page id="page" title="{i18n>BU_TIT_ETD_ADL}" enableScrolling="false"
+		showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<l:Splitter height="100%" orientation="Horizontal"
+				class="sapEtdBackgroundWhite">
+				<l:VerticalLayout>
+					<l:layoutData>
+						<l:SplitterLayoutData size="30%" />
+					</l:layoutData>
+					<Toolbar class="sapUiTinyMargin">
+						<SearchField width="225px" class="sapUiSmallMargin"
+							liveChange="handleLiveChange" id="TreeSearchField" />
+						<Button icon="sap-icon://create" enabled="{uiModel>/createNew}"
+							press="handleCreatePressed" visible="{applicationContext>/userPrivileges/anomalyDetectionWrite}"
+							tooltip="{= ${uiModel>/createNew} === true ? ${i18n>CreateEntity_TOL} : '' }"/>
+						<Button icon="sap-icon://delete" enabled="{uiModel>/deleteObject}"
+							press="handleDeletePressed" visible="{applicationContext>/userPrivileges/anomalyDetectionWrite}"
+							tooltip="{= ${uiModel>/deleteObject} === true ? ${i18n>DeleteEntity_TOL} : '' }"/>
+						<Button icon="sap-icon://drop-down-list" press="handleDropDownPressed" 
+						visible="{applicationContext>/userPrivileges/anomalyDetectionWrite}"/>
+						<Button icon="sap-icon://expand" press="handleExpand" tooltip="{i18n>ListExpand_TOL}"/>
+						<Button icon="sap-icon://collapse" press="handleCollapse" tooltip="{i18n>ListCollapse_TOL}"/>
+					</Toolbar>
+					<t:TreeTable id="treeTable"
+						visibleRowCountMode="Interactive"
+						visibleRowCount="15"
+						rows="{path : 'ObjectList>/anomalyObject', sorter : {path : 'ObjectList>Type', descending : true}}"
+						width="99%" selectionMode="Single"
+						expandFirstLevel="true"
+						rowSelectionChange="handleRowSelectionChange" cellClick="handleCellClick">
+						<t:title>
+						</t:title>
+						<t:columns>
+							<t:Column width="10px" autoResizable="true">
+								<Label text="{i18nCommon>Name_COL}"></Label>
+								<t:template>
+									<customControls:IconWithLinkOrText
+										text="{path :'ObjectList>Name', formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.typeFormatter'}"
+										tooltip="{path : 'ObjectList>tooltip'}" iconColor="{ObjectList>color}"
+										iconSrc="{path: 'ObjectList>Type', formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.iconFormatter'}"
+										linkEnabled="{parts : [{path : 'ObjectList>Type'},{path: 'ObjectList>Id'}], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.enabledFormatter'}"
+										press="handleLinkClicked" />
+								</t:template>
+							</t:Column>
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Description_COL}"></Label>
+								<t:template>
+									<Text text="{path :'ObjectList>Description'}" />
+								</t:template>
+							</t:Column>
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Namespace_COL}"></Label>
+								<t:template>
+									<Text text="{path :'ObjectList>Namespace'}" />
+								</t:template>
+							</t:Column>
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Created_By_COL}"></Label>
+								<t:template>
+									<Text text="{path :'ObjectList>CreatedBy'}" />
+								</t:template>
+							</t:Column>
+
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Created_At_COL}"></Label>
+								<t:template>
+									<Text text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ObjectList>CreatedTimestamp'}], 
+									formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"/>
+								</t:template>
+							</t:Column>
+
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Changed_By_COL}"></Label>
+								<t:template>
+									<Text text="{path :'ObjectList>ChangedBy'}" />
+								</t:template>
+							</t:Column>
+							<t:Column width="10px" autoResizable="true" visible="false">
+								<Label text="{i18nCommon>Changed_At_COL}"></Label>
+								<t:template>
+									<Text text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ObjectList>ChangedTimestamp'}], 
+                                    formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:TreeTable>
+				</l:VerticalLayout>
+				<anomaly:AnomalyPatterns id="anomalyPatterns"
+					refreshRequested="handleEventRefresh" />
+			</l:Splitter>
+		</content>
+		<footer>
+			<Bar>
+				<contentLeft>
+					<cc:GlobalMessageButton id="messagesButton"
+						type="Emphasized" />
+				</contentLeft>
+				<contentRight>
+					<Button id="saveButton"
+						text="{path :'ObjectModel>/Type', formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatSave'}"
+						visible="{parts: [{path : 'ObjectModel>/Type'},{path : 'ObjectModel>/Namespace'},{path : 'ObjectModel>/IsNonOriginal'},{path : 'applicationContext>/userPrivileges/anomalyDetectionWrite'}], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatSaveVisiblity'}"
+						icon="sap-icon://save" press="onSave" />
+					<Button id="saveAsButton"
+						text="{path :'ObjectModel>/Type', formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatSaveAs'}"
+						visible="{parts: [{path : 'ObjectModel>/Namespace'}, {path : 'applicationContext>/userPrivileges/anomalyDetectionWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatSaveAsVisiblity'}"
+						icon="sap-icon://add-favorite" press="onSaveAs" />
+					<Button id="createEvaButton" text="{i18n>CreateEvaluation_TXT}"
+						tooltip="{i18n>CAEval2Scen_TOL}"
+						visible="{parts: [{path : 'ObjectModel>/Type'},{path : 'ObjectModel>/IsNonOriginal'}, {path : 'applicationContext>/userPrivileges/anomalyDetectionWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatScenOpVisiblity'}"
+						icon="sap-icon://create" press="onCreateEvaAndAdd2Scen" />
+					<Button id="addEvaButton" text="{i18n>AddEvaluation_TXT}"
+						tooltip="{i18n>AddEval2Scen_TOL}"
+						visible="{parts: [{path : 'ObjectModel>/Type'},{path : 'ObjectModel>/IsNonOriginal'}, {path : 'applicationContext>/userPrivileges/anomalyDetectionWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatScenOpVisiblity'}"
+						icon="sap-icon://add" press="onAddEva2Scen" />
+					<Button id="createPatButton" text="{i18n>CreatePattern_TXT}"
+						tooltip="{i18n>CAPat2Scen_TOL}"
+						visible="{parts: [{path : 'ObjectModel>/Type'},{path : 'ObjectModel>/IsNonOriginal'}, {path : 'applicationContext>/userPrivileges/patternWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatScenOpVisiblity'}"
+						icon="sap-icon://create" press="onCreatePatAndAdd2Scen" />
+					<Button id="addPatButton" text="{i18n>AddPattern_TXT}"
+						tooltip="{i18n>AddPat2Scen_TOL}"
+						visible="{parts: [{path : 'ObjectModel>/Type'},{path : 'ObjectModel>/IsNonOriginal'}, {path : 'applicationContext>/userPrivileges/patternWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatScenOpVisiblity'}"
+						icon="sap-icon://add" press="onAddPat2Scen" />
+					<Button id="deleteButton"
+						text="{path :'ObjectModel>/Type', formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatDelete'}"
+						visible="{parts: [{path :'ObjectModel>/Namespace'},{path : 'ObjectModel>/IsNonOriginal'},{path : 'applicationContext>/userPrivileges/anomalyDetectionWrite'} ], formatter : 'sap.secmon.ui.m.anomaly.ui.Formatter.formatDeleteVisibility'}"
+						icon="sap-icon://delete" press="onDelete" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

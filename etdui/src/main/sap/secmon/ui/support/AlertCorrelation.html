@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+svg text {
+	font-size: 12px;
+}
+
+rect {
+	shape-rendering: crispEdges;
+}
+</style>
+<META charset="utf-8">
+<STYLE>
+.node {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.link {
+	stroke: #999;
+	stroke-opacity: .6;
+}
+
+body.wait, body.wait * {
+	cursor: wait !important;
+}
+</STYLE>
+<body>
+
+	<script src="/sap/ui5/1/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+		data-sap-ui-libs="sap.m, sap.viz" data-sap-ui-theme="sap_bluecrystal">
+    
+</script>
+
+	<script>
+function createCenteredTextDiv( text ){
+    
+    var divNode = document.createElement('div');
+    divNode.style.textAlign = 'center';
+	var textNode = document.createTextNode(text);
+	textNode.style.textAlign = 'center';
+	divNode.appendChild( textNode );
+	return divNode;
+}
+</script>
+
+	<div>
+		<span>From (UTC)</span>&nbsp;<input type="text" id="from"
+			value="2015-09-24T09:15:00" /> <span>To (UTC)</span>&nbsp;<input
+			type="text" id="to" value="2015-09-24T10:15:00" /> <span>Subject
+			Weight</span>&nbsp;<input type="text" id="subjectweight" value="0.25"
+			size="4" /> <span>Context Weight</span>&nbsp;<input type="text"
+			id="contextweight" value="0.25" size="4" /> <span>Type Weight</span>&nbsp;<input
+			type="text" id="typeweight" value="0.25" size="4" /> <span>Time
+			Weight</span>&nbsp;<input type="text" id="timeweight" value="0.25" size="4" />
+		<span>Threshold</span>&nbsp;<input type="text" id="threshold"
+			value="0.70" size="4" /> <input type="button" value="Go"
+			onclick="go() " /> <span id="status"></span>
+
+	</div>
+	<h3>Correlation Graph</h3>
+	<div id="cg">No Data</div>
+	<h3>Fusion Graph</h3>
+	<div id="fg">No Data</div>
+
+	<script>
+function getfromDateString(){
+	return document.getElementById("from").value;
+}
+
+function getToDateString(){
+	return document.getElementById("to").value;
+}
+
+function getSubjectWeightString(){
+	return document.getElementById("subjectweight").value;
+}
+
+function getContextWeightString(){
+	return document.getElementById("contextweight").value;
+}
+
+function getTypeWeightString(){
+	return document.getElementById("typeweight").value;
+}
+
+function getTimeWeightString(){
+	return document.getElementById("timeweight").value;
+}
+
+function getThresholdString(){
+	return document.getElementById("threshold").value;
+}
+
+var context = { 
+    subjectWeight : null,
+	contextWeight : null,
+	typeWeight : null,
+	timeWeight : null, 
+	threshold : null,
+	fromDateString : "",
+	toDateString : "",
+	alerts: [],
+	correlations : 0,
+	fusions : 0
+};
+
+function setStatus(){
+    
+    var text = context.alerts.length + ' Alerts, ' + context.correlations + ' Correlations, ' + context.fusions + ' Fusions';
+    
+    var span = document.getElementById("status");
+    while( span.firstChild ) {
+        span.removeChild( span.firstChild );
+    }
+	span.appendChild( document.createTextNode( text ) );
+}
+
+
+var min10ms = 10 * 60 * 1000;
+var min30ms = 30 * 60 * 1000;
+var min60ms = 60 * 60 * 1000;
+var h12ms = 12 * 60 * 60 * 1000;
+var d1ms = 24 * 60 * 60 * 1000;
+
+function timeCorrelation( alert1, alert2 ){
+	
+	var time1 = alert1.alertCreationTimestampDate.getTime();
+	var time2 = alert2.alertCreationTimestampDate.getTime();
+	
+	var diff = time2 - time1;
+	if( diff < 0 ) diff=-diff;
+	
+	if( diff < min10ms ) return 1;
+	if( diff < min30ms ) return 0.7;
+	if( diff < min60ms ) return 0.5;
+	if( diff < h12ms ) return 0.3;
+	
+	return 0;
+}
+
+function intersects( set1, set2 ){
+	
+	for( var x of set1 ){
+		if( set2.has( x ) ) return true;
+	}
+	
+	return false;
+}
+
+function subjectCorrelation( alert1, alert2 ){
+	
+	var result = 0.0;
+	if( intersects( alert1.terminalIds, alert2.terminalIds ) ) result+= 0.5;
+	if( intersects( alert1.userIds, alert2.userIds ) ) result+= 0.5;
+	
+	return result;
+}
+
+function contextCorrelation( alert1, alert2 ){
+	
+	var result = 0.0;
+	if( intersects( alert1.systemIds, alert2.systemIds ) ) result+= 1.0;
+	
+	return result;
+}
+
+function typeCorrelation( alert1, alert2 ){
+	
+	var result = 0.0;
+	if( alert1.pattern.PatternName == alert2.pattern.PatternName ) result+= 1.0;
+	
+	return result;
+}
+
+function correlation( alert1, alert2, subjectWeight, contextWeight, typeWeight, timeWeight ){
+	
+	var c1 = timeCorrelation( alert1, alert2 );
+	var c2 = subjectCorrelation( alert1, alert2 );
+	var c3 = contextCorrelation( alert1, alert2 );
+	var c4 = typeCorrelation( alert1, alert2 );
+	
+	return ( timeWeight * c1 + subjectWeight * c2 + contextWeight * c3 + typeWeight * c4 );
+}
+
+function handleAlerts( response ){
+	
+    var alertSourceTargets = response.d.results;
+	var alertByIds = {};
+
+	var userNames = new Set(), 
+	systemNames = new Set(), 
+	terminalNames = new Set(), 
+	patternNames = new Set(); 
+
+	alertSourceTargets.forEach(function(value, index) {
+
+	    var alert = alertByIds[value.AlertId];
+	    if( alert == null ){
+		    alert = 
+		    	{
+			        alertId : value.AlertId,
+			        alertCreationTimestamp : value.AlertCreationTimestamp,
+			        patternId: value.PatternId, 
+			        pattern: {
+			            Id : value.PatternId,
+			            PatternName : value.PatternName,
+			            PatternNamespace : value.PatternNamespace,
+			            Score : value.Score
+			        },
+			        systemIds : new Set(),
+			        systems: [],
+			        terminalIds : new Set(),
+			        terminals : [],
+			        userIds : new Set(),
+			        users : []
+		    	};
+		    alertByIds[value.AlertId] = alert;
+	    }
+	    
+	    patternNames.add( value.PatternId );
+
+	    if (!alert.systemIds.has( value.SystemId )) {
+		    alert.systemIds.add( value.SystemId );
+	        alert.systems.push({
+	            Id : value.SystemId,
+	            Score : value.Score
+	        });
+	    }
+	    systemNames.add( value.SystemId );
+
+	    if (typeof value.TerminalId === "string" && !(alert.terminalIds.has( value.TerminalId ))) {
+	    	alert.terminalIds.add( value.TerminalId );
+	        alert.terminals.push({
+	            Id : value.TerminalId,
+	            Score : value.Score
+	        });
+	    }
+	    terminalNames.add( value.TerminalId );
+
+	    if (!alert.userIds.has(value.UserId)) {
+	    	alert.userIds.add(value.UserId);
+	        alert.users.push({
+	            Id : value.UserId,
+	            Score : value.Score
+	        });
+	    }
+	    userNames.add(value.UserId);
+
+	});
+
+	// create array from the map
+	var alerts = Object.keys(alertByIds).map(function(key) {
+	    return alertByIds[key];
+	});
+
+	// sort by time
+	alerts.sort(function(a, b) {
+	    var keyA = a.alertCreationTimestamp, keyB = b.alertCreationTimestamp;
+	    // Compare the 2 dates
+	    if (keyA < keyB)
+	        return -1;
+	    if (keyA > keyB)
+	        return 1;
+	    return 0;
+	});
+
+	var groupByPatternId = {};
+	var group = 1;
+	for( var patternId of patternNames ){
+		
+		groupByPatternId[ patternId ] = group;
+		group++;
+	}
+
+	//transform alertCreationTimestamp (e.g. /Date(1439969008117)/ ) into Date object alertCreationTimestampDate
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+		
+		var alertCreationTimestamp = alert.alertCreationTimestamp;	
+		alertCreationTimestamp = alertCreationTimestamp.replace(/\//g, '');
+		var date;
+		eval( 'date = new ' + alertCreationTimestamp );
+		alert.alertCreationTimestampDate = date;
+		
+		alert.group = groupByPatternId[ alert.patternId ];
+	}
+	
+	$("body").toggleClass("wait");
+	
+	context.alerts = alerts;
+	
+	draw();
+
+}
+
+function getTitle( alert ){
+	
+	var title = alert.pattern.PatternName;
+	for( var s of alert.systemIds ){
+		
+		title+= ',';
+		title+= s;
+	}
+	for( var s of alert.userIds ){
+		
+		title+= ',';
+		title+= s;
+	}
+	for( var s of alert.terminalIds ){
+		
+		title+= ',';
+		title+= s;
+	}
+	
+	return title;
+}
+
+//graph helpers
+function addNode( graph, alert ){
+    
+    var node = {};
+	node.name = getTitle( alert );
+	node.group = alert.group;
+	node.alert = alert;
+	graph.nodes.push( node );
+	
+	return node;   
+}
+
+function addLink( graph, source, target ){
+    
+ 	var link = {};
+ 	link.source = source;
+ 	link.target = target;
+ 	link.distance = 50;
+ 	graph.links.push( link );
+ 	
+ 	return link;
+}
+
+function computeCorrelationGraph( alerts ){
+	
+	var graph = {};
+	graph.nodes = [];
+	graph.links = [];
+	
+	var subjectWeight = context.subjectWeight;
+	var contextWeight = context.contextWeight;
+	var typeWeight = context.typeWeight;
+	var timeWeight = context.timeWeight;
+	var threshold = context.threshold;
+
+	var nodeById = {};
+
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+		alert.correlated = false;
+	}
+	
+	for( var i=0; i<alerts.length; i++ ){
+		var alert1 = alerts[i];
+		var node1 = nodeById[alert1.alertId];
+		
+		for( var j=(i+1); j<alerts.length; j++ ){
+			var alert2 = alerts[j];
+
+			var result = correlation( alert1, alert2, subjectWeight, contextWeight, typeWeight, timeWeight );
+			if( result >= threshold ){
+				
+				var node2 = nodeById[alert2.alertId];
+				
+				if( node1 == null ) {
+					node1 = addNode( graph, alert1 );
+					nodeById[alert1.alertId] = node1;
+					alert1.correlated = true;
+				}
+				
+				if( node2 == null ) {
+					node2 = addNode( graph, alert2 );
+					nodeById[alert2.alertId] = node2;
+					alert2.correlated = true;
+				}
+				
+				addLink(graph, node1, node2);
+			}
+		}
+	}
+	
+	return graph;
+}
+
+function getFusionid( alert ){
+	
+	var fusionid = "";
+	
+	fusionid+= alert.pattern.PatternName;
+	for( var s of alert.systemIds ){
+		fusionid+= ',';
+		fusionid+= s;
+	}
+	for( var s of alert.userIds ){
+		fusionid+= ',';
+		fusionid+= s;
+	}
+	for( var s of alert.terminalIds ){
+		fusionid+= ',';
+		fusionid+= s;
+	}
+	
+	return fusionid;
+}
+
+function extendAlert( alert, alertsByFusionId ){
+    
+    alert.fusionid = getFusionid( alert );
+    alert.neighborIds = new Set();
+    
+    var alertNodes = alertsByFusionId[ alert.fusionid ];
+    if( alertNodes == null ){
+    	alertsByFusionId[ alert.fusionid ] = [ alert ];
+    } else alertsByFusionId[ alert.fusionid ].push( alert );
+}
+
+function addNeighbors( source, target ){
+    
+	source.neighborIds.add( target.alertId );
+	target.neighborIds.add( source.alertId );
+}
+
+function setToString( set ){
+	var s = '[';
+	var first = true;
+	for( var x of set ){
+		if( first ) first = false;
+		else s+= ',';
+		s+= x;
+	}
+	s+= ']';
+	return s;
+}
+
+function addFusionNode( graph, fusionid ){
+    
+    var node = {};
+	node.name = fusionid;
+	node.group = 1;
+	node.alerts = [];
+	graph.nodes.push( node );
+	
+	return node;   
+}
+
+function union( set1 , set2 ){
+	
+	var set = new Set();
+	
+	for( var x of set1 ) set.add( x );
+	for( var x of set2 ) set.add( x );
+	
+	return set;
+}
+
+function intersection( set1, set2 ){
+	
+	var set = new Set();
+	
+	for( var x of set1 ){
+		if( set2.has( x ) ) set.add( x );
+	}
+	
+	return set;
+}
+
+function neighbors( set1, set2 ){
+	
+	var set = new Set();
+	
+	for( var x of set2 ){
+		
+		if( !set1.has( x ) ) set.add( x );
+		
+	}
+	return set;
+}
+
+function addFusionLink( graph, source, target ){
+    
+ 	var link = {};
+ 	link.source = source;
+ 	link.target = target;
+ 	link.distance = 50;
+ 	graph.links.push( link );
+ 	
+ 	return link;
+}
+
+function computeFusionGraph( alerts ){
+
+	var subjectWeight = context.subjectWeight;
+	var contextWeight = context.contextWeight;
+	var typeWeight = context.typeWeight;
+	var timeWeight = context.timeWeight;
+	var threshold = context.threshold;
+
+	var graph = {};
+	graph.nodes = [];
+	graph.links = [];
+
+	fusionNodeById = {};
+	
+	var correlatedAlerts = [];
+	
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+		if( alert.correlated ) correlatedAlerts.push( alert );
+	}
+	
+	var alertsByFusionId = {};
+
+	for( var i=0; i<correlatedAlerts.length; i++ ){
+		var alert = correlatedAlerts[i];
+		
+		extendAlert( alert, alertsByFusionId );
+	}
+
+	for( var i=0; i<correlatedAlerts.length; i++ ){
+		var alert1 = correlatedAlerts[i];
+		
+		for( var j=(i+1); j<correlatedAlerts.length; j++ ){
+			var alert2 = correlatedAlerts[j];
+
+			var result = correlation( alert1, alert2, subjectWeight, contextWeight, typeWeight, timeWeight );
+			if( result >= threshold ){
+						
+				addNeighbors(alert1, alert2);
+			}
+		}
+	}
+
+	for( fusionid in alertsByFusionId ){
+		
+		var fusionNode = addFusionNode( graph, fusionid );
+		fusionNodeById[ fusionid ] = fusionNode;
+		
+		fusionNode.alertCount = alertsByFusionId[ fusionid ].length;
+		
+		var ids = new Set();
+		
+		var group = 0;
+		var alerts = alertsByFusionId[ fusionid ];
+		for( var i=0; i<alerts.length; i++){
+			
+			var alert = alerts[i];
+			ids.add( alert.alertId );
+			group = alert.group;
+		}
+		
+		fusionNode.alertIds = ids;
+		fusionNode.group = group;
+		
+		var neighborIds = new Set();
+		
+		for( var i=0; i<alerts.length; i++){
+			
+			var alert = alerts[i];
+			neighborIds = union( neighborIds, alert.neighborIds );
+		}
+		
+		fusionNode.neighborIds = neighbors( fusionNode.alertIds, neighborIds );
+	}
+
+	for( fusionid1 in fusionNodeById ){
+		
+		var fusionnode1 = fusionNodeById[ fusionid1 ];
+		
+		for( fusionid2 in fusionNodeById ){
+			
+			if( fusionid1 ==  fusionid2 ) continue;
+			
+			var fusionnode2 = fusionNodeById[ fusionid2 ];
+			
+			//determine if there shall be a link between the fusion nodes
+			if( intersects( fusionnode1.neighborIds, fusionnode2.alertIds )){
+				
+				addFusionLink( graph, fusionnode1, fusionnode2 );
+			}
+		}
+	}
+	return graph;
+}
+
+function drawGraph( graph, id, parentId ){
+	
+	var width = $(window).width(),
+	    height = 1200;
+	
+	var color = d3.scale.category20();
+	
+	var force = d3.layout.force()
+	    .charge(-120)
+	    .linkDistance(function(link, index) {
+	            return link.distance;
+	        })
+	    .size([width, height]);
+	
+	d3.select("#" + parentId ).html("");
+	
+	var svg = d3.select("#" + parentId ).append("svg")
+	    .attr("id", id )
+	    .attr("width", width)
+	    .attr("height", height);
+	
+	  force
+	      .nodes(graph.nodes)
+	      .links(graph.links)
+	      .start();
+	
+	  var link = svg.selectAll(".link")
+	      .data(graph.links)
+	    .enter().append("line")
+	      .attr("class", "link")
+	      .style("stroke-width", 1 );
+	//      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+	
+	  var node = svg.selectAll(".node")
+	      .data(graph.nodes)
+	    .enter().append("circle")
+	      .attr("class", "node")
+	      .attr("r", 10)
+	      .style("fill", function(d) { 
+		          switch (d.group){
+		          
+		      		case 1: return color(d.group);
+		      		case 2: return color(d.group);
+		      		case 3: return color(d.group);
+		      		case 4: return color(d.group);
+		      		
+		      		default: return color(d.group); 
+		          }
+	          })
+	      .call(force.drag);
+	
+	  node.append("title")
+	      .text(function(d) { return d.name; });
+	
+	  force.on("tick", function() {
+	    link.attr("x1", function(d) { return d.source.x; })
+	        .attr("y1", function(d) { return d.source.y; })
+	        .attr("x2", function(d) { return d.target.x; })
+	        .attr("y2", function(d) { return d.target.y; });
+	
+	    node.attr("cx", function(d) { return d.x; })
+	        .attr("cy", function(d) { return d.y; });
+	  });
+	  
+	  force.on('end', function() {
+		    // layout is done
+		  	adjust( id, graph );
+    });
+
+}
+
+function computeAndDrawGraph( alerts ){
+	var graph = computeCorrelationGraph( alerts );
+	context.correlations = graph.links.length;
+	d3.select("#svg1").remove();
+	drawGraph( graph, "svg1", "cg" );
+}
+
+function computeAndDrawFusionGraph( alerts ){
+	var graph = computeFusionGraph( alerts );
+	context.fusions = graph.nodes.length;
+	d3.select("#svg2").remove();
+	drawGraph( graph, "svg2", "fg" );
+}
+
+function loaddata( url ){
+    
+    $.ajax({
+        url : url,
+        async : true
+    }).done( handleAlerts );
+        
+}
+
+function isBetween0and1( num ){
+    return ( (num >= 0.0 ) && ( num <= 1.0 ) );
+}
+
+function go(){
+    
+	subjectWeightString = getSubjectWeightString();
+	contextWeightString = getContextWeightString();
+	typeWeightString = getTypeWeightString();
+	timeWeightString = getTimeWeightString();
+	thresholdString = getThresholdString();
+	
+	if( !$.isNumeric( subjectWeightString ) ) {
+	    alert("Subject Weight is not numeric");
+	    return;
+	}
+	if( !$.isNumeric( contextWeightString ) ) {
+	    alert("Context Weight is not numeric");
+	    return;
+	}
+	if( !$.isNumeric( typeWeightString ) ) {
+	    alert("Type Weight is not numeric");
+	    return;
+	}
+	if( !$.isNumeric( timeWeightString ) ) {
+	    alert("Time Weight is not numeric");
+	    return;
+	}
+	if( !$.isNumeric( thresholdString ) ) {
+	    alert("Threshold is not numeric");
+	    return;
+	}
+	
+	var subjectWeight = parseFloat(subjectWeightString);
+	var contextWeight = parseFloat(contextWeightString);
+	var typeWeight = parseFloat(typeWeightString);
+	var timeWeight = parseFloat(timeWeightString);
+	var threshold = parseFloat(thresholdString);
+	
+	if( !isBetween0and1(subjectWeight)){
+	    alert("Subject Weight is not between 0 and 1");
+	    return;
+	}
+	if( !isBetween0and1(contextWeight)){
+	    alert("Context Weight is not between 0 and 1");
+	    return;
+	}
+	if( !isBetween0and1(typeWeight)){
+	    alert("Type Weight is not between 0 and 1");
+	    return;
+	}
+	if( !isBetween0and1(timeWeight)){
+	    alert("Time Weight is not between 0 and 1");
+	    return;
+	}
+	if( !isBetween0and1(threshold)){
+	    alert("Threshold is not between 0 and 1");
+	    return;
+	}
+
+	if( ( subjectWeight + contextWeight + typeWeight + timeWeight ) != 1.0 ){
+	    alert("Weights do not sum up to 1.0");
+	    return;
+	}
+
+    var fromDateString = getfromDateString();
+    var toDateString = getToDateString();
+    
+    if( fromDateString.length > 19 ){
+	    alert("From does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !fromDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'From' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !toDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'To' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    fromDateString = "datetime'" + fromDateString + "'";
+    toDateString = "datetime'" + toDateString + "'";
+    
+    var loadAlerts = true;
+    if( ( context.fromDateString == fromDateString ) && ( context.toDateString == toDateString ) ) loadAlerts = false;
+    
+    context.fromDateString = fromDateString;
+    context.toDateString = toDateString;
+    
+    fromDateString = escape( fromDateString );
+    toDateString = escape( toDateString );
+    
+    context.subjectWeight = subjectWeight;
+    context.contextWeight = contextWeight;
+    context.typeWeight = typeWeight;
+    context.timeWeight = timeWeight;
+    context.threshold = threshold;
+    
+    if( loadAlerts ){
+        
+        var url = "/sap/secmon/services/ui/m/alerts/AlertSourceTargetPattern.xsodata/AlertData?$filter=(AlertCreationTimestamp%20ge%20" +
+        fromDateString + //"datetime%272015-08-18T11%3a49%3a12%27" +
+                "%20and%20AlertCreationTimestamp%20le%20" + 
+        toDateString + // "datetime%272015-08-19T11%3a49%3a12%27" +
+                ")&$format=json";
+        
+        $("body").toggleClass("wait");
+        loaddata( url );
+        
+    } else {
+    	draw();
+    }
+}
+
+function draw(){
+	computeAndDrawGraph( context.alerts );
+	computeAndDrawFusionGraph( context.alerts );
+	setStatus();
+}
+
+function adjust( id, graph ){
+    
+	var minpositions = graph.nodes.map(function(d) { return [d.x- 10, d.y-10 ]; });
+	
+	var minx = d3.min(minpositions, function(d) { return d[0]; });
+	var miny = d3.min(minpositions, function(d) { return d[1]; });
+	
+	var maxpositions = graph.nodes.map(function(d) { return [d.x+ 10, d.y+10 ]; });
+	
+	var maxx = d3.max(maxpositions, function(d) { return d[0]; });
+	var maxy = d3.max(maxpositions, function(d) { return d[1]; });
+	
+	var width = maxx - minx;
+	var height = maxy - miny;
+	
+	//translate
+	var xtranslate = -minx;
+	var ytranslate = -miny;
+	
+	d3.select("#" + id ).selectAll(".node").attr("transform", "translate(" + xtranslate + "," + ytranslate + ")");
+	d3.select("#" + id ).selectAll(".link").attr("transform", "translate(" + xtranslate + "," + ytranslate + ")");
+	
+	d3.select("#" + id ).attr("width", width).attr("height", height);
+}
+	
+</SCRIPT>
+
+</body>

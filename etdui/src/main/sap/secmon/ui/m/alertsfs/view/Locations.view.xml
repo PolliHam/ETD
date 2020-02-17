@@ -1,0 +1,31 @@
+<mvc:View controllerName="sap.secmon.ui.m.alertsfs.view.Locations"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:vbm="sap.ui.vbm" xmlns:ux3="sap.ui.ux3" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:cc="sap.secmon.ui.commons.controls">
+
+	<!-- only works with SAPUI5 1.28 or later -->
+	<sscc:GeoMapWithClickableLegendItems
+		id="vbi" minWidth="512px" minHeight="512px" height="750px" width="100%"
+		submit="onSubmit" openWindow="onOpenWindow">
+		<sscc:vos>
+			<vbm:Circles items="{/Circles}" click="onCirclesClick">
+				<vbm:Circle position="{pos}" radius="{radius}" click="onSelectSystem"
+					labelText="{text}" contentSize="{textSize}" tooltip="{tooltip}"
+					color="{color}" colorBorder="{colorBorder}" hotDeltaColor="{hotDeltaColor}" />
+			</vbm:Circles>
+		</sscc:vos>
+		<sscc:legend>
+			<vbm:Legend id="legend" caption="{i18n>MAlertsFS_Systems}"
+				items="{/Legend}">
+				<sscc:VbmLegendItem text="{text}" color="{color}"
+					tooltip="{tooltip}" click="onSelectSystem" />
+			</vbm:Legend>
+		</sscc:legend>
+	</sscc:GeoMapWithClickableLegendItems>
+	<Bar id="footerBar" design="Footer">
+		<contentLeft>
+			<cc:GlobalMessageButton visible="true" />
+		</contentLeft>
+	</Bar>
+
+</mvc:View>

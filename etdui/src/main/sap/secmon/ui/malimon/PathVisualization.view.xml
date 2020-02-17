@@ -1,0 +1,98 @@
+<mvc:View 
+    controllerName="sap.secmon.ui.malimon.PathVisualization"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:etd="sap.secmon.ui.malimon" 
+    xmlns:core="sap.ui.core"
+    xmlns:uc="sap.ui.common"
+    displayBlock="true">
+    <Page id="page" title="{i18n>MM_TIT_AttackPath}" showNavButton="true"
+        navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="false">
+
+        <headerContent>
+        </headerContent>
+
+        <content>
+			<l:Splitter id="etdAttackPathSplitter"
+				width="100%">
+                <!--ScrollContainer
+                    id="etdAttackPathContainer"
+                    focusable="false"
+                    horizontal="true"
+                    vertical="false">
+                    <layoutData>
+                        <l:SplitterLayoutData size = "72%" resizable="false" />
+                    </layoutData>
+                    <etd:AttackPath
+                        id="idAttackPath">
+                    </etd:AttackPath>
+                </ScrollContainer>-->
+				<etd:AttackPath
+					id="idAttackPath"
+					nodeRightClick="onNodeRightClick"
+					nodeLeftClick="onNodeLeftClick">
+				</etd:AttackPath>
+				<Panel>
+					<layoutData>
+						<l:SplitterLayoutData size="28%" resizable="false"/>
+					</layoutData>
+					<l:VerticalLayout>
+						<Panel expandable = "true" expanded ="true" width="100%">
+							<headerToolbar>
+								<Toolbar>
+									<content>
+										<Title text="{i18n>MM_TIT_events}"/>
+									</content>
+								</Toolbar>
+							</headerToolbar>
+							<List
+								id="idEventList"
+								items="{path: '/names'}">
+								<CustomListItem>
+									<HBox
+										justifyContent="SpaceBetween">
+										<VBox>
+											<Title level="H3" text="{= ${CustomName} === '' ? ${EventName} : ${CustomName}}"/>
+											<Label text="{EventName}" visible="{= ${CustomName} !== ''}"/>
+											<Label text="{Timestamp}"/>
+											<Label text="{Id}"/>
+										</VBox> 
+										<core:Icon src="sap-icon://edit"
+											decorative="false"
+											press="onEventNameEditPress"/>
+									</HBox>
+								</CustomListItem>
+							</List>
+						</Panel>
+						<Panel expandable = "true" expanded ="true" width="100%"> 
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>MM_TIT_attr}"/>
+ 									<ToolbarSpacer/>
+									<Button id="idSelectAllButton" text ="{i18n>PV_BUT_SelectAll}" press ="onSelectAll" />
+                                </OverflowToolbar>
+							</headerToolbar>
+							<List
+								id="idAttributesList"
+								items="{/attributes}"
+								mode="MultiSelect"
+								selectionChange="onSelectionChange"
+								includeItemInSelection="true">
+								<StandardListItem title="{displayName}" selected="{selected}" />
+							</List>
+						</Panel>
+					</l:VerticalLayout>
+				</Panel>
+			</l:Splitter>
+		</content>
+		<footer>
+			<Bar design="Footer">
+				<contentRight>
+					<Button id="idSaveAttackPath" text ="{i18n>Save_attack_path}" press ="onSaveAttackPath" visible="{=${AttackPathStepModel>/visibility} === 'saveAttackPath'}"/>
+					<Button id="idGenerateWS" text ="{i18n>Generate_ws}" press ="onGenerateWorkspace" visible="{=${AttackPathStepModel>/visibility} === 'generatePattern'}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

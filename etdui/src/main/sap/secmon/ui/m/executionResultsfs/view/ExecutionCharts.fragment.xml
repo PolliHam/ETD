@@ -1,0 +1,237 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:l="sap.ui.layout">
+
+	<l:Grid class="sapUiSmallMarginTop" defaultSpan="L4 M6 S12" visible="{uiModel>/chartsVisible}">
+		<l:content>
+			<viz:VizFrame id="RunCountLineChart" vizType="line"
+				uiConfig="{applicationSet:'fiori'}" width="100%">
+				<viz:dataset>
+					<viz.data:FlattenedDataset>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Run_COUNT}"
+								value="{RunCount}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="{i18n>Day_NUM}"  />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Run_COUNT}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="Timechart" vizType="line"
+				uiConfig="{applicationSet:'fiori'}" width="100%">
+				<viz:dataset>
+					<viz.data:FlattenedDataset>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Total_RUN}"
+								value="{path : 'TotalRuntime', formatter : 'sap.secmon.ui.m.executionResultsfs.util.Formatter.runtimeformatter'}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="{i18n>Day_NUM}"  />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Total_RUN}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="AlertChart" vizType="line"
+				uiConfig="{applicationSet:'fiori'}" width="100%">
+				<viz:dataset>
+					<viz.data:FlattenedDataset>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Number_NewAlerts}"
+								value="{NumberOfNewAlerts}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="{i18n>Day_NUM}" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Number_NewAlerts}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="AlertPerPatternChart" vizType="bar" selectData="onSelect"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset id="dataSet-AlertPerPatternChart"
+						data="{path : '/Result', parameters : {select : 'PatternName,NumberOfNewAlerts,PatternDefinitionId', top : 10}, sorter : {path : 'NumberOfNewAlerts', descending : true}}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" >
+							</viz.data:DimensionDefinition>
+						<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" >
+							</viz.data:DimensionDefinition>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Number_NewAlerts}"
+								value="{NumberOfNewAlerts}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				  <viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Number_NewAlerts}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="AlertRunCount" vizType="bar"  selectData="onSelect"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset id="dataset-AlertRunCount"
+						data="{path : '/Result', parameters : {select : 'PatternName,RunCount,PatternDefinitionId', top : 10}, sorter : {path : 'RunCount', descending : true}}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" />
+							<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" >
+							</viz.data:DimensionDefinition>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="RunCount"
+								value="{RunCount}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="RunCount" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="NameChart" vizType="bar"  selectData="onSelect"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset id="dataSet-NameChart"
+						data="{path : '/Result', parameters : {select : 'PatternName,TotalRuntime,PatternDefinitionId', top : 10}, sorter : {path : 'TotalRuntime', descending : true}}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" />
+							<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" >
+							</viz.data:DimensionDefinition>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Total_RUN}"
+								value="{path : 'TotalRuntime', formatter : 'sap.secmon.ui.m.executionResultsfs.util.Formatter.runtimeformatter'}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Total_RUN}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="NewChart" vizType="bubble"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset id="dataSet-NewChart"
+						data="{path : '/Result', parameters : {select : 'PatternName,TotalRuntime,PatternDefinitionId,RunCount,NumberOfNewAlerts'}}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" />
+							<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" >
+							</viz.data:DimensionDefinition>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Total_RUN}"
+								value="{path : 'TotalRuntime', formatter : 'sap.secmon.ui.m.executionResultsfs.util.Formatter.runtimeformatter'}" />
+							<viz.data:MeasureDefinition name="{i18n>Run_COUNT}"
+								value="{path : 'RunCount'}" />
+							<viz.data:MeasureDefinition name="{i18n>Number_NewAlerts}"
+								value="{path : 'NumberOfNewAlerts'}" />
+						</viz.data:measures>
+
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="color" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Number_NewAlerts}" />
+					<vizFeeds:FeedItem uid="valueAxis2" type="Measure"
+						values="{i18n>Run_COUNT}" />
+					<vizFeeds:FeedItem uid="bubbleWidth" type="Measure"
+						values="{i18n>Total_RUN}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="RuntimeToAlertCount" vizType="time_bubble"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset>
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" />
+							<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" >
+							</viz.data:DimensionDefinition>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition
+								name="{i18n>Day_NUM}"
+								value="{path : 'DayNumber', formatter : 'sap.secmon.ui.m.executionResultsfs.util.Formatter.convertToUnixTime'}" />
+							<viz.data:MeasureDefinition name="{i18n>Total_RUN}" id="TotalRuntimeDefinition"
+								value="{path : 'TotalRuntime', formatter : 'sap.secmon.ui.m.executionResultsfs.util.Formatter.runtimeformatter'}" />
+							<viz.data:MeasureDefinition name="{i18n>Run_COUNT}" id="RunCountDefinition"
+								value="{path : 'RunCount'}" />
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="color" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Day_NUM}" />
+					<vizFeeds:FeedItem uid="valueAxis2" type="Measure"
+						values="{i18n>Run_COUNT}" />
+					<vizFeeds:FeedItem uid="bubbleWidth" type="Measure"
+						values="{i18n>Total_RUN}" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:VizFrame id="StatusRunCount" vizType="bar"
+				uiConfig="{applicationSet:'fiori'}" width="100%" title="Title">
+				<viz:dataset>
+					<viz.data:FlattenedDataset id="dataSet-StatusRunCount"
+						data="{path : '/Result', parameters : {select : 'PatternName,RunCount,PatternDefinitionId,ResultStatus'}, sorter : [{path : 'ResultStatus', descending : false},{path : 'RunCount', descending : true}]}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition
+								name="PatternName" value="{PatternName}" />
+							<viz.data:DimensionDefinition
+								name="PatternDefinitionId" value="{PatternDefinitionId}" />
+							<viz.data:DimensionDefinition
+								name="ResultStatus" value="{ResultStatus}" />
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="{i18n>Run_COUNT}"
+								value="{path : 'RunCount'}" />
+
+						</viz.data:measures>
+
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<vizFeeds:FeedItem uid="categoryAxis" type="Dimension"
+						values="PatternName,PatternDefinitionId" />
+					<vizFeeds:FeedItem uid="valueAxis" type="Measure"
+						values="{i18n>Run_COUNT}" />
+					<vizFeeds:FeedItem uid="color" type="Dimension"
+						values="ResultStatus" />
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:Popover id="popOver-NewChart"/>
+			<viz:Popover id="popOver-RuntimeToAlertCount"/>
+		</l:content>
+	</l:Grid>
+
+</c:FragmentDefinition>

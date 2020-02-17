@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog id="fillFromLogDialog" title="{i18n>VL_FillFromEv_Page_Title}">
+		<content>
+			<f:Form showHeader="false">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanL="3"
+						labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+						columnsM="1" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>VL_Field}">
+								<f:fields>
+									<ComboBox
+									    id="EventFields"
+									    selectedKey="{local>/ObjectType}"
+										items="{path: 'enums>/sap.secmon.ui.m.valuelist/ValueList/EventField/enumValues', sorter : {path:'Value', descending: false} }">
+										<core:Item key="{enums>Key}" text="{enums>Value}" />
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>VL_StartDate}">
+								<f:fields>
+									<DateTimeInput dateValue="{local>/StartTime}"
+										type="DateTime" />
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>VL_EndDate}">
+								<f:fields>
+									<DateTimeInput dateValue="{local>/EndTime}" type="DateTime" />
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18nCommon>Namespace_LBL}">
+								<Select id="nameSpaceSelectFillFromEvents"
+									selectedKey="{
+											path: 'local>/Namespace',
+      										formatter: 'sap.secmon.ui.m.valuelist.util.Formatter.defaultNamespaceFormatter'
+    									}">
+									<core:Item key="{nameSpaces>NameSpace}" text="{nameSpaces>NameSpace}" />
+								</Select>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<buttons>
+			<Button text="{i18n>VL_LoadFromEvents}" press="onLoadFromEvents" enabled="{path : 'local>/ObjectType',  formatter : 'sap.secmon.ui.m.valuelist.util.Formatter.fillFromEventsConfirmButonEnabledFormatter'}"/>
+			<Button text="{i18n>VL_CloseDialog}" press="onLoadFromEventsDialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
+

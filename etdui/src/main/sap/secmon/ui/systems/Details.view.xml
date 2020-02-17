@@ -1,0 +1,259 @@
+<mvc:View controllerName="sap.secmon.ui.systems.Details" id="systemDetails"
+	xmlns:core="sap.ui.core" displayBlock="true" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" xmlns="sap.uxap" xmlns:controls="sap.secmon.ui.commons.controls"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+	<m:Page id="page" title="{i18n>SysCtx_System} {Id} / {Type}"
+		enableScrolling="false" showNavButton="true" navButtonPress="onNavBack">
+		<m:content>
+			<ObjectPageLayout id="ObjectPageLayout"
+				enableLazyLoading="false">
+				<headerTitle>
+					<ObjectPageHeader objectImageURI="sap-icon://it-system" objectImageDensityAware="true"
+						isObjectIconAlwaysVisible="true">
+						<actions>
+						</actions>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					<form:SimpleForm layout="ResponsiveGridLayout"
+						labelSpanXL="3" columnsXL="4" emptySpanXL="0"
+						labelSpanL="3"  columnsL="2" emptySpanL="0"
+						labelSpanM="6"  columnsM="2" emptySpanM="0"
+						labelSpanS="12" columnsS="1" emptySpanS="0">
+						<m:Label text="{i18n>SysCtx_Role}" />
+						<m:Text text="{Role}" />
+						<m:Label text="{i18n>SysCtx_CreatedBy}" />
+						<m:Text text="{CreatedBy}" />
+						<m:Label text="{i18n>SysCtx_CreatedAt}" />
+						<m:Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'CreatedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+						<m:Label text="{i18n>SysCtx_ChangedBy}" />
+						<m:Text text="{ChangedBy}" />
+						<m:Label text="{i18n>SysCtx_ChangedAt}" />
+						<m:Text
+							text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ChangedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					</form:SimpleForm>
+				</headerContent>
+				<sections>
+					<ObjectPageSection title="{i18n>SysCtx_SystGen}">
+						<subSections>
+							<ObjectPageSubSection title="{i18n>SysCtx_SystGen}">
+								<blocks>
+									<form:SimpleForm layout="ResponsiveGridLayout" editable="true" >
+										<core:Title text="" />
+										<m:Label text="{i18n>SysCtx_Role}"/>
+										<m:ComboBox
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/Role/enumValues}"
+											selectedKey="{ path : 'Role', mode : 'TwoWay' }">
+											<core:Item key="{enums>Value}" text="{enums>Value}" />
+										</m:ComboBox>
+										<m:Label text="{i18n>SysCtx_Status}" />
+										<m:ComboBox id="DetailsComboStatus"
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/Status/enumValues}"
+											selectedKey="{ path : 'Status', mode : 'TwoWay' }" change="onChangeSystemDetailsCombo">
+											<core:Item key="{enums>Value}" text="{enums>Value}" />
+										</m:ComboBox>
+										<core:Title text="" />
+										<m:Label text="{i18n>SysCtx_Loc}" />
+										<m:Input id="inputLocation" type="Text"
+											showSuggestion="true" showValueHelp="true" valueHelpRequest="onShowLocationsValueHelp"
+											value="{ path : 'Location', mode : 'TwoWay' }"
+											change="onChangeLocation"
+											suggestionItems="{ModelLocations>/Locations}">
+											<m:suggestionItems>
+												<core:Item text="{ModelLocations>Location}" />
+											</m:suggestionItems>
+										</m:Input>
+										<m:Label text="{i18n>SysCtx_IdMainSys}" />
+										<m:ComboBox id="DetailsComboMainSystem" items="{path: 'ModelMainSystems>/'}"
+											selectedKey="{MainSystemId} / {MainSystemType}" change="onChangeSystemGroup">
+											<core:Item key="{ModelMainSystems>SystemGroup}"
+												text="{ModelMainSystems>SystemGroup}" />
+										</m:ComboBox>
+									</form:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>SysCtx_Bus_Sig}">
+						<subSections>
+							<ObjectPageSubSection title="">
+								<blocks>
+									<form:SimpleForm layout="ResponsiveGridLayout" editable="true">
+										<core:Title text="" />
+										<m:Label text="{i18n>SysCtx_Confidentiality}" />
+										<m:ComboBox
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/Confidentiality/enumValues}"
+											selectedKey="{ path : 'Confidentiality', mode : 'TwoWay' }"
+											change="onChangeSystemDetailsCombo">
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</m:ComboBox>
+										<m:Label text="{i18n>SysCtx_IntSystem}" />
+										<m:ComboBox
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/IntegritySystem/enumValues}"
+											selectedKey="{ path : 'IntegritySystem', mode : 'TwoWay' }"
+											change="onChangeSystemDetailsCombo">
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</m:ComboBox>
+										<core:Title text="" />
+										<m:Label text="{i18n>SysCtx_IntData}" />
+										<m:ComboBox
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/IntegrityData/enumValues}"
+											selectedKey="{ path : 'IntegrityData', mode : 'TwoWay' }"
+											change="onChangeSystemDetailsCombo">
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</m:ComboBox>
+										<m:Label text="{i18n>SysCtx_Availability}" />
+										<m:ComboBox
+											items="{enums>/sap.secmon.services.ui.systemcontext/System/Availability/enumValues}"											selectedKey="{ path : 'Availability', mode : 'TwoWay' }"
+											change="onChangeSystemDetailsCombo">
+											<core:Item key="{enums>Key}" text="{enums>Value}" />
+										</m:ComboBox>
+									</form:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>SysCtx_Contacts}">
+						<subSections>
+							<ObjectPageSubSection title="">
+								<blocks>
+									<form:SimpleForm layout="ResponsiveGridLayout" editable="true">
+										<core:Title text="{i18n>SysCtx_BusContact}" />
+										<m:Label text="{i18n>SysCtx_LineOfBusiness}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'LineOfBusiness', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Name}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'BusinessContactName', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Telefon}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}"
+											value="{ path : 'BusinessContactTelefon', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Email}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'BusinessContactEMail', mode : 'TwoWay' }" />
+										<core:Title text="{i18n>SysCtx_TechContact}" />
+										<m:Label text="{i18n>SysCtx_Name}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'TechnicalContactName', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Telefon}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}"
+											value="{ path : 'TechnicalContactTelefon', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Email}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'TechnicalContactEMail', mode : 'TwoWay' }" />
+									</form:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>SysCtx_TechDetails}">
+						<subSections>
+							<ObjectPageSubSection title="{i18n>SysCtx_LandSDB}">
+								<blocks>
+									<form:SimpleForm layout="ResponsiveGridLayout" editable="true">
+										<core:Title text="" visible="false" />
+										<m:Label text="{i18n>SysCtx_UsageType}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'UsageType', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_Landscape}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'Landscape', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_LandscapeDescr}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'LandscapeDescription', mode : 'TwoWay' }" />
+										<core:Title text="" visible="false" />
+										<m:Label text="{i18n>SysCtx_DatabaseHost}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'DatabaseHost', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_DatabaseType}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'DatabaseType', mode : 'TwoWay' }" />
+										<m:Label text="{i18n>SysCtx_DatabaseVersion}" />
+										<m:Input editable="{applicationContext>/userPrivileges/admin}" value="{ path : 'DatabaseVersion', mode : 'TwoWay' }" />
+									</form:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+							<ObjectPageSubSection title="{i18n>SysCtx_SystemApplServers}"
+								mode="Collapsed">
+								<blocks>
+									<m:Table id="tableSysApplicationServer"
+										items="{ path : 'SystemApplServer' , sorter : { path : 'Host' } }"
+										growing="true" growingThreshold="100" growingScrollToLoad="true">
+										<m:headerToolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_Host}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_OperSys}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_OperSysVers}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_KernelVers}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_KernelPatchLevel}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_IPV4}" />
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem vAlign="Middle">
+												<m:cells>
+													<m:Text text="{Host}" />
+													<m:Text text="{OperatingSystem}" />
+													<m:Text text="{OperatingSystemVersion}" />
+													<m:Text text="{KernelVersion}" />
+													<m:Text text="{KernelPatchLevel}" />
+													<m:Text text="{IPAddressV4}" />
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</blocks>
+								<moreBlocks>
+								</moreBlocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="{i18n>SysCtx_SystemAddInfo}">
+						<subSections>
+							<ObjectPageSubSection title="">
+								<blocks>
+									<m:Table id="tableSysAdditionalInfo"
+										items="{ path : 'Detail' , sorter : { path : 'Name' } }"
+										growing="true" growingThreshold="100" growingScrollToLoad="true">
+										<m:headerToolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_Attr}" />
+											</m:Column>
+											<m:Column minScreenWidth="Tablet" demandPopin="true">
+												<m:Text text="{i18n>SysCtx_Value}" />
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem vAlign="Middle">
+												<m:cells>
+													<m:Text text="{Name}" />
+													<m:Text text="{ValueVarChar}" />
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+		<m:footer>
+			<m:Bar design="Footer">
+				<m:contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</m:contentLeft>
+				<m:contentRight>
+					<m:Button visible="{applicationContext>/userPrivileges/admin}" text="{i18n>SysCtx_Save}" tooltip="{i18n>SysCtx_Save}"
+						icon="sap-icon://save" press="onSave" enabled="true" />
+				</m:contentRight>
+			</m:Bar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

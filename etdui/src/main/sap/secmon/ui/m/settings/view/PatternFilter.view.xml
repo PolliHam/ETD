@@ -1,0 +1,53 @@
+<mvc:View controllerName="sap.secmon.ui.m.settings.view.PatternFilter"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:lf="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+
+	<Page showNavButton="{device>/isPhone}"
+		navButtonPress="onBackButtonPressed" class="sapUiFioriObjectPage"
+		title="{i18n>PatternFilter_XTIT}" width="100%" height="100%">
+		<headerContent>
+			<Button id="helpButton" icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp"/>
+		</headerContent>			
+		<content>
+			<Panel expandable="false" expanded="true">
+				<content>
+					<Table id="patternFilterTable"
+						items="{path: '/PatternFilterHeader'}"
+						mode="{path: 'applicationContext>/userPrivileges/settingsPatternFilterWrite', formatter: 'sap.secmon.ui.commons.Formatter.tableModeFormatter'}">
+						<headerToolbar>
+							<Toolbar>
+								<Button text="{i18nCommon>Add_BUT}" press="onAddPatternFilter" 
+									visible="{applicationContext>/userPrivileges/settingsPatternFilterWrite}" />
+								<Button id="deleteButton" text="{i18nCommon>Delete_BUT}"
+									visible="{applicationContext>/userPrivileges/settingsPatternFilterWrite}"	
+									press="onDeletePatternFilter" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="{i18nCommon>Name_COL}" />
+							</Column>
+							<Column>
+								<Text text="{i18n>FilterId_COL}" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Link text="{path: 'Name'}" press="onPatternFilterClicked" />
+									<Text text="{path: 'Id'}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
+

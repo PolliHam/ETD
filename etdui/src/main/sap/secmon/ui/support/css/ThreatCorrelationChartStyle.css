@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+/*
+This CSS-Style is used by the Threat Correlation Chart included in Alerts Fullscreen Application. 
+It is used to describe the design of nodes and edges.
+
+Import using this line:
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/alertsfs/css/ThreatCorrelationChartStyle.css");
+*/
+g.type-User>rect {
+	fill: #f0ab00;
+}
+
+g.type-Pattern>rect {
+	fill: rgba(255, 0, 0, 0.5);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.875em;
+}
+
+g.type-System>rect {
+	fill: #009de0;
+}
+
+g.type-Terminal>rect {
+	fill: #008a3b;
+}
+
+.dagreNode rect {
+	stroke: #999;
+	fill: #fff;
+	stroke-width: 1px;
+}
+
+.edgePath path {
+	stroke: #666666;
+	stroke-width: 1px;
+}
+
+.threatCorrelationLink {
+	stroke: #666;
+	stroke-width: 1.5px;
+}

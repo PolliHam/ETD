@@ -1,0 +1,40 @@
+<c:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core">
+
+			<Table
+				id="executionResultsTable" firstColumnIsForSelection="false"
+				items="{path: '/PatternExecutionResult',  sorter : { path: 'ExecutionTimeStamp', descending: true} }"
+				growing="true" growingScrollToLoad="true" growingThreshold="100"
+				inset="false" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort">
+				<columns>
+					<Column width="20em"
+						minScreenWidth="Large" demandPopin="true" popinDisplay="Inline" />
+					<Column width="20em"
+						minScreenWidth="Large" demandPopin="true" popinDisplay="Inline" />
+					<Column sortProperty="ExecutionTimeStamp" />
+					<Column minScreenWidth="Small" demandPopin="true" popinDisplay="Inline" />
+					<Column />
+					<Column minScreenWidth="Small" demandPopin="true" popinDisplay="Inline" />
+					<Column />						
+				</columns>	
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation"
+						press="onItemPress">
+						<cells>
+							<Text text="{PatternName}" />
+							<Text text="{PatternNamespace}" />
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ExecutionTimeStamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+							<Text text="{TotalRuntime}" />
+							<Text
+								text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.pattern/ExecutionResult/Status/'},{path : 'ResultStatus'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+							<Text
+								text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.pattern/ExecutionResult/ExecutionMode/'},{path : 'ExecutionMode'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+							<Text
+								text="{parts: [{path:'NumberOfNewAlerts'}, {path:'NumberOfAllAlerts'}],
+		         						formatter: 'sap.secmon.ui.m.executionResultsfs.util.Formatter.alertNumberFormatter'}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+</c:FragmentDefinition>

@@ -1,0 +1,41 @@
+# TRANSLATE
+#XLBL: Investigation Template
+TemplateList_Title_LBL=Investigation Templates
+#XTIT: Investigation Template
+Template_Title_TIT=Investigation Template "{0}"
+#XTIT: Investigation Template
+TemplateNew_Title_TIT=New Investigation Template
+#XLBL: Investigation Template
+TemplateList_LBL=Investigation Templates ({0})
+#XLBL: Investigation Template
+TemplateName_LBL=Template Name
+#MSG: Investigation Template
+NameMustNotBeEmpty=Name must not be empty
+#XLBL: Investigation Template
+MManagementVisibility=Management Visibility
+#XLBL: Investigation Template
+Comment_LBL=Comment
+#XLBL: Investigation Template
+Content_LBL=Template Content
+#XLBL: Investigation Template
+Header_LBL=Template Header
+#XCOL: Investigation Template
+CreatedBy_COL=Template Created By
+#XCOL: Investigation Template
+CreatedAt_COL=Template Creation Time
+#XMSG: Investigation Template
+ConfDelete_MSG=Delete the selected item(s)?
+#XMSG: Investigation Template
+Deleted_MSG=Template(s) deleted
+#XMSG: Investigation Template
+Saved_MSG=Template saved
+#XMSG: Investigation Template
+NameMustNotBeEmpty_MSG=Template Name must not be empty
+#XMSG: Investigation Template
+Exported_MSG=Investigation Template marked for export
+#XTOL: Investigation Template
+SelByPattern_TOL=On creation of an investigation, the suggested investigation templates are selected by this pattern
+#XLBL: Investigation Template
+SelByPattern_LBL=Selection by Pattern
+#XMSG:Investigation Template OData Error codes   
+IT_OD_ERRxxx=Internal error: {0}

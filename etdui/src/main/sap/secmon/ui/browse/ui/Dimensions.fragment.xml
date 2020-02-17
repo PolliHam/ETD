@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog noDataText="No Dimensions Found"
+		contentHeight="50%" contentWidth="8%" title="{i18n>selectDimensions}"
+		search="handleSearch" confirm="handleClose" close="handleClose"
+		items="{path: 'DimensionsModel>/data/'
+		}">
+		<StandardListItem key="{DimensionsModel>key}"
+			title="{parts : [ {path : 'DimensionsModel>displayName'}, { path : 'DimensionsModel>displayName'}], formatter : 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}"
+			tooltip="{parts : [ {path : 'DimensionsModel>displayName'}, { path : 'DimensionsModel>displayName'}], formatter : 'sap.secmon.ui.commons.Formatter.knowledgebaseFormatter'}" 
+			iconDensityAware="false"
+			iconInset="false" type="Active" visible="{path: 'DimensionsModel>key',
+	            formatter: '.formatDimensionItem'}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

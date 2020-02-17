@@ -1,0 +1,123 @@
+# TRANSLATE
+#XTIT : Domain Analysis
+DA_DomainRating=Domain Rating
+#XTIT : Domain Analysis
+DA_DomainRatings=Domain Ratings
+#XTIT : Domain Analysis
+DA_DomAnalysis=Domain Analysis
+#XTIT : Domain Analysis
+DA_ViewTypeDL=Processed Domains
+#XTIT : Domain Analysis
+DA_ViewTypeWL=Whitelisted Domains
+#XTIT : Domain Analysis
+DA_ClassifySelDom=Classify selected domains
+#XTIT : Domain Analysis
+DA_AddWL=Add domain into whitelist
+#XCOL : Domain Analysis
+DA_NHostDomainTarget=Network, Host Domain Target
+#XCOL : Domain Analysis
+DA_NHostnameTarget=Network, Hostname Target
+#XCOL : Domain Analysis
+DA_DomainName=Domain Name
+#XCOL : Domain Analysis
+DA_TLD=Top Level Domain
+#XCOL : Domain Analysis
+DA_Classification=Classification
+#XCOL : Domain Analysis
+DA_IsConfirmed=Is Confirmed
+#XCOL : Domain Analysis
+DA_Timestamp=Timestamp
+#XCOL : Domain Analysis
+DA_IsInternal=Is Internal
+#XTOL : Domain Analysis
+DA_ConfirmClassification=Confirm Classification
+#XBUT : Domain Analysis
+DA_Confirm=Confirm
+#XBUT : Domain Analysis
+DA_Analyze=Analyze
+#XTOL : Domain Analysis
+DA_AnalyzeDom=Analyze selected domains
+#XBUT : Domain Analysis
+DA_Classify=Classify
+#XBUT : Domain Analysis
+DA_Create=Create
+#XBUT : Domain Analysis
+DA_Delete=Delete
+#XBUT : Domain Analysis
+DA_OK=OK
+#XBUT : Domain Analysis
+DA_Cancel=Cancel
+#XTXT : Domain Analysis
+DA_ConfirmSuccess=Confirmation successful
+#XTXT : Domain Analysis
+DA_CL_Benign=Benign
+#XTXT : Domain Analysis
+DA_CL_Malicious=Malicious
+#XTXT : Domain Analysis
+DA_SelDomUpdateS=Selected domains successfully updated
+#XTXT : Domain Analysis
+DA_WLDeleteS=Selected domains successfully deleted
+#XTXT : Domain Analysis
+DA_DomainA2WLS=Domain successfully added to whitelist
+#XTXT : Domain Analysis
+DA_ClNotSet=Set classification
+#XTXT : Domain Analysis
+DA_Yes=Yes
+#XTXT : Domain Analysis
+DA_No=No
+#XTXT : Domain Analysis
+DA_RefreshD=Domains successfully retrieved
+#XTXT : Domain Analysis
+DA_RefreshWL=Whitelisted domains successfully retrieved
+#XMSG: Domain Analysis
+DA_URLParam_Invalid=URL parameter {0} is not supported
+#XMSG: Domain Analysis
+DA_DataRetrieveError=Domains cannot be retrieved: {0} 
+#XTXT : Domain Analysis
+DA_CreatedBy=Created By
+#XTXT : Domain Analysis
+DA_CreatedAt=Created At
+#XLBL:Domain Analysis
+DA_FilterBarPrefix=Filtered by:
+#XTIT : Domain Analysis
+DA_Delete=Delete
+#XTXT : Domain Analysis
+DA_DeleteConfirm=Do you really want to delete?
+#XMSG: Domain Analysis
+DA_URLExpired=URL is either expired or invalid and therefore cannot be used anymore 
+
+#XTXT : Domain Analysis
+DA_lastMinute=Last 1 minute
+#XTXT : Domain Analysis
+DA_last2Minutes=Last 2 minutes
+#XTXT : Domain Analysis
+DA_last5Minutes=Last 5 minutes
+#XTXT : Domain Analysis
+DA_last10Minutes=Last 10 minutes
+#XTXT : Domain Analysis
+DA_last15Minutes=Last 15 minutes
+#XTXT : Domain Analysis
+DA_last20Minutes=Last 20 minutes
+#XTXT : Domain Analysis
+DA_last30Minutes=Last 30 minutes
+#XTXT : Domain Analysis
+DA_last45Minutes=Last 45 minutes
+#XTXT : Domain Analysis
+DA_lastHour=Last 1 hour
+#XTXT : Domain Analysis
+DA_last2Hours=Last 2 hours
+#XTXT : Domain Analysis
+DA_last8Hours=Last 8 hours
+#XTXT : Domain Analysis
+DA_lastDay=Last 1 day
+#XTXT : Domain Analysis
+DA_lastWeek=Last 1 week
+#XTXT : Domain Analysis
+DA_lastMonth=Last 1 month
+#XTXT : Domain Analysis
+DA_lastYear=Last 1 year
+
+#XTXT : Domain Analysis
+DA_Timerange=Time range
+#XTXT : Domain Analysis
+DA_TimerangeUTC=Time range (UTC)

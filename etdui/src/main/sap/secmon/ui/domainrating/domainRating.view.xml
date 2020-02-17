@@ -1,0 +1,192 @@
+<mvc:View controllerName="sap.secmon.ui.domainrating.domainRating"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:controls="sap.secmon.ui.commons.controls" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<Page id="page" title="{i18n>DA_DomainRatings}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<content>
+		    <l:FixFlex class="fixFlexVertical">
+                <l:fixContent>
+                    <fb:FilterBar clear="onClear" search="onSearch"
+                    class="filterBarWithSameSizedItems"
+                    showRestoreButton="false" showClearButton="true" filterBarExpanded="true"
+                    id="filterBar">
+                    <fb:filterItems>
+                        <fb:FilterItem name="Timestamp" label="{= ${applicationContext>/UTC} === true ? ${i18n>DA_TimerangeUTC} : ${i18n>DA_Timerange} }" 
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                            <fb:control>
+                                <Input showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowTimerangeDialog" width="100%" 
+                                    value = "{parts : [{path : 'applicationContext>/UTC'},{path : 'i18nCommon>ConsTimeRangeFT_LBL'}, {path : 'ModelFiltersAndSorters_DL>/TimerangeType'},{path: 'ModelFiltersAndSorters_DL>/TimerangeRelative'}, {path: 'ModelFiltersAndSorters_DL>/TimerangeFrom'}, {path: 'ModelFiltersAndSorters_DL>/TimerangeTo'}], formatter : 'sap.secmon.ui.domainrating.Formatter.formatTimerange'}" />
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="Domain_DL" label="{i18n>DA_DomainName}"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                            <fb:control>
+                                <Input value="{ModelFiltersAndSorters_DL>/Domain}" 
+                                    placeholder="* _ (wildcards) "/>
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="Domain_WL" label="{i18n>DA_DomainName}"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}">
+                            <fb:control>
+                                <Input value="{ModelFiltersAndSorters_WL>/Domain}"/>
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="TopLevelDomain_DL" label="{i18n>DA_TLD}"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                            <fb:control>
+                                <Input value="{ModelFiltersAndSorters_DL>/TopLevelDomain}"/>
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="TopLevelDomain_WL" label="{i18n>DA_TLD}"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}">
+                            <fb:control>
+                                <Input value="{ModelFiltersAndSorters_WL>/TopLevelDomain}"/>
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="Classification" label="{i18n>DA_Classification}"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                            <fb:control>
+                                <ComboBox  id="filterClassification" width="100%"
+                                            items="{path: 'UIModel>/classificationsFilter'}" 
+                                        value="{path: 'ModelFiltersAndSorters_DL>/Classification', formatter: 'sap.secmon.ui.domainrating.Formatter.formatConfirmationType' }" 
+                                        change="onChangeFilterClassification">
+                                <core:Item key="{UIModel>key}" text="{UIModel>value}" />
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="IsConfirmed" label="{i18n>DA_IsConfirmed}" 
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                            <fb:control>
+                                <ComboBox id="filterIsConfirmed" width="100%"
+                                        items="{path: 'UIModel>/isConfirmedFilter'}" 
+                                        value="{path: 'ModelFiltersAndSorters_DL>/IsConfirmed', formatter: 'sap.secmon.ui.domainrating.Formatter.formatIsConfirmed' }"
+                                        change="onChangeFilterIsConfirmed" >
+                                <core:Item key="{UIModel>key}" text="{UIModel>value}" />
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterItem>
+                    <fb:FilterItem name="CreatedBy" label="Created By"
+                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}">
+                            <fb:control>
+                                <Input value="{ModelFiltersAndSorters_WL>/CreatedBy}"/>
+                            </fb:control>
+                        </fb:FilterItem>
+                    </fb:filterItems>
+                </fb:FilterBar>
+                <Toolbar id="actionsBar" class="sapUiTinyMarginEnd">
+                    <ToolbarSpacer></ToolbarSpacer>
+                    <SegmentedButton id="segmentedButton" 
+                                        selectedButton="showDomainListButton">
+                        <Button id="showDomainListButton" icon="sap-icon://table-chart"
+                                tooltip="Show Processed Domains" press="onPressShowProcessedDomains" />
+                        <Button id="showWhiteListButton" icon="sap-icon://activities"
+                                tooltip="Show Whitelisted Domains" press="onPressShowWhitelistedDomains" />
+                    </SegmentedButton>
+                </Toolbar>
+                <customControls:ColumnClickableTable
+                        id="domainRatingTableHeader" inset="false" mode="MultiSelect" showNoData="false"
+                        columnPress="handleSort" growingThreshold="100">
+                        <customControls:infoToolbar>
+                            <Toolbar id="vsdFilterBar" active="true" visible="true">
+                                <Label id="vsdFilterLabel" text="{i18n>DA_FilterBarPrefix} {UIModel>/filterText}" />
+                            </Toolbar>
+                        </customControls:infoToolbar>
+                        <customControls:columns>
+                            <customControls:SortableColumn
+                                sortProperty="Domain">
+                                <customControls:SortableItem text="{i18n>DA_DomainName}" />
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="TopLevelDomain">
+                                <customControls:SortableItem text="{i18n>DA_TLD}" />
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="Classification"
+                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                                <customControls:SortableItem text="{i18n>DA_Classification}"/>
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="IsConfirmed" 
+                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}">
+                                <customControls:SortableItem text="{i18n>DA_IsConfirmed}" />
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="Type" visible="false">
+                                <customControls:SortableItem text="{i18n>DA_IsInternal}" />
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="CreatedBy"
+                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}">
+                                <customControls:SortableItem text="{i18n>DA_CreatedBy}"/>
+                            </customControls:SortableColumn>
+                            <customControls:SortableColumn
+                                width="10em" sortProperty="CreatedAt" 
+                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}">
+                                <customControls:SortableItem text="{i18n>DA_CreatedAt}" />
+                            </customControls:SortableColumn>
+                        </customControls:columns>
+                    </customControls:ColumnClickableTable>
+                </l:fixContent>
+                <l:flexContent>
+                    <ScrollContainer id="domainViewContainer" height="100%" vertical="true" focusable="true"
+                                    class="scrollContainerWith100PerCentage">
+                        <Table id="domainRatingTable" inset="false" mode="MultiSelect"
+                            items="{ path : 'ModelDomains>/Domains' }"
+                            growing="true" growingScrollToLoad="true" columnPress="handleSort"
+                            growingThreshold="100" selectionChange="onSelectionChange" updateFinished ="handleUpdateFinished">
+                            <columns>
+                                <Column />
+                                <Column width="10em" />
+                                <Column width="10em" visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}"/>
+                                <Column width="10em" visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}"/>
+                                <Column width="10em" visible="false"/>
+                                <Column width="10em" visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}"/>
+                                <Column width="10em" visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}"/>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{ModelDomains>Domain}" />
+                                        <Text text="{ModelDomains>TopLevelDomain}" />
+                                        <Text text="{path :'ModelDomains>Classification', formatter : 'sap.secmon.ui.domainrating.Formatter.formatConfirmationType'}"
+                                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}"/>
+                                        <CheckBox selected="{ModelDomains>IsConfirmed}" editable="false" 
+                                                    visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibility'}"/>
+                                        <CheckBox selected="{path :'ModelDomains>Type', formatter : 'sap.secmon.ui.domainrating.Formatter.formatType'}" editable="false"
+                                                    visible="false"/>
+                                        <Text text="{ModelDomains>CreatedBy}"
+                                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}"/>
+                                        <Text text="{parts : [{path : 'applicationContext>/UTC'},{path: 'ModelDomains>CreatedTimestamp'}], formatter : 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}"
+                                                visible="{path :'UIModel>/viewType', formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibility'}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </ScrollContainer>
+                </l:flexContent>
+            </l:FixFlex>
+		</content>
+		<footer>
+			<Bar design="Footer">
+				<contentLeft>
+					<controls:GlobalMessageButton></controls:GlobalMessageButton>
+				</contentLeft>
+				<contentRight>
+					   <Button text="{i18n>DA_Classify}" tooltip="{i18n>DA_ConfirmClassification}"
+                            icon="sap-icon://accept" press="onShowConfirmationDialog" enabled="{UIModel>/confirmEnabled}" 
+                            visible = "{parts: [ {path :'UIModel>/viewType'}, {path : 'applicationContext>/userPrivileges/domainRatingWrite'} ] ,
+                                formatter : 'sap.secmon.ui.domainrating.Formatter.formatDLVisibilityButton'}" />
+						<Button text="{i18n>DA_Create}" tooltip="{i18n>DA_Create}"
+                            icon="sap-icon://create" press="onShowCreateWLDialog" 
+                            visible="{parts : [ {path :'UIModel>/viewType'}, {path : 'applicationContext>/userPrivileges/domainRatingWrite'} ],
+                                formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibilityButton'}"/>
+                        <Button text="{i18n>DA_Delete}" tooltip="{i18n>DA_Delete}"
+                            icon="sap-icon://delete" press="onDeleteWL" enabled="{UIModel>/confirmEnabled}" 
+                            visible="{parts : [ {path :'UIModel>/viewType'}, {path : 'applicationContext>/userPrivileges/domainRatingWrite'} ],
+                                formatter : 'sap.secmon.ui.domainrating.Formatter.formatWLVisibilityButton'}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog noDataText="{i18n>VL_No_Namespaces}" title="{i18n>VL_SelectNamespaceTitle}"
+		search="onNamespaceSelectSearch" confirm="onNamespaceSelectClose"
+		close="onNamespaceSelectClose" items="{
+      path: '/NameSpaces'
+    }">
+		<StandardListItem title="{NameSpace}" type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

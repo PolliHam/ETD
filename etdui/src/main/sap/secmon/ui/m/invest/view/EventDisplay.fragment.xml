@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout"
+    xmlns:lf="sap.ui.layout.form" xmlns:sscc="sap.secmon.ui.m.commons.controls"
+    xmlns:commonControls="sap.secmon.ui.commons.controls" xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" xmlns="sap.m">
+
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+        <l:content>
+        <Bar class="sapETDBar">
+            <contentMiddle>
+                <Title text="{ path: 'UserPseudonyms/EventSemantic'}" />
+            </contentMiddle>
+        </Bar>
+            <core:Fragment fragmentName="sap.secmon.ui.m.commons.semanticEvents.LogDetail" type="XML"/>
+        </l:content>
+    </l:Grid>
+</core:FragmentDefinition>

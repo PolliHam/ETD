@@ -1,0 +1,116 @@
+<mvc:View controllerName="sap.secmon.ui.ssm.issn.ImplStatusOverview"
+	height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core">
+	<Page id="page" title="{i18n>SSM_TIT_ImplStatOV}"
+		navButtonPress="onNavBack" backgroundDesign="Solid" enableScrolling="true">
+		<headerContent>
+		</headerContent>
+		<content>
+			<VBox>
+			       <Toolbar>
+                           <content>
+                                <Title text="{i18n>SSM_TIT_Search}">
+                                </Title>
+                                <ToolbarSpacer>
+                                </ToolbarSpacer>
+                                <SearchField width="82%" placeholder="{i18n>SSM_Search_Placeholder}"
+                                    showSearchButton="true" tooltip="{i18n>SSM_TOL_Search}"
+                                    liveChange="onSearch" />                                
+                                <Button id="sort" icon="sap-icon://drop-down-list"
+                                    tooltip="{i18n>SSM_TOL_SortBy}" press="onSettingDialog" />
+                            </content>
+                    </Toolbar>
+				    <Table id="implStatusOVTable" inset="false" 
+					fixedLayout="false" items="{path: '/ImplementationStatusOverview' }"
+					growing="true" growingScrollToLoad="true" growingThreshold="20">
+					<headerToolbar>
+					</headerToolbar>
+					<columns>
+						<Column>
+							<Text text="Note Number" />
+						</Column>
+						<Column>
+							<Text text="System Id" />
+						</Column>
+						<Column>
+							<Text text="Note Title" />
+						</Column>
+						<Column>
+							<Text text="Note Version" />
+						</Column>
+						<Column>
+							<Text text="CVSS Base Score" />
+						</Column>
+                        <Column>
+                            <Text text="Release On" />
+                        </Column>
+                       <Column>
+                            <Text text="Processing Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Implementation Status" />
+                        </Column>
+                        <Column>
+                            <Text text="SP Implementation Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Profile Param Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Table Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Kernel Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Ref Note Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Sacf Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Dev Object Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Manual Steps Others Status" />
+                        </Column>
+                        <Column>
+                            <Text text="Usage Appl Comp Last Day" />
+                        </Column>
+                        <Column>
+                            <Text text="Usage Appl Comp Last Week" />
+                        </Column>
+                        <Column>
+                            <Text text="Usage Appl Comp Last Month" />
+                        </Column>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells> 
+								<Link text="{NoteNumber}" press="onLinkPress"/>                                
+                                <Text text="{SystemId}" />
+                                <Text text="{NoteTitle}" />
+                                <Text text="{NoteVersion}" />
+                                <Text text="{CVSSBaseScore}" />
+                                <Text text="{parts:[{path : 'applicationContext>/UTC'}, {path : 'ReleaseOn'}],
+                                          formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />                               
+                                <Text text="{SNoteProcessingStatus}" />
+                                <Text text="{SNoteImplementationStatus}" />
+                                <Text text="{SPImplementationStatus}" />
+                                <Text text="{ManualStepsProfileParamStatus}" />
+                                <Text text="{ManualStepsTableStatus}" />
+                                <Text text="{ManualStepsKernelStatus}" />
+                                <Text text="{ManualStepsRefNoteStatus}" />
+                                <Text text="{ManualStepsSacfStatus}" />
+                                <Text text="{ManualStepsDevObjectStatus}" />
+                                <Text text="{ManualStepsOthersStatus}" />
+                                <Text text="{UsageApplComp1d}" />
+                                <Text text="{UsageApplComp1w}" />
+                                <Text text="{UsageApplComp1m}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

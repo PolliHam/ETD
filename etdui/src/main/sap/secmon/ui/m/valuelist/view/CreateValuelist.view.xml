@@ -1,0 +1,52 @@
+<mvc:View controllerName="sap.secmon.ui.m.valuelist.view.CreateValuelist"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:sscc="sap.secmon.ui.m.commons.controls"
+	xmlns:lf="sap.ui.layout.form">
+
+	<Page id="newValuelistContainer" showNavButton="{device>/isPhone}"
+		navButtonPress="onNavBack" class="sapUiFioriObjectPage" title="{i18n>VL_Config_NewVL}">
+		<content>
+			<lf:SimpleForm editable="true">
+				<lf:content>
+					<Label text="{i18nCommon>Name_LBL}" />
+					<Input value="{newValuelist>/ListName}" />
+					<Label text="{i18nCommon>Namespace_LBL}" />
+					<Select id="nameSpaceSelectCreate" selectedKey="{newValuelist>/NameSpace}"
+							items="{
+			                        path: 'nameSpaces>/NameSpaces',
+			                        sorter: {
+			                            path: 'NameSpace'
+			                        }
+			                	}"
+					>
+						<core:Item key="{nameSpaces>NameSpace}" text="{nameSpaces>NameSpace}" />
+					</Select>
+					<Label text="{i18nCommon>Description_LBL}" />
+					<Input value="{newValuelist>/Description}" />
+					<Label text="{i18n>VL_ValuesUpdateLBL}" />
+					<sscc:RadioButtonGrid id="updateModeRadioButtons"
+						width="100%" vSpacing="0" hSpacing="0" defaultSpan="L6 M6 S12"
+						selectedKey="{newValuelist>/UpdateMode}"
+						buttons="{enums>/sap.secmon.ui.m.valuelist/ValueList/UpdateMode/enumValues}">
+						<sscc:buttons>
+							<sscc:RadioButton text="{enums>Value}" key="{enums>Key}" />
+						</sscc:buttons>
+					</sscc:RadioButtonGrid>
+				</lf:content>
+			</lf:SimpleForm>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer />
+				<content>
+					<Button xmlns="sap.m" text="{i18nCommon>Save_BUT}"
+						press="onSave" type="Emphasized">
+					</Button>
+					<Button xmlns="sap.m" text="{i18nCommon>Cancel_BUT}"
+						press="onCancel">
+					</Button>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

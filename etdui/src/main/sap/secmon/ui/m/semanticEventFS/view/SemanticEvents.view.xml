@@ -1,0 +1,1489 @@
+<mvc:View controllerName="sap.secmon.ui.m.semanticEventFS.view.SemanticEvents"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout" height="100%"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page" title="{i18n>SemanticEventsTitle}"
+		enableScrolling="false" showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+			<Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+				press="onPressHelp" />
+		</headerContent>
+		<content>
+			<l:FixFlex class="fixFlexVertical">
+				<l:fixContent>
+					<c:Fragment
+						fragmentName="sap.secmon.ui.m.semanticEventFS.view.SemanticEventsFilterbar"
+						type="XML" height="auto" />
+					<Toolbar>
+					<!--  
+						<Label id="toolbarOfEventsTable" text="{i18n>SemanticEventsLbl}"></Label>
+						<Label text="" width="25px" />
+	                  -->
+						<Label id="timeRangeLabelInToolbarOfEventsTable" text=""></Label>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>UsernameGroupLbl}" icon="sap-icon://expand"
+							press="onExpandUserColumns" tooltip="{i18n>UsernameExpandTOL}"
+							visible="{uiModel>/userCollapsed}" />
+						<Button text="{i18n>UsernameGroupLbl}" icon="sap-icon://collapse"
+							press="onCollapseUserColumns" tooltip="{i18n>UsernameCollapseTOL}"
+							visible="{uiModel>/userExpanded}" />
+						<Button text="{i18n>SystemGroupLbl}" icon="sap-icon://expand"
+							press="onExpandSystemColumns" tooltip="{i18n>SystemExpandTOL}"
+							visible="{uiModel>/systemCollapsed}" />
+						<Button text="{i18n>SystemGroupLbl}" icon="sap-icon://collapse"
+							press="onCollapseSystemColumns" tooltip="{i18n>SystemCollapseTOL}"
+							visible="{uiModel>/systemExpanded}" />
+						<Button text="{i18n>ServiceGroupLbl}" icon="sap-icon://expand"
+							press="onExpandServiceColumns" tooltip="{i18n>ServiceExpandTOL}"
+							visible="{uiModel>/serviceCollapsed}" />
+						<Button text="{i18n>ServiceGroupLbl}" icon="sap-icon://collapse"
+							press="onCollapseServiceColumns" tooltip="{i18n>ServiceCollapseTOL}"
+							visible="{uiModel>/serviceExpanded}" />
+						<Button icon="sap-icon://action-settings" press="onP13nDialogPress" />
+					</Toolbar>
+				</l:fixContent>
+				<l:flexContent>
+					<!-- splitter's height has to be set to lower than 100% to allow loading 
+						the next items -->
+					<l:Splitter height="100%" orientation="Horizontal" id="splitter">
+						<ScrollContainer id="tableScrollContainer" width="100%"
+							height="100%" vertical="true">
+							<layoutData>
+								<l:SplitterLayoutData size="100%" />
+							</layoutData>
+							<customControls:ColumnClickableTable
+								id="semanticEventsTable" inset="false" class="sapEtdScrollTable"
+								growing="true" growingScrollToLoad="true" growingThreshold="50"
+								itemPress="handleSelect" columnPress="handleSort"
+								firstColumnIsForSelection="true"
+								mode="{path: 'applicationContext>/userPrivileges/casefileWrite', 
+									formatter: 'sap.secmon.ui.commons.Formatter.tableModeFormatter'}">
+								<customControls:infoToolbar>
+									<Toolbar id="vsdFilterBar" active="false" visible="false">
+										<Label id="vsdFilterLabel" text="?" />
+									</Toolbar>
+								</customControls:infoToolbar>
+								<customControls:columns>
+									<customControls:SortableColumn
+										width="10rem" sortProperty="Timestamp">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TimestampCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										width="12rem" sortProperty="EventSemantic">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventSemanticCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										width="12rem" sortProperty="EventCode" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventCodeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										width="12rem" sortProperty="EventLogType">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventLogTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<Column width="12rem" id="User">
+										<Text text="{i18n>UsernameGroupLbl}" />
+									</Column>
+									<customControls:SortableColumn
+										id="UserPseudonymInitiating" visible="false" width="8rem"
+										sortProperty="UserPseudonymInitiating">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UsernameInitiatingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="UserPseudonymActing" visible="false" width="8rem"
+										sortProperty="UserPseudonymActing">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UsernameActingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="UserPseudonymTargeted" visible="false" width="8rem"
+										sortProperty="UserPseudonymTargeted">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UsernameTargetedCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="UserPseudonymTargeting" visible="false" width="8rem"
+										sortProperty="UserPseudonymTargeting">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UsernameTargetingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<Column width="12rem" id="System">
+										<Text text="{i18n>SystemGroupLbl}" />
+									</Column>
+									<customControls:SortableColumn
+										id="SystemIdActor" visible="false" width="6rem" sortProperty="SystemIdActor">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemIdActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemTypeActor" visible="false" width="6rem"
+										sortProperty="SystemTypeActor">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemTypeActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemIdInitiator" visible="false" width="6rem"
+										sortProperty="SystemIdInitiator">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemIdInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemTypeInitiator" visible="false" width="6rem"
+										sortProperty="SystemTypeInitiator">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemTypeInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemIdIntermediary" visible="false" width="6rem"
+										sortProperty="SystemIdIntermediary">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemIdIntermediaryCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemTypeIntermediary" visible="false" width="6rem"
+										sortProperty="SystemTypeIntermediary">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemTypeIntermediaryCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemIdReporter" visible="false" width="6rem"
+										sortProperty="SystemIdReporter">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemIdReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemTypeReporter" visible="false" width="6rem"
+										sortProperty="SystemTypeReporter">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemTypeReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemIdTarget" visible="false" width="6rem" sortProperty="SystemIdTarget">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemIdTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="SystemTypeTarget" visible="false" width="6rem"
+										sortProperty="SystemTypeTarget">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemTypeTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<Column width="12rem" id="Service">
+										<Text text="{i18n>ServiceGroupLbl}" />
+									</Column>
+									<customControls:SortableColumn
+										id="ServiceTransactionName" visible="false" width="12rem"
+										sortProperty="ServiceTransactionName">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceTransactionNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										id="ServiceProgramName" visible="false" width="12rem"
+										sortProperty="ServiceProgramName">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceProgramNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TechnicalGroupId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TechGroupIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TechnicalTimestampOfInsertion"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TechTsOfInsertCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="AttackName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>AttackNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="AttackType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>AttackTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="CorrelationId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>CorrelationIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="CorrelationSubId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>CorrelationSubIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="12rem" sortProperty="EventMessage" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventMessageCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="EventScenarioRoleOfActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventScenRoleActCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="EventScenarioRoleOfInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventScenRoleInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="EventSeverityCode" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventSeverityCodeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="EventSourceId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventSourceIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="EventSourceType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>EventSourceTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericAction" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenActionCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericCategory" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenCategoryCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericDeviceType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenDeviceTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericExplanation" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenExplanationCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericGeolocationCodeTarget"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenGeolocTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericOrder" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenOrderCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericOutcome" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenOutcomeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericOutcomeReason" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenOutcomeReasonCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericPath" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenPathCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericPathPrior" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenPathPriorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericPurpose" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenPurposeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericRiskLevel" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenRiskLevelCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericScore" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenScoreCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericSessionId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenSessionIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="GenericURI" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>GenURICol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostnameActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostnameActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostnameInitiator" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostnameInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostnameIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostnameIntermediaryCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostnameReporter" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostnameReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostnameTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostnameTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostDomainActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostDomainActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostDomainInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostDomainInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostDomainIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostDomainIntermedCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostDomainReporter" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostDomainReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkHostDomainTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwHostDomainTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkInterfaceInitiator" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwIntfInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkInterfaceTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwIntfTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkIPBeforeNATInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwIPBeforeNATInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkIPBeforeNATTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwIPBeforeNATTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkMACAddressActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwMACActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkMACAddressInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwMACInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkMACAddressIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwMACInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkMACAddressReporter" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwMACReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkMACAddressTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwMACTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkNetworkPrefixInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwNwPrefixInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkNetworkPrefixTarget"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwNwPrefixTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortInitiator" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortIntermediary" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortReporter" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortBeforeNATInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortBeforeNATInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkPortBeforeNATTarget"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwPortBeforeNATTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkProtocol" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwProtocolCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSessionId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSessionIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetIdActor" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnIdActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetCategoryActor"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnCatActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetLocationActor"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnLocActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetIdInitiator" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnIdInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetCategoryInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnCatInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetLocationInitiator"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnLocInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetIdIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnIdInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetCategoryIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnCatInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetLocationIntermediary"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnLocInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetIdReporter" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnIdReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetCategoryReporter"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnCatReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetLocationReporter"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnLocReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetCategoryTarget"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnCatTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkSubnetLocationTarget"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwSnLocTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkZoneInitiator" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwZoneInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="NetworkZoneTarget" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>NwZoneTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterDirection" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamDirCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterDirectionContext" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamDirContextCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterNameContext" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamNameContextCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterDataType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamDataCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterDataTypeContext" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamDataContextCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterTypeContext" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamTypeContextCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueNumber" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValueNumCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueNumberContext"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValueNumCntxtCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueNumberPriorValue"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValueNumPriorValueCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueString" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValueStringCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueStringContext"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValueStringCntxtCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueStringPriorValue"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValStringPriorValCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueDouble" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValDoubleCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueDoublePriorValue"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValDoublePriorValCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueTimestamp" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValTSCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ParameterValueTimestampPriorValue"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ParamValTSPriorValCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="PrivilegeIsGrantable" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>PriviIsGrantCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="PrivilegeName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>PriviNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="PrivilegeType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>PriviTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="PrivilegeGranteeName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>PriviGranteeNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="PrivilegeGranteeType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>PriviGranteeTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceContainerName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResContNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceContainerType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResContTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceContentType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResContentTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceCount" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResCountCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceNamePrior" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResNamePriorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceRequestSize" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResReqSizeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceResponseSize" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResRespSizeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceSize" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResSizeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceSumCriteria" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResSumCriteriaCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceSumOverTime" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResSumOverTimeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ResourceUnitsOfMeasure" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ResUnitOfMeasureCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceAccessName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceAccessNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceFunctionName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceFunctionNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceReferrer" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceReferrerCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceRequestLine" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceReqLineCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceVersion" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceVersionCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceApplicationName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceApplicationNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceExecutableName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceExecuteableCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceExecutableType" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceExecuteableTypeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceOutcome" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceOutcomeCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServicePartId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServicePartIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceProcessId" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceProcessIdCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceUserAgent" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceUserAgentCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="ServiceWorkflowName" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>ServiceWorkflowNameCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupIdActor" visible="false" width="6rem"
+										sortProperty="SystemGroupIdActor">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupIdActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupTypeActor" visible="false" width="6rem"
+										sortProperty="SystemGroupTypeActor">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupTypeActorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupIdInitiator" visible="false" width="6rem"
+										sortProperty="SystemGroupIdInitiator">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupIdInitiatorCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupTypeInitiator" visible="false" width="6rem"
+										sortProperty="SystemGroupTypeInitiator">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupTypeInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupIdIntermediary" visible="false" width="6rem"
+										sortProperty="SystemGroupIdIntermediary">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupIdInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupTypeIntermediary" visible="false" width="6rem"
+										sortProperty="SystemGroupTypeIntermediary">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupTypeInterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupIdReporter" visible="false" width="6rem"
+										sortProperty="SystemGroupIdReporter">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupIdReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupTypeReporter" visible="false" width="6rem"
+										sortProperty="SystemGroupTypeReporter">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupTypeReporterCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupIdTarget" visible="false" width="6rem"
+										sortProperty="SystemGroupIdTarget">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupIdTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										id="SystemGroupTypeTarget" visible="false" width="6rem"
+										sortProperty="SystemGroupTypeTarget">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>SystemGroupTypeTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TimeDuration" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TimeDurationCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TimestampOfEnd" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TimestampOfEndCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TimestampOfStart" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TimestampOfStartCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TriggerNameActing" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TriggerNameActingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TriggerNameTargeted" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TriggerNameTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TriggerTypeActing" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TriggerTypeActingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="TriggerTypeTargeted" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>TriggerTypeTargetCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainNameActing" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomNameActingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainNameInitiating"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomNameInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainNameTargeted"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomNameTargetedCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainNameTargeting"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomNameTargetingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainTypeActing" visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomTypeActingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainTypeInitiating"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomTypeInitCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainTypeTargeted"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomTypeTargetedCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+
+									<customControls:SortableColumn
+										width="6rem" sortProperty="UsernameDomainTypeTargeting"
+										visible="false">
+										<customControls:header>
+											<customControls:SortableItem
+												text="{i18n>UserDomTypeTargetingCol}" />
+										</customControls:header>
+									</customControls:SortableColumn>
+								</customControls:columns>
+							</customControls:ColumnClickableTable>
+						</ScrollContainer>
+					</l:Splitter>
+				</l:flexContent>
+			</l:FixFlex>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button
+						id="addToInvestButton" 
+						press="handleAddToInvestigationPressed"
+						text="{i18n>AddToInvestigation}"
+					    visible="{applicationContext>/userPrivileges/investigationWrite}"/>
+					<Button
+						id="addToCaseFile" 
+						press="handleAddToCaseFile"
+						text="{i18n>AddToCaseFile}"
+						visible="{applicationContext>/userPrivileges/casefileWrite}"/>
+					<Button icon="sap-icon://email" tooltip="{i18n>ActionEmail_Title}"						
+						press="handleEmailButtonPressed" visible="{applicationContext>/userPrivileges/normalizedLogRead}"/>
+					<Button icon="sap-icon://add-favorite" tooltip="{i18n>ActionTile_Title}"
+						press="handleBookmarkDialogButtonPressed" />
+					
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

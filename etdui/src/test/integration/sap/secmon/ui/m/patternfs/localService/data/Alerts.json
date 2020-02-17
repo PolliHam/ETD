@@ -1,0 +1,95 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.AlertsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')"
+        },
+        "AlertId": "AAAAGQ4Ze0yCwWs7Rn4eNw==",
+        "Number": 11756604,
+        "AlertHashCode": "fG3k5j6P0MaFGJXc1As01Ps3VtIMrcT1xjVguTCgUWk=",
+        "Score": 50,
+        "ScoreFunction": null,
+        "AlertCreationTimestamp": "\/Date(1524750449912)\/",
+        "AlertReadTimestamp": "\/Date(1544447445178)\/",
+        "UserId": null,
+        "SystemId": "$T3/000",
+        "PatternName": "Multiple downloads by one user",
+        "PatternType": "FLAB",
+        "Text": "Measurement 99103 exceeded the threshold 10 for (Network Hostname, Initiator/User ID, Acting/System ID, Actor) = ('HOST33548165A'/'552F9FEC6D382BA3E10000000A4CF109'/'$T3/000')",
+        "AlertSeverity": "MEDIUM",
+        "AlertSeveritySortOrder": -3,
+        "AlertProcessor": "",
+        "AlertStatus": "NO_REACTION_NEEDED_T",
+        "AlertAttack": "NO",
+        "AlertMeasureContext": "Log",
+        "PatternSeverity": "MEDIUM",
+        "PatternId": "y9p9SRXM8UerVDZoX8eQIw==",
+        "MinTimestamp": "\/Date(1524664050164)\/",
+        "MaxTimestamp": "\/Date(1524750440221)\/",
+        "Count": "99103",
+        "Threshold": 10,
+        "QueryStartTimestamp": "\/Date(1524664047000)\/",
+        "QueryEndTimestamp": "\/Date(1524750447000)\/",
+        "MeasureType": null,
+        "PatternDescription": "A user has downloaded data from an SAP system more times than a defined threshold (default: 10 per day).",
+        "PatternNameSpace": "http://sap.com/secmon/basis",
+        "PatternNameSpaceId": "746U8LWFQv+VizMoEgFSHA==",
+        "PatternLikelihoodConfidentiality": "PROVEN",
+        "PatternLikelihoodIntegritySystem": "N/A",
+        "PatternLikelihoodIntegrityData": "N/A",
+        "PatternLikelihoodAvailability": "N/A",
+        "PatternSuccessConfidentiality": "SUCCESSFUL",
+        "PatternSuccessIntegritySystem": "N/A",
+        "PatternSuccessIntegrityData": "N/A",
+        "PatternSuccessAvailability": "N/A",
+        "WorkspaceName": "Information Disclosure",
+        "TriggeringEventCount": "99103",
+        "AnomalyPattern": "No",
+        "InvestigationCount": "0",
+        "IndicatorTimeframe": null,
+        "Attachments": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/Attachments"
+          }
+        },
+        "Details": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/Details"
+          }
+        },
+        "Groups": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/Groups"
+          }
+        },
+        "BinaryScores": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/BinaryScores"
+          }
+        },
+        "Scores": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/Scores"
+          }
+        },
+        "PatternScenarios": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/PatternScenarios"
+          }
+        },
+        "Counts": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/Counts"
+          }
+        },
+        "AnomalyCounts": {
+          "__deferred": {
+            "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/Alerts(X'000000190E197B4C82C16B3B467E1E37')/AnomalyCounts"
+          }
+        }
+      }
+    ]
+  }
+}

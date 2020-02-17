@@ -1,0 +1,167 @@
+<mvc:View controllerName="sap.secmon.ui.m.views.executionResult.ExecutionResult"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
+	xmlns:variants="sap.ui.comp.variants" xmlns:f="sap.ui.layout.form"
+	xmlns:commonControls="sap.secmon.ui.commons.controls"
+	xmlns:customControls="sap.secmon.ui.m.commons.controls">
+	<Page id="page"
+		title="{parts : [ { path : 'i18n>ExecutionOfPattern'}, { path : 'PatternName' } ], formatter : 'sap.secmon.ui.commons.Formatter.i18nText'}"
+		showNavButton="true" navButtonPress="onNavBack">
+		<headerContent>
+            <Button icon="sap-icon://sys-help" tooltip="{i18nCommon>Help_BUT}"
+                press="onPressHelp" />
+        </headerContent>
+        <subHeader>
+        </subHeader>
+		<content>
+			<f:SimpleForm editable="false">
+				<f:content>
+					<Label text="{i18n>PatternName}" />
+					<commonControls:LongTapLink text="{PatternName}" href="{path: 'PatternDefinitionId.Id', formatter : 'sap.secmon.ui.m.commons.NavigationService.patternURL'}"/>
+					<Label text="{i18n>PatternNamespace}" />
+					<Text text="{PatternNamespace}" />
+					<Label text="{i18n>PatternExecutionOutput}" />
+					<Text
+						text="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.executionOutputFormatter'}" />
+					<Label id="TriggerLabel" text="{i18n>Trigger}" />
+					<Link id="TriggerLink" text="{i18n>TriggeringExecution}"
+						press="onTriggerClicked" />
+					<Label text="{i18n>Execution_Time}" />
+					<Text
+						text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'ExecutionTimeStamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+					<Label text="{i18n>Total_Runtime}" />
+					<Text text="{TotalRuntime}" />
+					<Label text="{i18n>ER_PostProcessingEx}" />
+					<Text text="{parts: [{path : 'applicationContext>/UTC'},{path: 'i18nCommon>ConsTimeRangeFT_LBL'},{path : 'FromTimestamp'},{path: 'ToTimestamp'}],  formatter: 'sap.secmon.ui.commons.Formatter.timeRangeFormatterEx'}" 
+								visible="{=${ExecutionMode} === 'Post Processing Job'}"/>
+					<Label text="{i18n>Exec_Result_Status}" />
+					<Text
+						text="{parts : [ { path : 'ResultStatus'}, { path : 'Id' } ], formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.statusFormatter'}" />
+					<Label text="{i18n>Exec_Mode}" />
+					<Text
+						text="{parts: [{path: 'enums>/sap.secmon.services.ui.m.pattern/ExecutionResult/ExecutionMode/'},{path : 'ExecutionMode'}], formatter: 'sap.secmon.ui.m.commons.Formatter.enumFormatter'}" />
+					<Label text="{i18n>FoundAlerts}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}" />
+					<Text text="{NumberOfAllAlerts}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}" />
+					<Label text="{i18n>NewAlerts}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}" />
+					<Text text="{NumberOfNewAlerts}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}" />
+					<Label text="{i18n>NewEvents}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isEventsOutput'}" />
+					<Text text="{number_of_new_events}"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isEventsOutput'}" />
+					<Label text="{i18n>PatternSQLHash}"/>
+					<Text text="{PatternQueryStatementHash}"/>
+				</f:content>
+			</f:SimpleForm>
+			<customControls:ColumnClickableTable firstColumnIsForSelection="true" columnPress="sap.secmon.ui.m.commons.FilterBarHelper.handleSort"
+				id="alertsTable" inset="false" mode="MultiSelect"
+				visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}"
+				items="{path: 'Alerts', parameters: {expand: 'AlertDetails'}, sorter : { path: 'AlertCreationTimestamp', descending: true} }"
+				growing="true" growingScrollToLoad="true" growingThreshold="100">
+				<customControls:columns>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="Severity" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>Severity}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="Number" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>Id}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="AssignmentType" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>NewAlert}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="Status" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>AlertStatus}" />
+					</customControls:SortableColumn>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="AlertCreationTimestamp" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>AlertCreationTime}" />
+					</customControls:SortableColumn>
+					<Column width="20em" minScreenWidth="XLarge" demandPopin="true"
+						popinDisplay="Inline">
+						<Text text="{i18n>AlertCause}" />
+					</Column>
+					<customControls:SortableColumn minScreenWidth="XLarge" demandPopin="true"
+						sortProperty="InvestigationCount" popinDisplay="Inline">
+						<customControls:SortableItem text="{i18n>Investigations}" />
+					</customControls:SortableColumn>
+				</customControls:columns>
+				<customControls:items>
+					<ColumnListItem>
+						<cells>
+							<Text
+								text="{path : 'Severity', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.severityFormatter'}" />
+							<commonControls:LongTapLink text="{Number}" href="{path: 'AlertId', formatter : 'sap.secmon.ui.m.commons.NavigationService.alertURL'}"/>
+							<Text
+								text="{path : 'AssignmentType', formatter: 'sap.secmon.ui.m.views.executionResult.util.Formatter.assignmentTypeFormatter'}" />
+							<Text
+								text="{path : 'Status', formatter: 'sap.secmon.ui.m.alerts.util.Formatter.statusFormatter'}" />
+							<Text
+								text="{parts : [ {path : 'applicationContext>/UTC'}, { path : 'AlertCreationTimestamp'} ], formatter: 'sap.secmon.ui.commons.Formatter.dateFormatterEx'}" />
+							<!-- Text
+								text="{path : 'AlertDetails', formatter: 'sap.secmon.ui.commons.AlertTriggerFormatter.alertTriggerFormatter'}" / -->
+							<customControls:TextWithLinks
+											text="{parts : [ {path : 'AlertDetails'}, { path : 'PatternType'}, {path : 'AlertMeasureContext'} ],
+										            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringTextWithLinksFormatter'}"
+										    links="{parts: [{ path : 'PatternType'}, {path : 'AlertMeasureContext'}, {path : 'AlertId'}, {path: 'i18nAlert>MAlertsFS_EventsNoCount'}],
+										            formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.triggeringEventLinksFormatter'}"
+										/>
+							<customControls:LinkOrText text="{InvestigationCount}"
+								linkEnabled="{path: 'InvestigationCount', formatter: 'sap.secmon.ui.m.alertsfs.util.Formatter.InvestigationCountFormatter' }"
+								href="{path: 'AlertId', formatter: 'sap.secmon.ui.m.commons.NavigationService.investigationsOfAlertURL'}"  />
+						</cells>
+					</ColumnListItem>
+				</customControls:items>
+			</customControls:ColumnClickableTable>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer />
+					<Button id="startInvestBtn" xmlns="sap.m"
+						text="{i18n>Start_Investigation}" press="onStartInvestigation"
+						visible="{parts: [ {path : 'PatternExecutionOutput'},{path : 'applicationContext>/userPrivileges/investigationWrite'}], formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="true" />
+						</layoutData>
+					</Button>
+					<Button id="addToInvestBtn" text="{i18n>AddToInvest}" press="onAddToInvestigation"
+						visible="{parts: [ {path : 'PatternExecutionOutput'},{path : 'applicationContext>/userPrivileges/investigationWrite'}], formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="true" />
+						</layoutData>
+					</Button>
+					<Button id="updateAlertsBtn" text="{i18n>EditAlerts}" press="onUpdateAlerts"
+						visible="{parts: [ {path : 'PatternExecutionOutput'},{path : 'applicationContext>/userPrivileges/alertWrite'}], formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="false" />
+						</layoutData>
+					</Button>
+					<Button id="analyzeButton" text="{i18n>AnalyzeAlerts}"
+						press="onAnalyze"
+						visible="{path : 'PatternExecutionOutput', formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="true" />
+						</layoutData>
+					</Button>
+					<Button id="markAsTestResultButton" icon="sap-icon://delete"
+						press="onMarkAsTestResult" tooltip="{i18n>Delete_XTOL}"
+						visible="{parts: [ {path : 'PatternExecutionOutput'},{path : 'applicationContext>/userPrivileges/alertWrite'}], formatter : 'sap.secmon.ui.m.views.executionResult.util.Formatter.isAlertsOutput'}">
+						<layoutData>
+							<OverflowToolbarLayoutData
+								moveToOverflow="false" />
+						</layoutData>
+					</Button>
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

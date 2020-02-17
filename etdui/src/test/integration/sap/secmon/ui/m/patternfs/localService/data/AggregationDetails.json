@@ -1,0 +1,16 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "type": "log.services.AggregationDetailsType",
+          "uri": "https://ld3796.wdf.sap.corp:4300/sap/secmon/services/patterndefinitionToAlerts.xsodata/AggregationDetails(AggregationHash=X'002C2646E84F6A6749671A1B118F6B29D3F92B9F4B3CBE0911A829C8AB1E8FA6',AggregationNumber=1)"
+        },
+        "AggregationHash": "ACwmRuhPamdJZxobEY9rKdP5K59LPL4JEagpyKsej6Y=",
+        "AggregationNumber": 1,
+        "AggregationValue": "WEDNESDAY",
+        "ColumnName": "Dayname"
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+@CHARSET "ISO-8859-1";
+
+.clickableColumnItem {
+	cursor: pointer !important;
+	cursor: hand !important;
+}

@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:commons="sap.ui.commons">
+
+    <t:Table id="tableTarget" visibleRowCountMode="Auto"
+        height="100%" width="100%" selectionMode="Multi" rowSelectionChange="onRowSelectionChange" 
+        minAutoRowCount="9" busyIndicatorDelay="250" showColumnVisibilityMenu="true" 
+        title="{i18n>Interpret_Target}"
+        rows="{path: 'RunJSONModel>/valueMapping/target',
+                templateShareable : true}">
+        <t:toolbar>
+            <Toolbar id="toolbarTargetTable">
+                    <ToolbarSpacer/>
+                    <Button id="buttonCreateTarget" 
+                        text="{i18n>Interpret_Create}" 
+                        icon="sap-icon://create" 
+                        tooltip="{i18n>Interpret_CreateTarget}" 
+                        lite="true"
+                        press="onPressCreateTarget" 
+                        type="Transparent"/>
+                    <Button id="buttonDeleteTarget" 
+                        text="{i18n>Interpret_Delete}" 
+                        icon="sap-icon://delete" 
+                        tooltip="{i18n>Interpret_DeteleTarget}"
+                        lite="true"
+                        press="onPressDeleteTarget" 
+                        enabled="{=!!${uiModel>/selectedId}}"
+                        type="Transparent"/>
+            </Toolbar>
+        </t:toolbar>
+
+        <t:columns>
+            <t:Column id="columnTargetId" sortProperty="Id"
+                filterProperty="Id" visible="false">
+                <Label text="{i18n>Interpret_Id}" />
+                <t:template>
+                    <Text text="{RunJSONModel>Id}" />
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnTargetValue" sortProperty="TargetValue"
+                filterProperty="TargetValue" visible="true">
+                <Label text="{i18n>Interpret_TargetValue}" tooltip="{i18n>Interpret_TargetValueTOL}"/>
+                <t:template>
+                    <Input id="textFieldTargetValue"
+                        valueHelpRequest="onValueHelpTargetValue"
+                        showValueHelp="{=${RunJSONModel>TargetAttributeId/name} === 'EventSemantic' &amp;&amp; ${RunJSONModel>/eventHashOfSelectedMarkup} === '1F2A2EAEFBBD2272C02065BD0F8254C3CCE8EE98CA3C338EA7B6D168D35CD8AF' }"
+                        showSuggestion="{=${RunJSONModel>TargetAttributeId/name} === 'EventSemantic' &amp;&amp; ${RunJSONModel>/eventHashOfSelectedMarkup} === '1F2A2EAEFBBD2272C02065BD0F8254C3CCE8EE98CA3C338EA7B6D168D35CD8AF' }"
+                        suggest="onSuggestTargetEvent"
+                        suggestionItems="{ path : 'KBEventModel>/', sorter: {path: 'displayName'}}"
+                        suggestionItemSelected="onTargetEventSugggestionSelected"
+                        change="onChangeTargetValue"
+                        liveChange="onLiveChangeTargetValue"
+                        value="{parts : [ {path :'RunJSONModel>TargetValue'}, {path : 'RunJSONModel>Event.DisplayName'} ],
+                            formatter:'sap.secmon.ui.loglearning.util.Formatter.targetValueText', mode : 'sap.ui.model.BindingMode.OneWay' }"
+                     
+                        tooltip="{parts : [ {path :'RunJSONModel>TargetAttributeId/name'}, {path : 'RunJSONModel>TargetAttributeId/namespace'} ],
+                            formatter:'sap.secmon.ui.loglearning.util.Formatter.targetValueTooltipText', mode : 'sap.ui.model.BindingMode.OneWay' }" >
+                        <suggestionItems>
+                            <core:ListItem text="{KBEventModel>displayName}" 
+                                additionalText="{KBEventModel>nameSpace}" 
+                                key="{KBEventModel>hash}" data:name="{name}"/>
+                        </suggestionItems>
+                    </Input>
+                </t:template>
+            </t:Column>
+            
+            <t:Column id="columnTargetAttribute" sortProperty="attrDisplayName"
+                filterProperty="attrDisplayName">
+                <Label text="{i18n>Interpret_AttrName}" />
+                <t:template>
+                   <Input id="textfieldAttribute"
+                        showValueHelp="true"
+                        valueHelpRequest="onValueHelpAttribute"
+                        showSuggestion="true"
+                        suggest="onSuggestAttribute"
+                        suggestionItems="{path: 'RunJSONModel>Attributes', templateShareable:false}"
+                        suggestionItemSelected="onAttributeSugggestionSelected"
+                        change="onChangeAttrTextField"
+                        liveChange="onLiveChangeAttrTextField"
+                        value="{RunJSONModel>TargetAttributeId/displayName}"
+                        tooltip="{parts : [ {path :'RunJSONModel>TargetAttributeId/name'},
+                                 {path : 'RunJSONModel>TargetAttributeId/nameSpace'},
+                                 {path : 'RunJSONModel>TargetAttributeId/dataType'} ],
+                            formatter:'sap.secmon.ui.loglearning.util.Formatter.targetIdTooltipText', mode : 'sap.ui.model.BindingMode.OneWay' }" >
+                        <suggestionItems>
+                            <core:ListItem text="{RunJSONModel>attrDisplayName}" additionalText="{RunJSONModel>attrNameSpace.nameSpace}" key="{RunJSONModel>attrHash}"/>
+                        </suggestionItems>
+                   </Input>
+                </t:template>
+			</t:Column>
+
+
+        </t:columns>
+
+    </t:Table>
+</core:FragmentDefinition>

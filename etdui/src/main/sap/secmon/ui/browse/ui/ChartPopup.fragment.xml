@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ActionSheet placement="Auto">
+		<buttons>
+            <Button text="{i18n>BU_BUT_Add2Path}" icon="sap-icon://add-filter" press="handleAdd2Path" visible = "{/add2PathVisible}" />            
+            <Button text="{i18n>BU_BUT_Add2PathAsExcl}" icon="sap-icon://add-filter" press="handleAdd2PathAsExclude" visible = "{/add2PathVisible}" />
+			<Button text="{i18n>BU_BUT_Exclude}" icon="sap-icon://decline" press="handleExcludeData"/>
+            <Button text="{i18n>BU_BUT_Copy}" icon="sap-icon://cause" press="handleCopy2Clipboard" visible = "{/add2PathVisible}" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

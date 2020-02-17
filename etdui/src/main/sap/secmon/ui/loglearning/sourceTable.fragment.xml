@@ -1,0 +1,107 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table"
+	xmlns:commons="sap.ui.commons">
+
+    <t:Table id="tableSource" visibleRowCountMode="Auto"
+        height="100%" width="100%" selectionMode="Multi" rowSelectionChange="onRowSelectionChange" 
+        minAutoRowCount="9" busyIndicatorDelay="250" showColumnVisibilityMenu="true"
+        title="{i18n>Interpret_Source}"
+        rows="{path: 'RunJSONModel>/valueMapping/source',
+                templateShareable : true}" >
+        <t:toolbar>
+            <Toolbar id="toolbarSourceTable"> 
+                    <ToolbarSpacer />
+                    <Button id="buttonCreateSource" 
+                        text="{i18n>Interpret_Create}" 
+                        icon="sap-icon://create" 
+                        type="Transparent"
+                        tooltip="{i18n>Interpret_CreateCondition}"
+                        lite="true"
+                        press="onPressCreateSource" />
+                    <Button id="buttonDeleteSource" 
+                        text="{i18n>Interpret_Delete}" 
+                        icon="sap-icon://delete" 
+                        tooltip="{i18n>Interpret_DeleteCondition}"
+                        lite="true"
+                        type="Transparent"
+                        press="onPressDeleteSource" 
+                        enabled="{=!!${uiModel>/selectedOperator}}"/>
+                    <Button id="buttonShowValues" 
+                        text="{i18n>Interpret_ShowVal}"
+                        icon="sap-icon://create" 
+                        tooltip="{i18n>Interpret_ShowValues}"
+                        lite="true"
+                        press="onPressShowValues"  
+                        type="Transparent"
+                        enabled="{=!!${uiModel>/selectedOperator}}"/>
+                     <Button id="buttonSimulateRegex" 
+                        text="{i18n>Interpret_SimRegex}"
+                        icon="sap-icon://create" 
+                        tooltip="{i18n>Interpret_TestRegex}"
+                        lite="true"
+                        press="onPressSimulateRegex" 
+                        enabled="{=${uiModel>/selectedOperator} === 'RX'}"
+                        type="Transparent"/>
+            </Toolbar>
+        </t:toolbar>
+
+        <t:columns>
+            <t:Column id="columnSourceId" sortProperty="Id"
+                filterProperty="Id" visible="false">
+                <Label text="{i18n>Interpret_Id}" />
+                <t:template>
+                    <Text text="{RunJSONModel>Id}" />
+                </t:template>
+			</t:Column>
+
+           <t:Column id="columnAnnotationId" sortProperty="Id"
+                filterProperty="Id">
+                <Label text="{i18n>Interpret_Annotation}" />
+                <t:template>
+                    <!-- annotations model is dynamically created in valuemapping controller -->
+                   <ComboBox id="comboBoxAnnotation"
+                        selectedKey="{RunJSONModel>AnnotationId.Id}"
+                        items="{Annotations>/}" >
+                            <core:ListItem 
+                                text="{Annotations>Text}"
+                                key="{Annotations>Id}" /> 
+                    </ComboBox>
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnOperator" sortProperty="Operator"
+                filterProperty="Operator" visible="true">
+                <Label text="{i18n>Interpret_Operator}" />
+                <t:template>
+                   <ComboBox id="comboBoxOperator"
+                        selectedKey="{RunJSONModel>Operator}"
+                        items="{uiModel>/attributes}" 
+                        selectionChange="onOperatorChange">
+                            <core:ListItem text="{uiModel>text}" key="{uiModel>key}" /> 
+                    </ComboBox>
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnOperand1" sortProperty="Operand1"
+                filterProperty="Operand1" visible="true">
+                <Label text="{i18n>Interpret_Operand1}" />
+                <t:template>
+                   <Input id="textFieldOperand1"
+                        liveChange="validateRegex"
+                        change="onChangeTextField"
+                        value="{RunJSONModel>Operand1}"/>
+                </t:template>
+			</t:Column>
+
+            <t:Column id="columnOperand2" sortProperty="Operand2"
+                filterProperty="Operand2" visible="true">
+                <Label text="{i18n>Interpret_Operand2}" />
+                <t:template>
+                   <Input id="textFieldOperand2"
+                        change="onChangeTextField"
+                        value="{RunJSONModel>Operand2}"/>
+                </t:template>
+			</t:Column>
+        </t:columns>
+    </t:Table>
+</core:FragmentDefinition>

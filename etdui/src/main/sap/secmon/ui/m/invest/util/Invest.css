@@ -1,0 +1,21 @@
+.investSplitterGrey > .sapUiLoSplitterBar{
+		background-color: #E5E5E5;
+}
+
+
+.sapETDBar {
+    margin: 0px;
+    padding: 0px;
+    border-bottom-width: 0px;
+    background-color: transparent;
+    box-shadow: none;
+}
+.sapMTB-Transparent-CTX .sapMLabel.crumbArrow {
+	margin-right: 0;
+}
+
+
+.sapMTB-Transparent-CTX .sapMText.crumbLast {
+	font-size: 0.875rem;
+	text-shadow: none;
+}

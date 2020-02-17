@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+svg text {
+	font-size: 12px;
+}
+
+rect {
+	shape-rendering: crispEdges;
+}
+</style>
+<META charset="utf-8">
+<STYLE>
+.node {
+	stroke: #fff;
+	stroke-width: 1.5px;
+}
+
+.link {
+	stroke: #999;
+	stroke-opacity: .6;
+}
+
+body.wait, body.wait * {
+	cursor: wait !important;
+}
+</STYLE>
+<link rel="stylesheet"
+	href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+<body>
+
+	<script src="/sap/ui5/1/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+		data-sap-ui-libs="sap.m, sap.viz" data-sap-ui-theme="sap_bluecrystal">
+    
+</script>
+
+	<script>
+//This is necessary to find sap secmon objects. Without it, they will be sought under sap.ui packages
+jQuery.sap.registerResourcePath("/sap/secmon", "../../../../../../../sap/secmon");
+jQuery.sap.registerModulePath("sap.secmon", "../../../../../../../sap/secmon");
+</script>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+
+	<div>
+		<span>From (UTC)</span>&nbsp;<input type="text" id="from"
+			value="2015-09-24T09:15:00" /> <span>To (UTC)</span>&nbsp;<input
+			type="text" id="to" value="2015-09-24T10:16:00" /> <input
+			type="button" value="Go" onclick="go() " /> <span id="status"></span>
+
+	</div>
+	<h3>Alert Locations</h3>
+	<div id="map" style="width: 600px; height: 400px"></div>
+	<span id="details"></span>
+
+	<script>
+function getfromDateString(){
+	return document.getElementById("from").value;
+}
+
+function getToDateString(){
+	return document.getElementById("to").value;
+}
+
+var context = { 
+	fromDateString : "",
+	toDateString : "",
+	alerts: [],
+	userIds: new Set(),
+	systemIds: new Set(),
+	terminalIds: new Set(),
+	patternIds: new Set(),
+	minDate : null,
+	maxDate : null,
+	screenWidth : 1800,
+	screenHeight : 900,
+	systemsLoaded : false,
+	locationsLoaded : false,
+	systemLocationsJoined : false
+};
+
+function setStatus(){
+    
+    var text = context.alerts.length + ' Alerts, ' + 
+    context.userIds.size + ' Users, ' + 
+    context.patternIds.size + ' Patterns, ' + 
+    context.terminalIds.size + ' Terminals, ' + 
+    context.systemIds.size + ' Systems, ' + 
+    context.locations.length + ' Locations, ' +
+    context.systemsWithLocation + ' Systems with Locations';
+    
+    var span = document.getElementById("status");
+    while( span.firstChild ) {
+        span.removeChild( span.firstChild );
+    }
+	span.appendChild( document.createTextNode( text ) );
+}
+
+function setToString( set ){
+	var s = '[';
+	var first = true;
+	for( var x of set ){
+		if( first ) first = false;
+		else s+= ',';
+		s+= x;
+	}
+	s+= ']';
+	return s;
+}
+
+function systemToString( system ){
+    var str = "";
+    str+= "ID: " + system.Id;
+    str+= ", Location: " + system.LocationId;
+    return str;
+}
+
+function systemsToString(){
+    var str = "";
+
+    for(var i=0;i<context.systems.length; i++){
+        
+        var system = context.systems[i];
+        str+= "(";
+        str+= systemToString( system );
+        str+= ")";
+        
+    }
+    return str;
+}
+
+function setDetails(){
+    
+    var text = systemsToString();
+    
+    var span = document.getElementById("details");
+    while( span.firstChild ) {
+        span.removeChild( span.firstChild );
+    }
+	span.appendChild( document.createTextNode( text ) );
+}
+
+function loadSystemData() {
+
+   $.ajax({
+       url : "/sap/secmon/services/ui/systemcontext/SystemData.xsodata/SystemHeader?$format=json",
+       async : true
+   }).done(handleSystems);
+
+}
+
+function handleSystems(response) {
+
+   var systems = response.d.results;
+
+   context.systems = systems;
+
+   var systemById = {};
+
+   for (var i = 0; i < systems.length; i++) {
+
+       var system = systems[i];
+       systemById[system.Id] = system;
+
+       switch (system.Role) {
+
+       case "SAP Reference":
+           system.group = 2;
+           break;
+       case "Production":
+           system.group = 3;
+           break;
+       case "Customizing":
+           system.group = 4;
+           break;
+       case "Test":
+           system.group = 5;
+           break;
+       default:
+           system.group = 6;
+       }
+   }
+
+   context.systemById = systemById;
+   
+   context.systemsLoaded = true;
+   
+   joinSystemLocations();
+}
+
+loadSystemData();
+
+function loadLocationData() {
+
+   $.ajax({
+       url : "/sap/secmon/services/ui/locations/Locations.xsodata/Locations?$format=json",
+       async : true
+   }).done(handleLocations);
+
+}
+
+function handleLocations(response) {
+
+   var locations = response.d.results;
+
+   context.locations = locations;
+
+   var locationById = {};
+
+   for (var i = 0; i < locations.length; i++) {
+
+       var location = locations[i];
+       locationById[location.Id] = location;
+       location.alertCount = 0;
+
+   }
+
+   context.locationById = locationById;
+   
+   context.locationsLoaded = true;
+   
+   joinSystemLocations();
+}
+
+loadLocationData();
+
+function joinSystemLocations(){
+   if( context.systemLocationsJoined ) return;
+   if( context.locationsLoaded && context.systemsLoaded ){
+       
+       var systemsWithLocation = 0;
+       
+       var systems = context.systems;
+       var locations = context.locations;
+       for (var i = 0; i < systems.length; i++) {
+
+           var system = systems[i];
+           
+           for (var j = 0; j < locations.length; j++) {
+
+               var location = locations[j];
+               
+               if( system.LocationId == location.Id ){
+                   
+                   system.location = location;
+                   systemsWithLocation++;
+                   break;
+               }
+           }
+       }
+       context.systemsWithLocation = systemsWithLocation;
+       context.systemLocationsJoined = true;
+   }
+}
+
+function handleAlerts( response ){
+	
+    var alertSourceTargets = response.d.results;
+	var alertByIds = {};
+
+	var userIds = new Set(), 
+	systemIds = new Set(), 
+	terminalIds = new Set(), 
+	patternIds = new Set(); 
+
+	alertSourceTargets.forEach(function(value, index) {
+
+	    var alert = alertByIds[value.AlertId];
+	    if( alert == null ){
+		    alert = 
+		    	{
+			        alertId : value.AlertId,
+			        alertCreationTimestamp : value.AlertCreationTimestamp,
+			        patternId: value.PatternId, 
+			        patternName : value.PatternName,
+			        patternNamespace : value.PatternNamespace,
+			        systemIds : new Set(),
+			        terminalIds : new Set(),
+			        userIds : new Set(),
+			        minTimestamp : value.MinTimestamp,
+			        maxTimestamp : value.MaxTimestamp
+		    	};
+		    alertByIds[value.AlertId] = alert;
+	    }
+	    
+	    patternIds.add( value.PatternId );
+
+	    if( ( value.SystemId != null ) && ( value.SystemId.length > 0 ) ) {
+	    	alert.systemIds.add( value.SystemId );
+	    	systemIds.add( value.SystemId );
+	    }
+	    
+	    if( ( value.TerminalId != null ) && ( value.TerminalId.length > 0 ) ) {
+		    alert.terminalIds.add( value.TerminalId );
+		    terminalIds.add( value.TerminalId );
+	    }
+	    
+	    if( ( value.UserId != null ) && ( value.UserId.length > 0 ) ) {
+	        alert.userIds.add(value.UserId);
+	        userIds.add(value.UserId);
+	    }
+
+	});
+
+	// create array from the map
+	var alerts = Object.keys(alertByIds).map(function(key) {
+	    return alertByIds[key];
+	});
+
+	// sort by time
+	alerts.sort(function(a, b) {
+	    var keyA = a.alertCreationTimestamp, keyB = b.alertCreationTimestamp;
+	    // Compare the 2 dates
+	    if (keyA < keyB)
+	        return -1;
+	    if (keyA > keyB)
+	        return 1;
+	    return 0;
+	});
+
+	var minDate = null;
+	var maxDate = null;
+	//transform alertCreationTimestamp (e.g. /Date(1439969008117)/ ) into Date object alertCreationTimestampDate
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+		
+		var alertCreationTimestamp = alert.alertCreationTimestamp;	
+		alertCreationTimestamp = alertCreationTimestamp.replace(/\//g, '');
+		var date;
+		eval( 'date = new ' + alertCreationTimestamp );
+		alert.alertCreationTimestampDate = date;
+				
+		var minTimestamp = alert.minTimestamp;	
+		minTimestamp = minTimestamp.replace(/\//g, '');
+		eval( 'date = new ' + minTimestamp );
+		alert.minTimestamp = date;
+		
+		if( minDate == null ) minDate = date;
+		else {
+		    if( date < minDate ) minDate = date;
+		}
+
+		var maxTimestamp = alert.maxTimestamp;	
+		maxTimestamp = maxTimestamp.replace(/\//g, '');
+		eval( 'date = new ' + maxTimestamp );
+		alert.maxTimestamp = date;
+		
+		if( maxDate == null ) maxDate = date;
+		else {
+		    if( date > maxDate ) maxDate = date;    
+		}
+	}
+	
+	context.minDate = minDate;
+	context.maxDate = maxDate;
+	
+	$("body").toggleClass("wait");
+	
+	context.alerts = alerts;
+	context.userIds = userIds; 
+	context.systemIds = systemIds;
+	context.terminalIds = terminalIds; 
+	context.patternIds = patternIds;
+	
+	//compute locations and their cumulative alert sizes
+	
+	for( var i=0; i<alerts.length; i++ ){
+		var alert = alerts[i];
+
+		var systemIds = alert.systemIds;
+		for( var systemId of systemIds ){
+		    
+		    var system = getSystem( systemId );
+		    if( system == null ) continue;
+		    if( system.location == null ) continue;
+		    system.location.alertCount++;
+		}
+	}
+	draw();
+}
+
+function getSystem( systemId ){
+    
+    var systems = context.systems;
+    
+    for( var i=0; i<systems.length; i++ ){
+        
+        var system = systems[i];
+        
+        if( system.Id == systemId ) return system;
+    }
+    return null;
+}
+
+function alertGetTitle( alert ){
+    var title = alert.patternName + ", " + alert.minTimestamp.toString() + ", " + alert.maxTimestamp.toString();
+    title += ", Users:";
+    title += setToString(alert.userIds);
+    title += ", Systems:";
+    title += setToString(alert.systemIds);
+    title += ", Terminals:";
+    title += setToString(alert.terminalIds);
+    
+    return title;
+}
+
+function drawLocations(){
+
+    var locations = context.locations;
+    
+    if( locations.length == 0 ) {
+        alert("No locations found");
+        return;
+    }
+    
+    for (var i = 0; i < locations.length; i++) {
+        var location = locations[i];
+        location.Longitude = parseFloat( location.Longitude );
+        location.Latitude = parseFloat( location.Latitude );
+    }
+    		
+    var minLongitude = 1000.0;
+    var maxLongitude = -1000.0;
+    
+    var minLatitude = 1000.0;
+    var maxLatitude = -1000.0;
+    
+    for (var i = 0; i < locations.length; i++) {
+        var location = locations[i];
+        if( location.alertCount == 0 ) continue;
+        
+        if( location.Longitude < minLongitude ) minLongitude = location.Longitude;
+        if( location.Latitude < minLatitude ) minLatitude = location.Latitude;
+
+        if( location.Longitude > maxLongitude ) maxLongitude = location.Longitude;
+        if( location.Latitude > maxLatitude ) maxLatitude = location.Latitude;
+    }            
+    
+    var map = L.map('map');
+    
+    var bounds = [[minLatitude,minLongitude], [maxLatitude, maxLongitude]];
+    
+	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+	var osm = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});  
+	osm.addTo(map);
+
+	for (var i = 0; i < locations.length; i++) {
+        var location = locations[i];
+        if( location.alertCount == 0 ) continue;
+
+        L.circle([location.Latitude, location.Longitude], (location.alertCount*100), {
+            color: 'red',
+            weight: 3,
+            opacity: 0.5,
+            smoothFactor: 1
+
+            } ).addTo(map);
+    }
+        
+    map.fitBounds(bounds);
+}
+
+function loaddata( url ){
+    
+    $.ajax({
+        url : url,
+        async : true
+    }).done( handleAlerts );
+        
+}
+
+function go(){
+    
+    var fromDateString = getfromDateString();
+    var toDateString = getToDateString();
+    
+    if( fromDateString.length > 19 ){
+	    alert("From does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !fromDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'From' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    if( !toDateString.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/g) ){
+	    alert("'To' does not match date format ####-##-##T##:##:##");
+	    return;
+    }
+    
+    fromDateString = "datetime'" + fromDateString + "'";
+    toDateString = "datetime'" + toDateString + "'";
+    
+    var loadAlerts = true;
+    if( ( context.fromDateString == fromDateString ) && ( context.toDateString == toDateString ) ) loadAlerts = false;
+    
+    context.fromDateString = fromDateString;
+    context.toDateString = toDateString;
+    
+    fromDateString = escape( fromDateString );
+    toDateString = escape( toDateString );
+        
+    if( loadAlerts ){
+        
+        var url = "/sap/secmon/services/ui/m/alerts/AlertSourceTargetPattern.xsodata/AlertData?$filter=(AlertCreationTimestamp%20ge%20" +
+        fromDateString + //"datetime%272015-08-18T11%3a49%3a12%27" +
+                "%20and%20AlertCreationTimestamp%20le%20" + 
+        toDateString + // "datetime%272015-08-19T11%3a49%3a12%27" +
+                ")&$format=json";
+        
+        $("body").toggleClass("wait");
+        loaddata( url );
+        
+    } else {
+    	draw();
+    }
+}
+
+function draw(){
+    drawLocations();
+	setStatus();
+	//setDetails();
+}
+	
+</SCRIPT>
+
+</body>

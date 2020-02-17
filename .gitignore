@@ -1,0 +1,20 @@
+#==============================
+# General Eclipse Directories
+#==============================
+# exclude the build folder from versioning
+build/
+#exclude services from versioning
+src/main/sap/secmon/ui/malimon0/services
+src/main/sap/secmon/ui/malimon/services
+src/main/sap/secmon/ui/.xs*
+src/main/sap/secmon/ui/**/.xs*
+*.DS_Store
+/**/.project
+
+#==============================
+# General WebStorm Directories
+#==============================
+.idea/
+.idea/workspace.xml
+.idea/vcs.xml
+etdui.iml
