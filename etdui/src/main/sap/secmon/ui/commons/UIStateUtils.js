@@ -2,7 +2,7 @@ jQuery.sap.declare("sap.secmon.ui.commons.UIStateUtils");
 
 /**
  * Utilities for saving / retrieving UI state in the browser session
- *
+ * 
  */
 sap.secmon.ui.commons.UIStateUtils = {
 

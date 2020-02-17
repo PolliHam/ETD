@@ -6,7 +6,7 @@ jQuery.sap.require("sap.secmon.ui.m.commons.EtdComponent");
 jQuery.sap.require("sap.secmon.ui.commons.TextUtils");
 jQuery.sap.require("sap.m.routing.RouteMatchedHandler");
 jQuery.sap.require("sap.secmon.ui.commons.CommonFunctions");
-jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/views/pattern/css/patterns.css");
+jQuery.sap.includeStyleSheet("/sap/secmon/ui/m/views/pattern//css/patterns.css");
 
 sap.secmon.ui.m.commons.EtdComponent.extend("sap.secmon.ui.m.patternfs.Component", {
 

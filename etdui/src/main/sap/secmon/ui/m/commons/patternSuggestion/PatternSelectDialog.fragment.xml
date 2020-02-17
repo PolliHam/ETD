@@ -1,7 +1,7 @@
 <c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core">
     <SelectDialog search="onSearchPatternSelectDialog"
         confirm="onConfirmPatternSelectDialog" multiSelect="true"
-        title="{i18nCommon>Pattern_TIT}" id="idPatternSelectDialog"
+        title="{i18nCommon>Pattern_TIT}"
         items="{path: 'Patterns>/WorkspacePatterns',  sorter : { path: 'Name', descending: false} }">
         <StandardListItem title="{Patterns>Name}"
             description="{Patterns>NameSpace}"

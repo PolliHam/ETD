@@ -1,6 +1,6 @@
 <mvc:View controllerName="sap.secmon.ui.m.patternfs.view.Patterns"
-	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core"
-	xmlns:fb="sap.ui.comp.filterbar" xmlns:customControls="sap.secmon.ui.m.commons.controls"
+	displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core" 
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:customControls="sap.secmon.ui.m.commons.controls" 
 	xmlns:l="sap.ui.layout" xmlns:commonControls="sap.secmon.ui.commons.controls">
 	<Page id="page" title="{i18n>PatternsTitle}" showNavButton="true"
 		navButtonPress="onNavBack">
@@ -11,14 +11,14 @@
 		<content>
 			<l:FixFlex>
 				<l:fixContent>
-					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset"
+					<fb:FilterBar clear="sap.secmon.ui.m.commons.FilterBarHelper.onReset" 
 						search="sap.secmon.ui.m.commons.FilterBarHelper.onSearch"
 						showRestoreButton="false" showClearButton="true"
 						class="filterBarWithSameSizedItemsSmall" filterBarExpanded="true" id="filterBar"
 						considerGroupTitle="true">
 						<fb:filterItems>
-
-							<fb:FilterItem name="pattern" label="{i18n>PatternName}">
+						
+							<fb:FilterItem name="pattern" label="{i18n>PatternName}"> 
 								<fb:control>
 									<MultiInput id="patternFilterInput" filterSuggests="false"
 										placeholder="{i18nCommon>Pattern_Suggestion}"
@@ -129,14 +129,14 @@
 									</MultiComboBox>
 								</fb:control>
 							</fb:FilterItem>
-
+					
 							<fb:FilterItem name="scenarios" label="{i18n>ScenariosXcol}">
 								<fb:control>
 									<MultiComboBox id="scenarioFilterInput"
 										items="{path : '/Tags', sorter : {path : 'Name'}}">
 										<items >
 											<c:Item key="{parts :[{path : 'Name'},{path : 'Namespace'}], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}" text="{parts :[{path : 'Name'},{path : 'Namespace'}], formatter : 'sap.secmon.ui.m.views.pattern.Formatter.tagNameFormatter'}"/>
-										</items>
+										</items>	
 										<customData>
 											<c:CustomData key="urlParamName" value="PatternScenarios"/>
 											<c:CustomData key="i18nText" value="{i18n>ScenariosXcol}"/>
@@ -188,7 +188,7 @@
 								</customControls:SortableColumn>
 								<customControls:SortableColumn sortProperty="CountScheduledJobs">
 									<customControls:SortableItem text="{i18n>PatternPostprocessingStatus}" />
-								</customControls:SortableColumn>
+								</customControls:SortableColumn>					
 							</customControls:columns>
 							<customControls:items>
 								<ColumnListItem vAlign="Middle">
@@ -217,7 +217,7 @@
             	</l:flexContent>
     		</l:FixFlex>
 		</content>
-
+		
 		<footer>
 			<Bar>
 				<contentRight>
@@ -227,7 +227,7 @@
 						press="onDeactivatePattern" visible = "{applicationContext>/userPrivileges/patternWrite}"/>
 					<Button id="executeButton" text="{i18n>PatternExecute}"
 						press="onExecutePattern" visible = "{applicationContext>/userPrivileges/patternExecute}"/>
-					<Button id="scheduleButton" text="{i18n>PatternSchedule}" tooltip="{i18n>PatternScheduleDetail}"
+					<Button id="scheduleButton" text="{i18n>PatternSchedule}" tooltip="{i18n>PatternScheduleDetail}" 
 						press="onSchedulePattern" visible ="{applicationContext>/userPrivileges/patternExecute}"/>
 					<Button id="openButton" text="{i18n>PatternOpen}" press="onOpenPattern" />
 					<Button id="testOnButton" text="{i18n>PatternTestModeOn}"

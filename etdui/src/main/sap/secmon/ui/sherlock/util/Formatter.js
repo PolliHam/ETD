@@ -21,4 +21,5 @@ sap.secmon.ui.sherlock.util.Formatter = {
         }
         return reasonText;
     }
+
 };

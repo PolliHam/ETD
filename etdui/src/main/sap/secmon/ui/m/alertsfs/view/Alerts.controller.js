@@ -1143,7 +1143,7 @@ sap.ui.define(aDependencies, function(CommonFunctions, FilterSortUtil, Investiga
 
         /**
          * Trigger bookmarking of current alert filter selection. The bookmark points to the alerts FS URL with current selection parameters.
-         *
+         * 
          * @param oEvent
          */
         handleBookmarkDialogButtonPressed : function(oEvent) {
@@ -1162,7 +1162,7 @@ sap.ui.define(aDependencies, function(CommonFunctions, FilterSortUtil, Investiga
 
         /**
          * Open a popup to send an email containing a URL. The URL points to the alerts FS with current selection parameters.
-         *
+         * 
          * @param oEvent
          */
         handleEmailButtonPressed : function(oEvent) {
@@ -1266,7 +1266,7 @@ sap.ui.define(aDependencies, function(CommonFunctions, FilterSortUtil, Investiga
 
         /**
          * Do a navigation and add URL parameters from date time control and view settings.
-         *
+         * 
          * @param sRouteName
          *            the route name as configured in components.js
          */
@@ -1448,7 +1448,7 @@ sap.ui.define(aDependencies, function(CommonFunctions, FilterSortUtil, Investiga
 
         /**
          * Navigate to next route by the given name.
-         *
+         * 
          * @param sRouteName
          *            name of existing route
          * @param oParameters
